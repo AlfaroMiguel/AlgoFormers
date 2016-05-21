@@ -1,7 +1,7 @@
 # AlgoFormers
-  >Algoritmos 3 - Primer Cuatrimestre 2016
+>Algoritmos 3 - Primer Cuatrimestre 2016
 
-#Integrantes:
+####Integrantes:
 
   - Alfaro Miguel
   - Mendez Agustina
