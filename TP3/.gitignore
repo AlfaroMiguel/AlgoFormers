@@ -1,0 +1,25 @@
+# Python Imports:
+*.pyc
+
+# C Binary Files:
+*.d
+*.o
+
+# Tmp Files:
+*~
+
+# Java Files:
+*.class
+*.jar
+
+# IntelliJ Trash Files
+.idea/
+out/
+*.iml
+*.xml
+
+# Eclipse Trash Files
+bin/
+*.classpath
+*.project
+*.settings
