@@ -1,5 +1,8 @@
-
 public class Algoformer {
-	//blabla
+	//blabl
+	
+	public void asdasd(){
+		
+	}
 
 }
