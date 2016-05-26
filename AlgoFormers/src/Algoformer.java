@@ -6,5 +6,9 @@ public class Algoformer {
 		return true;
 		//asdasdas
 	}
+	
+	public void asd(){
+		//asdas
+	}
 
 }
