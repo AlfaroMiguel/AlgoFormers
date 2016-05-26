@@ -5,5 +5,9 @@ public class Algoformer {
 	public boolean po(){
 		return true;
 	}
+	
+	public void asd(){
+		//asdas
+	}
 
 }
