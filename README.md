@@ -8,4 +8,3 @@
   - Peirano Guido
   - Valdivia Rodrigo
 
-Esto se va a descontrolaaaa'
