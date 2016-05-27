@@ -1,0 +1,10 @@
+package algoformers;
+
+public class Optimus extends Autobot {
+	
+	private static Optimus instance = new Optimus();
+	
+	private Optimus(){
+		
+	}
+}

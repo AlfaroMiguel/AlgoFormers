@@ -1,0 +1,5 @@
+package Algoformers;
+
+public class Humanoide implements Estado {
+
+}

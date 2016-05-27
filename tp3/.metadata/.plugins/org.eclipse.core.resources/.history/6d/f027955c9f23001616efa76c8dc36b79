@@ -1,0 +1,6 @@
+package fiuba.algo3.algoformers;
+
+public abstract class Algoformer {
+	
+	public abstract void cambiarModo(Modo modoNuevo);
+}

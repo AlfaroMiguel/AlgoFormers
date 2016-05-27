@@ -1,0 +1,5 @@
+package algoformers;
+
+public interface Estado {
+
+}

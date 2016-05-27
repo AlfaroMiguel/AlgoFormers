@@ -1,0 +1,5 @@
+package pruebasdiseño.strat;
+
+public class PayPalMode implements PaymentMode {
+
+}
