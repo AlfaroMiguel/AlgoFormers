@@ -1,5 +1,0 @@
-package pruebasdiseño.af;
-
-public abstract class AbstractFactory {
-
-}

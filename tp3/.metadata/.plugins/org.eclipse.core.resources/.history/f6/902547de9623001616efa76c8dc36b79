@@ -1,7 +1,0 @@
-package fiuba.algo3.test;
-
-import fiuba.algo3.algoformers.Algoformer;
-
-public class Decepticon extends Algoformer {
-
-}

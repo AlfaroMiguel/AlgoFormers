@@ -1,5 +1,0 @@
-package pruebasdiseño.strat;
-
-public class CreditCardMode implements PaymentMode {
-
-}

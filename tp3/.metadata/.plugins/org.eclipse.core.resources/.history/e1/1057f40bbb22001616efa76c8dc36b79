@@ -1,5 +1,0 @@
-package Algoformers;
-
-public class Terrestre implements Estado {
-
-}
