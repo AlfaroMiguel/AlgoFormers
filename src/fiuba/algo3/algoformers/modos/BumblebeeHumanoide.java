@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modos;
 
+import fiuba.algo3.algoformers.Algoformer;
+
 public class BumblebeeHumanoide implements Modo {
 	
 	private static BumblebeeHumanoide instancia;
@@ -18,5 +20,15 @@ public class BumblebeeHumanoide implements Modo {
 			return new BumblebeeHumanoide();
 		}
 		return instancia;
+	}
+	
+	@Override
+	public void atacar(Algoformer atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
+	}
+	
+	@Override
+	public void cambiar(Algoformer algoformer) {
+		algoformer.establecerModo(BumblebeeAlterno.getInstance());
 	}
 }

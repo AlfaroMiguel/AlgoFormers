@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modos;
 
+import fiuba.algo3.algoformers.Algoformer;
+
 public class MegatronAlterno implements Modo {
 	
 	private static MegatronAlterno instancia;
@@ -20,4 +22,13 @@ public class MegatronAlterno implements Modo {
 		return instancia;
 	}
 	
+	@Override
+	public void atacar(Algoformer atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
+	}
+	
+	@Override
+	public void cambiar(Algoformer algoformer) {
+		algoformer.establecerModo(MegatronHumanoide.getInstance());
+	}
 }

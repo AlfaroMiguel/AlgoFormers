@@ -2,6 +2,7 @@ package fiuba.algo3.algoformers.decepticons;
 
 import fiuba.algo3.algoformers.Algoformer;
 import fiuba.algo3.algoformers.autobots.Autobot;
+import fiuba.algo3.algoformers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoformers.modos.Modo;
 
 public class Decepticon extends Algoformer {
@@ -22,6 +23,6 @@ public class Decepticon extends Algoformer {
 	}
 	
 	public void serAtacado(Decepticon decepticon, int ataque){
-		//pass
+		throw new MismoEquipoException();
 	}
 }

@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modos;
 
+import fiuba.algo3.algoformers.Algoformer;
+
 public class OptimusAlterno implements Modo {
 	
 	private static OptimusAlterno instancia;
@@ -18,5 +20,15 @@ public class OptimusAlterno implements Modo {
 			return new OptimusAlterno();
 		}
 		return instancia;
+	}
+	
+	@Override
+	public void atacar(Algoformer atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
+	}
+	
+	@Override
+	public void cambiar(Algoformer algoformer) {
+		algoformer.establecerModo(OptimusHumanoide.getInstance());
 	}
 }

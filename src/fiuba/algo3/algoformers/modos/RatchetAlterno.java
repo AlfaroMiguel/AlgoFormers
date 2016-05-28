@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modos;
 
+import fiuba.algo3.algoformers.Algoformer;
+
 public class RatchetAlterno implements Modo {
 
 	private static RatchetAlterno instancia;
@@ -18,5 +20,15 @@ public class RatchetAlterno implements Modo {
 			return new RatchetAlterno();
 		}
 		return instancia;
+	}
+	
+	@Override
+	public void atacar(Algoformer atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
+	}
+	
+	@Override
+	public void cambiar(Algoformer algoformer) {
+		algoformer.establecerModo(RatchetHumanoide.getInstance());
 	}
 }

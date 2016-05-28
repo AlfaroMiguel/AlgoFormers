@@ -26,5 +26,10 @@ public class BonecrusherAlterno implements Modo {
 	public void atacar(Algoformer atacante, Algoformer atacado) {
 		atacado.serAtacado(atacante, this.ataque);
 	}
+
+	@Override
+	public void cambiar(Algoformer algoformer) {
+		algoformer.establecerModo(BonecrusherHumanoide.getInstance());
+	}
 	
 }
