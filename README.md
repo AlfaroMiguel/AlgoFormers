@@ -1,10 +1,9 @@
-# AlgoFormers
->Algoritmos 3 - Primer Cuatrimestre 2016
+Ejemplo                                                                                                                                                                 
+==========
 
-####Integrantes:
+Este proyecto es un simple ejemplo que muestra un proyecto base en Java para la material Algo3.
 
-  - Alfaro Miguel
-  - Mendez Agustina
-  - Peirano Guido
-  - Valdivia Rodrigo
+## Definición de pruebas
+### Nombrar correctamente los archivos de pruebas
 
+Al momento de definir un nuevo archivo que contendrá pruebas, ya sean unitarias o de integración, el patrón del nuevo archivo **deberá** ser `*Test.java`; además de ubicarse en `<directorio del proyecto>/test/`. A modo de ejemplo: `<mi proyecto>/test/<paquete>/MiNuevoArchivoTest.java`.
