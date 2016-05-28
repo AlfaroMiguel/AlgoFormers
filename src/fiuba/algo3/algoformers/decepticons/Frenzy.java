@@ -1,6 +1,6 @@
-package fiuba.algo3.algoFormers.decepticons;
+package fiuba.algo3.algoformers.decepticons;
 
-import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
+import fiuba.algo3.algoformers.modos.FrenzyHumanoide;
 
 public class Frenzy extends Decepticon {
 	

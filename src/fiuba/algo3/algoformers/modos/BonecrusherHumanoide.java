@@ -1,6 +1,8 @@
-package fiuba.algo3.algoFormers.modos;
+package fiuba.algo3.algoformers.modos;
 
-import fiuba.algo3.algoFormers.Algoformer;
+import fiuba.algo3.algoformers.Algoformer;
+import fiuba.algo3.algoformers.autobots.Autobot;
+import fiuba.algo3.algoformers.decepticons.Decepticon;
 
 public class BonecrusherHumanoide implements Modo {
 	
@@ -21,14 +23,20 @@ public class BonecrusherHumanoide implements Modo {
 		}
 		return instancia;
 	}
-	
-	@Override
-	public void atacar(Algoformer atacante, Algoformer atacado) {
-		atacado.serAtacado(atacante, this.ataque);
-	}
+
 	
 	@Override
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(BonecrusherAlterno.getInstance());
+	}
+
+	@Override
+	public void atacar(Autobot atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
+	}
+
+	@Override
+	public void atacar(Decepticon atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);	
 	}
 }
