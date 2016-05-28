@@ -4,12 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.autobots.Bumblebee;
-import fiuba.algo3.algoFormers.autobots.Optimus;
-import fiuba.algo3.algoFormers.decepticons.Frenzy;
-import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
-import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
-import fiuba.algo3.algoFormers.modos.OptimusAlterno;
+
+import fiuba.algo3.algoformers.autobots.Bumblebee;
+import fiuba.algo3.algoformers.autobots.Optimus;
+import fiuba.algo3.algoformers.autobots.Ratchet;
+import fiuba.algo3.algoformers.decepticons.Frenzy;
+import fiuba.algo3.algoformers.excepciones.MismoEquipoException;
+import fiuba.algo3.algoformers.modos.BumblebeeHumanoide;
+import fiuba.algo3.algoformers.modos.FrenzyHumanoide;
+import fiuba.algo3.algoformers.modos.OptimusAlterno;
 
 
 public class algoformersTest {
