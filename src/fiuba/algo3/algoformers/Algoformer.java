@@ -7,8 +7,7 @@ public class Algoformer {
 	protected Modo modo;
 	protected int vida;
 
-	public Algoformer(Modo modo){
-		this.modo = modo;
+	public Algoformer(){
 	}
 	
 	//llama a mover() de tablero
@@ -23,13 +22,14 @@ public class Algoformer {
 	public void establecerModo(Modo modoNuevo){
 		this.modo = modoNuevo;
 	}
-	
-	//la forma se encarga de componerlo
-	public void componerse(){
-		this.forma.componer(this);
+
+	public void serAtacado(Algoformer atacante, int ataque) {
+		this.serAtacado(atacante, ataque);
+		
 	}
 	
-	public void establecerForma(Forma formaNueva){
-		this.forma = formaNueva;
-	}
+//	//todavia no se como manejar esto
+//	public void componerse(){
+//	}
+
 }

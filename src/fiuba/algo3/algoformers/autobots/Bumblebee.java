@@ -1,11 +1,11 @@
 package fiuba.algo3.algoformers.autobots;
 
-import fiuba.algo3.algoformers.modos.Modo;
+import fiuba.algo3.algoformers.modos.BumblebeeHumanoide;
 
 public class Bumblebee extends Autobot {
 	
-	public Bumblebee(Modo modo){
-		super(modo);
+	public Bumblebee(){
+		this.modo = BumblebeeHumanoide.getInstance();
 		this.vida = 350;
 	}
 }

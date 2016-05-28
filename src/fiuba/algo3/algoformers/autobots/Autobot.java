@@ -6,24 +6,23 @@ import fiuba.algo3.algoformers.modos.Modo;
 
 public class Autobot extends Algoformer{
 
-	public Autobot(Modo modo) {
-		super(modo);
+	public Autobot() {
 	}
 	
-	public void atacar(Algoformer algoformer){
-		this.modo.atacar(algoformer);
+	public void atacar(Algoformer atacado){
+		this.modo.atacar(this, atacado);
 	}
 	
-	public void serAtacado(Algoformer algoformer, int daño){
-		this.serAtacado(algoformer, daño);
+	public void serAtacado(Algoformer algoformer, int ataque){
+		this.serAtacado(algoformer, ataque);
 	}
 	
-	public void serAtacado(Autobot autobot, int daño){
+	public void serAtacado(Autobot autobot, int ataque){
 		//pass
 	}
 
-	public void serAtacado(Decepticon decepticon, int daño){
-		this.vida = this.vida - daño;
+	public void serAtacado(Decepticon decepticon, int ataque){
+		this.vida = this.vida - ataque;
 	}
 
 }

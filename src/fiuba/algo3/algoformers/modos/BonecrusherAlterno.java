@@ -1,5 +1,7 @@
 package fiuba.algo3.algoformers.modos;
 
+import fiuba.algo3.algoformers.Algoformer;
+
 public class BonecrusherAlterno implements Modo {
 	
 	private static BonecrusherAlterno instancia;
@@ -18,6 +20,11 @@ public class BonecrusherAlterno implements Modo {
 			return new BonecrusherAlterno();
 		}
 		return instancia;
+	}
+
+	@Override
+	public void atacar(Algoformer atacante, Algoformer atacado) {
+		atacado.serAtacado(atacante, this.ataque);
 	}
 	
 }

@@ -1,11 +1,11 @@
 package fiuba.algo3.algoformers.decepticons;
 
-import fiuba.algo3.algoformers.modos.Modo;
+import fiuba.algo3.algoformers.modos.FrenzyHumanoide;
 
 public class Frenzy extends Decepticon {
 	
-	public Frenzy(Modo modo){
-		super(modo);
+	public Frenzy(){
+		this.modo = FrenzyHumanoide.getInstance();
 		this.vida = 400;
 	}
 }
