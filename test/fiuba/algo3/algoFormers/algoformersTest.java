@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers;
+package fiuba.algo3.algoformers;
 
 import static org.junit.Assert.*;
 
