@@ -6,7 +6,9 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.autobots.Bumblebee;
 import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.autobots.Ratchet;
 import fiuba.algo3.algoFormers.decepticons.Frenzy;
+import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
 import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;

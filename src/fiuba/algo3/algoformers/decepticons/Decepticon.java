@@ -14,9 +14,6 @@ public class Decepticon extends Algoformer {
 		this.modo.atacar(this, atacado);
 	}
 	
-	public void serAtacado(Algoformer algoformer, int ataque){
-		this.serAtacado(algoformer, ataque);
-	}
 	
 	public void serAtacado(Autobot autobot, int ataque){
 		this.vida = this.vida - ataque;

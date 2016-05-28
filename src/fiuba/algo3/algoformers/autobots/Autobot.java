@@ -13,10 +13,6 @@ public class Autobot extends Algoformer{
 		this.modo.atacar(this, atacado);
 	}
 	
-	public void serAtacado(Algoformer algoformer, int ataque){
-		this.serAtacado(algoformer, ataque);
-	}
-	
 	public void serAtacado(Autobot autobot, int ataque){
 		throw new MismoEquipoException();
 	}
