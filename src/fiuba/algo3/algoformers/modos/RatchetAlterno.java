@@ -17,7 +17,7 @@ public class RatchetAlterno implements Modo {
 	
 	public static RatchetAlterno getInstance(){
 		if (instancia == null){
-			return new RatchetAlterno();
+			instancia = new RatchetAlterno();
 		}
 		return instancia;
 	}

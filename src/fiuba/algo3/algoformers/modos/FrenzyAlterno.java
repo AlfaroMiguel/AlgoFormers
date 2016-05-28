@@ -17,7 +17,7 @@ public class FrenzyAlterno implements Modo {
 	
 	public static FrenzyAlterno getInstance(){
 		if (instancia == null){
-			return new FrenzyAlterno();
+			instancia = new FrenzyAlterno();
 		}
 		return instancia;
 	}

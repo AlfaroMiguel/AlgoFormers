@@ -17,7 +17,7 @@ public class MegatronHumanoide implements Modo {
 	
 	public static MegatronHumanoide getInstance(){
 		if (instancia == null){
-			return new MegatronHumanoide();
+			instancia = new MegatronHumanoide();
 		}
 		return instancia;
 	}

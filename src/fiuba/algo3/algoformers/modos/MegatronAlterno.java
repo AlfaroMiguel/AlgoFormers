@@ -17,7 +17,7 @@ public class MegatronAlterno implements Modo {
 	
 	public static MegatronAlterno getInstance(){
 		if (instancia == null){
-			return new MegatronAlterno();
+			instancia = new MegatronAlterno();
 		}
 		return instancia;
 	}

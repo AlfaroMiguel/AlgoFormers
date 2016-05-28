@@ -17,7 +17,7 @@ public class FrenzyHumanoide implements Modo {
 	
 	public static FrenzyHumanoide getInstance(){
 		if (instancia == null){
-			return new FrenzyHumanoide();
+			instancia = new FrenzyHumanoide();
 		}
 		return instancia;
 	}

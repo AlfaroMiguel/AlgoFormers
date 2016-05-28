@@ -17,7 +17,7 @@ public class RatchetHumanoide implements Modo {
 	
 	public static RatchetHumanoide getInstance(){
 		if (instancia == null){
-			return new RatchetHumanoide();
+			instancia = new RatchetHumanoide();
 		}
 		return instancia;
 	}

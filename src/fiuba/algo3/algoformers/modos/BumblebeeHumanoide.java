@@ -17,7 +17,7 @@ public class BumblebeeHumanoide implements Modo {
 	
 	public static BumblebeeHumanoide getInstance(){
 		if (instancia == null){
-			return new BumblebeeHumanoide();
+			instancia = new BumblebeeHumanoide();
 		}
 		return instancia;
 	}

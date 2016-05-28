@@ -17,7 +17,7 @@ public class OptimusHumanoide implements Modo {
 	
 	public static OptimusHumanoide getInstance(){
 		if (instancia == null){
-			return new OptimusHumanoide();
+			instancia = new OptimusHumanoide();
 		}
 		return instancia;
 	}

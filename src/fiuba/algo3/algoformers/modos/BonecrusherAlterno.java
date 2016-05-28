@@ -17,7 +17,7 @@ public class BonecrusherAlterno implements Modo {
 	
 	public static BonecrusherAlterno getInstance(){
 		if (instancia == null){
-			return new BonecrusherAlterno();
+			instancia = new BonecrusherAlterno();
 		}
 		return instancia;
 	}

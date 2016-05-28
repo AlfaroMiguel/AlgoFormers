@@ -17,7 +17,7 @@ public class OptimusAlterno implements Modo {
 	
 	public static OptimusAlterno getInstance(){
 		if (instancia == null){
-			return new OptimusAlterno();
+			instancia = new OptimusAlterno();
 		}
 		return instancia;
 	}
