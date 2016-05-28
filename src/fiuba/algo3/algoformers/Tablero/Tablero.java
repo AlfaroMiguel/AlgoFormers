@@ -1,4 +1,4 @@
-package Tablero;
+package fiuba.algo3.algoformers.Tablero;
 import Habitables.*;
 import java.util.*;
 
