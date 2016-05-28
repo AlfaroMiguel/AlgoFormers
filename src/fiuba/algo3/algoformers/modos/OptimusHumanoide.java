@@ -1,8 +1,8 @@
-package fiuba.algo3.algoformers.modos;
+package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoformers.Algoformer;
-import fiuba.algo3.algoformers.autobots.Autobot;
-import fiuba.algo3.algoformers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class OptimusHumanoide implements Modo {
 	

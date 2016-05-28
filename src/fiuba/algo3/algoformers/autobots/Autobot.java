@@ -1,25 +1,16 @@
-package fiuba.algo3.algoformers.autobots;
+package fiuba.algo3.algoFormers.autobots;
 
-import fiuba.algo3.algoformers.Algoformer;
-import fiuba.algo3.algoformers.decepticons.Decepticon;
-import fiuba.algo3.algoformers.excepciones.MismoEquipoException;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Autobot extends Algoformer{
 
 	public Autobot(){
 	}
-<<<<<<< HEAD
-	
-	public void atacar(Algoformer atacado){
-		this.modo.atacar(this, atacado);
-	}
-	
-	public void serAtacado(Autobot autobot, int ataque){
-=======
 
 	@Override
 	public void serAtacado(Autobot atacante, int ataque){
->>>>>>> 4e6dd9403278a679b94419db6271f3e291308933
 		throw new MismoEquipoException();
 	}
 	

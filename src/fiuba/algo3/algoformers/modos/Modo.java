@@ -1,12 +1,13 @@
-package fiuba.algo3.algoformers.modos;
+package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoformers.Algoformer;
-import fiuba.algo3.algoformers.autobots.Autobot;
-import fiuba.algo3.algoformers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.generico.Algoformer;
+fiuba.algo3.algoFormers.Algoformer;
 
 public interface Modo{
 	
 	public void atacar(Autobot atacante, Algoformer atacado);
 	public void atacar(Decepticon atacante, Algoformer atacado);
-	public void cambiar(Algoformer algoformer);
+	public void cambiar(algoformer);
 }
