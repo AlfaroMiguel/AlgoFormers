@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.modos;
+package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.Algoformer;
 

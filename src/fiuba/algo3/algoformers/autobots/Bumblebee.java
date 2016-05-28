@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.autobots;
+package fiuba.algo3.algoFormers.autobots;
 
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
 

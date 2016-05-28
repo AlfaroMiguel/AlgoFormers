@@ -1,6 +1,7 @@
-package fiuba.algo3.algoformers.Tablero;
+package fiuba.algo3.algoFormers.Tablero;
 import java.util.*;
-import Habitables.*;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Vacio;
 
 public class GeneradorDeCoordenadas {
 

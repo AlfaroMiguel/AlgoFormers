@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.Habitables;
+package fiuba.algo3.algoFormers.Habitables;
 
 public interface Collectable extends HabitableDelMapa{
 	

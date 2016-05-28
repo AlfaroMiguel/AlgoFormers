@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.decepticons;
+package fiuba.algo3.algoFormers.decepticons;
 
 import fiuba.algo3.algoFormers.modos.MegatronHumanoide;
 

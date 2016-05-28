@@ -1,10 +1,11 @@
-package TableroTests;
+package fiuba.algo3.algoFormers.TableroTests;
 
-import Tablero.Coordenada;
-import Habitables.*;
-import Tablero.Tablero;
 import org.junit.Assert;
 import org.junit.Test;
+
+import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
 
 public class TableroTests {
 	@Test

@@ -1,6 +1,8 @@
-package fiuba.algo3.algoformers.Tablero;
-import Habitables.*;
+package fiuba.algo3.algoFormers.Tablero;
 import java.util.*;
+
+import fiuba.algo3.algoFormers.Habitables.Collectable;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 
 public class Tablero {
