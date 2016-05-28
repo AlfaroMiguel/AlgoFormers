@@ -25,7 +25,14 @@ public class Algoformer {
 
 	public void serAtacado(Algoformer atacante, int ataque) {
 		this.serAtacado(atacante, ataque);
-		
+	}
+	
+	public Modo verModo(){
+		return this.modo;
+	}
+	
+	public int verVida(){
+		return this.vida;
 	}
 	
 //	//todavia no se como manejar esto
