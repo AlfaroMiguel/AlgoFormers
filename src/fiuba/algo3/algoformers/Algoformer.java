@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers;
 
-import fiuba.algo3.algoformers.modos.Modo;
+import fiuba.algo3.algoFormers.modos.Modo;
 
 public class Algoformer {
 	

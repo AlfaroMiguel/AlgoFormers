@@ -1,9 +1,9 @@
 package fiuba.algo3.algoformers.decepticons;
 
-import fiuba.algo3.algoformers.Algoformer;
-import fiuba.algo3.algoformers.autobots.Autobot;
-import fiuba.algo3.algoformers.excepciones.MismoEquipoException;
-import fiuba.algo3.algoformers.modos.Modo;
+import fiuba.algo3.algoFormers.Algoformer;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
+import fiuba.algo3.algoFormers.modos.Modo;
 
 public class Decepticon extends Algoformer {
 

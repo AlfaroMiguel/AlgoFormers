@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.modos;
 
-import fiuba.algo3.algoformers.Algoformer;
+import fiuba.algo3.algoFormers.Algoformer;
 
 public class BonecrusherAlterno implements Modo {
 	

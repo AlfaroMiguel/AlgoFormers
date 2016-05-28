@@ -1,6 +1,6 @@
 package fiuba.algo3.algoformers.decepticons;
 
-import fiuba.algo3.algoformers.modos.BonecrusherHumanoide;
+import fiuba.algo3.algoFormers.modos.BonecrusherHumanoide;
 
 
 public class Bonecrusher extends Decepticon {
