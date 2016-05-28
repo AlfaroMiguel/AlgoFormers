@@ -1,6 +1,6 @@
-package fiuba.algo3.algoFormers.autobots;
+package fiuba.algo3.algoformers.autobots;
 
-import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
+import fiuba.algo3.algoformers.modos.BumblebeeHumanoide;
 
 public class Bumblebee extends Autobot {
 	

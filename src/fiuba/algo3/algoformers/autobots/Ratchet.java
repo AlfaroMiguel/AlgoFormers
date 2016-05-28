@@ -1,6 +1,6 @@
-package fiuba.algo3.algoFormers.autobots;
+package fiuba.algo3.algoformers.autobots;
 
-import fiuba.algo3.algoFormers.modos.RatchetHumanoide;
+import fiuba.algo3.algoformers.modos.RatchetHumanoide;
 
 public class Ratchet extends Autobot {
 	
