@@ -1,4 +1,4 @@
-package Habitables;
+package fiuba.algo3.algoformers.Habitables;
 
 public class Vacio implements HabitableDelMapa{
 
