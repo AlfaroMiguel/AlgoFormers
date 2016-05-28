@@ -27,6 +27,7 @@ public class algoformersTest {
 		assertEquals(frenzy.verModo(), FrenzyHumanoide.getInstance());
 	}
 	
+	@Test
 	public void test03CambioModoMuchasVeces(){
 		Bumblebee bumblebee = new Bumblebee();
 		bumblebee.cambiarModo();
@@ -34,5 +35,12 @@ public class algoformersTest {
 		bumblebee.cambiarModo();
 		bumblebee.cambiarModo();
 		assertEquals(bumblebee.verModo(),BumblebeeHumanoide.getInstance());
+	}
+	
+	@Test (expected = MismoEquipoException.class)
+	public void test04AtacarAlMismoEquipoSinTenerEnCuentaDistancia(){
+		Ratchet ratchet = new Ratchet();
+		Optimus optimus = new Optimus();
+		ratchet.atacar(optimus);
 	}
 }
