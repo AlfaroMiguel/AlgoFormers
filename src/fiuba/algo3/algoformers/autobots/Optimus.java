@@ -1,6 +1,6 @@
-package fiuba.algo3.algoformers.autobots;
+package fiuba.algo3.algoFormers.autobots;
 
-import fiuba.algo3.algoformers.modos.OptimusHumanoide;
+import fiuba.algo3.algoFormers.modos.OptimusHumanoide;
 
 public class Optimus extends Autobot {
 	
