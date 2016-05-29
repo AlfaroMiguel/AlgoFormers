@@ -3,7 +3,6 @@ package fiuba.algo3.algoFormers.JuegoTests;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.Habitables.Vacio;
 import fiuba.algo3.algoFormers.Juego.Autobots;
 import fiuba.algo3.algoFormers.Juego.Decepticons;
 import fiuba.algo3.algoFormers.Juego.Equipo;
@@ -13,7 +12,6 @@ import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
-import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 
 
 public class JugadorTest {
