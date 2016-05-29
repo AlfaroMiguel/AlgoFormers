@@ -2,8 +2,9 @@ package fiuba.algo3.algoFormers.Tablero;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.Habitables.Vacio;
-import fiuba.algo3.algoFormers.autobots.Optimus;
-import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
 import fiuba.algo3.algoFormers.Habitables.Collectable;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
@@ -60,6 +61,10 @@ public class Tablero {
 		if(coordInic.distancia(coordenadaDestino)>range)
 			throw new OutOfRangeException();
 		return this.habitables.get(coordenadaDestino);
+	}
+	
+	public HabitableDelMapa ver(Coordenada coordenada){
+		return habitables.get(coordenada);
 	}
 
 }
