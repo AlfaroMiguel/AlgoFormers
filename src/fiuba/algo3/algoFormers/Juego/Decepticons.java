@@ -78,8 +78,8 @@ public class Decepticons extends Equipo {
 	}
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
-		tablero.put(this.megatron, new Coordenada(1,2));
-	 	tablero.put(this.frenzy, new Coordenada(2,2));
-	 	tablero.put(this.bonecrusher, new Coordenada(2,1));
+		tablero.put(this.megatron, new Coordenada(18,2));
+	 	tablero.put(this.frenzy, new Coordenada(18,2));
+	 	tablero.put(this.bonecrusher, new Coordenada(19,1));
 		}
 }
