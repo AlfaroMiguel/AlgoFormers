@@ -4,8 +4,11 @@ import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.Habitables.*;
+import fiuba.algo3.algoFormers.Juego.Autobots;
+import fiuba.algo3.algoFormers.Juego.Decepticons;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
+
 
 public abstract class Algoformer implements HabitableDelMapa {
 	
@@ -16,6 +19,8 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public abstract void atacar(HabitableDelMapa atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
 	public abstract void serAtacado(Decepticon atacante, int ataque);
+	public abstract void serSeleccionado(Autobots equipoAutobot);
+	public abstract void serSeleccionado(Decepticons equipoDecepticon);
 	
 	public Algoformer(){
 	}
