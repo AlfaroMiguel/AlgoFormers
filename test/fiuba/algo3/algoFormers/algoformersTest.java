@@ -72,8 +72,6 @@ public class algoformersTest {
 		optimus.atacar(ratchet);
 	}
 	
-<<<<<<< HEAD
-=======
 	@Test (expected = MismoEquipoException.class)
 	public void test07DecepticonAtacarDecepticonDiferenteModoSinTenerEnCuentaDistancia(){
 		Megatron megatron = new Megatron();
@@ -130,5 +128,4 @@ public class algoformersTest {
 		assertEquals(optimus.verVida(), 435);
 	}
 	
->>>>>>> 64f5fc3a2001f05baa427b321c8dc07b02289c1e
 }
