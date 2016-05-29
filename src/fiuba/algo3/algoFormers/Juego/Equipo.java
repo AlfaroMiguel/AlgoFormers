@@ -18,6 +18,10 @@ public abstract class Equipo{
 		this.seleccionarAlgoformer(seleccionado);
 	}
 	
+	public void setAlgoformerActual(Algoformer algoformer){
+		this.algoformerActual = algoformer;
+	}
+	
 	public void mover(Coordenada coordenada, Tablero tablero){
 		this.algoformerActual.moverse(coordenada, tablero);
 	}

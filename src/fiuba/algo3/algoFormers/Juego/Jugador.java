@@ -33,7 +33,17 @@ public class Jugador{
 	public void transformarAlgoformer(){
 		this.equipo.transformarAlgoformer();
 	}
-
+	
+	public boolean ubicoSusPersonajes() {
+		 if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
+			 return false;
+		 }
+		 return true;
+	 }
+	
+	public void ubicarPersonajes() {
+		 this.equipo.ubicarPersonajes(this.tablero);
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
