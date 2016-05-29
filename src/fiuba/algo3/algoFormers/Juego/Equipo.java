@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
@@ -30,6 +31,10 @@ public abstract class Equipo{
 
 	public Algoformer verAlgoformerActual() {
 		return this.algoformerActual;
+	}
+	
+	public void atacar(HabitableDelMapa atacado){
+		this.algoformerActual.atacar(atacado);
 	}
 	
 }

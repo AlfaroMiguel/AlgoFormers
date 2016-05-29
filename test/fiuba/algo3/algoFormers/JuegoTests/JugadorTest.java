@@ -62,23 +62,24 @@ public class JugadorTest {
 //		jugador.seleccionarAlgoformer(espacioVacio);
 //	}
 //	}
-//	@Test
-//	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
-//	Autobots autobots = new Autobots();
-//	Tablero tablero = new Tablero (10,10);
-//	Jugador jugador = new Jugador(autobots, tablero);
-//	Optimus optimus = new Optimus();
-//	Frenzy frenzy = new Frenzy();
-//	jugador.seleccionarAlgoformer(optimus);
-//	
-//	Coordenada coordenadaOptimus= new Coordenada(2,3);
-//	Coordenada coordenadaFrenzy = new Coordenada(2,5);
-//	tablero.put(optimus, coordenadaOptimus);
-//	tablero.put(frenzy, coordenadaFrenzy);
-//	
-//	jugador.atacar(coordenadaFrenzy);
-//	assertEquals(frenzy.verVida(),350);
-//	}
+	
+	@Test
+	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
+	Autobots autobots = new Autobots();
+	Tablero tablero = new Tablero (10,10);
+	Jugador jugador = new Jugador(autobots, tablero);
+	Optimus optimus = new Optimus();
+	Frenzy frenzy = new Frenzy();
+	jugador.seleccionarAlgoformer(optimus);
+	
+	Coordenada coordenadaOptimus= new Coordenada(2,3);
+	Coordenada coordenadaFrenzy = new Coordenada(2,5);
+	tablero.put(optimus, coordenadaOptimus);
+	tablero.put(frenzy, coordenadaFrenzy);
+	
+	jugador.atacar(coordenadaFrenzy);
+	assertEquals(frenzy.verVida(),350);
+	}
 	
 	@Test
 	public void test02UnJugadorMueveASuTransformerHumanoide(){

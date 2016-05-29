@@ -30,7 +30,7 @@ public class Jugador{
 	
 	//no recibe un algoformer sino que ataca con el actual del equipo (el que este seleccionado)
 	public void atacar(Coordenada coordenada) {
-		
+		this.equipo.atacar(this.tablero.ver(coordenada));
 	}
 	
 	//no recibe un algoformer sino que mueve al actual del equipo (el que este seleccionado)

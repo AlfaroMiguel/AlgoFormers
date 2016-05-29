@@ -1,9 +1,9 @@
 package fiuba.algo3.algoFormers.decepticons;
 
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.modos.Modo;
 
 public class Decepticon extends Algoformer {
 
@@ -21,7 +21,8 @@ public class Decepticon extends Algoformer {
 	}
 	
 	@Override
-	public void atacar(Algoformer atacado) {
+	public void atacar(HabitableDelMapa atacado) {
 		this.modo.atacar(this,atacado);		
 	}
+
 }
