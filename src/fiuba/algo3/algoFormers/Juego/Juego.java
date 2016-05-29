@@ -1,7 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.Tablero.*;
-import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Juego {
 	
@@ -28,6 +27,10 @@ public class Juego {
 	
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
+	}
+	
+	public void seleccionarAlgoformer(Coordenada coordenada){
+		this.jugadorActual.seleccionarAlgoformer(this.tablero.ver(coordenada));
 	}
 
 	

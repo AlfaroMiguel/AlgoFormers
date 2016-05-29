@@ -1,9 +1,11 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import fiuba.algo3.algoFormers.Habitables.Collectable;
+import fiuba.algo3.algoFormers.Habitables.Vacio;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
-import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 
 public class Autobots extends Equipo {
 	
@@ -60,6 +62,14 @@ public class Autobots extends Equipo {
 	
 	public void seleccionarAlgoformer(Decepticon decepticon){
 		throw new EquipoInvalidoException();
+	}
+	
+	public void seleccionarAlgoformer(Vacio espacioVacio){
+		throw new NoAlgoformerException();
+	}
+	
+	public void seleccionarAlgoformer(Collectable collectable){
+		throw new NoAlgoformerException();
 	}
 
 }
