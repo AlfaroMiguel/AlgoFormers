@@ -12,7 +12,8 @@ public class Autobot extends Algoformer{
 
 	public Autobot(){
 	}
-
+	
+//comentario
 	@Override
 	public void serAtacado(Autobot atacante, int ataque){
 		throw new MismoEquipoException();
