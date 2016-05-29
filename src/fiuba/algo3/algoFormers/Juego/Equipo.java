@@ -14,13 +14,10 @@ public abstract class Equipo{
 	public Equipo(){
 	}
 	
-	public void seleccionarAlgoformer(Autobot autobot){
-		this.seleccionarAlgoformer(autobot);
+	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
+		this.seleccionarAlgoformer(seleccionado);
 	}
 	
-	public void seleccionarAlgoformer(Decepticon decepticon){
-		this.seleccionarAlgoformer(decepticon);
-	}
 	public void mover(Coordenada coordenada, Tablero tablero){
 		this.algoformerActual.moverse(coordenada, tablero);
 	}
