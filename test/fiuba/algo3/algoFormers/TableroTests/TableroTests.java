@@ -63,31 +63,7 @@ public class TableroTests {
 		int paso = 3;
 		tablero.mover(optimus,coordenadaFinal,paso);
 		Assert.assertTrue("El tablero NO vacia el espacio del cual se movio el habitable",tablero.estaVacio(coordenadaInic));
-		//Assert.assertFalse("El tablero NO pone en el lugar de destino al habitable que se movio",tablero.estaVacio(coordenadaFinal));
+		Assert.assertFalse("El tablero NO pone en el lugar de destino al habitable que se movio",tablero.estaVacio(coordenadaFinal));
 	}
-//	@Test
-//	public void test07ElTableroDevuelveCorrectamenteElAtaque(){
-//		Coordenada coordenadaOrigen = new Coordenada(3,4);
-//		Optimus optimus = new Optimus();
-//		Megatron megatron = new Megatron();
-//		Coordenada coordenadaDestino = new Coordenada(3,7);
-//		tablero.put(optimus,coordenadaOrigen);
-//		tablero.put(megatron,coordenadaDestino);
-//		int range = 3;
-//		HabitableDelMapa objective = tablero.coordinateAttack(optimus,range,coordenadaDestino);
-//		Assert.assertEquals("El tablero NO encuentra al objetivo correctamente", megatron, objective);
-//	}
-//	@Test	(expected = OutOfRangeException.class)
-//	public void test08ElTableroTiraExcepcionEnCasoDeAtaqueInvalido(){
-//		Coordenada coordenadaOrigen = new Coordenada(3,4);
-//		Optimus optimus = new Optimus();
-//		Megatron megatron = new Megatron();
-//		Coordenada coordenadaDestino = new Coordenada(3,7);
-//		tablero.put(optimus,coordenadaOrigen);
-//		tablero.put(megatron,coordenadaDestino);
-//		int range = 2;
-//		HabitableDelMapa objective = tablero.coordinateAttack(optimus,range,coordenadaDestino);
-//	}
-
 
 }
