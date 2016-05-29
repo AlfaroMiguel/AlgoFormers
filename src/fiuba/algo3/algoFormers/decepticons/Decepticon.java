@@ -24,15 +24,4 @@ public class Decepticon extends Algoformer {
 	public void atacar(Algoformer atacado) {
 		this.modo.atacar(this,atacado);		
 	}
-
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean ocupaLugar() {
-		return true;
-	}
 }

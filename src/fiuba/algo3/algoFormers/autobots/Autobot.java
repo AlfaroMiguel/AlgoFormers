@@ -25,16 +25,5 @@ public class Autobot extends Algoformer{
 		this.modo.atacar(this,atacado);
 		
 	}
-
-	@Override
-	public void colisionar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean ocupaLugar() {
-		return true;
-	}
 	
 }

@@ -38,6 +38,16 @@ public abstract class Algoformer implements HabitableDelMapa {
 		return this.vida;
 	}
 
+	@Override
+	public void colisionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean ocupaLugar() {
+		return true;
+	}
 	
 //	//todavia no se como manejar esto
 //	public void componerse(){
