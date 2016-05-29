@@ -1,5 +1,9 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.generico.Algoformer;
+
 public class Jugador {
 	protected Equipo equipo;
 	//Va a tener nombre, es necesario?
@@ -8,9 +12,16 @@ public class Jugador {
 	public Jugador(Equipo equipo){
 		this.equipo = equipo;
 	}
-	public atacar(Tran, coor){
+
+	public void atacar(Algoformer algoformer, Coordenada coordenada) {
+		//El jugador va a tener el tablero?? No me acuerdo como lo haciamos
+	}
+
+	public void mover(Optimus optimus, Coordenada nuevaCoordenada) {
+		// TODO Auto-generated method stub
 		
 	}
+
 
 	@Override
 	public int hashCode() {
