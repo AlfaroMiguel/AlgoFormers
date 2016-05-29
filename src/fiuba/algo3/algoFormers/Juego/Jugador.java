@@ -8,7 +8,9 @@ public class Jugador {
 	public Jugador(Equipo equipo){
 		this.equipo = equipo;
 	}
-
+	public atacar(Tran, coor){
+		
+	}
 
 	@Override
 	public int hashCode() {
