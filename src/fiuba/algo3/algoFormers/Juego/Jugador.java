@@ -15,7 +15,16 @@ public class Jugador{
 		this.equipo = equipo;
 		this.tablero = tablero;
 	}
-	
+	public boolean ubicoSusPersonajes() {
+		 		if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
+		 			return false;
+		 		}
+		 		return true;
+			}
+		
+	public void ubicarPersonajes() {
+		 	this.equipo.ubicarPersonajes(this.tablero);	 		
+		}
 	public Algoformer verAlgoformerActual(){
 		return this.equipo.verAlgoformerActual();
 	}

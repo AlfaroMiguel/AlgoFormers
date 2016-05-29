@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -14,6 +16,8 @@ public class Autobots extends Equipo {
 		this.optimus = new Optimus();
 		this.bumblebee = new Bumblebee();
 		this.ratchet = new Ratchet();
+		
+		this.seleccionarAlgoformer(optimus);
 	}
 
 	@Override
@@ -60,6 +64,12 @@ public class Autobots extends Equipo {
 	public void seleccionarAlgoformer(Decepticon decepticon){
 		throw new EquipoInvalidoException();
 	}
+	@Override
+	public void ubicarPersonajes(Tablero tablero) {
+		tablero.put(this.optimus, new Coordenada(1,2));
+	 	tablero.put(this.bumblebee, new Coordenada(2,2));
+	 	tablero.put(this.ratchet, new Coordenada(2,1));
+		}
 	
 
 }
