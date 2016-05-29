@@ -52,7 +52,7 @@ public class TableroTests {
 		tablero.put(optimus,coordenadaInic);
 		Coordenada coordenadaFinal = new Coordenada(3,7);
 		int paso = 2;
-		tablero.move(optimus,coordenadaFinal,paso);
+		tablero.mover(optimus,coordenadaFinal,paso);
 	}
 	@Test
 	public void test06ElTableroDesplazaUnHabitableDelMapa(){
@@ -61,7 +61,7 @@ public class TableroTests {
 		tablero.put(optimus,coordenadaInic);
 		Coordenada coordenadaFinal = new Coordenada(3,7);
 		int paso = 3;
-		tablero.move(optimus,coordenadaFinal,paso);
+		tablero.mover(optimus,coordenadaFinal,paso);
 		Assert.assertTrue("El tablero NO vacia el espacio del cual se movio el habitable",tablero.estaVacio(coordenadaInic));
 		//Assert.assertFalse("El tablero NO pone en el lugar de destino al habitable que se movio",tablero.estaVacio(coordenadaFinal));
 	}

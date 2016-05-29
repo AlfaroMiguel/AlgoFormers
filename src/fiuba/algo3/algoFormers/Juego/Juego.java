@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.Tablero.*;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Juego {
 	
@@ -9,13 +10,14 @@ public class Juego {
 	protected Tablero tablero;
 	
 	public Juego(){
+		this.tablero = new Tablero(20,20);
+		
 		Equipo equipoAutobots = new Autobots();
-		this.jugadorActual = new Jugador(equipoAutobots);
+		this.jugadorActual = new Jugador(equipoAutobots, tablero);
 		
 		Equipo equipoDecepticons = new Decepticons();
-		this.jugadorAnterior = new Jugador(equipoDecepticons);
+		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
-		this.tablero = new Tablero(20,20);
 	}
 	
 	public void cambiarTurno(){
@@ -27,5 +29,6 @@ public class Juego {
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
 	}
+
 	
 }

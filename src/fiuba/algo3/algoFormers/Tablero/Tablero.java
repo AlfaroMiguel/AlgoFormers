@@ -11,6 +11,7 @@ import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 public class Tablero {
 	HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
 	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
+	
 	public Tablero(int height,int width){
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
@@ -37,13 +38,12 @@ public class Tablero {
 		throw new MovimientoInvalidoException();
 
 	}
-	public void move(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
+	public void mover(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
 		Coordenada coordInic = this.getKeyValue(habitable);
 		if(coordInic.distancia(coordenadaFinal)>paso)
 			throw new MovimientoInvalidoException();
 		this.put(habitable,coordenadaFinal);
 		this.habitables.put(coordInic,new Vacio());
-
 	}
 
 	public Coordenada getKeyValue(HabitableDelMapa value){

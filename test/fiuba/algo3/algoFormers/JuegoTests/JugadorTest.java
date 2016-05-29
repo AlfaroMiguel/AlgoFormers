@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.JuegoTests;
 
-import junit.framework.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Juego.Autobots;
@@ -14,59 +14,63 @@ import fiuba.algo3.algoFormers.decepticons.*;
 
 
 public class JugadorTest {
-	/*
-	@Test
-	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
-	Autobots autobots = new Autobots();
-	Jugador jugador = new Jugador(autobots);
-	Tablero tablero = new Tablero (10,10);
-	//Esto de aca se haria con el equipo pero no esta hecho
-	Optimus optimus = new Optimus();
-	Frenzy frenzy = new Frenzy();
 	
-	Coordenada coordenadaOptimus= new Coordenada(2,3);
-	Coordenada coordenadaFrenzy = new Coordenada(2,5);
-	tablero.put(optimus, coordenadaOptimus);
-	tablero.put(frenzy, coordenadaFrenzy);
-	
-	jugador.atacar(optimus, coordenadaFrenzy);
-	Assert.assertEquals(frenzy.verVida(),350);
-	}
+//	@Test
+//	public void test01SeleccionarAutobotEquipoAutobots(){
+//		Autobots autobots = new Autobots();
+//		Tablero tablero = new Tablero(10,10);
+//		Jugador jugador = new Jugador(autobots, tablero);
+//		
+//	}
+//	@Test
+//	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
+//	Autobots autobots = new Autobots();
+//	Tablero tablero = new Tablero (10,10);
+//	Jugador jugador = new Jugador(autobots, tablero);
+//	Optimus optimus = new Optimus();
+//	Frenzy frenzy = new Frenzy();
+//	jugador.seleccionarAlgoformer(optimus);
+//	
+//	Coordenada coordenadaOptimus= new Coordenada(2,3);
+//	Coordenada coordenadaFrenzy = new Coordenada(2,5);
+//	tablero.put(optimus, coordenadaOptimus);
+//	tablero.put(frenzy, coordenadaFrenzy);
+//	
+//	jugador.atacar(coordenadaFrenzy);
+//	assertEquals(frenzy.verVida(),350);
+//	}
 	
 	@Test
 	public void test02UnJugadorMueveASuTransformerHumanoide(){
 	Autobots autobots = new Autobots();
-	Jugador jugador = new Jugador(autobots);
 	Tablero tablero = new Tablero (10,10);
-	//Esto de aca se haria con el equipo pero no esta hecho
+	Jugador jugador = new Jugador(autobots, tablero);
 	Optimus optimus = new Optimus();
+	jugador.seleccionarAlgoformer(optimus);
 	
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,1);
-	tablero.put(optimus, coordenada); 
-	jugador.mover(optimus, nuevaCoordenada);
+	tablero.put(jugador.verAlgoformerActual(), coordenada); 
+	jugador.mover(nuevaCoordenada);
 	
-	Assert.assertTrue(tablero.getKeyValue(optimus)==nuevaCoordenada);
+	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 	@Test
 	public void test03UnJugadorMueveASuTransformerAlterno(){
 	Equipo equipoAutobots = new Autobots();
-	Jugador jugador = new Jugador(equipoAutobots);
 	Tablero tablero = new Tablero (10,10);
-	//Esto de aca se haria con el equipo pero no esta hecho
+	Jugador jugador = new Jugador(equipoAutobots, tablero);
 	Optimus optimus = new Optimus();
-	optimus.cambiarModo();
-	// supongo que esto seria un jugador.seleccionar optimus
-	// y jugador.transformar Optimus ??
-	
+	jugador.seleccionarAlgoformer(optimus);
+	jugador.transformarAlgoformer();
 	
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,8);
-	tablero.put(optimus, coordenada); 
-	jugador.mover(optimus, nuevaCoordenada);
+	tablero.put(jugador.verAlgoformerActual(), coordenada); 
+	jugador.mover(nuevaCoordenada);
 	
-	Assert.assertTrue(tablero.getKeyValue(optimus)==nuevaCoordenada);
+	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
-	*/
+	
 }

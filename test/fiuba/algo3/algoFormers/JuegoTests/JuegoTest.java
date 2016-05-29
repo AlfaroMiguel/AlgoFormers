@@ -23,4 +23,5 @@ public class JuegoTest{
 		assertEquals(jugador2,jugador4);
 	}
 	
+	
 }

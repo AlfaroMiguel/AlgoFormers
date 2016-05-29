@@ -1,27 +1,46 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class Jugador {
+public class Jugador{
 	protected Equipo equipo;
 	//Va a tener nombre, es necesario?
+	public Tablero tablero;
 	
-	
-	public Jugador(Equipo equipo){
+	public Jugador(Equipo equipo, Tablero tablero){
 		this.equipo = equipo;
+		this.tablero = tablero;
 	}
-
-	public void atacar(Algoformer algoformer, Coordenada coordenada) {
-		//El jugador va a tener el tablero?? No me acuerdo como lo haciamos
+	
+	public Algoformer verAlgoformerActual(){
+		return this.equipo.verAlgoformerActual();
 	}
-
-	public void mover(Algoformer algoformer, Coordenada coordenada) {
-		// TODO Auto-generated method stub
+	
+	public void seleccionarAlgoformer(Autobot autobot){
+		this.equipo.seleccionarAlgoformer(autobot);
+	}
+	
+	public void seleccionarAlgoformer(Decepticon decepticon){
+		this.equipo.seleccionarAlgoformer(decepticon);
+	}
+	
+	//no recibe un algoformer sino que ataca con el actual del equipo (el que este seleccionado)
+	public void atacar(Coordenada coordenada) {
 		
 	}
-
+	
+	//no recibe un algoformer sino que mueve al actual del equipo (el que este seleccionado)
+	public void mover(Coordenada coordenada) {
+		this.equipo.mover(coordenada, tablero);
+	}
+	
+	public void transformarAlgoformer(){
+		this.equipo.transformarAlgoformer();
+	}
 
 	@Override
 	public int hashCode() {

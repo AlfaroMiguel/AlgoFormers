@@ -1,6 +1,9 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.autobots.*;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Autobots extends Equipo {
 	
@@ -51,6 +54,12 @@ public class Autobots extends Equipo {
 		return true;
 	}
 	
+	public void seleccionarAlgoformer(Autobot autobot){
+		this.algoformerActual = autobot;
+	}
 	
+	public void seleccionarAlgoformer(Decepticon decepticon){
+		throw new EquipoInvalidoException();
+	}
 
 }

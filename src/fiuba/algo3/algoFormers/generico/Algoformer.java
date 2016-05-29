@@ -4,11 +4,14 @@ import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.Habitables.*;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
 
 public abstract class Algoformer implements HabitableDelMapa {
 	
 	protected Modo modo;
 	protected int vida;
+	public Tablero tablero;
 	
 	public abstract void atacar(Algoformer atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
@@ -17,11 +20,14 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public Algoformer(){
 	}
 	
-	//llama a mover() de tablero
-//	public void moverse(Posicion posicion){
-//	}
+	public void setTablero(Tablero tablero){
+		this.tablero = tablero;
+	}
 	
-	//el modo se encarga de resetear this.modo a traves de establecerModo()
+	public void moverse(Coordenada coordenada, Tablero tablero){
+		this.modo.moverse(this, coordenada, tablero);
+	}
+	
 	public void cambiarModo(){
 		this.modo.cambiar(this);
 	}
@@ -41,7 +47,6 @@ public abstract class Algoformer implements HabitableDelMapa {
 	@Override
 	public void colisionar() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
