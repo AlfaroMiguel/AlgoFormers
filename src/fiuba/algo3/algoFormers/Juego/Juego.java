@@ -18,6 +18,9 @@ public class Juego {
 		Equipo equipoDecepticons = new Decepticons();
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
+		this.ubicarPersonajes();
+		this.ubicarChispa();
+		
 	}
 	
 	private void ubicarChispa() {

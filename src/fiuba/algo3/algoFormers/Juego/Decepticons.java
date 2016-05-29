@@ -17,6 +17,9 @@ public class Decepticons extends Equipo {
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
 		this.bonecrusher = new Bonecrusher();
+		
+
+		this.seleccionarAlgoformer(megatron);
 	}
 
 	@Override
@@ -71,5 +74,10 @@ public class Decepticons extends Equipo {
 	public void seleccionarAlgoformer(Collectable collectable){
 		throw new NoAlgoformerException();
 	}
-	
+	@Override
+	public void ubicarPersonajes(Tablero tablero) {
+		tablero.put(this.optimus, new Coordenada(1,2));
+	 	tablero.put(this.bumblebee, new Coordenada(2,2));
+	 	tablero.put(this.ratchet, new Coordenada(2,1));
+		}
 }
