@@ -23,8 +23,6 @@ public class JuegoTest{
 		assertEquals(jugador2,jugador4);
 	}
 	
-<<<<<<< HEAD
-=======
 	@Test
 	public void test02UbicarPersonajes(){
 		Juego juego = new Juego ();
@@ -44,6 +42,5 @@ public class JuegoTest{
 		}
 		Assert.assertTrue(encontro);
 	}
->>>>>>> 3845e10979f19b729e91f32b7d1eaab937586a70
 	
 }
