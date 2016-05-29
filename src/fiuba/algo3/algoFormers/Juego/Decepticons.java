@@ -2,6 +2,8 @@ package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.Habitables.Collectable;
 import fiuba.algo3.algoFormers.Habitables.Vacio;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -76,8 +78,8 @@ public class Decepticons extends Equipo {
 	}
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
-		tablero.put(this.optimus, new Coordenada(1,2));
-	 	tablero.put(this.bumblebee, new Coordenada(2,2));
-	 	tablero.put(this.ratchet, new Coordenada(2,1));
+		tablero.put(this.megatron, new Coordenada(1,2));
+	 	tablero.put(this.frenzy, new Coordenada(2,2));
+	 	tablero.put(this.bonecrusher, new Coordenada(2,1));
 		}
 }
