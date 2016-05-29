@@ -18,7 +18,7 @@ public class Autobots extends Equipo {
 		this.bumblebee = new Bumblebee();
 		this.ratchet = new Ratchet();
 		
-		this.seleccionarAlgoformer(optimus);
+		this.algoformerActual = optimus;
 	}
 
 	@Override
