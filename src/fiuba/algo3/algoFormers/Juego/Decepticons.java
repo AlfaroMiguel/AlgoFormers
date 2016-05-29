@@ -21,7 +21,7 @@ public class Decepticons extends Equipo {
 		this.bonecrusher = new Bonecrusher();
 		
 
-		this.seleccionarAlgoformer(megatron);
+		this.algoformerActual = megatron;
 	}
 
 	@Override
