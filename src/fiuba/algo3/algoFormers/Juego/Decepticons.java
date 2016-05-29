@@ -6,8 +6,8 @@ import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.*;
-import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
-import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+
 
 public class Decepticons extends Equipo {
 	
@@ -61,21 +61,10 @@ public class Decepticons extends Equipo {
 		return true;
 	}
 	
-	public void seleccionarAlgoformer(Decepticon decepticon){
-		this.algoformerActual = decepticon;
+	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
+		seleccionado.serSeleccionado(this);
 	}
 	
-	public void seleccionarAlgoformer(Autobot autobot){
-		throw new EquipoInvalidoException();
-	}	
-	
-	public void seleccionarAlgoformer(Vacio espacioVacio){
-		throw new NoAlgoformerException();
-	}
-	
-	public void seleccionarAlgoformer(Collectable collectable){
-		throw new NoAlgoformerException();
-	}
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
 		tablero.put(this.megatron, new Coordenada(18,2));
