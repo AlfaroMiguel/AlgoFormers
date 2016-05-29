@@ -1,10 +1,7 @@
 package fiuba.algo3.algoFormers.Juego;
 
-import fiuba.algo3.algoFormers.Habitables.Collectable;
-import fiuba.algo3.algoFormers.Habitables.Vacio;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
-import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 

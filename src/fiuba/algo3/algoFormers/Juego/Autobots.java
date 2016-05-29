@@ -3,8 +3,6 @@ package fiuba.algo3.algoFormers.Juego;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
-import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 public class Autobots extends Equipo {

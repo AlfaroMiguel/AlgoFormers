@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Juego.Juego;
 import fiuba.algo3.algoFormers.Juego.Jugador;
-import junit.framework.Assert;
 
 public class JuegoTest{
 
@@ -27,7 +26,7 @@ public class JuegoTest{
 	@Test
 	public void test02UbicarPersonajes(){
 		Juego juego = new Juego ();
-		Assert.assertTrue(juego.seUbicoALosPersonajes());	
+		assertTrue(juego.seUbicoALosPersonajes());	
 	}
 	
 	@Test
@@ -41,6 +40,6 @@ public class JuegoTest{
 				}
 			}
 		}
-		Assert.assertTrue(encontro);
+		assertTrue(encontro);
 	}
 }
