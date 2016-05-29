@@ -18,8 +18,16 @@ public class Juego {
 		Equipo equipoDecepticons = new Decepticons();
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
+		this.ubicarPersonajes();
+		
 	}
 	
+	private void ubicarPersonajes() {
+		this.jugadorActual.ubicarPersonajes();
+		this.jugadorAnterior.ubicarPersonajes();
+		
+	}
+
 	public void cambiarTurno(){
 		Jugador jugadorAux = this.jugadorAnterior;
 		this.jugadorAnterior = this.jugadorActual;
@@ -28,6 +36,11 @@ public class Juego {
 	
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
+	}
+
+	public boolean seUbicoALosPersonajes() {
+		return jugadorActual.ubicoSusPersonajes();
+		//return (this.jugadorActual.ubicoSusPersonajes() && this.jugadorAnterior.ubicoSusPersonajes());
 	}
 
 	

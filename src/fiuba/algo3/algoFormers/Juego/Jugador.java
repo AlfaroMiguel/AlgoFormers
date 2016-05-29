@@ -66,5 +66,17 @@ public class Jugador{
 			return false;
 		return true;
 	}
+
+	public boolean ubicoSusPersonajes() {
+		if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
+			return false;
+		}
+		return true;
+	}
+
+	public void ubicarPersonajes() {
+		this.equipo.ubicarPersonajes(this.tablero);
+		
+	}
 	
 }

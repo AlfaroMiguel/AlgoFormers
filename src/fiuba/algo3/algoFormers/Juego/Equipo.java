@@ -32,5 +32,8 @@ public class Equipo {
 	public Algoformer verAlgoformerActual() {
 		return this.algoformerActual;
 	}
+
+	public void ubicarPersonajes(Tablero tablero) {
+	}
 	
 }
