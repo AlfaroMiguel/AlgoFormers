@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.algoFormersTests.TableroTests;
+package fiuba.algo3.algoFormers.TableroTests;
 import org.junit.Assert;
 import org.junit.Test;
 
