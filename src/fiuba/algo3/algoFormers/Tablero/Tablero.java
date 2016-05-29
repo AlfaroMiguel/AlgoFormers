@@ -31,7 +31,7 @@ public class Tablero {
 		}
 	}
 	public void put(Collectable collectable,Coordenada coordenada){
-		if(this.habitables.get(coordenada).ocupaLugar()){
+		if(!this.habitables.get(coordenada).ocupaLugar()){
 			this.habitables.put(coordenada, collectable);
 			return;
 		}

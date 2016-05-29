@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
 import fiuba.algo3.algoFormers.Tablero.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
@@ -19,9 +20,16 @@ public class Juego {
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
 		this.ubicarPersonajes();
-		
+		this.ubicarChispa();
 	}
 	
+	private void ubicarChispa() {
+		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
+		this.tablero.put(chispaSuprema, new Coordenada(10,10));
+		
+	}
+
+
 	private void ubicarPersonajes() {
 		this.jugadorActual.ubicarPersonajes();
 		this.jugadorAnterior.ubicarPersonajes();
@@ -41,6 +49,10 @@ public class Juego {
 	public boolean seUbicoALosPersonajes() {
 		return jugadorActual.ubicoSusPersonajes();
 		//return (this.jugadorActual.ubicoSusPersonajes() && this.jugadorAnterior.ubicoSusPersonajes());
+	}
+
+	public boolean estaLaChispa(int i, int j) {
+		return !(tablero.estaVacio(new Coordenada(i,j)));
 	}
 
 	

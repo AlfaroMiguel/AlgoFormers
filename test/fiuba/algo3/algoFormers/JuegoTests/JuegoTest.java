@@ -23,11 +23,25 @@ public class JuegoTest{
 		assertEquals(jugador1,jugador3);
 		assertEquals(jugador2,jugador4);
 	}
+	
 	@Test
 	public void test02UbicarPersonajes(){
 		Juego juego = new Juego ();
-		Assert.assertTrue(juego.seUbicoALosPersonajes());
-		
+		Assert.assertTrue(juego.seUbicoALosPersonajes());	
+	}
+	
+	@Test
+	public void test03UbicarChispa(){
+		Juego juego = new Juego();
+		Boolean encontro = false;
+		for(int i=9;i<12;i++){
+			for(int j=9;j<12;j++){
+				if(juego.estaLaChispa(i,j)){
+					encontro = true;
+				}
+			}
+		}
+		Assert.assertTrue(encontro);
 	}
 	
 }
