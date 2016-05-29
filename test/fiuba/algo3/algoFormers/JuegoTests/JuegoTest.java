@@ -23,8 +23,4 @@ public class JuegoTest{
 		assertEquals(jugador2,jugador4);
 	}
 	
-	@Test
-	public void test02(){
-		
-	}
 }
