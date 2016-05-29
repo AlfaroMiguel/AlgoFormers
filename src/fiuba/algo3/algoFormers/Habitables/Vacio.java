@@ -4,8 +4,8 @@ public class Vacio implements HabitableDelMapa{
 
 	public Vacio(){}
 
-	public void estaVacio(){
-
+	public boolean ocupaLugar(){
+		return false;
 	}
 	public void colisionar(){
 

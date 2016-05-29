@@ -8,10 +8,10 @@ public class ChispaSuprema implements Collectable{
 	public static ChispaSuprema getInstance(){
 		return INSTANCE;
 	}
-	public void estaVacio(){
-
+	public boolean ocupaLugar(){
+		return true;
 	}
 	public void colisionar(){
-
+		
 	}
 }

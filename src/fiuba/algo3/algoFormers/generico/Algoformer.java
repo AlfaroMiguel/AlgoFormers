@@ -3,8 +3,9 @@ package fiuba.algo3.algoFormers.generico;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.modos.Modo;
+import fiuba.algo3.algoFormers.Habitables.*;
 
-public abstract class Algoformer{
+public abstract class Algoformer implements HabitableDelMapa {
 	
 	protected Modo modo;
 	protected int vida;
