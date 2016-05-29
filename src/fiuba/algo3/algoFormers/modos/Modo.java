@@ -9,8 +9,8 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public interface Modo{
 	
-	public void atacar(Autobot atacante, HabitableDelMapa atacado);
-	public void atacar(Decepticon atacante, HabitableDelMapa atacado);
+	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado);
+	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado);
 	public void cambiar(Algoformer algoformer);
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero);
 }

@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Bumblebee;
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.autobots.Ratchet;
@@ -11,6 +13,7 @@ import fiuba.algo3.algoFormers.decepticons.Bonecrusher;
 import fiuba.algo3.algoFormers.decepticons.Frenzy;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
+import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
 import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;
@@ -43,89 +46,162 @@ public class algoformersTest {
 	}
 	
 	@Test (expected = MismoEquipoException.class)
-	public void test04AutobotAtacarAutobotMismoModoSinTenerEnCuentaDistancia(){
+	public void test04AutobotAtacarAutobotDistanciaCorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		ratchet.atacar(optimus);
-		ratchet.cambiarModo();
-		optimus.cambiarModo();
-		ratchet.atacar(optimus);
+		Tablero tablero = new Tablero(10,10);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		Coordenada coordRatchet = new Coordenada(1,3);
+		tablero.put(optimus,coordOptimus);
+		tablero.put(ratchet, coordRatchet);
+		ratchet.atacar(tablero,optimus);
 	}
 	
-	@Test (expected = MismoEquipoException.class)
-	public void test05DecepticonAtacarDecepticonMismoModoSinTenerEnCuentaDistancia(){
-		Megatron megatron = new Megatron();
-		Bonecrusher bonecrusher = new Bonecrusher();
-		bonecrusher.atacar(megatron);
-		megatron.cambiarModo();
-		bonecrusher.cambiarModo();
-		bonecrusher.atacar(megatron);
-	}
-	
-	@Test (expected = MismoEquipoException.class)
-	public void test06AutobotAtacarAutobotDiferenteModoSinTenerEnCuentaDistancia(){
+	@Test (expected = OutOfRangeException.class)
+	public void test05AutobotAtacarAutobotDistanciaIncorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		ratchet.atacar(optimus);
-		ratchet.cambiarModo();
-		ratchet.atacar(optimus);
-		optimus.atacar(ratchet);
+		Tablero tablero = new Tablero(10,10);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		Coordenada coordRatchet = new Coordenada(1,10);
+		tablero.put(optimus,coordOptimus);
+		tablero.put(ratchet, coordRatchet);
+		ratchet.atacar(tablero,optimus);
 	}
 	
 	@Test (expected = MismoEquipoException.class)
-	public void test07DecepticonAtacarDecepticonDiferenteModoSinTenerEnCuentaDistancia(){
+	public void test06AutobotAtacarAutobotDistanciaLimite(){
+		Ratchet ratchet = new Ratchet();
+		Optimus optimus = new Optimus();
+		Tablero tablero = new Tablero(10,10);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		Coordenada coordRatchet = new Coordenada(1,7);
+		tablero.put(optimus,coordOptimus);
+		tablero.put(ratchet, coordRatchet);
+		ratchet.atacar(tablero,optimus);
+	}
+	
+	@Test (expected = MismoEquipoException.class)
+	public void test07DecepticonAtacarDecepticonDistanciaCorrecta(){
+		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		Bonecrusher bonecrusher = new Bonecrusher();
-		bonecrusher.atacar(megatron);
-		megatron.cambiarModo();
-		bonecrusher.atacar(megatron);
-		megatron.atacar(bonecrusher);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordBonecrusher = new Coordenada(1,4);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(bonecrusher, coordBonecrusher);
+		bonecrusher.atacar(tablero, megatron);
 	}
+	
+	@Test (expected = OutOfRangeException.class)
+	public void test08DecepticonAtacarDecepticonDistanciaIncorrecta(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		Bonecrusher bonecrusher = new Bonecrusher();
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordBonecrusher = new Coordenada(1,7);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(bonecrusher, coordBonecrusher);
+		bonecrusher.atacar(tablero, megatron);
+	}
+	
+	@Test (expected = MismoEquipoException.class)
+	public void test09DecepticonAtacarDecepticonDistanciaLimite(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		Bonecrusher bonecrusher = new Bonecrusher();
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordBonecrusher = new Coordenada(1,5);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(bonecrusher, coordBonecrusher);
+		bonecrusher.atacar(tablero, megatron);
+	}
+
 	
 	@Test
-	public void test08AutobotAtacarDecepticonMismoModoSinTenerEnCuentaDistancia(){
+	public void test10AutobotAtacarDecepticonDistanciaCorrecta(){
+		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
-		optimus.atacar(megatron);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,3);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		optimus.atacar(tablero,megatron);
 		assertEquals(megatron.verVida(), 500);
 		optimus.cambiarModo();
 		megatron.cambiarModo();
-		optimus.atacar(megatron);
+		optimus.atacar(tablero,megatron);
 		assertEquals(megatron.verVida(),485);
 	}
 	
-	@Test
-	public void test09DecepticonAtacarAutobotMismoModoSinTenerEnCuentaDistancia(){
+	@Test (expected = OutOfRangeException.class)
+	public void test11AutobotAtacarDecepticonDistanciaIncorrecta(){
+		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
-		megatron.atacar(optimus);
-		assertEquals(optimus.verVida(), 490);
-		optimus.cambiarModo();
-		megatron.cambiarModo();
-		megatron.atacar(optimus);
-		assertEquals(optimus.verVida(), 435);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,7);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		optimus.atacar(tablero,megatron);
 	}
 	
 	@Test
-	public void test10AutobotAtacarDecepticonDiferenteModoSinTenerEnCuentaDistancia(){
+	public void test12AutobotAtacarDecepticonDistanciaLimite(){
+		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
-		optimus.atacar(megatron);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,4);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		optimus.atacar(tablero,megatron);
 		assertEquals(megatron.verVida(), 500);
-		optimus.cambiarModo();
-		optimus.atacar(megatron);
-		assertEquals(megatron.verVida(),485);
 	}
 	
 	@Test
-	public void test11DecepticonAtacarAutobotDiferenteModoSinTenerEnCuentaDistancia(){
+	public void test13DecepticonAtacarAutobotDistanciaCorrecta(){
+		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
-		megatron.atacar(optimus);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,3);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		megatron.atacar(tablero, optimus);
 		assertEquals(optimus.verVida(), 490);
+		optimus.cambiarModo();
 		megatron.cambiarModo();
-		megatron.atacar(optimus);
+		megatron.atacar(tablero, optimus);
 		assertEquals(optimus.verVida(), 435);
 	}
+	
+	@Test (expected = OutOfRangeException.class)
+	public void test14DecepticonAtacarAutobotDistanciaIncorrecta(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		Optimus optimus = new Optimus();
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,7);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		megatron.atacar(tablero, optimus);
+	}
+	
+	@Test
+	public void test14DecepticonAtacarAutobotDistanciaLimite(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		Optimus optimus = new Optimus();
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordOptimus = new Coordenada(1,5);
+		tablero.put(megatron,coordMegatron);
+		tablero.put(optimus, coordOptimus);
+		megatron.atacar(tablero, optimus);
+		assertEquals(optimus.verVida(), 490);
+	}
+	
+	
 	
 }

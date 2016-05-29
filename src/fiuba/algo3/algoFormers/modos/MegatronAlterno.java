@@ -33,13 +33,13 @@ public class MegatronAlterno implements Modo {
 	}
 
 	@Override
-	public void atacar(Autobot atacante, HabitableDelMapa atacado) {
-		atacado.serAtacado(atacante, this.ataque);
+	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado) {
+		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);	
 	}
 
 	@Override
-	public void atacar(Decepticon atacante, HabitableDelMapa atacado) {
-		atacado.serAtacado(atacante, this.ataque);
+	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado) {
+		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
 	}
 	
 	@Override

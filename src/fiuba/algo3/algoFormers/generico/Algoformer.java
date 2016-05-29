@@ -16,7 +16,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	protected int vida;
 	public Tablero tablero;
 	
-	public abstract void atacar(HabitableDelMapa atacado);
+	public abstract void atacar(Tablero tablero, HabitableDelMapa atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
 	public abstract void serAtacado(Decepticon atacante, int ataque);
 	public abstract void serSeleccionado(Autobots equipoAutobot);

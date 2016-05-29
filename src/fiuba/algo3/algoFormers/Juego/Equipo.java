@@ -36,8 +36,8 @@ public abstract class Equipo{
 	public void ubicarPersonajes(Tablero tablero) {
 			}
 	
-	public void atacar(HabitableDelMapa atacado){
-		this.algoformerActual.atacar(atacado);
+	public void atacar(Tablero tablero, HabitableDelMapa atacado){
+		this.algoformerActual.atacar(tablero, atacado);
 	}
 	
 }

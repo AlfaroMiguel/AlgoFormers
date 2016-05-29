@@ -2,6 +2,8 @@ package fiuba.algo3.algoFormers.Tablero;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.Habitables.Vacio;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
@@ -56,11 +58,21 @@ public class Tablero {
         throw new ElementoNoExisteException();
 
 	}
-	public HabitableDelMapa coordinateAttack(HabitableDelMapa attacker, int range, Coordenada coordenadaDestino) {
-		Coordenada coordInic = this.getKeyValue(attacker);
-		if(coordInic.distancia(coordenadaDestino)>range)
+	
+	public void coordinateAttack(Autobot atacante, int range, HabitableDelMapa atacado, int ataque) {
+		Coordenada coordInic = this.getKeyValue(atacante);
+		Coordenada coordFinal = this.getKeyValue(atacado);
+		if(coordInic.distancia(coordFinal)>range)
 			throw new OutOfRangeException();
-		return this.habitables.get(coordenadaDestino);
+		atacado.serAtacado(atacante, ataque);
+	}
+	
+	public void coordinateAttack(Decepticon atacante, int range, HabitableDelMapa atacado, int ataque) {
+		Coordenada coordInic = this.getKeyValue(atacante);
+		Coordenada coordFinal = this.getKeyValue(atacado);
+		if(coordInic.distancia(coordFinal)>range)
+			throw new OutOfRangeException();
+		atacado.serAtacado(atacante, ataque);
 	}
 	
 	public HabitableDelMapa ver(Coordenada coordenada){

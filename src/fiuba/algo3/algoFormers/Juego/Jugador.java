@@ -22,8 +22,8 @@ public class Jugador{
 		this.equipo.seleccionarAlgoformer(this.tablero.ver(coordenada));
 	}
 	
-	public void atacar(Coordenada coordenada) {
-		this.equipo.atacar(this.tablero.ver(coordenada));
+	public void atacar(Coordenada coordenadaDestino) {
+		this.equipo.atacar(tablero, this.tablero.ver(coordenadaDestino));
 	}
 	
 	public void mover(Coordenada coordenada) {
