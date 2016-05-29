@@ -24,8 +24,15 @@ public class Juego {
 	
 	private void ubicarChispa() {
 		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
-		this.tablero.put(chispaSuprema, new Coordenada(10,10));
 		
+		this.tablero.put(chispaSuprema, coordenadaChispa());
+		
+	}
+	
+	private Coordenada coordenadaChispa(){
+		int i=9 + (int) (Math.random()*(11-9+1));
+		int j=9 + (int) (Math.random()*(11-9+1));
+		return new Coordenada(i,j);
 	}
 
 
