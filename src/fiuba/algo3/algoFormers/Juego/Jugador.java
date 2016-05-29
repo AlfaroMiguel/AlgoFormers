@@ -17,7 +17,7 @@ public class Jugador {
 		//El jugador va a tener el tablero?? No me acuerdo como lo haciamos
 	}
 
-	public void mover(Optimus optimus, Coordenada nuevaCoordenada) {
+	public void mover(Algoformer algoformer, Coordenada coordenada) {
 		// TODO Auto-generated method stub
 		
 	}
