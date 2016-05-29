@@ -53,6 +53,14 @@ public class JugadorTest {
 		jugador.seleccionarAlgoformer(megatron);
 		assertEquals(jugador.verAlgoformerActual(), megatron);
 	}
+//	@Test (expected = NoAlgoformerException.class)
+//	public void test05SeleccionarEspacioVacioEquipoAutobots(){
+//		Decepticons decepticons = new Decepticons();
+//		Tablero tablero = new Tablero(10,10);
+//		Jugador jugador = new Jugador(decepticons, tablero);
+//		Vacio espacioVacio = new Vacio();
+//		jugador.seleccionarAlgoformer(espacioVacio);
+//	}
 //	}
 //	@Test
 //	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){

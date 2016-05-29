@@ -1,8 +1,9 @@
 package fiuba.algo3.algoFormers.Juego;
 
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Jugador{
@@ -14,13 +15,26 @@ public class Jugador{
 		this.equipo = equipo;
 		this.tablero = tablero;
 	}
-	
+	public boolean ubicoSusPersonajes() {
+		 		if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
+		 			return false;
+		 		}
+		 		return true;
+			}
+		
+	public void ubicarPersonajes() {
+		 	this.equipo.ubicarPersonajes(this.tablero);	 		
+		}
 	public Algoformer verAlgoformerActual(){
 		return this.equipo.verAlgoformerActual();
 	}
 	
-	public void seleccionarAlgoformer(HabitableDelMapa habitable){
-		this.equipo.seleccionarAlgoformer(habitable);
+	public void seleccionarAlgoformer(Autobot autobot){
+		this.equipo.seleccionarAlgoformer(autobot);
+	}
+	
+	public void seleccionarAlgoformer(Decepticon decepticon){
+		this.equipo.seleccionarAlgoformer(decepticon);
 	}
 	
 	//no recibe un algoformer sino que ataca con el actual del equipo (el que este seleccionado)
@@ -60,18 +74,6 @@ public class Jugador{
 		} else if (!equipo.equals(other.equipo))
 			return false;
 		return true;
-	}
-
-	public boolean ubicoSusPersonajes() {
-		if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
-			return false;
-		}
-		return true;
-	}
-
-	public void ubicarPersonajes() {
-		this.equipo.ubicarPersonajes(this.tablero);
-		
 	}
 	
 }

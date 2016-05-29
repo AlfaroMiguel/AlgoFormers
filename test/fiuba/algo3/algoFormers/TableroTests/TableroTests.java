@@ -5,12 +5,12 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.ElementoNoExisteException;
-import fiuba.algo3.algoFormers.Tablero.MovimientoInvalidoException;
-import fiuba.algo3.algoFormers.Tablero.OutOfRangeException;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
+import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
 
 public class TableroTests {
 	Tablero tablero = new Tablero(10,10);

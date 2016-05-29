@@ -18,8 +18,6 @@ public class Juego {
 		Equipo equipoDecepticons = new Decepticons();
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
-		this.ubicarPersonajes();
-		this.ubicarChispa();
 	}
 	
 	private void ubicarChispa() {
@@ -41,7 +39,16 @@ public class Juego {
 		this.jugadorAnterior.ubicarPersonajes();
 		
 	}
-
+ 
+ 	public boolean seUbicoALosPersonajes() {
+ 		return jugadorActual.ubicoSusPersonajes();
+  		//return (this.jugadorActual.ubicoSusPersonajes() && this.jugadorAnterior.ubicoSusPersonajes());
+  	}
+ 	
+ 	public boolean estaLaChispa(int i, int j) {
+ 			return !(tablero.estaVacio(new Coordenada(i,j)));
+ 		}
+ 	
 	public void cambiarTurno(){
 		Jugador jugadorAux = this.jugadorAnterior;
 		this.jugadorAnterior = this.jugadorActual;
@@ -51,19 +58,5 @@ public class Juego {
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
 	}
-	
-	public void seleccionarAlgoformer(Coordenada coordenada){
-		this.jugadorActual.seleccionarAlgoformer(this.tablero.ver(coordenada));
-	}
-
-	public boolean seUbicoALosPersonajes() {
-		return jugadorActual.ubicoSusPersonajes();
-		//return (this.jugadorActual.ubicoSusPersonajes() && this.jugadorAnterior.ubicoSusPersonajes());
-	}
-
-	public boolean estaLaChispa(int i, int j) {
-		return !(tablero.estaVacio(new Coordenada(i,j)));
-	}
-
 	
 }

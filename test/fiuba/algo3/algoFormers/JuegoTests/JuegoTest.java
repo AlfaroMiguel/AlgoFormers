@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Juego.Juego;
 import fiuba.algo3.algoFormers.Juego.Jugador;
-import junit.framework.Assert;
 
 public class JuegoTest{
 
@@ -43,5 +42,4 @@ public class JuegoTest{
 		}
 		Assert.assertTrue(encontro);
 	}
-	
 }
