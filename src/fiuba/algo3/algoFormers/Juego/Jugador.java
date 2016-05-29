@@ -1,4 +1,4 @@
-package juego;
+package fiuba.algo3.algoFormers.Juego;
 
 public class Jugador {
 	protected Equipo equipo;

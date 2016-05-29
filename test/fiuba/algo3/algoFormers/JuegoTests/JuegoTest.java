@@ -3,8 +3,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import juego.Juego;
-import juego.Jugador;
+import fiuba.algo3.algoFormers.Juego.Juego;
+import fiuba.algo3.algoFormers.Juego.Jugador;
 
 public class JuegoTest{
 

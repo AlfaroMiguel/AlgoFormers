@@ -1,4 +1,4 @@
-package juego;
+package fiuba.algo3.algoFormers.Juego;
 
 import fiuba.algo3.algoFormers.Tablero.*;
 
