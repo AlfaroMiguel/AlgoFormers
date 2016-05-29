@@ -1,8 +1,10 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoformers.Tablero;
 import java.util.*;
 
-import fiuba.algo3.algoFormers.Habitables.Collectable;
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoformers.Habitables.Vacio;
+import fiuba.algo3.algoformers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoformers.Habitables.Collectable;
+import fiuba.algo3.algoformers.Habitables.HabitableDelMapa;
 
 
 public class Tablero {
@@ -12,10 +14,9 @@ public class Tablero {
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
 	}
-	public boolean estaVacio(int i, int j) {
+	public boolean estaVacio(Coordenada coordenada) {
 		try{
-		Coordenada coordenada = new Coordenada(i,j);
-		this.habitables.get(coordenada).estaVacio();
+		this.habitables.get(coordenada).ocupaLugar();
 		return true;
 		}catch(Throwable g){
 			return false;
@@ -32,12 +33,30 @@ public class Tablero {
 	}
 	public void put(Collectable collectable,Coordenada coordenada){
 		try{
-			this.habitables.get(coordenada).estaVacio();
+			this.habitables.get(coordenada).ocupaLugar();
 			this.habitables.put(coordenada, collectable);
 
 	}catch(Throwable g){
 
 		}
+
+	}
+	public void move(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
+		Coordenada coordInic = this.getKeyValue(habitable);
+		if(coordInic.distancia(coordenadaFinal)>paso)
+			throw new MovimientoInvalidoException();
+		this.put(new Vacio(),coordInic);
+		this.put(habitable,coordenadaFinal);
+
+	}
+
+	public Coordenada getKeyValue(HabitableDelMapa value){
+        for(Map.Entry<Coordenada, HabitableDelMapa> entry : this.habitables.entrySet()) {
+            if(value.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        throw new ElementoNoExisteException();
 
 	}
 

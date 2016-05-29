@@ -1,4 +1,5 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoformers.Tablero;
+
 
 
 public class Coordenada {
@@ -34,6 +35,9 @@ public class Coordenada {
 		if (coordY != other.coordY)
 			return false;
 		return true;
+	}
+	public double distancia(Coordenada otra) {
+		return Math.sqrt((this.coordX-otra.coordX)*(this.coordX-otra.coordX) + (this.coordY - otra.coordY)*(this.coordY-otra.coordY));
 	}
 
 }
