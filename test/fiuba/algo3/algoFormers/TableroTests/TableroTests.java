@@ -1,13 +1,16 @@
-package fiuba.algo3.algoformers.tests;
+package fiuba.algo3.algoFormers.TableroTests;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoformers.decepticons.*;
-import fiuba.algo3.algoformers.autobots.*;
-import fiuba.algo3.algoformers.Tablero.*;
-import fiuba.algo3.algoformers.Habitables.HabitableDelMapa;
-import fiuba.algo3.algoformers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.ElementoNoExisteException;
+import fiuba.algo3.algoFormers.Tablero.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.Tablero.OutOfRangeException;
+import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.decepticons.Megatron;
 
 public class TableroTests {
 	Tablero tablero = new Tablero(10,10);

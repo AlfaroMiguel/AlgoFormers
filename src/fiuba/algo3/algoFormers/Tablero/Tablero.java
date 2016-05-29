@@ -1,11 +1,11 @@
-package fiuba.algo3.algoformers.Tablero;
+package fiuba.algo3.algoFormers.Tablero;
 import java.util.*;
 
-import fiuba.algo3.algoformers.Habitables.Vacio;
-import fiuba.algo3.algoformers.autobots.Optimus;
-import fiuba.algo3.algoformers.Habitables.ChispaSuprema;
-import fiuba.algo3.algoformers.Habitables.Collectable;
-import fiuba.algo3.algoformers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Vacio;
+import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.Habitables.Collectable;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 
 public class Tablero {

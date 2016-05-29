@@ -1,8 +1,10 @@
-package fiuba.algo3.algoformers.tests;
+package fiuba.algo3.algoFormers.TableroTests;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoformers.Tablero.Coordenada;
+//import fiuba.algo3.algoformers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Tablero.*;
 
 public class CoordenadaTest {
 

@@ -1,4 +1,4 @@
-package fiuba.algo3.algoformers.Tablero;
+package fiuba.algo3.algoFormers.Tablero;
 
 
 
