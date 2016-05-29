@@ -76,10 +76,6 @@ public class Autobots extends Equipo {
 	public void seleccionarAlgoformer(Collectable collectable){
 		throw new NoAlgoformerException();
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> f2bb77d0f730ba1ee5111a50b55db39a3a8a1250
 
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
