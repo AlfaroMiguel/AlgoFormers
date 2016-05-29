@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 public class Autobots extends Equipo {
 	
@@ -57,13 +58,10 @@ public class Autobots extends Equipo {
 		return true;
 	}
 	
-	public void seleccionarAlgoformer(Autobot autobot){
-		this.algoformerActual = autobot;
+	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
+		seleccionado.serSeleccionado(this);
 	}
 	
-	public void seleccionarAlgoformer(Decepticon decepticon){
-		throw new EquipoInvalidoException();
-	}
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
 		tablero.put(this.optimus, new Coordenada(1,2));
