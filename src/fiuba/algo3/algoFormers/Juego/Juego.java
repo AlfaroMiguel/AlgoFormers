@@ -12,10 +12,10 @@ public class Juego {
 	public Juego(){
 		this.tablero = new Tablero(20,20);
 		
-		Equipo equipoAutobots = new Autobots();
+		Equipo equipoAutobots = new EquipoAutobots();
 		this.jugadorActual = new Jugador(equipoAutobots, tablero);
 		
-		Equipo equipoDecepticons = new Decepticons();
+		Equipo equipoDecepticons = new EquipoDecepticons();
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
 		this.ubicarPersonajes();

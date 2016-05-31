@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Juego.Juego;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
@@ -23,7 +24,7 @@ public class Entrega1Test {
 	public void test01UbicarHumanoideYMoverADireccionValida(){
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordenadaInic = new Coordenada(3,4);
-		Optimus optimus = new Optimus();
+		HabitableDelMapa optimus = new Optimus();
 		tablero.put(optimus,coordenadaInic);
 		Coordenada coordenadaFinal = new Coordenada(3,7);
 		int paso = 3;
@@ -70,7 +71,7 @@ public class Entrega1Test {
 		int paso = 5;
 		tablero.mover(optimus,coordenadaFinal,paso);
 		assertTrue(tablero.estaVacio(coordenadaInic));
-		assertEquals(tablero.ver(coordenadaFinal), optimus);
+		assertSame(tablero.ver(coordenadaFinal), optimus);
 	}
 	
 	@Test (expected = MovimientoInvalidoException.class)

@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.Habitables;
 
-import fiuba.algo3.algoFormers.Juego.Autobots;
-import fiuba.algo3.algoFormers.Juego.Decepticons;
+import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
@@ -29,12 +29,12 @@ public class Vacio implements HabitableDelMapa{
 	}
 	
 	@Override
-	public void serSeleccionado(Autobots equipoAutobots) {
+	public void serSeleccionado(EquipoAutobots equipoAutobots) {
 		throw new NoAlgoformerException();
 	}
 
 	@Override
-	public void serSeleccionado(Decepticons equipoDecepticons) {
+	public void serSeleccionado(EquipoDecepticons equipoDecepticons) {
 		throw new NoAlgoformerException();
 	}
 }
