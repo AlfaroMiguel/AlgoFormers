@@ -7,6 +7,8 @@ import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 
@@ -59,7 +61,24 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public boolean ocupaLugar() {
 		return true;
 	}
-	
+	public void reaccionarASuperficie(SuperficieTierra superficie){
+		//this.modo.reaccionar(superficie);
+	}
+	public void reaccionarASuperficie(SuperficieAire superficieTierra){
+		//this.modo.reaccionar(superficie);
+	}
+	public void serAfectado(SuperficieAire superficieAire){
+		
+	}
+	public void serDesafectado(SuperficieTierra superficieTierra){
+		
+	}
+	public void serAfectado(SuperficieTierra superficieTierra){
+		
+	}
+	public void serDesafectado(SuperficieAire superficieAire){
+		
+	}
 //	//todavia no se como manejar esto
 //	public void componerse(){
 //	}

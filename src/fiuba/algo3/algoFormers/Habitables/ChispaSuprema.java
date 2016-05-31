@@ -2,6 +2,8 @@ package fiuba.algo3.algoFormers.Habitables;
 
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
@@ -40,5 +42,41 @@ public class ChispaSuprema implements Collectable{
 	@Override
 	public void serSeleccionado(EquipoDecepticons equipoDecepticons) {
 		throw new NoAlgoformerException();
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieAire superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void serAfectado(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void serDesafectado(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void serAfectado(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void serDesafectado(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
 	}
 }

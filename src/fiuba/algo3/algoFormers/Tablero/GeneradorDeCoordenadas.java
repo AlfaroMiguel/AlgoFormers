@@ -10,8 +10,8 @@ public class GeneradorDeCoordenadas {
 		for(int i=0;i<=height;i++){
 			for(int j=0;j<=width;j++){
 				Coordenada coordenada = new Coordenada(i,j);
-				Casillero casillero = new Casillero();
-				tablero.put(coordenada,casillero);
+				//Casillero casillero = new Casillero();
+				//tablero.put(coordenada,casillero);
 			}
 		}
 	}
