@@ -1,17 +1,18 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import java.util.*;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
-public class Autobots extends Equipo {
+public class EquipoAutobots extends Equipo {
 	
 	protected Optimus optimus;
 	protected Bumblebee bumblebee;
 	protected Ratchet ratchet;
 	
-	public Autobots(){
+	public EquipoAutobots(){
 		this.optimus = new Optimus();
 		this.bumblebee = new Bumblebee();
 		this.ratchet = new Ratchet();
@@ -37,7 +38,7 @@ public class Autobots extends Equipo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Autobots other = (Autobots) obj;
+		EquipoAutobots other = (EquipoAutobots) obj;
 		if (bumblebee == null) {
 			if (other.bumblebee != null)
 				return false;
@@ -62,9 +63,11 @@ public class Autobots extends Equipo {
 	
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
-		tablero.put(this.optimus, new Coordenada(1,2));
-	 	tablero.put(this.bumblebee, new Coordenada(2,2));
-	 	tablero.put(this.ratchet, new Coordenada(2,1));
+		List<Autobot> integrantes = new ArrayList<Autobot>();
+		integrantes.add(this.optimus);
+		integrantes.add(this.bumblebee);
+		integrantes.add(this.ratchet);
+		UbicadorDePersonajes.posicionarEquipoAutobot(integrantes,tablero);
 		}
 	
 

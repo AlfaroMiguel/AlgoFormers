@@ -1,8 +1,8 @@
 package fiuba.algo3.algoFormers.autobots;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
-import fiuba.algo3.algoFormers.Juego.Autobots;
-import fiuba.algo3.algoFormers.Juego.Decepticons;
+import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -31,12 +31,12 @@ public class Autobot extends Algoformer{
 	}
 	
 	@Override
-	public void serSeleccionado(Autobots equipoAutobot) {
+	public void serSeleccionado(EquipoAutobots equipoAutobot) {
 		equipoAutobot.setAlgoformerActual(this);
 	}
 
 	@Override
-	public void serSeleccionado(Decepticons equipoDecepticon) {
+	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
 		throw new EquipoInvalidoException();
 	}
 }

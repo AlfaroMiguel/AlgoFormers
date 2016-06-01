@@ -29,7 +29,7 @@ public class RatchetHumanoide implements Modo {
 	
 	@Override
 	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado) {
-		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);	
+		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
 	}
 
 	@Override

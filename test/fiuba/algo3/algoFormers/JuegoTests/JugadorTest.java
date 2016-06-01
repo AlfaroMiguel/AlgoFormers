@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Habitables.Vacio;
-import fiuba.algo3.algoFormers.Juego.Autobots;
-import fiuba.algo3.algoFormers.Juego.Decepticons;
+import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.Juego.Equipo;
 import fiuba.algo3.algoFormers.Juego.Jugador;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
@@ -20,7 +20,7 @@ public class JugadorTest {
 	
 	@Test
 	public void test01SeleccionarAutobotEquipoAutobots(){
-		Autobots autobots = new Autobots();
+		EquipoAutobots autobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(autobots, tablero);
 		Optimus optimus = new Optimus();
@@ -32,7 +32,7 @@ public class JugadorTest {
 	
 	@Test (expected = EquipoInvalidoException.class)
 	public void test02SeleccionarDecepticonEquipoAutobots(){
-		Autobots autobots = new Autobots();
+		EquipoAutobots autobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(autobots, tablero);
 		Megatron megatron = new Megatron();
@@ -43,7 +43,7 @@ public class JugadorTest {
 	
 	@Test (expected = EquipoInvalidoException.class)
 	public void test03SeleccionarAutobotEquipoDecepticons(){
-		Decepticons decepticons = new Decepticons();
+		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Optimus optimus = new Optimus();
@@ -54,7 +54,7 @@ public class JugadorTest {
 	
 	@Test
 	public void test04SeleccionarDecepticonEquipoDecepticons(){
-		Decepticons decepticons = new Decepticons();
+		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Megatron megatron = new Megatron();
@@ -66,7 +66,7 @@ public class JugadorTest {
 
 	@Test (expected = NoAlgoformerException.class)
 	public void test05SeleccionarEspacioVacioEquipoAutobots(){
-		Decepticons decepticons = new Decepticons();
+		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Vacio espacioVacio = new Vacio();
@@ -77,7 +77,7 @@ public class JugadorTest {
 	
 	@Test
 	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
-	Autobots autobots = new Autobots();
+	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(autobots, tablero);
 	Optimus optimus = new Optimus();
@@ -94,7 +94,7 @@ public class JugadorTest {
 	
 	@Test
 	public void test02UnJugadorMueveASuTransformerHumanoide(){
-	Autobots autobots = new Autobots();
+	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(autobots, tablero);
 	Optimus optimus = new Optimus();
@@ -109,7 +109,7 @@ public class JugadorTest {
 	
 	@Test
 	public void test03UnJugadorMueveASuTransformerAlterno(){
-	Equipo equipoAutobots = new Autobots();
+	Equipo equipoAutobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(equipoAutobots, tablero);
 	Optimus optimus = new Optimus();

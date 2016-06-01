@@ -1,9 +1,10 @@
 package fiuba.algo3.algoFormers.Habitables;
 
-import fiuba.algo3.algoFormers.Juego.Autobots;
-import fiuba.algo3.algoFormers.Juego.Decepticons;
+import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.Superficies.*;
 
 public interface HabitableDelMapa {
 
@@ -11,6 +12,12 @@ public interface HabitableDelMapa {
 	public boolean ocupaLugar();
 	public void serAtacado(Autobot atacante, int ataque);
 	public void serAtacado(Decepticon atacante, int ataque);
-	public void serSeleccionado(Autobots equipoAutobots);
-	public void serSeleccionado(Decepticons equipoDecepticons);
+	public void serSeleccionado(EquipoAutobots equipoAutobots);
+	public void serSeleccionado(EquipoDecepticons equipoDecepticons);
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra);
+	public void reaccionarASuperficie(SuperficieAire superficieTierra);
+	public void serAfectado(SuperficieAire superficieAire);
+	public void serDesafectado(SuperficieTierra superficieTierra);
+	public void serAfectado(SuperficieTierra superficieTierra);
+	public void serDesafectado(SuperficieAire superficieAire);
 }
