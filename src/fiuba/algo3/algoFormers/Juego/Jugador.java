@@ -7,7 +7,7 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 public class Jugador{
 	protected Equipo equipo;
 	//Va a tener nombre, es necesario?
-	public Tablero tablero;
+	protected Tablero tablero;
 	
 	public Jugador(Equipo equipo, Tablero tablero){
 		this.equipo = equipo;
