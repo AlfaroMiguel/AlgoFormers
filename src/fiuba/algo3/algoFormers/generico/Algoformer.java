@@ -2,7 +2,6 @@ package fiuba.algo3.algoFormers.generico;
 
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.NotColisionableException;
 import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
@@ -16,14 +15,14 @@ import fiuba.algo3.algoFormers.Tablero.Tablero;
 public abstract class Algoformer implements HabitableDelMapa {
 	
 	protected Modo modo;
-	protected int vida;
+	protected Vida vida;
 	
 	public abstract void atacar(Tablero tablero, HabitableDelMapa atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
 	public abstract void serAtacado(Decepticon atacante, int ataque);
 	public abstract void serSeleccionado(EquipoAutobots equipoAutobot);
 	public abstract void serSeleccionado(EquipoDecepticons equipoDecepticon);
-	//el algoformer no sabe como componerse?
+	
 	
 	public Algoformer(){
 	}
@@ -45,7 +44,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	}
 	
 	public int verVida(){
-		return this.vida;
+		return this.vida.verVida();
 	}
 
 	@Override
@@ -57,11 +56,11 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public boolean ocupaLugar() {
 		return true;
 	}
-	public void reaccionarASuperficie(SuperficieTierra superficie){
-		//this.modo.reaccionar(superficie);
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra){
+		this.modo.reaccionarASuperficie(superficieTierra, this);
 	}
-	public void reaccionarASuperficie(SuperficieAire superficieTierra){
-		//this.modo.reaccionar(superficie);
+	public void reaccionarASuperficie(SuperficieAire superficieAire){
+		this.modo.reaccionarASuperficie(superficieAire, this);
 	}
 	public void serAfectado(SuperficieAire superficieAire){
 		
@@ -74,6 +73,13 @@ public abstract class Algoformer implements HabitableDelMapa {
 	}
 	public void serDesafectado(SuperficieAire superficieAire){
 		
+	}
+	public void multiplicarVelocidad(double factor) {
+		this.modo.multiplicarVelocidad(factor);
+		
+	}
+	public void multiplicarVida(double factor) {
+		this.vida.multiplicarVida(factor);
 	}
 
 }

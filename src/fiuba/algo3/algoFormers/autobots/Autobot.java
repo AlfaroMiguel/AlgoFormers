@@ -21,7 +21,7 @@ public class Autobot extends Algoformer{
 	
 	@Override
 	public void serAtacado(Decepticon atacante, int ataque){
-		this.vida = this.vida - ataque;
+		this.vida.sacarVida(ataque);
 	}
 
 	@Override

@@ -10,14 +10,21 @@ public interface HabitableDelMapa {
 
 	public void colisionar();
 	public boolean ocupaLugar();
+	
 	public void serAtacado(Autobot atacante, int ataque);
 	public void serAtacado(Decepticon atacante, int ataque);
+	
 	public void serSeleccionado(EquipoAutobots equipoAutobots);
 	public void serSeleccionado(EquipoDecepticons equipoDecepticons);
+	
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra);
 	public void reaccionarASuperficie(SuperficieAire superficieTierra);
+	
 	public void serAfectado(SuperficieAire superficieAire);
-	public void serDesafectado(SuperficieTierra superficieTierra);
-	public void serAfectado(SuperficieTierra superficieTierra);
 	public void serDesafectado(SuperficieAire superficieAire);
+	
+	public void serAfectado(SuperficieTierra superficieTierra);
+	public void serDesafectado(SuperficieTierra superficieTierra);
+	
+	
 }
