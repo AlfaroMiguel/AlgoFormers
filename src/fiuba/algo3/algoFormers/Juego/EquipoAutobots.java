@@ -7,9 +7,9 @@ import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 public class EquipoAutobots extends Equipo {
 	
-	protected Optimus optimus;
-	protected Bumblebee bumblebee;
-	protected Ratchet ratchet;
+	public Optimus optimus;
+	public Bumblebee bumblebee;
+	public Ratchet ratchet;
 	
 	public EquipoAutobots(){
 		this.optimus = new Optimus();
@@ -67,6 +67,11 @@ public class EquipoAutobots extends Equipo {
 		integrantes.add(this.ratchet);
 		UbicadorDePersonajes.posicionarEquipoAutobot(integrantes,tablero);
 		}
+
+	@Override
+	public void combinarAlgoformers(Tablero tablero) {
+		tablero.combinarAlgoformers(this.optimus, this.ratchet, this.bumblebee, this.distanciaMinimaCombinacion);
+	}
 	
 
 }

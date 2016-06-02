@@ -44,6 +44,11 @@ public class Jugador{
 	public void ubicarPersonajes() {
 		 this.equipo.ubicarPersonajes(this.tablero);
 	}
+	
+	public void combinarAlgoformers(){
+		this.equipo.combinarAlgoformers(tablero);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

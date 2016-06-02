@@ -9,13 +9,13 @@ public abstract class Equipo{
 	
 	protected Algoformer algoformerActual;
 	public int distanciaMinimaCombinacion;
+
+	public abstract void combinarAlgoformers(Tablero tablero);
+	public abstract void ubicarPersonajes(Tablero tablero);
+	public abstract void seleccionarAlgoformer(HabitableDelMapa seleccionado);
 	
 	public Equipo(){
 		this.distanciaMinimaCombinacion = 1;
-	}
-	
-	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
-		this.seleccionarAlgoformer(seleccionado);
 	}
 	
 	public void setAlgoformerActual(Algoformer algoformer){
@@ -33,8 +33,7 @@ public abstract class Equipo{
 	public Algoformer verAlgoformerActual() {
 		return this.algoformerActual;
 	}
-	public void ubicarPersonajes(Tablero tablero) {
-			}
+
 	
 	public void atacar(Tablero tablero, HabitableDelMapa atacado){
 		this.algoformerActual.atacar(tablero, atacado);

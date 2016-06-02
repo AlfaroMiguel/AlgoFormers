@@ -1,4 +1,5 @@
 package fiuba.algo3.algoFormers.Tablero;
+
 import java.util.*;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
@@ -92,7 +93,7 @@ public class Tablero {
 			this.validarDistancias(coordOptimus, coordRatchet, coordBumblebee, distMinimaCombinacion);
 		}
 		catch (Throwable DistanciaInvalidaException){
-			throw new NoCombinablesException();
+			throw new NoCombinableException();
 		}
 		Superion superion = new Superion(optimus, ratchet, bumblebee);
 		this.put(superion, coordOptimus);
@@ -108,7 +109,7 @@ public class Tablero {
 			this.validarDistancias(coordMegatron, coordBonecrusher, coordFrenzy, distMinimaCombinacion);
 		}
 		catch (Throwable DistanciaInvalidaException){
-			throw new NoCombinablesException();
+			throw new NoCombinableException();
 		}
 		Menasor menasor = new Menasor(megatron, bonecrusher, frenzy);
 		this.put(menasor, coordMegatron);

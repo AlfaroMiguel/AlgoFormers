@@ -8,8 +8,7 @@ import org.junit.Test;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
-import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
-import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.excepciones.*;
 
 public class TableroTests {
 	
@@ -78,7 +77,7 @@ public class TableroTests {
 		tablero.put(optimus,coordenada);
 	}
 	@Test
-	public void test08ElTableroCreaSuperionConVidaCorrectaADistanciaCorrecta(){
+	public void test08ElTableroCreaSuperionADistanciaCorrecta(){
 		Optimus optimus = new Optimus();
 		Bumblebee bumblebee = new Bumblebee();
 		Ratchet ratchet = new Ratchet();
@@ -91,7 +90,24 @@ public class TableroTests {
 		tablero.put(ratchet, coordRatchet);
 		tablero.combinarAlgoformers(optimus, ratchet, bumblebee, 1);
 		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus).getClass(), Superion.class);
-//		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus), ) PROBAR VIDA
+		assertTrue(tablero.estaVacio(coordBumblebee));
+		assertTrue(tablero.estaVacio(coordRatchet));
 	}
 	
+	@Test (expected = NoCombinableException.class)
+	public void test09ElTableroNoCreaSuperionADistanciaIncorrecta(){
+		Optimus optimus = new Optimus();
+		Bumblebee bumblebee = new Bumblebee();
+		Ratchet ratchet = new Ratchet();
+		Tablero tablero = new Tablero(10,10);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		Coordenada coordRatchet = new Coordenada(2,3);
+		Coordenada coordBumblebee = new Coordenada(1,5);
+		tablero.put(optimus, coordOptimus);
+		tablero.put(bumblebee, coordBumblebee);
+		tablero.put(ratchet, coordRatchet);
+		tablero.combinarAlgoformers(optimus, ratchet, bumblebee, 1);
+	}
+
+	// FALTA PROBAR QUE SE PONGA BIEN LA VIDA DEL SUPERION Y PROBAR TODO LO MISMO CON MENASOR
 }
