@@ -1,7 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import java.util.*;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
@@ -16,7 +15,6 @@ public class EquipoAutobots extends Equipo {
 		this.optimus = new Optimus();
 		this.bumblebee = new Bumblebee();
 		this.ratchet = new Ratchet();
-		
 		this.algoformerActual = optimus;
 	}
 

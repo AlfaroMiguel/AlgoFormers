@@ -8,8 +8,10 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 public abstract class Equipo{
 	
 	protected Algoformer algoformerActual;
+	public int distanciaMinimaCombinacion;
 	
 	public Equipo(){
+		this.distanciaMinimaCombinacion = 1;
 	}
 	
 	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){

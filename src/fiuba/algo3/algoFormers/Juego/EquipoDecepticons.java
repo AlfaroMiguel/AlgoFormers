@@ -17,8 +17,6 @@ public class EquipoDecepticons extends Equipo {
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
 		this.bonecrusher = new Bonecrusher();
-		
-
 		this.algoformerActual = megatron;
 	}
 

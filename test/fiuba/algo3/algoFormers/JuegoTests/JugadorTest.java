@@ -104,7 +104,7 @@ public class JugadorTest {
 	jugador.seleccionarAlgoformer(coordenada);
 	
 	jugador.mover(nuevaCoordenada);
-	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 	@Test
@@ -121,7 +121,7 @@ public class JugadorTest {
 	 
 	jugador.mover(nuevaCoordenada);
 	
-	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 }

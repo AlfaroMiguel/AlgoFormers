@@ -24,7 +24,6 @@ public class Autobot extends Algoformer{
 		this.vida = this.vida - ataque;
 	}
 
-
 	@Override
 	public void atacar(Tablero tablero, HabitableDelMapa atacado) {
 		this.modo.atacar(tablero,this,atacado);	
