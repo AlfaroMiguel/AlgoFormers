@@ -7,21 +7,19 @@ import fiuba.algo3.algoFormers.Habitables.Vacio;
 public class GeneradorDeCoordenadas {
 
 	public static void generarCasillerosDelTablero(HashMap<Coordenada,Casillero> tablero,int height, int width){
-		for(int i=0;i<=height;i++){
-			for(int j=0;j<=width;j++){
-				Coordenada coordenada = new Coordenada(i,j);
-				//Casillero casillero = new Casillero();
-				//tablero.put(coordenada,casillero);
-			}
+		for (int q = 0; q < width; q++) {
+		    int q_offset = (int)Math.floor(q/2); // or q>>1
+		    for (int r = -q_offset; r < height - q_offset; r++) {
+		        tablero.put(new Coordenada(q,r),new Casillero());
+		    }
 		}
 	}
 	public static void generarCoordenadasDelTablero(HashMap<Coordenada,HabitableDelMapa> tablero,int height, int width){
-		for(int i=0;i<=height;i++){
-			for(int j=0;j<=width;j++){
-				Coordenada coordenada = new Coordenada(i,j);
-				Vacio vacio = new Vacio();
-				tablero.put(coordenada,vacio);
-			}
+		for (int q = 0; q < width; q++) {
+		    int q_offset = (int)Math.floor(q/2); // or q>>1
+		    for (int r = -q_offset; r < height - q_offset; r++) {
+		        tablero.put(new Coordenada(q,r),new Vacio());
+		    }
 		}
 	}
 }
