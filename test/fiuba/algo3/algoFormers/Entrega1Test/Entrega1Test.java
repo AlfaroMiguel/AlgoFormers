@@ -64,7 +64,7 @@ public class Entrega1Test {
 	public void test04UbicarAlternoYMoverAPosicionValida(){
 		Optimus optimus = new Optimus();
 		optimus.cambiarModo();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordenadaInic = new Coordenada(3,4);
 		tablero.put(optimus,coordenadaInic);
 		Coordenada coordenadaFinal = new Coordenada(3,9);
@@ -117,7 +117,7 @@ public class Entrega1Test {
 	public void test08AutobotAtacarAutobotDistanciaIncorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,10);
 		tablero.put(optimus,coordOptimus);

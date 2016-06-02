@@ -61,7 +61,7 @@ public class algoformersTest {
 	public void test05AutobotAtacarAutobotDistanciaIncorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,10);
 		tablero.put(optimus,coordOptimus);

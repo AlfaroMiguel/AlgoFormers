@@ -14,14 +14,14 @@ public class CoordenadaTest {
 		Coordenada coordenada2 = new Coordenada(1,3);
 		Assert.assertEquals("Las coordenadas NO se comparan correctamente", coordenada1,coordenada2 );
 	}
-	@Test
+	/*@Test
 	public void test02LasCoordenadasSeSumanCorrectamente(){
 		Coordenada coordenada1 = new Coordenada(2,4);
 		Coordenada coordenada2 = new Coordenada(1,3);
 		coordenada1.add(coordenada2);
 		Coordenada coordenada3 = new Coordenada(3,7);
 		Assert.assertEquals("Las coordenadas NO se comparan correctamente", coordenada1,coordenada3 );
-	}
+	}*/
 	@Test
 	public void test03LaDistanciaDeLasCoordenadasSeCalculanCorrectamente(){
 		Coordenada coordenada1 = new Coordenada(1,4);

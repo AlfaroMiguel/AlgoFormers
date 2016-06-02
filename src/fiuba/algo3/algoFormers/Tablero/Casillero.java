@@ -5,9 +5,13 @@ import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 public class Casillero {
 	private SuperficieAire aire;
 	private SuperficieTierra tierra;
-	public Casillero(SuperficieAire aire,SuperficieTierra tierra){
-		this.aire = aire;
+	public Casillero(){
+	}
+	public void agregarSuperficie(SuperficieTierra tierra){
 		this.tierra = tierra;
+	}
+	public void agregarSuperficie(SuperficieAire aire){
+		this.aire = aire;
 	}
 	public void producirEfecto(HabitableDelMapa afectado){
 		this.aire.producirEfecto(afectado);
