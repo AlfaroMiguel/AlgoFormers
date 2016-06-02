@@ -11,49 +11,13 @@ public class EquipoDecepticons extends Equipo {
 	protected Megatron megatron;
 	protected Frenzy frenzy;
 	protected Bonecrusher bonecrusher;
+	public Menasor menasor;
 	
 	public EquipoDecepticons(){
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
 		this.bonecrusher = new Bonecrusher();
 		this.algoformerActual = megatron;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((bonecrusher == null) ? 0 : bonecrusher.hashCode());
-		result = prime * result + ((frenzy == null) ? 0 : frenzy.hashCode());
-		result = prime * result + ((megatron == null) ? 0 : megatron.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EquipoDecepticons other = (EquipoDecepticons) obj;
-		if (bonecrusher == null) {
-			if (other.bonecrusher != null)
-				return false;
-		} else if (!bonecrusher.equals(other.bonecrusher))
-			return false;
-		if (frenzy == null) {
-			if (other.frenzy != null)
-				return false;
-		} else if (!frenzy.equals(other.frenzy))
-			return false;
-		if (megatron == null) {
-			if (other.megatron != null)
-				return false;
-		} else if (!megatron.equals(other.megatron))
-			return false;
-		return true;
 	}
 	
 	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
@@ -71,6 +35,13 @@ public class EquipoDecepticons extends Equipo {
 	
 	@Override
 	public void combinarAlgoformers(Tablero tablero) {
-		tablero.combinarAlgoformers(this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+		Menasor menasor = new Menasor(this.megatron, this.bonecrusher, this.frenzy);
+		this.menasor = menasor;
+		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+	}
+
+	@Override
+	public void descombinarAlgoformers(Tablero tablero) {
+		tablero.descombinarAlgoformers(menasor);
 	}
 }

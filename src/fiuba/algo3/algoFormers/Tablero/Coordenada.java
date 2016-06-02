@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.Tablero;
 
-
+import java.util.ArrayList;
 
 public class Coordenada {
 	private int coordX;
@@ -9,10 +9,12 @@ public class Coordenada {
 		coordX = x;
 		coordY = y;
 	}
+	
 	public void add(Coordenada otra){
 		this.coordX += otra.coordX;
 		this.coordY += otra.coordY;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -36,8 +38,9 @@ public class Coordenada {
 			return false;
 		return true;
 	}
+	
 	public double distancia(Coordenada otra) {
 		return Math.sqrt((this.coordX-otra.coordX)*(this.coordX-otra.coordX) + (this.coordY - otra.coordY)*(this.coordY-otra.coordY));
 	}
-
+	
 }

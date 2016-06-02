@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.TableroTests;
 
+import java.util.ArrayList;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,4 +31,5 @@ public class CoordenadaTest {
 		double largo = 1;
 		Assert.assertTrue("La distancia entre las coordenadas NO se calcula correctamente",coordenada1.distancia(coordenada2)==largo);
 	}
+
 }

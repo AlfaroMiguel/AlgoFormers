@@ -14,4 +14,16 @@ public class Superion extends Autobot {
 		this.vida = optimus.verVida() + ratchet.verVida() + bumblebee.verVida();
 		this.modo = SuperionTerrestre.getInstance();
 	}
+
+	public Optimus getOptimus() {
+		return this.optimus;
+	}
+	
+	public Bumblebee getBumblebee(){
+		return this.bumblebee;
+	}
+	
+	public Ratchet getRatchet(){
+		return this.ratchet;
+	}
 }

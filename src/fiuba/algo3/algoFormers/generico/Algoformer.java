@@ -23,6 +23,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public abstract void serAtacado(Decepticon atacante, int ataque);
 	public abstract void serSeleccionado(EquipoAutobots equipoAutobot);
 	public abstract void serSeleccionado(EquipoDecepticons equipoDecepticon);
+	//el algoformer no sabe como componerse?
 	
 	public Algoformer(){
 	}
@@ -74,8 +75,5 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public void serDesafectado(SuperficieAire superficieAire){
 		
 	}
-//	//todavia no se como manejar esto
-//	public void componerse(){
-//	}
 
 }

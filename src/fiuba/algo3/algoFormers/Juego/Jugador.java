@@ -6,7 +6,6 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class Jugador{
 	protected Equipo equipo;
-	//Va a tener nombre, es necesario?
 	protected Tablero tablero;
 	
 	public Jugador(Equipo equipo, Tablero tablero){
@@ -23,11 +22,11 @@ public class Jugador{
 	}
 	
 	public void atacar(Coordenada coordenadaDestino) {
-		this.equipo.atacar(tablero, this.tablero.obtenerHabitableEnCoordenada(coordenadaDestino));
+		this.equipo.atacar(this.tablero, this.tablero.obtenerHabitableEnCoordenada(coordenadaDestino));
 	}
 	
 	public void mover(Coordenada coordenada) {
-		this.equipo.mover(coordenada, tablero);
+		this.equipo.mover(coordenada, this.tablero);
 	}
 	
 	public void transformarAlgoformer(){
@@ -35,10 +34,7 @@ public class Jugador{
 	}
 	
 	public boolean ubicoSusPersonajes() {
-		 if (this.tablero.obtenerCoordenadaDeHabitable(this.verAlgoformerActual()) == null){
-			 return false;
-		 }
-		 return true;
+		 return !(this.tablero.obtenerCoordenadaDeHabitable(this.verAlgoformerActual()) == null);
 	 }
 	
 	public void ubicarPersonajes() {
@@ -46,32 +42,12 @@ public class Jugador{
 	}
 	
 	public void combinarAlgoformers(){
-		this.equipo.combinarAlgoformers(tablero);
+		this.equipo.combinarAlgoformers(this.tablero);
 	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((equipo == null) ? 0 : equipo.hashCode());
-		return result;
+	public void descombinarAlgoformers(){
+		this.equipo.descombinarAlgoformers(this.tablero);
 	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jugador other = (Jugador) obj;
-		if (equipo == null) {
-			if (other.equipo != null)
-				return false;
-		} else if (!equipo.equals(other.equipo))
-			return false;
-		return true;
-	}
+	
 	
 }

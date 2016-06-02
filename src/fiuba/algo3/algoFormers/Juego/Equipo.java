@@ -11,6 +11,7 @@ public abstract class Equipo{
 	public int distanciaMinimaCombinacion;
 
 	public abstract void combinarAlgoformers(Tablero tablero);
+	public abstract void descombinarAlgoformers(Tablero tablero);
 	public abstract void ubicarPersonajes(Tablero tablero);
 	public abstract void seleccionarAlgoformer(HabitableDelMapa seleccionado);
 	

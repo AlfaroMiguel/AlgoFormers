@@ -14,5 +14,17 @@ public class Menasor extends Decepticon {
 		this.vida = megatron.verVida() + bonecrusher.verVida() + frenzy.verVida();
 		this.modo = MenasorTerrestre.getInstance();
 	}
+
+	public Megatron getMegatron() {
+		return this.megatron;
+	}
+	
+	public Bonecrusher getBonecrusher(){
+		return this.bonecrusher;
+	}
+	
+	public Frenzy getFrenzy(){
+		return this.frenzy;
+	}
 }	
 	

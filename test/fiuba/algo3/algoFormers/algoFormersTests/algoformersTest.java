@@ -52,8 +52,8 @@ public class algoformersTest {
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,3);
-		tablero.put(optimus,coordOptimus);
-		tablero.put(ratchet, coordRatchet);
+		tablero.colocarEnTablero(optimus,coordOptimus);
+		tablero.colocarEnTablero(ratchet, coordRatchet);
 		ratchet.atacar(tablero,optimus);
 	}
 	
@@ -64,8 +64,8 @@ public class algoformersTest {
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,10);
-		tablero.put(optimus,coordOptimus);
-		tablero.put(ratchet, coordRatchet);
+		tablero.colocarEnTablero(optimus,coordOptimus);
+		tablero.colocarEnTablero(ratchet, coordRatchet);
 		ratchet.atacar(tablero,optimus);
 	}
 	
@@ -76,8 +76,8 @@ public class algoformersTest {
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,7);
-		tablero.put(optimus,coordOptimus);
-		tablero.put(ratchet, coordRatchet);
+		tablero.colocarEnTablero(optimus,coordOptimus);
+		tablero.colocarEnTablero(ratchet, coordRatchet);
 		ratchet.atacar(tablero,optimus);
 	}
 	
@@ -88,8 +88,8 @@ public class algoformersTest {
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordBonecrusher = new Coordenada(1,4);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(bonecrusher, coordBonecrusher);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(bonecrusher, coordBonecrusher);
 		bonecrusher.atacar(tablero, megatron);
 	}
 	
@@ -100,8 +100,8 @@ public class algoformersTest {
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordBonecrusher = new Coordenada(1,7);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(bonecrusher, coordBonecrusher);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(bonecrusher, coordBonecrusher);
 		bonecrusher.atacar(tablero, megatron);
 	}
 	
@@ -112,8 +112,8 @@ public class algoformersTest {
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordBonecrusher = new Coordenada(1,5);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(bonecrusher, coordBonecrusher);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(bonecrusher, coordBonecrusher);
 		bonecrusher.atacar(tablero, megatron);
 	}
 
@@ -125,8 +125,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,3);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		optimus.atacar(tablero,megatron);
 		assertEquals(megatron.verVida(), 500);
 		optimus.cambiarModo();
@@ -142,8 +142,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,7);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		optimus.atacar(tablero,megatron);
 	}
 	
@@ -154,8 +154,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,4);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		optimus.atacar(tablero,megatron);
 		assertEquals(megatron.verVida(), 500);
 	}
@@ -167,8 +167,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,3);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		megatron.atacar(tablero, optimus);
 		assertEquals(optimus.verVida(), 490);
 		optimus.cambiarModo();
@@ -184,8 +184,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,7);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		megatron.atacar(tablero, optimus);
 	}
 	
@@ -196,8 +196,8 @@ public class algoformersTest {
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
 		Coordenada coordOptimus = new Coordenada(1,5);
-		tablero.put(megatron,coordMegatron);
-		tablero.put(optimus, coordOptimus);
+		tablero.colocarEnTablero(megatron,coordMegatron);
+		tablero.colocarEnTablero(optimus, coordOptimus);
 		megatron.atacar(tablero, optimus);
 		assertEquals(optimus.verVida(), 490);
 	}

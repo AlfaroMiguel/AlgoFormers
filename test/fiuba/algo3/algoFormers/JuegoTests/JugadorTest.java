@@ -25,7 +25,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(autobots, tablero);
 		Optimus optimus = new Optimus();
 		Coordenada coordenada = new Coordenada(2,4);
-		tablero.put(optimus, coordenada);
+		tablero.colocarEnTablero(optimus, coordenada);
 		jugador.seleccionarAlgoformer(coordenada);
 		assertEquals(jugador.verAlgoformerActual(), optimus);
 	}
@@ -37,7 +37,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(autobots, tablero);
 		Megatron megatron = new Megatron();
 		Coordenada coordenada = new Coordenada(2,4);
-		tablero.put(megatron, coordenada);
+		tablero.colocarEnTablero(megatron, coordenada);
 		jugador.seleccionarAlgoformer(coordenada);
 	}
 	
@@ -48,7 +48,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Optimus optimus = new Optimus();
 		Coordenada coordenada = new Coordenada(2,4);
-		tablero.put(optimus, coordenada);
+		tablero.colocarEnTablero(optimus, coordenada);
 		jugador.seleccionarAlgoformer(coordenada);
 	}
 	
@@ -59,7 +59,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Megatron megatron = new Megatron();
 		Coordenada coordenada = new Coordenada(2,4);
-		tablero.put(megatron, coordenada);
+		tablero.colocarEnTablero(megatron, coordenada);
 		jugador.seleccionarAlgoformer(coordenada);
 		assertEquals(jugador.verAlgoformerActual(), megatron);
 	}
@@ -71,7 +71,7 @@ public class JugadorTest {
 		Jugador jugador = new Jugador(decepticons, tablero);
 		Vacio espacioVacio = new Vacio();
 		Coordenada coordenada = new Coordenada(2,4);
-		tablero.put(espacioVacio, coordenada);
+		tablero.colocarEnTablero(espacioVacio, coordenada);
 		jugador.seleccionarAlgoformer(coordenada);
 	}
 	
@@ -84,8 +84,8 @@ public class JugadorTest {
 	Frenzy frenzy = new Frenzy();
 	Coordenada coordenadaOptimus= new Coordenada(2,3);
 	Coordenada coordenadaFrenzy = new Coordenada(2,5);
-	tablero.put(optimus, coordenadaOptimus);
-	tablero.put(frenzy, coordenadaFrenzy);
+	tablero.colocarEnTablero(optimus, coordenadaOptimus);
+	tablero.colocarEnTablero(frenzy, coordenadaFrenzy);
 	jugador.seleccionarAlgoformer(coordenadaOptimus);
 	jugador.atacar(coordenadaFrenzy);
 	assertEquals(frenzy.verVida(),350);
@@ -99,7 +99,7 @@ public class JugadorTest {
 	Optimus optimus = new Optimus();
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,1);
-	tablero.put(optimus, coordenada); 
+	tablero.colocarEnTablero(optimus, coordenada); 
 	jugador.seleccionarAlgoformer(coordenada);
 	
 	jugador.mover(nuevaCoordenada);
@@ -114,7 +114,7 @@ public class JugadorTest {
 	Optimus optimus = new Optimus();
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,8);
-	tablero.put(optimus, coordenada);
+	tablero.colocarEnTablero(optimus, coordenada);
 	jugador.seleccionarAlgoformer(coordenada);
 	jugador.transformarAlgoformer();
 	jugador.mover(nuevaCoordenada);
@@ -127,9 +127,9 @@ public class JugadorTest {
 		Tablero tablero = new Tablero(10,10);
 		Jugador jugador = new Jugador(equipoAutobots, tablero);
 		Coordenada coordOptimus = new Coordenada(1,2);
-		tablero.put(equipoAutobots.optimus, coordOptimus);
-		tablero.put(equipoAutobots.bumblebee, new Coordenada(1,3));
-		tablero.put(equipoAutobots.ratchet, new Coordenada(1,4));
+		tablero.colocarEnTablero(equipoAutobots.optimus, coordOptimus);
+		tablero.colocarEnTablero(equipoAutobots.bumblebee, new Coordenada(1,3));
+		tablero.colocarEnTablero(equipoAutobots.ratchet, new Coordenada(1,4));
 		jugador.combinarAlgoformers();
 		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus).getClass(), Superion.class);
 	}

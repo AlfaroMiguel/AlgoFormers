@@ -19,7 +19,7 @@ public class Tablero {
 		return !(this.habitables.get(coordenada).ocupaLugar());
 
 	}
-	public void put(HabitableDelMapa habitable,Coordenada coordenada){
+	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
 		try{
 			this.habitables.get(coordenada).colisionar();
 			//habitable.recibir(this.habitables.get(coordenada));
@@ -29,7 +29,7 @@ public class Tablero {
 			throw new MovimientoInvalidoException();
 		}
 	}
-	public void put(Collectable collectable,Coordenada coordenada){
+	public void colocarEnTablero(Collectable collectable,Coordenada coordenada){
 		if(!this.habitables.get(coordenada).ocupaLugar()){
 			this.habitables.put(coordenada, collectable);
 			return;
@@ -41,7 +41,7 @@ public class Tablero {
 		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(habitable);
 		if(coordInic.distancia(coordenadaFinal)>paso)
 			throw new MovimientoInvalidoException();
-		this.put(habitable,coordenadaFinal);
+		this.colocarEnTablero(habitable,coordenadaFinal);
 		this.habitables.put(coordInic,new Vacio());
 	}
 
@@ -82,10 +82,10 @@ public class Tablero {
 	}
 	
 	private void vaciarCoordenada(Coordenada coordenada){
-		this.put(new Vacio(), coordenada);
+		this.colocarEnTablero(new Vacio(), coordenada);
 	}
 	
-	public void combinarAlgoformers(Optimus optimus, Ratchet ratchet, Bumblebee bumblebee, int distMinimaCombinacion){
+	public void combinarAlgoformers(Superion superion, Optimus optimus, Ratchet ratchet, Bumblebee bumblebee, int distMinimaCombinacion){
 		Coordenada coordOptimus = this.obtenerCoordenadaDeHabitable(optimus);
 		Coordenada coordRatchet = this.obtenerCoordenadaDeHabitable(ratchet);
 		Coordenada coordBumblebee = this.obtenerCoordenadaDeHabitable(bumblebee);
@@ -95,13 +95,12 @@ public class Tablero {
 		catch (Throwable DistanciaInvalidaException){
 			throw new NoCombinableException();
 		}
-		Superion superion = new Superion(optimus, ratchet, bumblebee);
-		this.put(superion, coordOptimus);
+		this.colocarEnTablero(superion, coordOptimus);
 		this.vaciarCoordenada(coordRatchet);
 		this.vaciarCoordenada(coordBumblebee);
 	}
 	
-	public void combinarAlgoformers(Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
+	public void combinarAlgoformers(Menasor menasor, Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
 		Coordenada coordMegatron = this.obtenerCoordenadaDeHabitable(megatron);
 		Coordenada coordBonecrusher = this.obtenerCoordenadaDeHabitable(bonecrusher);
 		Coordenada coordFrenzy = this.obtenerCoordenadaDeHabitable(frenzy);
@@ -111,13 +110,41 @@ public class Tablero {
 		catch (Throwable DistanciaInvalidaException){
 			throw new NoCombinableException();
 		}
-		Menasor menasor = new Menasor(megatron, bonecrusher, frenzy);
-		this.put(menasor, coordMegatron);
+		this.colocarEnTablero(menasor, coordMegatron);
 		this.vaciarCoordenada(coordBonecrusher);
 		this.vaciarCoordenada(coordFrenzy);
 	}
-
-
+	
+	public void descombinarAlgoformers(Superion superion){
+		Optimus optimus = superion.getOptimus();
+		Bumblebee bumblebee = superion.getBumblebee();
+		Ratchet ratchet = superion.getRatchet();
+		
+		Coordenada coordSuperion = this.obtenerCoordenadaDeHabitable(superion);
+		
+		this.colocarEnTablero(optimus, coordSuperion);
+		this.colocarHabitableEnPosicionValidaDesde(bumblebee, coordSuperion);
+		this.colocarHabitableEnPosicionValidaDesde(ratchet,coordSuperion);
+	}
+	
+	public void descombinarAlgoformers(Menasor menasor){
+		Megatron megatron = menasor.getMegatron();
+		Bonecrusher bonecrusher = menasor.getBonecrusher();
+		Frenzy frenzy = menasor.getFrenzy();
+		
+		Coordenada coordMenasor = this.obtenerCoordenadaDeHabitable(menasor);
+		
+		this.colocarEnTablero(megatron, coordMenasor);
+		this.colocarHabitableEnPosicionValidaDesde(bonecrusher, coordMenasor);
+		this.colocarHabitableEnPosicionValidaDesde(frenzy, coordMenasor);
+	}
+	
+	public void colocarHabitableEnPosicionValidaDesde(HabitableDelMapa habitable, Coordenada coordInicial){
+		Coordenada coordFinal = coordInicial;
+		while(!this.estaVacio(coordFinal)){
+			
+		}
+	}
 	
 	
 

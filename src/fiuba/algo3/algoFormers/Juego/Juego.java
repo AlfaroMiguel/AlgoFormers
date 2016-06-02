@@ -8,7 +8,7 @@ public class Juego {
 	protected Jugador jugadorActual;
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
-	
+
 	public Juego(){
 		this.tablero = new Tablero(20,20);
 		
@@ -26,7 +26,7 @@ public class Juego {
 	private void ubicarChispa() {
 		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
 		
-		this.tablero.put(chispaSuprema, coordenadaChispa());
+		this.tablero.colocarEnTablero(chispaSuprema, coordenadaChispa());
 		
 	}
 	
@@ -53,13 +53,21 @@ public class Juego {
  		}
  	
 	public void cambiarTurno(){
+		JugadorProxy jugadorProxy = new JugadorProxy(this.jugadorActual);
+		jugadorProxy.eliminarBonus();
 		Jugador jugadorAux = this.jugadorAnterior;
 		this.jugadorAnterior = this.jugadorActual;
 		this.jugadorActual = jugadorAux;
+		
 	}
 	
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
 	}
+	
+	public void combinarAlgoformers(){
+		this.jugadorActual.combinarAlgoformers();
+	}
+	
 	
 }
