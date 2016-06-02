@@ -1,14 +1,10 @@
 package fiuba.algo3.algoFormers.Tablero;
-import java.util.*;
 
-import fiuba.algo3.algoFormers.Habitables.Vacio;
-import fiuba.algo3.algoFormers.autobots.Autobot;
-import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
-import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
-import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
-import fiuba.algo3.algoFormers.Habitables.Collectable;
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import java.util.*;
+import fiuba.algo3.algoFormers.autobots.*;
+import fiuba.algo3.algoFormers.decepticons.*;
+import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.Habitables.*;
 
 
 public class Tablero {
@@ -42,14 +38,14 @@ public class Tablero {
 
 	}
 	public void mover(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
-		Coordenada coordInic = this.getKeyValue(habitable);
+		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(habitable);
 		if(coordInic.distancia(coordenadaFinal)>paso)
 			throw new MovimientoInvalidoException();
 		this.put(habitable,coordenadaFinal);
 		this.habitables.put(coordInic,new Vacio());
 	}
 
-	public Coordenada getKeyValue(HabitableDelMapa value){
+	public Coordenada obtenerCoordenadaDeHabitable(HabitableDelMapa value){
         for(Map.Entry<Coordenada, HabitableDelMapa> entry : this.habitables.entrySet()) {
             if(value.equals(entry.getValue())) {
                 return entry.getKey();
@@ -60,23 +56,69 @@ public class Tablero {
 	}
 	
 	public void coordinateAttack(Autobot atacante, int range, HabitableDelMapa atacado, int ataque) {
-		Coordenada coordInic = this.getKeyValue(atacante);
-		Coordenada coordFinal = this.getKeyValue(atacado);
+		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
+		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new OutOfRangeException();
 		atacado.serAtacado(atacante, ataque);
 	}
 	
 	public void coordinateAttack(Decepticon atacante, int range, HabitableDelMapa atacado, int ataque) {
-		Coordenada coordInic = this.getKeyValue(atacante);
-		Coordenada coordFinal = this.getKeyValue(atacado);
+		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
+		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new OutOfRangeException();
 		atacado.serAtacado(atacante, ataque);
 	}
 	
-	public HabitableDelMapa ver(Coordenada coordenada){
+	public HabitableDelMapa obtenerHabitableEnCoordenada(Coordenada coordenada){
 		return habitables.get(coordenada);
 	}
+	
+	private void validarDistancias(Coordenada coordUno, Coordenada coordDos, Coordenada coordTres, int distMinima){
+		if(coordUno.distancia(coordDos)>distMinima*2 || coordUno.distancia(coordTres)>distMinima*2 || coordDos.distancia(coordTres)>distMinima*2){
+			throw new DistanciaInvalidaException();
+		}
+	}
+	
+	private void vaciarCoordenada(Coordenada coordenada){
+		this.put(new Vacio(), coordenada);
+	}
+	
+	public void combinarAlgoformers(Optimus optimus, Ratchet ratchet, Bumblebee bumblebee, int distMinimaCombinacion){
+		Coordenada coordOptimus = this.obtenerCoordenadaDeHabitable(optimus);
+		Coordenada coordRatchet = this.obtenerCoordenadaDeHabitable(ratchet);
+		Coordenada coordBumblebee = this.obtenerCoordenadaDeHabitable(bumblebee);
+		try{
+			this.validarDistancias(coordOptimus, coordRatchet, coordBumblebee, distMinimaCombinacion);
+		}
+		catch (Throwable DistanciaInvalidaException){
+			throw new NoCombinableException();
+		}
+		Superion superion = new Superion(optimus, ratchet, bumblebee);
+		this.put(superion, coordOptimus);
+		this.vaciarCoordenada(coordRatchet);
+		this.vaciarCoordenada(coordBumblebee);
+	}
+	
+	public void combinarAlgoformers(Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
+		Coordenada coordMegatron = this.obtenerCoordenadaDeHabitable(megatron);
+		Coordenada coordBonecrusher = this.obtenerCoordenadaDeHabitable(bonecrusher);
+		Coordenada coordFrenzy = this.obtenerCoordenadaDeHabitable(frenzy);
+		try{
+			this.validarDistancias(coordMegatron, coordBonecrusher, coordFrenzy, distMinimaCombinacion);
+		}
+		catch (Throwable DistanciaInvalidaException){
+			throw new NoCombinableException();
+		}
+		Menasor menasor = new Menasor(megatron, bonecrusher, frenzy);
+		this.put(menasor, coordMegatron);
+		this.vaciarCoordenada(coordBonecrusher);
+		this.vaciarCoordenada(coordFrenzy);
+	}
+
+
+	
+	
 
 }

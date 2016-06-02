@@ -30,7 +30,7 @@ public class Entrega1Test {
 		int paso = 3;
 		tablero.mover(optimus,coordenadaFinal,paso);
 		assertTrue(tablero.estaVacio(coordenadaInic));
-		assertEquals(tablero.ver(coordenadaFinal), optimus);
+		assertEquals(tablero.obtenerHabitableEnCoordenada(coordenadaFinal), optimus);
 	}
 	
 	@Test (expected = MovimientoInvalidoException.class)
@@ -71,7 +71,7 @@ public class Entrega1Test {
 		int paso = 5;
 		tablero.mover(optimus,coordenadaFinal,paso);
 		assertTrue(tablero.estaVacio(coordenadaInic));
-		assertSame(tablero.ver(coordenadaFinal), optimus);
+		assertSame(tablero.obtenerHabitableEnCoordenada(coordenadaFinal), optimus);
 	}
 	
 	@Test (expected = MovimientoInvalidoException.class)

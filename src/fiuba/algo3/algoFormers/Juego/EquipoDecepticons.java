@@ -1,7 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
 import java.util.*;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
@@ -17,8 +16,6 @@ public class EquipoDecepticons extends Equipo {
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
 		this.bonecrusher = new Bonecrusher();
-		
-
 		this.algoformerActual = megatron;
 	}
 
@@ -71,4 +68,9 @@ public class EquipoDecepticons extends Equipo {
 		integrantes.add(this.frenzy);
 		UbicadorDePersonajes.posicionarEquipoDecepticon(integrantes,tablero);
 		}
+	
+	@Override
+	public void combinarAlgoformers(Tablero tablero) {
+		tablero.combinarAlgoformers(this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+	}
 }

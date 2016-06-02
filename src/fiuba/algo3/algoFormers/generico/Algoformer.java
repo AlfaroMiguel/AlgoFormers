@@ -17,7 +17,6 @@ public abstract class Algoformer implements HabitableDelMapa {
 	
 	protected Modo modo;
 	protected int vida;
-	public Tablero tablero;
 	
 	public abstract void atacar(Tablero tablero, HabitableDelMapa atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
@@ -26,10 +25,6 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public abstract void serSeleccionado(EquipoDecepticons equipoDecepticon);
 	
 	public Algoformer(){
-	}
-	
-	public void setTablero(Tablero tablero){
-		this.tablero = tablero;
 	}
 	
 	public void moverse(Coordenada coordenada, Tablero tablero){

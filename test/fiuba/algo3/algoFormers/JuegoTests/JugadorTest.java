@@ -76,7 +76,7 @@ public class JugadorTest {
 	}
 	
 	@Test
-	public void test01UnJugadorAtacaConSuTransformerAOtroDeOtroEauipo(){
+	public void test06UnJugadorAtacaConSuTransformerAOtroDeOtroEquipo(){
 	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(autobots, tablero);
@@ -87,13 +87,12 @@ public class JugadorTest {
 	tablero.put(optimus, coordenadaOptimus);
 	tablero.put(frenzy, coordenadaFrenzy);
 	jugador.seleccionarAlgoformer(coordenadaOptimus);
-
 	jugador.atacar(coordenadaFrenzy);
 	assertEquals(frenzy.verVida(),350);
 	}
 	
 	@Test
-	public void test02UnJugadorMueveASuTransformerHumanoide(){
+	public void test07UnJugadorMueveASuTransformerHumanoide(){
 	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(autobots, tablero);
@@ -104,11 +103,11 @@ public class JugadorTest {
 	jugador.seleccionarAlgoformer(coordenada);
 	
 	jugador.mover(nuevaCoordenada);
-	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 	@Test
-	public void test03UnJugadorMueveASuTransformerAlterno(){
+	public void test08UnJugadorMueveASuTransformerAlterno(){
 	Equipo equipoAutobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
 	Jugador jugador = new Jugador(equipoAutobots, tablero);
@@ -118,10 +117,20 @@ public class JugadorTest {
 	tablero.put(optimus, coordenada);
 	jugador.seleccionarAlgoformer(coordenada);
 	jugador.transformarAlgoformer();
-	 
 	jugador.mover(nuevaCoordenada);
-	
-	assertEquals(tablero.getKeyValue(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
+	@Test
+	public void test09UnJugadorCombinaASuAlgoformer(){
+		EquipoAutobots equipoAutobots = new EquipoAutobots();
+		Tablero tablero = new Tablero(10,10);
+		Jugador jugador = new Jugador(equipoAutobots, tablero);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		tablero.put(equipoAutobots.optimus, coordOptimus);
+		tablero.put(equipoAutobots.bumblebee, new Coordenada(1,3));
+		tablero.put(equipoAutobots.ratchet, new Coordenada(1,4));
+		jugador.combinarAlgoformers();
+		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus).getClass(), Superion.class);
+	}
 }

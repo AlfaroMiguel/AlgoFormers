@@ -7,7 +7,7 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 public class Jugador{
 	protected Equipo equipo;
 	//Va a tener nombre, es necesario?
-	public Tablero tablero;
+	protected Tablero tablero;
 	
 	public Jugador(Equipo equipo, Tablero tablero){
 		this.equipo = equipo;
@@ -19,11 +19,11 @@ public class Jugador{
 	}
 
 	public void seleccionarAlgoformer(Coordenada coordenada){
-		this.equipo.seleccionarAlgoformer(this.tablero.ver(coordenada));
+		this.equipo.seleccionarAlgoformer(this.tablero.obtenerHabitableEnCoordenada(coordenada));
 	}
 	
 	public void atacar(Coordenada coordenadaDestino) {
-		this.equipo.atacar(tablero, this.tablero.ver(coordenadaDestino));
+		this.equipo.atacar(tablero, this.tablero.obtenerHabitableEnCoordenada(coordenadaDestino));
 	}
 	
 	public void mover(Coordenada coordenada) {
@@ -35,7 +35,7 @@ public class Jugador{
 	}
 	
 	public boolean ubicoSusPersonajes() {
-		 if (this.tablero.getKeyValue(this.verAlgoformerActual()) == null){
+		 if (this.tablero.obtenerCoordenadaDeHabitable(this.verAlgoformerActual()) == null){
 			 return false;
 		 }
 		 return true;
@@ -44,6 +44,11 @@ public class Jugador{
 	public void ubicarPersonajes() {
 		 this.equipo.ubicarPersonajes(this.tablero);
 	}
+	
+	public void combinarAlgoformers(){
+		this.equipo.combinarAlgoformers(tablero);
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
