@@ -29,4 +29,5 @@ public class Casillero {
 		this.aire.simularRecorrido(transeunte);
 		this.tierra.simularRecorrido(transeunte);
 	}
+	
 }

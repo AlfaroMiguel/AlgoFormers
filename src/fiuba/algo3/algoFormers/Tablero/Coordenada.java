@@ -1,52 +1,7 @@
-<<<<<<< HEAD
+
 package fiuba.algo3.algoFormers.Tablero;
 
 import java.util.ArrayList;
-
-public class Coordenada {
-	private int coordX;
-	private int coordY;
-	public Coordenada(int x,int y){
-		coordX = x;
-		coordY = y;
-	}
-	
-	public void add(Coordenada otra){
-		this.coordX += otra.coordX;
-		this.coordY += otra.coordY;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + coordX;
-		result = prime * result + coordY;
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Coordenada other = (Coordenada) obj;
-		if (coordX != other.coordX)
-			return false;
-		if (coordY != other.coordY)
-			return false;
-		return true;
-	}
-	
-	public double distancia(Coordenada otra) {
-		return Math.sqrt((this.coordX-otra.coordX)*(this.coordX-otra.coordX) + (this.coordY - otra.coordY)*(this.coordY-otra.coordY));
-	}
-	
-}
-=======
-package fiuba.algo3.algoFormers.Tablero;
 
 import java.util.*;
 
@@ -88,13 +43,13 @@ public class Coordenada {
 	    		add(new Coordenada(0, 1));}
 	    	};
 	    	
-	    public ArrayList<Coordenada> neighborsInRange(Coordenada hex, int range){
+	    public static ArrayList<Coordenada> neighborsInRange(Coordenada hex, int range){
 	    	ArrayList<Coordenada> vecinosEnRango = new ArrayList<Coordenada>();
 	    	if(range==0)return vecinosEnRango;
 	    	for(int j=0; j<6;j++){
 	    			if(!vecinosEnRango.contains(neighbor(hex, j)))
 	    				vecinosEnRango.add(neighbor(hex,j));
-	    			vecinosEnRango.addAll(this.neighborsInRange(neighbor(hex,j),range-1));
+	    			vecinosEnRango.addAll(neighborsInRange(neighbor(hex,j),range-1));
 	    	}
 	    	return vecinosEnRango;
 	    }
@@ -160,5 +115,3 @@ public class Coordenada {
 
 }
 
-
->>>>>>> 6e51216314e2c0cf8f36ce9f4d0b8d559451d322
