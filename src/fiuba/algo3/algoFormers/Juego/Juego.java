@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.Juego;
 
+import java.util.List;
+
 import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
 import fiuba.algo3.algoFormers.Tablero.*;
 
@@ -67,6 +69,10 @@ public class Juego {
 	
 	public void combinarAlgoformers(){
 		this.jugadorActual.combinarAlgoformers();
+	}
+
+	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
+		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal);
 	}
 	
 	
