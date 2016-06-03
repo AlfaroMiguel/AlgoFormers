@@ -7,27 +7,29 @@ import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.generico.Agilidad;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Potencia;
 
-public abstract class ModoTerrestre implements Modo {
+public class ModoTerrestre implements Modo {
 	
 	protected int distAtaque;
 	protected int ataque;
 	protected int velocidad;
 	
 	@Override
-	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado) {
+	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
 	}
 
 	@Override
-	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado) {
+	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
 	}
 
 
 	@Override
-	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero) {
+	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero,Agilidad agilidad) {
 		tablero.mover(algoformer, coordenada, this.velocidad);
 	}
 	
@@ -39,15 +41,12 @@ public abstract class ModoTerrestre implements Modo {
 	@Override
 	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado){
 	}
-	
+
 	@Override
-	public void multiplicarVelocidad(double factor){
-		this.velocidad = (int)(Math.ceil(this.velocidad*factor));
+	public void cambiar(Algoformer algoformer) {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	@Override
-	public void multiplicarVida(double factor){
-	}
-	
+
 	
 }

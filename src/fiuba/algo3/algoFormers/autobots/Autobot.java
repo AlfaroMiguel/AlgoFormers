@@ -3,6 +3,8 @@ package fiuba.algo3.algoFormers.autobots;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -26,7 +28,7 @@ public class Autobot extends Algoformer{
 
 	@Override
 	public void atacar(Tablero tablero, HabitableDelMapa atacado) {
-		this.modo.atacar(tablero,this,atacado);	
+		this.modo.atacar(tablero,this,atacado,this.potencia);	
 	}
 	
 	@Override
@@ -38,4 +40,11 @@ public class Autobot extends Algoformer{
 	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
 		throw new EquipoInvalidoException();
 	}
+
+	@Override
+	public void serDesafectado(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

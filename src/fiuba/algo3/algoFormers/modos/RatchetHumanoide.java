@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class RatchetHumanoide extends ModoAereo {
+public class RatchetHumanoide extends ModoTerrestre {
 	
 	private static RatchetHumanoide instancia;
 	

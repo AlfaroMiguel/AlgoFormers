@@ -1,19 +1,13 @@
 package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.afectadores.*;
+import fiuba.algo3.algoFormers.efectos.EfectoPantano;
 
 public class SuperficiePantano extends SuperficieTierra {
 
-	@Override
-	public void producirEfecto(HabitableDelMapa afectado) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void revertirEfecto(HabitableDelMapa afectado) {
-		// TODO Auto-generated method stub
-
+	public SuperficiePantano(){
+		this.afectador = new AfectadorPorPosicion(new EfectoPantano());
 	}
 
 }
