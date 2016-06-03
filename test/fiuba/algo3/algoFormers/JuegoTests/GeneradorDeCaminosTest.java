@@ -18,11 +18,10 @@ public class GeneradorDeCaminosTest {
 	public void test01SeGeneraUnCaminoRecto() {
 		Tablero tablero = new Tablero(15,15);
 		List<Coordenada> caminoCorrecto = new ArrayList<Coordenada>(); 
-			caminoCorrecto.add(new Coordenada(1,4));
-			caminoCorrecto.add(new Coordenada(2,4));
-			caminoCorrecto.add(new Coordenada(3,4));
+			//caminoCorrecto.add(new Coordenada(1,4));
 			caminoCorrecto.add(new Coordenada(4,4));
-
+			caminoCorrecto.add(new Coordenada(3,4));
+			caminoCorrecto.add(new Coordenada(2,4));
 		List<Coordenada> caminoEncontrado = new ArrayList<Coordenada>();
 		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
 		Assert.assertEquals(caminoCorrecto,caminoEncontrado);

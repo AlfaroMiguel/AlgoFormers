@@ -36,7 +36,6 @@ public class HexGrid {
         	
         }
 	 	public static void pintarCamino(List<Coordenada> camino){
-	 		camino.add(new Coordenada(3,4));
 	 		//Genera el camino 
 	 		
 	 		// ahora recorro la lista y pinto los hex correspondientes

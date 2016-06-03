@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.Tablero;
 import fiuba.algo3.algoFormers.Tablero.*;
 
 
-public class Tupla {
+public class Tupla implements Comparable<Tupla>{
 	private Coordenada coord;
 	private int dist;
 	

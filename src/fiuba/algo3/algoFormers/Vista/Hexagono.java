@@ -37,6 +37,12 @@ public class Hexagono extends StackPane {
         
         this.setOnMouseEntered(e -> open());
         this.setOnMouseExited(e-> close());
+        this.setOnMouseClicked(e -> seleccionado());
+	}
+
+	public void seleccionado() {
+		this.hexagon.setFocusTraversable(true);
+		this.hexagon.setFill(Color.DEEPPINK);
 	}
 
 	public void paint() {

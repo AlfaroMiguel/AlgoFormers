@@ -25,8 +25,7 @@ public class Aplicacion extends Application {
 		
 		Juego juego = new Juego();
 		
-		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(1,4), new Coordenada(4,4)));
-		
+		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
 		Scene scene = new Scene(layout);
 	    stage.setScene(scene);
 	    stage.setTitle("HexGrid");

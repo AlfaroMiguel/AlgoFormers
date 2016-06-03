@@ -25,14 +25,15 @@ public class GeneradorDeCaminos {
 	    		personajes.get(vecino).colisionar();
 	    		int costo = calcularCosto(superficies.get(vecino),personaje);
 	    		//Puee ser que en calcularCosto tenga que poner actual
-	    		if(visto.get(vecino) && (distancia.get(vecino)>distancia.get(actual)+ costo)){
+	    		if(!visto.get(vecino) && (distancia.get(vecino)>distancia.get(actual)+ costo)){
 	    			distancia.put(vecino,distancia.get(actual)+costo);
 	    			padre.put(vecino, actual);
-	    			if(vecino == destino) return pasarCaminoAList(padre,origen,destino);
+	    			if(vecino.equals(destino)){
+	    				return pasarCaminoAList(padre,origen,destino);
+	    			}
 	    			cola.add(new Tupla(vecino,distancia.get(actual)));
 	    		}
 	    		}catch(Throwable g){
-	    			
 	    		}
 	    	}
 	    }
@@ -46,8 +47,13 @@ public class GeneradorDeCaminos {
 
 	private static List<Coordenada> pasarCaminoAList(HashMap<Coordenada, Coordenada> padre, Coordenada origen,
 			Coordenada destino) {
-		// TODO Auto-generated method stub
-		return null;
+		Coordenada actual = destino;
+		List <Coordenada> camino = new ArrayList<Coordenada>();
+		while(actual != origen){
+			camino.add(actual);
+			actual = padre.get(actual);
+		}
+		return camino;
 	}
 
 }

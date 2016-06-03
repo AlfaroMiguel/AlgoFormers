@@ -112,6 +112,8 @@ public class Coordenada {
 				return false;
 			return true;
 		}
-
+		public String toString(){
+			return this.q+ " " + this.r;
+		}
 }
 
