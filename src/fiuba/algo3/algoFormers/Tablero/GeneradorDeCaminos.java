@@ -24,6 +24,7 @@ public class GeneradorDeCaminos {
 	    		try{
 	    		personajes.get(vecino).colisionar();
 	    		int costo = calcularCosto(superficies.get(vecino),personaje);
+	    		//Puee ser que en calcularCosto tenga que poner actual
 	    		if(visto.get(vecino) && (distancia.get(vecino)>distancia.get(actual)+ costo)){
 	    			distancia.put(vecino,distancia.get(actual)+costo);
 	    			padre.put(vecino, actual);
