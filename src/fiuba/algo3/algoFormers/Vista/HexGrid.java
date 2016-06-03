@@ -1,11 +1,11 @@
-package fiuba.algo3.Vista;
+package fiuba.algo3.algoFormers.Vista;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import fiuba.algo3.Vista.Hexagono;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Vista.Hexagono;
 import javafx.scene.Group;
 
 public class HexGrid {
