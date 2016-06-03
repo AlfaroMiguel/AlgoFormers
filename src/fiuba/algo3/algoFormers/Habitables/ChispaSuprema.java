@@ -46,37 +46,25 @@ public class ChispaSuprema implements Collectable{
 
 	@Override
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void reaccionarASuperficie(SuperficieAire superficieTierra) {
-		// TODO Auto-generated method stub
-		
+	public void reaccionarASuperficie(SuperficieAire superficieTierra) {		
 	}
 
 	@Override
 	public void serAfectado(SuperficieAire superficieAire) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public void serDesafectado(SuperficieTierra superficieTierra) {
-		// TODO Auto-generated method stub
-		
+	public void serDesafectado(SuperficieTierra superficieTierra) {	
 	}
 
 	@Override
-	public void serAfectado(SuperficieTierra superficieTierra) {
-		// TODO Auto-generated method stub
-		
+	public void serAfectado(SuperficieTierra superficieTierra) {	
 	}
 
 	@Override
 	public void serDesafectado(SuperficieAire superficieAire) {
-		// TODO Auto-generated method stub
-		
 	}
 }

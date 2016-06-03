@@ -5,9 +5,10 @@ import fiuba.algo3.algoFormers.efectos.Efecto;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public abstract class SuperficieAire{
-	private Efecto efecto;
+	public Efecto efecto;
+	
 	public void producirEfecto(HabitableDelMapa afectado){
-		afectado.serAfectado(this);
+		afectado.reaccionarASuperficie(this);
 	}
 	public void revertirEfecto(HabitableDelMapa afectado){
 		afectado.serDesafectado(this);
@@ -18,11 +19,12 @@ public abstract class SuperficieAire{
 	public void desafectar(Algoformer algoformer){
 		efecto.desafectarAlgoformer(algoformer);
 	}
-	public void ubicar(HabitableDelMapa habitable) {
-		habitable.reaccionarASuperficie(this);
+	
+	public void simularRecorrido(HabitableDelMapa transeunte) {
+		// TODO Auto-generated method stub
 		
 	}
-	public void simularRecorrido(HabitableDelMapa transeunte) {
+	public void ubicar(HabitableDelMapa habitable) {
 		// TODO Auto-generated method stub
 		
 	}

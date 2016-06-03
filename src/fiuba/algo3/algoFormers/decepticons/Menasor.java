@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.decepticons;
 
+import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.MenasorTerrestre;
 
 public class Menasor extends Decepticon {
@@ -11,7 +12,7 @@ public class Menasor extends Decepticon {
 		this.megatron = megatron;
 		this.bonecrusher = bonecrusher;
 		this.frenzy = frenzy;
-		this.vida = megatron.verVida() + bonecrusher.verVida() + frenzy.verVida();
+		this.vida = new Vida(megatron.verVida() + bonecrusher.verVida() + frenzy.verVida());
 		this.modo = MenasorTerrestre.getInstance();
 	}
 

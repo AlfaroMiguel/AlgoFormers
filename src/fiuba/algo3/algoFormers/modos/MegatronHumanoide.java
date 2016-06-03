@@ -1,18 +1,10 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
-import fiuba.algo3.algoFormers.autobots.Autobot;
-import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class MegatronHumanoide implements Modo {
+public class MegatronHumanoide extends ModoAereo {
 	
 	private static MegatronHumanoide instancia;
-	private int distAtaque;
-	private int ataque;
-	private int velocidad;
 	
 	private MegatronHumanoide(){
 		this.ataque = 10;
@@ -33,18 +25,5 @@ public class MegatronHumanoide implements Modo {
 		algoformer.establecerModo(MegatronAlterno.getInstance());
 	}
 
-	@Override
-	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado) {
-		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);	
-	}
-
-	@Override
-	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado) {
-		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
-	}
-
-	@Override
-	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero) {
-		tablero.mover(algoformer, coordenada, this.velocidad);
-	}
+	
 }

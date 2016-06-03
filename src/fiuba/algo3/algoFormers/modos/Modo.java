@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.autobots.Autobot;
@@ -14,5 +15,9 @@ public interface Modo{
 	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado);
 	public void cambiar(Algoformer algoformer);
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero);
-	//public void reaccionar(SuperficieTierra superficie);
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado);
+	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado);
+	public void multiplicarVelocidad(double factor);
+	public void multiplicarVida(double factor);
+
 }
