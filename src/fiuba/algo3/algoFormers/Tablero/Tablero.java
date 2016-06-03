@@ -6,6 +6,7 @@ import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.Habitables.*;
+import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
 
 
 public class Tablero {
@@ -145,6 +146,10 @@ public class Tablero {
 		while(!this.estaVacio(coordFinal)){
 			
 		}
+	}
+	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
+		
+		return GeneradorDeCaminos.calcularCostoDeCaminoMinimo(superficies, habitables, new Optimus(), coordenadaInicial, coordenadaFinal);
 	}
 	
 	

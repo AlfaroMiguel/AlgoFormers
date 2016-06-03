@@ -35,8 +35,7 @@ public class HexGrid {
         return group;
         	
         }
-	 	public static void pintarCamino(){
-	 		List<Coordenada> camino = new ArrayList <Coordenada>();
+	 	public static void pintarCamino(List<Coordenada> camino){
 	 		camino.add(new Coordenada(3,4));
 	 		//Genera el camino 
 	 		
