@@ -49,7 +49,7 @@ public class algoformersTest {
 	public void test04AutobotAtacarAutobotDistanciaCorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,3);
 		tablero.colocarEnTablero(optimus,coordOptimus);
@@ -61,7 +61,7 @@ public class algoformersTest {
 	public void test05AutobotAtacarAutobotDistanciaIncorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,8);
 		tablero.colocarEnTablero(optimus,coordOptimus);
@@ -73,7 +73,7 @@ public class algoformersTest {
 	public void test06AutobotAtacarAutobotDistanciaLimite(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Coordenada coordOptimus = new Coordenada(1,2);
 		Coordenada coordRatchet = new Coordenada(1,7);
 		tablero.colocarEnTablero(optimus,coordOptimus);
@@ -83,7 +83,7 @@ public class algoformersTest {
 	
 	@Test (expected = MismoEquipoException.class)
 	public void test07DecepticonAtacarDecepticonDistanciaCorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -95,7 +95,7 @@ public class algoformersTest {
 	
 	@Test (expected = OutOfRangeException.class)
 	public void test08DecepticonAtacarDecepticonDistanciaIncorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -107,7 +107,7 @@ public class algoformersTest {
 	
 	@Test (expected = MismoEquipoException.class)
 	public void test09DecepticonAtacarDecepticonDistanciaLimite(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Bonecrusher bonecrusher = new Bonecrusher();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -120,7 +120,7 @@ public class algoformersTest {
 	
 	@Test
 	public void test10AutobotAtacarDecepticonDistanciaCorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -137,11 +137,11 @@ public class algoformersTest {
 	
 	@Test (expected = OutOfRangeException.class)
 	public void test11AutobotAtacarDecepticonDistanciaIncorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
-		Coordenada coordOptimus = new Coordenada(1,7);
+		Coordenada coordOptimus = new Coordenada(1,8);
 		tablero.colocarEnTablero(megatron,coordMegatron);
 		tablero.colocarEnTablero(optimus, coordOptimus);
 		optimus.atacar(tablero,megatron);
@@ -149,7 +149,7 @@ public class algoformersTest {
 	
 	@Test
 	public void test12AutobotAtacarDecepticonDistanciaLimite(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -162,7 +162,7 @@ public class algoformersTest {
 	
 	@Test
 	public void test13DecepticonAtacarAutobotDistanciaCorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
@@ -179,11 +179,11 @@ public class algoformersTest {
 	
 	@Test (expected = OutOfRangeException.class)
 	public void test14DecepticonAtacarAutobotDistanciaIncorrecta(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);
-		Coordenada coordOptimus = new Coordenada(1,7);
+		Coordenada coordOptimus = new Coordenada(1,8);
 		tablero.colocarEnTablero(megatron,coordMegatron);
 		tablero.colocarEnTablero(optimus, coordOptimus);
 		megatron.atacar(tablero, optimus);
@@ -191,7 +191,7 @@ public class algoformersTest {
 	
 	@Test
 	public void test14DecepticonAtacarAutobotDistanciaLimite(){
-		Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(100,100);
 		Megatron megatron = new Megatron();
 		Optimus optimus = new Optimus();
 		Coordenada coordMegatron = new Coordenada(1,2);

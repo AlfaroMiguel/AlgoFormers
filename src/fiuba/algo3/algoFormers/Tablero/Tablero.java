@@ -4,6 +4,7 @@ import java.util.*;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.Habitables.*;
 
 
