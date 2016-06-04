@@ -6,5 +6,8 @@ public class Potencia {
 	public void multiplicarAtaque(double i){
 		this.potencia*=i;
 	}
+	public double getPotencia(){
+		return this.potencia;
+	}
 	
 }

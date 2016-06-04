@@ -17,7 +17,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	
 	protected Modo modo;
 	protected Vida vida;
-	protected ListaDeAfectadores afectadores;
+	protected ListaDeAfectadores afectadores = new ListaDeAfectadores();
 	protected Agilidad agilidad= new Agilidad() ;
 	protected Potencia potencia = new Potencia();
 	public abstract void atacar(Tablero tablero, HabitableDelMapa atacado);
@@ -30,9 +30,11 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public Algoformer(){
 	}
 	public void inmovilizar(){
+		this.agilidad.multiplicarVelocidad(0);
 		
 	}
 	public void moverse(Coordenada coordenada, Tablero tablero){
+		this.afectadores.afectarAlgoformer(this);
 		this.modo.moverse(this, coordenada, tablero,this.agilidad);
 	}
 	
@@ -85,7 +87,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public void pasarTurno(){
 		this.agilidad = new Agilidad();
 		this.potencia= new Potencia();
-		afectadores.pasarTurno();
+		//afectadores.pasarTurno();
 		
 	}
 	public void multiplicarVelocidad(double factor) {

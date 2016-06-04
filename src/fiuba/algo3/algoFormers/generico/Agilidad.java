@@ -10,4 +10,7 @@ public class Agilidad {
 	public void multiplicarVelocidad(double i){
 		this.estado*=i; 
 	}
+	public double getAgilidad(){
+		return this.estado;
+	}
 }

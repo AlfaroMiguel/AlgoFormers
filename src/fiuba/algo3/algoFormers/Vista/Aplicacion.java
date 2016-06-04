@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.Vista;
 
 
-
+//
 //import fiuba.algo3.algoFormers.Juego.Juego;
 //import fiuba.algo3.algoFormers.Tablero.Coordenada;
 //import javafx.application.Application;

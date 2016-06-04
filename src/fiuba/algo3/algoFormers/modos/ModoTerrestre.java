@@ -19,18 +19,18 @@ public class ModoTerrestre implements Modo {
 	
 	@Override
 	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado,Potencia potencia) {
-		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
+		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 	@Override
 	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado,Potencia potencia) {
-		tablero.coordinateAttack(atacante, this.distAtaque, atacado, this.ataque);
+		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 
 	@Override
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero,Agilidad agilidad) {
-		tablero.mover(algoformer, coordenada, this.velocidad);
+		tablero.mover(algoformer, coordenada, (int)(this.velocidad*agilidad.getAgilidad()));
 	}
 	
 	@Override

@@ -1,7 +1,8 @@
 package fiuba.algo3.algoFormers.afectadores;
 
+import fiuba.algo3.algoFormers.efectos.Efecto;
+import fiuba.algo3.algoFormers.efectosTest.*;
 import fiuba.algo3.algoFormers.generico.*;
-import fiuba.algo3.algoFormers.efectos.*;
 
 public abstract class Afectador{
 	private Efecto efecto;
