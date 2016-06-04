@@ -32,7 +32,7 @@ public class Tablero {
 		try{
 			this.habitables.get(coordenada).colisionar();
 			//habitable.recibir(this.habitables.get(coordenada));
-			//this.superficies.get(coordenada).producirEfecto(habitable);
+			this.superficies.get(coordenada).producirEfecto(habitable);
 			this.habitables.put(coordenada,habitable);
 		}
 		catch(Throwable g){

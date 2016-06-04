@@ -6,7 +6,6 @@ import fiuba.algo3.algoFormers.efectosTest.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class AfectadorPorPosicion extends Afectador {
-	private Efecto efecto;
 	public AfectadorPorPosicion(Efecto efecto){
 		this.efecto = efecto;
 	}

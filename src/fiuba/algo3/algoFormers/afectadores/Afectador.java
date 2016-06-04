@@ -5,9 +5,12 @@ import fiuba.algo3.algoFormers.efectosTest.*;
 import fiuba.algo3.algoFormers.generico.*;
 
 public abstract class Afectador{
-	private Efecto efecto;
+	protected Efecto efecto;
 	public void afectarAlgoformer(Algoformer algoformer){
 		algoformer.agregarEfecto(this);
+	}
+	public void producirEfecto(Algoformer algoformer){
+		this.efecto.afectarAlgoformer(algoformer);
 	}
 	public abstract void desafectarAlgoformer(Algoformer algoformer);
 	public abstract void pasarTurno();

@@ -6,7 +6,6 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class AfectadorPorTurnos extends Afectador {
 	int turnos;
-	Efecto efecto;
 	public AfectadorPorTurnos(int i,Efecto efecto){
 		this.turnos = i;
 		this.efecto = efecto;		

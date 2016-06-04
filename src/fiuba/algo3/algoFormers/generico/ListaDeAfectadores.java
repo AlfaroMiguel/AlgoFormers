@@ -26,7 +26,7 @@ public class ListaDeAfectadores {
 	}
 	public void afectarAlgoformer(Algoformer algoformer){
 		for(Afectador afectador: afectadores){
-			afectador.afectarAlgoformer(algoformer);
+			afectador.producirEfecto(algoformer);
 		}
 	}
 	public void desafectarAlgoformer(Algoformer algoformer){

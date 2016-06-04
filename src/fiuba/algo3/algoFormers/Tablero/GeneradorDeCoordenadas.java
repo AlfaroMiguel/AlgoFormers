@@ -1,8 +1,12 @@
 package fiuba.algo3.algoFormers.Tablero;
+
+import fiuba.algo3.algoFormers.efectos.*;
 import java.util.HashMap;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Habitables.Vacio;
+import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
+import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 
 public class GeneradorDeCoordenadas {
 
@@ -10,7 +14,10 @@ public class GeneradorDeCoordenadas {
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2); // or q>>1
 		    for (int r = -q_offset; r < height - q_offset; r++) {
-		        tablero.put(new Coordenada(q,r),new Casillero());
+		    	Casillero casillero = new Casillero();
+		    	casillero.agregarSuperficie(new SuperficieNubes());
+		    	casillero.agregarSuperficie(new SuperficieRocosa());
+		        tablero.put(new Coordenada(q,r),casillero);
 		    }
 		}
 	}
