@@ -33,7 +33,7 @@ public class efectosTest {
 		optimus.moverse(coordenadaDestino, tablero);
 	}
 	@Test
-	public void test03EfectoEspinasDañaAlgoformer(){
+	public void test03EfectoEspinasDaniaAlgoformer(){
 		Optimus optimus = new Optimus();
 		int vidaInicial = optimus.verVida();
 		Efecto efectoEspina = new EfectoEspinas();
