@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class MegatronHumanoide extends ModoAereo {
@@ -23,6 +24,10 @@ public class MegatronHumanoide extends ModoAereo {
 	@Override
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(MegatronAlterno.getInstance());
+	}
+	@Override
+	public int simularPasoDe(SuperficiePantano superficiePantano){
+		return 1000000;
 	}
 
 	

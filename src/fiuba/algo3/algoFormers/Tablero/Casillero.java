@@ -21,9 +21,8 @@ public class Casillero {
 		this.aire.revertirEfecto(desafectado);
 		this.tierra.revertirEfecto(desafectado);
 	}
-	public void calcularMovimiento(HabitableDelMapa transeunte){
-		this.aire.simularRecorrido(transeunte);
-		this.tierra.simularRecorrido(transeunte);
+	public int calcularMovimiento(HabitableDelMapa transeunte){
+		return Math.max(this.aire.simularRecorrido(transeunte), this.tierra.simularRecorrido(transeunte));
 	}
 	
 }

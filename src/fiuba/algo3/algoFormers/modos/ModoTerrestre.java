@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
@@ -11,7 +12,7 @@ import fiuba.algo3.algoFormers.generico.Agilidad;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.Potencia;
 
-public class ModoTerrestre implements Modo {
+public abstract class ModoTerrestre implements Modo {
 	
 	protected int distAtaque;
 	protected int ataque;
@@ -52,6 +53,19 @@ public class ModoTerrestre implements Modo {
 	public void reposicionarse(Tablero tablero, Algoformer algoformer) {
 		tablero.reposicionar(algoformer);
 	}
+
+	@Override
+	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer) {
+		return 0;
+	}
+
+	@Override
+	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer) {
+		return superficieTierra.simularPasoDe(algoformer);
+	}
+
+	@Override
+	public abstract int simularPasoDe(SuperficiePantano superficiePantano);
 
 	
 }

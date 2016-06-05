@@ -21,12 +21,12 @@ public abstract class SuperficieTierra{
 		afectador.desafectarAlgoformer(algoformer);
 	}
 	
-	public void simularRecorrido(HabitableDelMapa transeunte) {
-		// TODO Auto-generated method stub
-		
+	public int simularRecorrido(HabitableDelMapa transeunte) {
+		return transeunte.simularEfecto(this);
 	}
 	public void ubicar(HabitableDelMapa habitable) {
 		// TODO Auto-generated method stub
 		
 	}
+	public abstract int simularPasoDe(Algoformer algoformer);
 }

@@ -1,11 +1,17 @@
 package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoEspinas;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.afectadores.*;
 
 public class SuperficieEspinas extends SuperficieTierra {
 	
 	public SuperficieEspinas(){
 		this.afectador = new AfectadorPorPosicion(new EfectoEspinas());
+	}
+
+	@Override
+	public int simularPasoDe(Algoformer algoformer) {
+		return 1;
 	}
 }

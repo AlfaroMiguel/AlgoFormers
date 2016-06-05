@@ -45,8 +45,7 @@ public class GeneradorDeCaminos {
 	}
 
 	private static int calcularCosto(Casillero casillero, HabitableDelMapa personaje) {
-		//return casillero.calcularMovimiento(personaje);
-		return 1;
+		return casillero.calcularMovimiento(personaje);
 	}
 
 	private static List<Coordenada> pasarCaminoAList(HashMap<Coordenada, Coordenada> padre, Coordenada origen,

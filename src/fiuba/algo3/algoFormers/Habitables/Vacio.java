@@ -61,4 +61,16 @@ public class Vacio implements HabitableDelMapa{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int simularEfecto(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int simularEfecto(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

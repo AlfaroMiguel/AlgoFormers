@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class BumblebeeAlterno extends ModoTerrestre{
@@ -22,5 +23,9 @@ public class BumblebeeAlterno extends ModoTerrestre{
 	@Override
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(BumblebeeHumanoide.getInstance());
+	}
+	@Override
+	public int simularPasoDe(SuperficiePantano superficiePantano){
+		return 2;
 	}
 }

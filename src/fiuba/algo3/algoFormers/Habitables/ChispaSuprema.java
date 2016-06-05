@@ -63,4 +63,14 @@ public class ChispaSuprema implements Collectable{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int simularEfecto(SuperficieAire superficieAire) {
+		return 0;
+	}
+
+	@Override
+	public int simularEfecto(SuperficieTierra superficieTierra) {
+		return 0;
+	}
 }

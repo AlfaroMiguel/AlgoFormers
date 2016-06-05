@@ -18,4 +18,7 @@ public class SuperficieAndromeda extends SuperficieAire {
 		Afectador afectadorCopia = new AfectadorPorTurnos(3,new EfectoAndromeda());
 		afectadorCopia.afectarAlgoformer(algoformer);
 	}
+	public int simularPasoDe(Algoformer algoformer) {
+		return 1000000;
+	}
 }

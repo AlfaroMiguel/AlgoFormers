@@ -22,9 +22,10 @@ public abstract class SuperficieAire{
 		afectador.desafectarAlgoformer(algoformer);
 	}
 	
-	public void simularRecorrido(HabitableDelMapa transeunte) {
-		// TODO Auto-generated method stub
-		
+	public int simularRecorrido(HabitableDelMapa transeunte) {
+		return transeunte.simularEfecto(this);
 	}
+	public abstract int simularPasoDe(Algoformer algoformer);
+
 	
 }

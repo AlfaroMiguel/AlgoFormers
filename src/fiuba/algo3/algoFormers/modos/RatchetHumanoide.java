@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class RatchetHumanoide extends ModoTerrestre {
@@ -23,5 +24,9 @@ public class RatchetHumanoide extends ModoTerrestre {
 	@Override
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(RatchetAlterno.getInstance());
+	}
+	@Override
+	public int simularPasoDe(SuperficiePantano superficiePantano){
+		return 1000000;
 	}
 }

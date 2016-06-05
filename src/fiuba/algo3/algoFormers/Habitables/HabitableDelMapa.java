@@ -21,8 +21,10 @@ public interface HabitableDelMapa {
 	public void reaccionarASuperficie(SuperficieAire superficieTierra);
 	
 	public void serDesafectado(SuperficieAire superficieAire);
-	
 	public void serDesafectado(SuperficieTierra superficieTierra);
+	
+	public int simularEfecto(SuperficieAire superficieAire);
+	public int simularEfecto(SuperficieTierra superficieTierra);
 	
 	
 }

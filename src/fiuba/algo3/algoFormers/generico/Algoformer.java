@@ -7,6 +7,7 @@ import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
@@ -68,6 +69,12 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public void reaccionarASuperficie(SuperficieAire superficieAire){
 		this.modo.reaccionarASuperficie(superficieAire, this);
 	}
+	public int simularEfecto(SuperficieAire superficieAire){
+		return this.modo.simularEfecto(superficieAire, this);
+	}
+	public int simularEfecto(SuperficieTierra superficieTierra){
+		return this.modo.simularEfecto(superficieTierra, this);
+	}
 //	public void serAfectado(SuperficieAire superficieAire){
 //	}
 //	public void serDesafectado(SuperficieTierra superficieTierra){
@@ -108,6 +115,9 @@ public abstract class Algoformer implements HabitableDelMapa {
 	}
 	public void reposicionarse(Tablero tablero) {
 		this.modo.reposicionarse(tablero,this);
+	}
+	public int simularPasoDe(SuperficiePantano superficiePantano) {
+		return this.modo.simularPasoDe(superficiePantano);
 	}
 
 }
