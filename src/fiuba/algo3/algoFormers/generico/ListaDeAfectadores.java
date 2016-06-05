@@ -34,4 +34,8 @@ public class ListaDeAfectadores {
 			afectador.desafectarAlgoformer(algoformer);
 		}
 	}
+	public void sacarAfectador(AfectadorPorPosicion afectador) {
+		this.afectadores.remove(afectador);
+		
+	}
 }

@@ -66,4 +66,10 @@ public abstract class ModoAereo implements Modo {
 	public int simularPasoDe(SuperficiePantano superficiePantano) {
 		return 0;
 	}
+	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
+		
+	}
+	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
+		superficieAire.desafectar(algoformer);
+	}
 }

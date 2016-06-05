@@ -10,7 +10,7 @@ public class AfectadorPorPosicion extends Afectador {
 	}
 	@Override
 	public void desafectarAlgoformer(Algoformer algoformer){
-		this.efecto = new EfectoTerminado();
+		algoformer.getAfectadores().sacarAfectador(this);
 	}
 	@Override
 	public void pasarTurno() {

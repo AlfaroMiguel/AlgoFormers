@@ -6,7 +6,8 @@ import fiuba.algo3.algoFormers.generico.*;
 public abstract class Afectador{
 	protected Efecto efecto;
 	public void afectarAlgoformer(Algoformer algoformer){
-		algoformer.agregarEfecto(this);
+		ListaDeAfectadores afectadores  = algoformer.getAfectadores();
+		afectadores.agregarAfectador(this);
 	}
 	public void producirEfecto(Algoformer algoformer){
 		this.efecto.afectarAlgoformer(algoformer);

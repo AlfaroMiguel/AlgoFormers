@@ -75,20 +75,11 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public int simularEfecto(SuperficieTierra superficieTierra){
 		return this.modo.simularEfecto(superficieTierra, this);
 	}
-//	public void serAfectado(SuperficieAire superficieAire){
-//	}
-//	public void serDesafectado(SuperficieTierra superficieTierra){
-//		
-//	}
-//	public void serAfectado(SuperficieTierra superficieTierra){
-//		
-//	}
-//	public void serDesafectado(SuperficieAire superficieAire){
-//		
-//	}
-	public void serAfectado(SuperficieAire superficieAire){
+	public void serDesafectado(SuperficieTierra superficieTierra){
+		this.modo.serDesafectado(superficieTierra,this);
 	}
-	public void serDesafectado(SuperficieTierra superficieTierra){	
+	public void serDesafectado(SuperficieAire superficieAire){
+		this.modo.serDesafectado(superficieAire,this);
 	}
 	public void terminaTurno(){
 		this.agilidad = new Agilidad();
@@ -118,6 +109,9 @@ public abstract class Algoformer implements HabitableDelMapa {
 	}
 	public int simularPasoDe(SuperficiePantano superficiePantano) {
 		return this.modo.simularPasoDe(superficiePantano);
+	}
+	public ListaDeAfectadores getAfectadores() {
+		return this.afectadores;
 	}
 
 }

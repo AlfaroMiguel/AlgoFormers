@@ -164,8 +164,12 @@ public class Tablero {
 	}
 	public void reposicionar(Algoformer algoformer) {
 		Coordenada coordenada =	this.obtenerCoordenadaDeHabitable((HabitableDelMapa)algoformer);
-		this.superficies.get(coordenada).revertirEfecto(algoformer);
 		this.colocarEnTablero((HabitableDelMapa)algoformer, coordenada);
+		
+	}
+	public void retirarAlgoformer(Algoformer algoformer) {
+		Coordenada coordenadaActual =this.obtenerCoordenadaDeHabitable(algoformer);
+		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
 		
 	}
 	

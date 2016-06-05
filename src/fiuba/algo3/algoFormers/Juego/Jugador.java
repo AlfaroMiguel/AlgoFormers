@@ -30,6 +30,7 @@ public class Jugador{
 	}
 	
 	public void transformarAlgoformer(){
+		this.equipo.retirarPersonajeActual(this.tablero);
 		this.equipo.transformarAlgoformer();
 		//Para que se apliquen los efectos cuando se cambia de modo a uno que si lo afecta
 		this.equipo.reposicionarAlgoformer(this.tablero);
@@ -49,6 +50,11 @@ public class Jugador{
 	
 	public void descombinarAlgoformers(){
 		this.equipo.descombinarAlgoformers(this.tablero);
+	}
+
+	public void terminarTurno() {
+		this.equipo.terminarTurno();
+		
 	}
 	
 	

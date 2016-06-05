@@ -42,5 +42,10 @@ public abstract class Equipo{
 	public void reposicionarAlgoformer(Tablero tablero) {
 		this.algoformerActual.reposicionarse(tablero);
 	}
+	public abstract void terminarTurno();
+	public void retirarPersonajeActual(Tablero tablero) {
+		tablero.retirarAlgoformer(this.algoformerActual);
+		
+	}
 	
 }
