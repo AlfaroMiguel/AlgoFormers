@@ -40,11 +40,4 @@ public class Autobot extends Algoformer{
 	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
 		throw new EquipoInvalidoException();
 	}
-
-	@Override
-	public void serDesafectado(SuperficieAire superficieAire) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

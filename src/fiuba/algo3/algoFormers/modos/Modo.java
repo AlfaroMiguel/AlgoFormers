@@ -22,5 +22,7 @@ public interface Modo{
 	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer);
 	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public int simularPasoDe(SuperficiePantano superficiePantano);
+	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);
+	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer);
 
 }

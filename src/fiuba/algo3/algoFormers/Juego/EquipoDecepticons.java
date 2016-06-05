@@ -44,4 +44,12 @@ public class EquipoDecepticons extends Equipo {
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(menasor);
 	}
+
+	@Override
+	public void terminarTurno() {
+		this.bonecrusher.terminaTurno();
+		this.megatron.terminaTurno();
+		this.frenzy.terminaTurno();
+		
+	}
 }
