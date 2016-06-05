@@ -35,9 +35,9 @@ public class Hexagono extends StackPane {
 		text.setFont(Font.font(18));
         text.setText(String.valueOf(x) +"," + String.valueOf(y));
         
-        this.setOnMouseEntered(e -> open());
-        this.setOnMouseExited(e-> close());
-        this.setOnMouseClicked(e -> seleccionado());
+//        this.setOnMouseExited(e-> close());
+//        this.setOnMouseClicked(e -> seleccionado());
+//        this.setOnMouseEntered(e -> open());
 	}
 
 	public void seleccionado() {
@@ -56,6 +56,21 @@ public class Hexagono extends StackPane {
 
 	private void open() {
 		this.hexagon.setFill(Color.IVORY);
+	}
+
+	public void ponerRocosa() {
+		this.hexagon.setFill(Color.DARKGRAY);
+		text.setText("Rocosa");
+	}
+
+	public void ponerPantano() {
+		this.hexagon.setFill(Color.GREEN);
+		text.setText("Pantano");
+	}
+
+	public void ponerEspinas() {
+		this.hexagon.setFill(Color.CHOCOLATE);
+		text.setText("Espinas");
 	}
 	
 }

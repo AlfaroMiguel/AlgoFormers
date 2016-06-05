@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.Tablero.Casillero;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Vista.Hexagono;
 import javafx.scene.Group;
@@ -15,11 +17,9 @@ public class HexGrid {
 	private static HashMap<Coordenada,Hexagono> grid = new HashMap<Coordenada,Hexagono>();
 	
 
-	public static Group crearTablero() {
+	public static Group crearTablero(int width,int height) {
 		
 		Group  group = new Group();
-		int width = 10;
-		int height = 10;
 		//esto lo haria el generador de coordenadas pero no quiero tocar todavia
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2);
@@ -36,14 +36,35 @@ public class HexGrid {
         	
         }
 	 	public static void pintarCamino(List<Coordenada> camino){
-	 		//Genera el camino 
-	 		
-	 		// ahora recorro la lista y pinto los hex correspondientes
+	 		// Recorro la lista y pinto los hex correspondientes
 	 		for(Coordenada coordenada: camino){
 	 			grid.get(coordenada).paint();
 	 		}
 	 		
-	 		
 	 	}
+
+		public static void ponerSuperficieTierra(Coordenada coordenada, SuperficieTierra superficieTierra) {
+			superficieTierra.ponerSuperficieTierra(coordenada);
+		}
+		public static void ponerSuperficieRocosa(Coordenada coordenada) {
+			grid.get(coordenada).ponerRocosa();
+		}
+		public static void ponerSuperficiePantano(Coordenada coordenada) {
+			grid.get(coordenada).ponerPantano();
+		}
+		public static void ponerSuperficieEspinas(Coordenada coordenada) {
+			grid.get(coordenada).ponerEspinas();
+		}
+		public static Group GrupoDeTablero(int width, int height) {
+			Group group = new Group();
+			for (int q = 0; q < width; q++) {
+			    int q_offset = (int)Math.floor(q/2);
+			    for (int r = -q_offset; r < height - q_offset; r++) {
+			        Hexagono hex = grid.get(new Coordenada(q,r));
+			        group.getChildren().add(hex);
+			    }
+			}
+	        return group;
+		}
 
 }

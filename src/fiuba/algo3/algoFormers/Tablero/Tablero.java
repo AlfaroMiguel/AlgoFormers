@@ -8,6 +8,8 @@ import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
+import fiuba.algo3.algoFormers.Vista.Aplicacion;
+import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.Superficies.*;
 
 
@@ -16,6 +18,7 @@ public class Tablero {
 	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
 	
 	public Tablero(int height,int width){
+		HexGrid.crearTablero(height,width);
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
 	}
