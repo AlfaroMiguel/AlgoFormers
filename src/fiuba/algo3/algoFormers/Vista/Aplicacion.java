@@ -14,6 +14,7 @@ import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -29,7 +30,6 @@ public class Aplicacion extends Application {
 //		Group grid = HexGrid.crearTablero(20,20);
 //		Layout layout = new Layout(grid);
 		
-		
 		Juego juego = new Juego();
 		Group grid = HexGrid.GrupoDeTablero(20,20);
 		VBox layout = new VBox(grid);
@@ -38,7 +38,7 @@ public class Aplicacion extends Application {
 		
 		Scene scene = new Scene(layout);
 	    stage.setScene(scene);
-	    stage.setTitle("HexGrid");
+	    stage.setTitle("AlgoFormers");
 	    stage.show();
 	}
 
