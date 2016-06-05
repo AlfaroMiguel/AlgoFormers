@@ -28,11 +28,14 @@ public class GeneradorDeCaminos {
 	    		try{
 	    		personajes.get(vecino).colisionar();
 	    		int costo = calcularCosto(superficies.get(vecino),personaje);
-	    		//Puee ser que en calcularCosto tenga que poner actual
-	    		if(!visto.get(vecino) && (distancia.get(vecino)>distancia.get(actual)+ costo)){
+	    		System.out.println("Costo de "+ vecino.toString() + ": " + costo);
+	    		//Puede ser que en calcularCosto tenga que poner actual
+	    		if(!visto.get(vecino) && (distancia.get(vecino)> distancia.get(actual)+ costo)){
+	    			System.out.println("Entro al if");
 	    			distancia.put(vecino,distancia.get(actual)+costo);
 	    			padre.put(vecino, actual);
 	    			if(vecino.equals(destino)){
+	    				System.out.println("Costo total: " + distancia.get(vecino));
 	    				return pasarCaminoAList(padre,origen,destino);
 	    			}
 	    			cola.add(new Tupla(vecino,distancia.get(actual)));
