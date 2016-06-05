@@ -4,8 +4,12 @@ import java.util.*;
 
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 public class GeneradorDeCaminos {
-	
-	public static List<Coordenada> calcularCostoDeCaminoMinimo(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,HabitableDelMapa> personajes,HabitableDelMapa personaje,Coordenada origen,Coordenada destino){
+	public static void solicitarCamino(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,HabitableDelMapa> personajes,HabitableDelMapa personaje,Coordenada origen,Coordenada destino,int paso){
+		List<Coordenada> camino =  calcularCaminoDeCostoMinimo(superficies,personajes, personaje, origen, destino);
+		//simularCamino(camino,personaje);
+		//Display del camino en rojo o amarillo
+	}
+	public static List<Coordenada> calcularCaminoDeCostoMinimo(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,HabitableDelMapa> personajes,HabitableDelMapa personaje,Coordenada origen,Coordenada destino){
 		//Dijkstra
 		PriorityQueue<Tupla> cola = new PriorityQueue<Tupla>();
 		HashMap<Coordenada,Integer> distancia = new HashMap<Coordenada,Integer>();

@@ -17,5 +17,6 @@ public interface Modo{
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero, Agilidad agilidad);
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado);
 	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado);
+	public void reposicionarse(Tablero tablero,Algoformer algoformer);
 
 }

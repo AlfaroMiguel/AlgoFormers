@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.Superficies.*;
@@ -49,11 +50,13 @@ public class Tablero {
 	}
 	public void mover(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
 		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(habitable);
+		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.habitables, habitable, coordInic, coordenadaFinal);
 		if(coordInic.distancia(coordenadaFinal)>paso)
 			throw new MovimientoInvalidoException();
 		this.colocarEnTablero(habitable,coordenadaFinal);
 		this.habitables.put(coordInic,new Vacio());
 	}
+	
 
 	public Coordenada obtenerCoordenadaDeHabitable(HabitableDelMapa value){
         for(Map.Entry<Coordenada, HabitableDelMapa> entry : this.habitables.entrySet()) {
@@ -157,7 +160,13 @@ public class Tablero {
 	}
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
 		
-		return GeneradorDeCaminos.calcularCostoDeCaminoMinimo(superficies, habitables, new Optimus(), coordenadaInicial, coordenadaFinal);
+		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, habitables, new Optimus(), coordenadaInicial, coordenadaFinal);
+	}
+	public void reposicionar(Algoformer algoformer) {
+		Coordenada coordenada =	this.obtenerCoordenadaDeHabitable((HabitableDelMapa)algoformer);
+		this.superficies.get(coordenada).revertirEfecto(algoformer);
+		this.colocarEnTablero((HabitableDelMapa)algoformer, coordenada);
+		
 	}
 	
 	

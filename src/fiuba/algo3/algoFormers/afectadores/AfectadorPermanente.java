@@ -14,8 +14,14 @@ public class AfectadorPermanente extends Afectador {
 	}
 	@Override
 	public void pasarTurno() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void afectarPorMicromovimiento(Algoformer algoformer) {
+		algoformer.agregarEfecto(this);
 		
 	}
+	
 
 }

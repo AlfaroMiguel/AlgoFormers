@@ -39,5 +39,8 @@ public abstract class Equipo{
 	public void atacar(Tablero tablero, HabitableDelMapa atacado){
 		this.algoformerActual.atacar(tablero, atacado);
 	}
+	public void reposicionarAlgoformer(Tablero tablero) {
+		this.algoformerActual.reposicionarse(tablero);
+	}
 	
 }

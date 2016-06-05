@@ -48,5 +48,10 @@ public class ModoTerrestre implements Modo {
 		
 	}
 
+	@Override
+	public void reposicionarse(Tablero tablero, Algoformer algoformer) {
+		tablero.reposicionar(algoformer);
+	}
+
 	
 }

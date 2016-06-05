@@ -26,9 +26,5 @@ public abstract class SuperficieAire{
 		// TODO Auto-generated method stub
 		
 	}
-	public void ubicar(HabitableDelMapa habitable) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }

@@ -45,4 +45,9 @@ public class ModoAereo implements Modo {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void reposicionarse(Tablero tablero, Algoformer algoformer) {
+		tablero.reposicionar(algoformer);
+	}
 }

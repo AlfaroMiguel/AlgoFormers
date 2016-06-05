@@ -17,10 +17,6 @@ public class Casillero {
 		this.aire.producirEfecto(afectado);
 		this.tierra.producirEfecto(afectado);
 	}
-	public void ubicarEnSuperficie(HabitableDelMapa habitable){
-		this.aire.ubicar(habitable);
-		this.tierra.ubicar(habitable);
-	}
 	public void revertirEfecto(HabitableDelMapa desafectado){
 		this.aire.revertirEfecto(desafectado);
 		this.tierra.revertirEfecto(desafectado);

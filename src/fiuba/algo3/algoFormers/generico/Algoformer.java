@@ -34,7 +34,6 @@ public abstract class Algoformer implements HabitableDelMapa {
 		
 	}
 	public void moverse(Coordenada coordenada, Tablero tablero){
-		this.afectadores.afectarAlgoformer(this);
 		this.modo.moverse(this, coordenada, tablero,this.agilidad);
 	}
 	
@@ -84,10 +83,12 @@ public abstract class Algoformer implements HabitableDelMapa {
 	}
 	public void serDesafectado(SuperficieTierra superficieTierra){	
 	}
-	public void pasarTurno(){
+	public void terminaTurno(){
 		this.agilidad = new Agilidad();
 		this.potencia= new Potencia();
-		//afectadores.pasarTurno();
+		this.afectadores.afectarAlgoformer(this);
+		afectadores.pasarTurno();
+		
 		
 	}
 	public void multiplicarVelocidad(double factor) {
@@ -104,6 +105,9 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public void multiplicarAtaque(double factor) {
 		this.potencia.multiplicarAtaque(factor);
 		
+	}
+	public void reposicionarse(Tablero tablero) {
+		this.modo.reposicionarse(tablero,this);
 	}
 
 }

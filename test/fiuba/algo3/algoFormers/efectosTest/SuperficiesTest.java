@@ -19,6 +19,8 @@ public class SuperficiesTest {
 			ratchet.cambiarModo();
 			tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaInicial);
 			tablero.colocarEnTablero(ratchet, coordenadaInicial);
+			//Los efectos se aplican al final de cada turno
+			ratchet.terminaTurno();
 			ratchet.moverse(new Coordenada(3,4),tablero);		
 	}
 	@Test(expected = MovimientoInvalidoException.class)
@@ -30,6 +32,8 @@ public class SuperficiesTest {
 			tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaInicial);
 			tablero.colocarEnTablero(ratchet, coordenadaInicial);
 			ratchet.cambiarModo();
+			//Los efectos se aplican al final de cada turno
+			ratchet.terminaTurno();
 			ratchet.moverse(new Coordenada(3,4),tablero);		
 	}
 	@Test
@@ -39,6 +43,8 @@ public class SuperficiesTest {
 			Coordenada coordenadaInicial = new Coordenada(3,3);
 			tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaInicial);
 			tablero.colocarEnTablero(ratchet, coordenadaInicial);
+			//Los efectos se aplican al final de cada turno
+			ratchet.terminaTurno();
 			ratchet.moverse(new Coordenada(3,4),tablero);
 			Assert.assertEquals(tablero.obtenerHabitableEnCoordenada(new Coordenada(3,4)), ratchet);
 	}
@@ -50,7 +56,96 @@ public class SuperficiesTest {
 			Coordenada coordenadaInicial = new Coordenada(3,3);
 			tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaInicial);
 			tablero.colocarEnTablero(ratchet, coordenadaInicial);
+			ratchet.terminaTurno();
+			//Los efectos se aplican al final de cada turno
 			ratchet.cambiarModo();
 			ratchet.moverse(new Coordenada(3,4),tablero);		
+	}
+	@Test (expected = MovimientoInvalidoException.class)
+	public void test05AlPonerAlgoformerModoTerrestreEnUnaSuperficiePantanoSeReduceSuVelocidad(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaInicial);
+			tablero.colocarEnTablero(optimus, coordenadaInicial);
+			//Los efectos se aplican al final de cada turno
+			optimus.terminaTurno();
+			optimus.moverse(new Coordenada(3,5),tablero);		
+	}
+	@Test (expected = MovimientoInvalidoException.class)
+	public void test06AlPonerAlgoformerModoTerrestreEnUnaSuperficiePantanoReduceSuMovimientoAunDespuesDeCambiarDeModo(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaInicial);
+			tablero.colocarEnTablero(optimus, coordenadaInicial);
+			optimus.cambiarModo();
+			//Los efectos se aplican al final de cada turno
+			optimus.terminaTurno();
+			optimus.moverse(new Coordenada(3,6),tablero);		
+	}
+	@Test
+	public void test07AlPonerAlgoformerModoTerrestreEnUnaSuperficieEspinasReduceSuVida(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), coordenadaInicial);
+			tablero.colocarEnTablero(optimus, coordenadaInicial);
+			int vidaInicial = optimus.verVida();
+			//Los efectos se aplican al final de cada turno
+			optimus.terminaTurno();
+			Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*0.95));
+			
+	}
+	@Test
+	public void test08AlPonerAlgoformerModoTerrestreEnUnaSuperficiePsionicaNoReduceSuAtaque(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Megatron megatron = new Megatron();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), coordenadaInicial);
+			tablero.colocarEnTablero(optimus, coordenadaInicial);
+			tablero.colocarEnTablero(megatron, new Coordenada(3,4));
+			int vidaInicial = megatron.verVida();
+			//Los efectos se aplican al final de cada turno
+			optimus.terminaTurno();
+			optimus.atacar(tablero, megatron);
+			Assert.assertEquals(megatron.verVida(), vidaInicial- 50);
+			
+	}
+	@Test
+	public void test09AlPonerAlgoformerModoAereoEnUnaSuperficiePsionicaReduceSuAtaque(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Megatron megatron = new Megatron();
+			megatron.cambiarModo();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), coordenadaInicial);
+			tablero.colocarEnTablero(megatron, coordenadaInicial);
+			tablero.colocarEnTablero(optimus, new Coordenada(3,4));
+			int vidaInicial = optimus.verVida();
+			//Los efectos se aplican al final de cada turno
+			megatron.terminaTurno();
+			megatron.atacar(tablero, optimus);
+			Assert.assertEquals(optimus.verVida(), vidaInicial- (int)(55*0.4));
+			
+	}
+	@Test
+	public void test10AlPonerAlgoformerModoAereoEnUnaSuperficiePsionicaReduceSuAtaqueDespuesDeCambiarModo(){
+			Tablero tablero = new Tablero(10,10);
+			Optimus optimus = new Optimus();
+			Megatron megatron = new Megatron();
+			megatron.cambiarModo();
+			Coordenada coordenadaInicial = new Coordenada(3,3);
+			tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), coordenadaInicial);
+			tablero.colocarEnTablero(megatron, coordenadaInicial);
+			tablero.colocarEnTablero(optimus, new Coordenada(3,4));
+			int vidaInicial = optimus.verVida();
+			//Los efectos se aplican al final de cada turno
+			megatron.terminaTurno();
+			megatron.cambiarModo();
+			megatron.atacar(tablero, optimus);
+			Assert.assertEquals(optimus.verVida(), vidaInicial- (int)(10*0.4));
+			
 	}
 }

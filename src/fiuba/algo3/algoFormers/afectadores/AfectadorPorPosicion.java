@@ -15,6 +15,11 @@ public class AfectadorPorPosicion extends Afectador {
 	@Override
 	public void pasarTurno() {
 		// TODO Auto-generated method stub
+	}
+	@Override
+	public void afectarPorMicromovimiento(Algoformer algoformer) {
+		this.efecto.afectarAlgoformer(algoformer);
+		this.efecto.desafectarAlgoformer(algoformer);
 		
 	}
 }

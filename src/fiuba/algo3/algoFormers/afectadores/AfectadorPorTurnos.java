@@ -21,7 +21,12 @@ public class AfectadorPorTurnos extends Afectador {
 	}
 	@Override
 	public void desafectarAlgoformer(Algoformer algoformer) {
-		// TODO Auto-generated method stub
+		// TODO
+		
+	}
+	@Override
+	public void afectarPorMicromovimiento(Algoformer algoformer) {
+		algoformer.agregarEfecto(this);
 		
 	}
 }

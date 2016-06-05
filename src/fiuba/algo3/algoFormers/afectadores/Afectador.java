@@ -11,6 +11,7 @@ public abstract class Afectador{
 	public void producirEfecto(Algoformer algoformer){
 		this.efecto.afectarAlgoformer(algoformer);
 	}
+	public abstract void afectarPorMicromovimiento(Algoformer algoformer);
 	public abstract void desafectarAlgoformer(Algoformer algoformer);
 	public abstract void pasarTurno();
 	
