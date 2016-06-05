@@ -27,21 +27,21 @@ public class GeneradorDeCaminosTest {
 		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
 		Assert.assertEquals(caminoCorrecto,caminoEncontrado);
 	}
-//	@Test
-//	public void test02SeGeneraUnCaminoNoRectoParaEvitarSuperficie() {
-//		Tablero tablero = new Tablero(15,15);
-//		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(3,4));
-////		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(3,5));
-////		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(2,5));
-//		List<Coordenada> caminoCorrecto = new ArrayList<Coordenada>(); 
-//			//caminoCorrecto.add(new Coordenada(1,4));
-//			caminoCorrecto.add(new Coordenada(4,4));
-//			caminoCorrecto.add(new Coordenada(3,5));
-//			caminoCorrecto.add(new Coordenada(2,5));
-//			caminoCorrecto.add(new Coordenada(2,4));
-//		List<Coordenada> caminoEncontrado = new ArrayList<Coordenada>();
-//		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
-//		Assert.assertEquals(caminoCorrecto,caminoEncontrado);
-//	}
+	@Test
+	public void test02SeGeneraUnCaminoNoRectoParaEvitarSuperficie() {
+		Tablero tablero = new Tablero(15,15);
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(3,4));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(3,5));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(),new Coordenada(2,5));
+		List<Coordenada> caminoCorrecto = new ArrayList<Coordenada>(); 
+			//caminoCorrecto.add(new Coordenada(1,4));
+			caminoCorrecto.add(new Coordenada(4,4));
+			caminoCorrecto.add(new Coordenada(4,3));
+			caminoCorrecto.add(new Coordenada(3,3));
+			caminoCorrecto.add(new Coordenada(2,4));
+		List<Coordenada> caminoEncontrado = new ArrayList<Coordenada>();
+		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
+		Assert.assertEquals(caminoCorrecto,caminoEncontrado);
+	}
 
 }
