@@ -28,9 +28,11 @@ public class Tablero {
 	}
 	public void colocarSuperficieEnTablero(SuperficieTierra superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
+		HexGrid.ponerSuperficieTierra(coordenada, superficie);
 	}
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
+		HexGrid.ponerSuperficieAire(coordenada, superficie);
 	}
 	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
 		try{

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Casillero;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
@@ -65,6 +66,18 @@ public class HexGrid {
 			    }
 			}
 	        return group;
+		}
+		public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
+			superficieAire.ponerSuperficieAire(coordenada);
+		}
+		public static void ponerSuperficieNubes(Coordenada coordenada) {
+			grid.get(coordenada).ponerNubes();
+		}
+		public static void ponerSuperficieAndromeda(Coordenada coordenada) {
+			grid.get(coordenada).ponerAndromeda();
+		}
+		public static void ponerSuperficiePsionica(Coordenada coordenada) {
+			grid.get(coordenada).ponerPsionica();
 		}
 
 }

@@ -5,6 +5,8 @@ package fiuba.algo3.algoFormers.Vista;
 import java.util.HashMap;
 
 import fiuba.algo3.algoFormers.Juego.Juego;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Casillero;
@@ -42,6 +44,11 @@ public class Aplicacion extends Application {
 
 	public static void ponerSuperficieTerrestre(Coordenada coordenada, SuperficieTierra superficieTierra) {
 		HexGrid.ponerSuperficieTierra(coordenada,superficieTierra);	
+	}
+
+	public static void ponerSuperficieAerea(Coordenada coordenada, SuperficieAire superficieAire) {
+		HexGrid.ponerSuperficieAire(coordenada,superficieAire);	
+
 	}
 
 }

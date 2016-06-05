@@ -60,7 +60,7 @@ public class Hexagono extends StackPane {
 
 	public void ponerRocosa() {
 		this.hexagon.setFill(Color.DARKGRAY);
-		text.setText("Rocosa");
+		//text.setText("Rocosa");
 	}
 
 	public void ponerPantano() {
@@ -71,6 +71,18 @@ public class Hexagono extends StackPane {
 	public void ponerEspinas() {
 		this.hexagon.setFill(Color.CHOCOLATE);
 		text.setText("Espinas");
+	}
+
+	public void ponerAndromeda() {
+		
+	}
+
+	public void ponerNubes() {
+		//No hace nada
+	}
+
+	public void ponerPsionica() {
+		
 	}
 	
 }

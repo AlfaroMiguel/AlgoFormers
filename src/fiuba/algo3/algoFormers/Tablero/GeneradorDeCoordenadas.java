@@ -20,7 +20,7 @@ public class GeneradorDeCoordenadas {
 		    	casillero.agregarSuperficie(new SuperficieRocosa());
 		        tablero.put(new Coordenada(q,r),casillero);
 		        Aplicacion.ponerSuperficieTerrestre(new Coordenada(q,r),new SuperficieRocosa());
-//		        Aplicacion.ponerSuperficieAerea(new Coordenada(q,r),new SuperficieNubes());
+		        Aplicacion.ponerSuperficieAerea(new Coordenada(q,r),new SuperficieNubes());
 		    }
 		}
 	}
