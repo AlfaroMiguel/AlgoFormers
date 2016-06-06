@@ -47,7 +47,6 @@ public class Juego {
  
  	public boolean seUbicoALosPersonajes() {
  		return jugadorActual.ubicoSusPersonajes();
-  		//return (this.jugadorActual.ubicoSusPersonajes() && this.jugadorAnterior.ubicoSusPersonajes());
   	}
  	
  	public boolean estaLaChispa(int i, int j) {

@@ -14,7 +14,7 @@ import fiuba.algo3.algoFormers.decepticons.Bonecrusher;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
-import fiuba.algo3.algoFormers.excepciones.OutOfRangeException;
+import fiuba.algo3.algoFormers.excepciones.FueraDeRangoException;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;
 import fiuba.algo3.algoFormers.modos.OptimusHumanoide;
 
@@ -113,7 +113,7 @@ public class Entrega1Test {
 		ratchet.atacar(tablero,optimus);
 	}
 	
-	@Test (expected = OutOfRangeException.class)
+	@Test (expected = FueraDeRangoException.class)
 	public void test08AutobotAtacarAutobotDistanciaIncorrecta(){
 		Ratchet ratchet = new Ratchet();
 		Optimus optimus = new Optimus();
@@ -149,7 +149,7 @@ public class Entrega1Test {
 		bonecrusher.atacar(tablero, megatron);
 	}
 	
-	@Test (expected = OutOfRangeException.class)
+	@Test (expected = FueraDeRangoException.class)
 	public void test11DecepticonAtacarDecepticonDistanciaIncorrecta(){
 		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
@@ -191,7 +191,7 @@ public class Entrega1Test {
 		assertEquals(megatron.verVida(),485);
 	}
 	
-	@Test (expected = OutOfRangeException.class)
+	@Test (expected = FueraDeRangoException.class)
 	public void test14AutobotAtacarDecepticonDistanciaIncorrecta(){
 		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
@@ -233,7 +233,7 @@ public class Entrega1Test {
 		assertEquals(optimus.verVida(), 435);
 	}
 	
-	@Test (expected = OutOfRangeException.class)
+	@Test (expected = FueraDeRangoException.class)
 	public void test17DecepticonAtacarAutobotDistanciaIncorrecta(){
 		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();

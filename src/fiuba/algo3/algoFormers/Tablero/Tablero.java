@@ -72,7 +72,7 @@ public class Tablero {
 		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
 		if(coordInic.distancia(coordFinal)>range)
-			throw new OutOfRangeException();
+			throw new FueraDeRangoException();
 		atacado.serAtacado(atacante, ataque);
 	}
 	
@@ -80,7 +80,7 @@ public class Tablero {
 		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
 		if(coordInic.distancia(coordFinal)>range)
-			throw new OutOfRangeException();
+			throw new FueraDeRangoException();
 		atacado.serAtacado(atacante, ataque);
 	}
 	
@@ -136,8 +136,8 @@ public class Tablero {
 		Coordenada coordSuperion = this.obtenerCoordenadaDeHabitable(superion);
 		
 		this.colocarEnTablero(optimus, coordSuperion);
-		this.colocarHabitableEnPosicionValidaDesde(bumblebee, coordSuperion);
 		this.colocarHabitableEnPosicionValidaDesde(ratchet,coordSuperion);
+		this.colocarHabitableEnPosicionValidaDesde(bumblebee, coordSuperion);
 	}
 	
 	public void descombinarAlgoformers(Menasor menasor){
@@ -153,15 +153,30 @@ public class Tablero {
 	}
 	
 	public void colocarHabitableEnPosicionValidaDesde(HabitableDelMapa habitable, Coordenada coordInicial){
-		Coordenada coordFinal = coordInicial;
-		while(!this.estaVacio(coordFinal)){
-			
+		boolean sePudoUbicar = false;
+		int radioDeVecindad = 1;
+		while(!sePudoUbicar){
+		@SuppressWarnings("static-access")
+		ArrayList<Coordenada> coordenadasVecinos = coordInicial.neighborsInRange(coordInicial, radioDeVecindad);
+		for(int i = 0; i < coordenadasVecinos.size(); i++){
+			Coordenada coordVecino = coordenadasVecinos.get(i);
+			if(this.habitables.containsKey(coordVecino)){
+				if(this.estaVacio(coordVecino)){
+					this.colocarEnTablero(habitable, coordVecino);
+					sePudoUbicar = true;
+					break;
+					}
+				}
+			}
+			radioDeVecindad++;
 		}
 	}
-	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
-		
+
+	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {	
 		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, habitables, new Optimus(), coordenadaInicial, coordenadaFinal);
 	}
+	
+
 	public void reposicionar(Algoformer algoformer) {
 		Coordenada coordenada =	this.obtenerCoordenadaDeHabitable((HabitableDelMapa)algoformer);
 		this.superficies.get(coordenada).revertirEfecto(algoformer);

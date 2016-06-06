@@ -56,7 +56,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 
 	@Override
 	public void colisionar() {
-		//throw new NotColisionableException();
+		//throw new NoColisionableException();
 	}
 
 	@Override

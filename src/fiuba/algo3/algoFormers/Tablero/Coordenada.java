@@ -3,8 +3,6 @@ package fiuba.algo3.algoFormers.Tablero;
 
 import java.util.ArrayList;
 
-import java.util.*;
-
 public class Coordenada {
 	    public Coordenada(int q, int r)
 	    {
