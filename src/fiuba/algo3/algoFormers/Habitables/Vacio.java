@@ -3,6 +3,12 @@ package fiuba.algo3.algoFormers.Habitables;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
+import fiuba.algo3.algoFormers.Superficies.SuperficieEspinas;
+import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
+import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
+import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
+import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
@@ -39,17 +45,7 @@ public class Vacio implements HabitableDelMapa{
 	public void serSeleccionado(EquipoDecepticons equipoDecepticons) {
 		throw new NoAlgoformerException();
 	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieAire superficieTierra) {	
-	}
-
+	
 	@Override
 	public void serDesafectado(SuperficieAire superficieAire) {
 		// TODO Auto-generated method stub
@@ -73,4 +69,29 @@ public class Vacio implements HabitableDelMapa{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	@Override
+	public void reaccionarASuperficie(SuperficiePantano superficiePantano) {
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa) {
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas) {	
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieNubes superficieNubes) {
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda) {	
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica) {	
+	}
+
 }

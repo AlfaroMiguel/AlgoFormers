@@ -22,5 +22,12 @@ public class SuperficiePantano extends SuperficieTierra {
 		HexGrid.ponerSuperficiePantano(coordenada);
 		
 	}
-
+	
+	public void afectar(Algoformer algoformer){
+		afectador.afectarAlgoformer(algoformer);
+	}
+	
+	public void producirEfecto(HabitableDelMapa afectado){
+		afectado.reaccionarASuperficie(this);
+	}
 }

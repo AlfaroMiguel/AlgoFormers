@@ -17,8 +17,12 @@ public interface HabitableDelMapa {
 	public void serSeleccionado(EquipoAutobots equipoAutobots);
 	public void serSeleccionado(EquipoDecepticons equipoDecepticons);
 	
-	public void reaccionarASuperficie(SuperficieTierra superficieTierra);
-	public void reaccionarASuperficie(SuperficieAire superficieTierra);
+	public void reaccionarASuperficie(SuperficiePantano superficiePantano);
+	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa);
+	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas);
+	public void reaccionarASuperficie(SuperficieNubes superficieNubes);
+	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda);
+	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica);
 	
 	public void serDesafectado(SuperficieAire superficieAire);
 	public void serDesafectado(SuperficieTierra superficieTierra);

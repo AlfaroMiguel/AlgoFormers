@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.Tablero.*;
 
 import org.junit.*;
 public class efectosTest {
+	
 	@Test(expected = MovimientoInvalidoException.class)
 	public void test01EfectoAndromedaInmovilizaAlgoformer(){
 		Tablero tablero = new Tablero(10,10);
@@ -20,6 +21,7 @@ public class efectosTest {
 		tablero.colocarEnTablero(optimus, coordenada);
 		optimus.moverse(coordenadaDestino, tablero);
 	}
+	
 	@Test(expected = MovimientoInvalidoException.class)
 	public void test02EfectoAndromedaInmovilizaAlgoformerAPesarDeCambioDeModo(){
 		Tablero tablero = new Tablero(10,10);
@@ -32,6 +34,7 @@ public class efectosTest {
 		tablero.colocarEnTablero(optimus, coordenada);
 		optimus.moverse(coordenadaDestino, tablero);
 	}
+	
 	@Test
 	public void test03EfectoEspinasDaniaAlgoformer(){
 		Optimus optimus = new Optimus();
@@ -40,6 +43,7 @@ public class efectosTest {
 		efectoEspina.afectarAlgoformer(optimus);
 		Assert.assertEquals(optimus.verVida(),(int)(0.95*vidaInicial));
 	}
+	
 	@Test
 	public void test04EfectoNubesNoAfectaAlgoformer(){
 		Tablero tablero = new Tablero(10,10);
@@ -58,6 +62,7 @@ public class efectosTest {
 		optimus.atacar(tablero, megatron);
 		Assert.assertEquals(vidaInicialMegatron - 50, megatron.verVida());
 	}
+	
 	@Test(expected = MovimientoInvalidoException.class)
 	public void test05EfectoPantanoReduceElMovimientoDelAlgoformerALaMitadYMuevoDeFormaIncorrecta(){
 		Tablero tablero = new Tablero(10,10);
@@ -69,6 +74,7 @@ public class efectosTest {
 		tablero.colocarEnTablero(optimus, coordenada);
 		optimus.moverse(coordenadaDestino, tablero);
 	}
+	
 	@Test
 	public void test06EfectoPantanoReduceElMovimientoDelAlgoformerALaMitadYMuevoDeFormaCorrecta(){
 		Tablero tablero = new Tablero(10,10);
@@ -81,6 +87,7 @@ public class efectosTest {
 		optimus.moverse(coordenadaDestino, tablero);
 		Assert.assertEquals(tablero.obtenerHabitableEnCoordenada(coordenadaDestino),optimus);
 	}
+	
 	@Test
 	public void test07EfectoPsionicoReduceElAtaqueAlgoformerACuartentaPoricento(){
 		Tablero tablero = new Tablero(10,10);
@@ -96,6 +103,7 @@ public class efectosTest {
 		optimus.atacar(tablero, megatron);
 		Assert.assertEquals(vidaInicialMegatron -(int)(50*.4),megatron.verVida());
 	}
+	
 	@Test
 	public void test08EfectoRocosasNoAfectaAlgoformer(){
 		Tablero tablero = new Tablero(10,10);
@@ -114,11 +122,4 @@ public class efectosTest {
 		optimus.atacar(tablero, megatron);
 		Assert.assertEquals(vidaInicialMegatron - 50, megatron.verVida());
 	}
-	
-	
-	
-	
-	
-	
-
 }

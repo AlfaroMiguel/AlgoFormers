@@ -27,11 +27,11 @@ public class Aplicacion extends Application {
 	@Override
 	public void start(Stage stage){
 		
-//		Group grid = HexGrid.crearTablero(20,20);
+//		Group grid = HexGrid.crearTablero(10,10);
 //		Layout layout = new Layout(grid);
 		
 		Juego juego = new Juego();
-		Group grid = HexGrid.GrupoDeTablero(20,20);
+		Group grid = HexGrid.GrupoDeTablero(10,10);
 		VBox layout = new VBox(grid);
 		
 		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));

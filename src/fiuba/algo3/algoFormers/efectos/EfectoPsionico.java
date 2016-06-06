@@ -6,7 +6,7 @@ public class EfectoPsionico implements Efecto {
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer) {
-		algoformer.multiplicarAtaque(.4);
+		algoformer.multiplicarAtaque(0.4);
 
 	}
 

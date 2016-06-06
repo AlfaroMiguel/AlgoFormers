@@ -1,11 +1,7 @@
 package fiuba.algo3.algoFormers.algoFormersTests;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
-
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Bumblebee;
@@ -296,8 +292,8 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test20CombinarYDescombiarAutobotsConTableroVacioCorrectamente(){
-		Tablero tablero = new Tablero(10,10);
+	public void test20CombinarYDescombinarAutobotsConTableroVacioCorrectamente(){
+		Tablero tablero = new Tablero(100,100);
 		
 		Optimus optimus = new Optimus();
 		Ratchet ratchet = new Ratchet();
@@ -326,8 +322,8 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test21CombinarYDescombiarAutobotsConUnEspacioOcupadoCorrectamente(){
-		Tablero tablero = new Tablero(10,10);
+	public void test21CombinarYDescombinarAutobotsConUnEspacioOcupadoCorrectamente(){
+		Tablero tablero = new Tablero(100,100);
 		
 		Optimus optimus = new Optimus();
 		Ratchet ratchet = new Ratchet();
@@ -361,8 +357,8 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test22CombinarYDescombiarAutobotsConMasDeUnEspacioOcupadoCorrectamente(){
-		Tablero tablero = new Tablero(10,10);
+	public void test22CombinarYDescombinarAutobotsConMasDeUnEspacioOcupadoCorrectamente(){
+		Tablero tablero = new Tablero(100,100);
 		
 		Optimus optimus = new Optimus();
 		Ratchet ratchet = new Ratchet();
@@ -400,7 +396,7 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test23CombinarYDescombiarAutobotsEnEsquinaDeTableroVacioCorrectamente(){
+	public void test23CombinarYDescombinarAutobotsEnEsquinaDeTableroVacioCorrectamente(){
 		Tablero tablero = new Tablero(10,10);
 		
 		Optimus optimus = new Optimus();
@@ -431,7 +427,7 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test24CombinarYDescombiarAutobotsEnEsquinaEncerradoCorrectamente(){
+	public void test24CombinarYDescombinarAutobotsEnEsquinaEncerradoCorrectamente(){
 		Tablero tablero = new Tablero(10,10);
 		
 		Optimus optimus = new Optimus();
@@ -474,8 +470,8 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test25CombinarYDescombiarAutobotsEnCostadoCorrectamente(){
-		Tablero tablero = new Tablero(10,10);
+	public void test25CombinarYDescombinarAutobotsEnCostadoCorrectamente(){
+		Tablero tablero = new Tablero(100,100);
 		
 		Optimus optimus = new Optimus();
 		Ratchet ratchet = new Ratchet();
@@ -517,8 +513,8 @@ public class algoformersTest {
 	}
 	
 	@Test
-	public void test26CombinarAutobotsMoverSuperionYDescombiarConTableroVacioCorrectamente(){
-		Tablero tablero = new Tablero(10,10);
+	public void test26CombinarAutobotsMoverSuperionYDescombinarConTableroVacioCorrectamente(){
+		Tablero tablero = new Tablero(100,100);
 		
 		Optimus optimus = new Optimus();
 		Ratchet ratchet = new Ratchet();
@@ -549,10 +545,5 @@ public class algoformersTest {
 		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
 		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
-	}
-	
-	
-	
-	
-	
+	}	
 }

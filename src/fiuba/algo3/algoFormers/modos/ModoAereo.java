@@ -32,19 +32,10 @@ public abstract class ModoAereo implements Modo {
 		tablero.mover(algoformer, coordenada, (int)(this.velocidad*agilidad.getAgilidad()));
 	}
 	
-	@Override
-	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado){
-	}
 	
-	@Override
-	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado){
-		superficieAire.afectar(afectado);
-	}
 
 	@Override
 	public void cambiar(Algoformer algoformer) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -71,5 +62,9 @@ public abstract class ModoAereo implements Modo {
 	}
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
 		superficieAire.desafectar(algoformer);
+	}
+	
+	public int verAtaque(){
+		return this.ataque;
 	}
 }

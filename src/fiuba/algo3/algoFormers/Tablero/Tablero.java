@@ -22,18 +22,22 @@ public class Tablero {
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
 	}
+	
 	public boolean estaVacio(Coordenada coordenada) {
 		return !(this.habitables.get(coordenada).ocupaLugar());
 
 	}
+	
 	public void colocarSuperficieEnTablero(SuperficieTierra superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
 		HexGrid.ponerSuperficieTierra(coordenada, superficie);
 	}
+	
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
 		HexGrid.ponerSuperficieAire(coordenada, superficie);
 	}
+	
 	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
 		try{
 			this.habitables.get(coordenada).colisionar();
@@ -45,6 +49,7 @@ public class Tablero {
 			throw new MovimientoInvalidoException();
 		}
 	}
+	
 	public void colocarEnTablero(Collectable collectable,Coordenada coordenada){
 		if(!this.habitables.get(coordenada).ocupaLugar()){
 			this.habitables.put(coordenada, collectable);

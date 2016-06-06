@@ -9,15 +9,14 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 public abstract class SuperficieTierra{
 	public Afectador afectador;
 	
-	public void producirEfecto(HabitableDelMapa afectado){
-		afectado.reaccionarASuperficie(this);
-	}
 	public void revertirEfecto(HabitableDelMapa afectado){
 		afectado.serDesafectado(this);
 	}
+	
 	public void afectar(Algoformer algoformer){
 		afectador.afectarAlgoformer(algoformer);
 	}
+	
 	public void desafectar(Algoformer algoformer){
 		afectador.desafectarAlgoformer(algoformer);
 	}
@@ -30,6 +29,6 @@ public abstract class SuperficieTierra{
 		
 	}
 	public abstract int simularPasoDe(Algoformer algoformer);
-	
+	public abstract void producirEfecto(HabitableDelMapa afectado);
 	public abstract void ponerSuperficieTierra(Coordenada coordenada);
 }

@@ -1,10 +1,10 @@
 package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoAndromeda;
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.afectadores.*;
-import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class SuperficieAndromeda extends SuperficieAire {
@@ -26,5 +26,9 @@ public class SuperficieAndromeda extends SuperficieAire {
 	@Override
 	public void ponerSuperficieAire(Coordenada coordenada) {
 		HexGrid.ponerSuperficieAndromeda(coordenada);
+	}
+	
+	public void producirEfecto(HabitableDelMapa afectado){
+		afectado.reaccionarASuperficie(this);
 	}
 }
