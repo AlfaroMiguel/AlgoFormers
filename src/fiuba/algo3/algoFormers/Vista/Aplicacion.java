@@ -42,13 +42,16 @@ public class Aplicacion extends Application {
 	    stage.show();
 	}
 
-	public static void ponerSuperficieTerrestre(Coordenada coordenada, SuperficieTierra superficieTierra) {
+	public static void ponerSuperficieTierra(Coordenada coordenada, SuperficieTierra superficieTierra) {
 		HexGrid.ponerSuperficieTierra(coordenada,superficieTierra);	
 	}
 
-	public static void ponerSuperficieAerea(Coordenada coordenada, SuperficieAire superficieAire) {
+	public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
 		HexGrid.ponerSuperficieAire(coordenada,superficieAire);	
+	}
 
+	public static void crearTablero(int alto, int ancho) {
+		HexGrid.crearTablero(ancho, alto);
 	}
 
 }

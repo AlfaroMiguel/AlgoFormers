@@ -18,7 +18,7 @@ public class Tablero {
 	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
 	
 	public Tablero(int height,int width){
-		HexGrid.crearTablero(height,width);
+		Aplicacion.crearTablero(height,width);
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
 	}
@@ -30,12 +30,12 @@ public class Tablero {
 	
 	public void colocarSuperficieEnTablero(SuperficieTierra superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
-		HexGrid.ponerSuperficieTierra(coordenada, superficie);
+		Aplicacion.ponerSuperficieTierra(coordenada, superficie);
 	}
 	
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
-		HexGrid.ponerSuperficieAire(coordenada, superficie);
+		Aplicacion.ponerSuperficieAire(coordenada, superficie);
 	}
 	
 	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
