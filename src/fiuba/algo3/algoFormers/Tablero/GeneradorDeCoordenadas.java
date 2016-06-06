@@ -7,6 +7,7 @@ import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Habitables.Vacio;
 import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
+import fiuba.algo3.algoFormers.Vista.Aplicacion;
 
 public class GeneradorDeCoordenadas {
 
@@ -18,6 +19,8 @@ public class GeneradorDeCoordenadas {
 		    	casillero.agregarSuperficie(new SuperficieNubes());
 		    	casillero.agregarSuperficie(new SuperficieRocosa());
 		        tablero.put(new Coordenada(q,r),casillero);
+		        Aplicacion.ponerSuperficieTerrestre(new Coordenada(q,r),new SuperficieRocosa());
+		        Aplicacion.ponerSuperficieAerea(new Coordenada(q,r),new SuperficieNubes());
 		    }
 		}
 	}

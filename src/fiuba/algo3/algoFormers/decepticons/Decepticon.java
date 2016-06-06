@@ -40,10 +40,4 @@ public class Decepticon extends Algoformer {
 		equipoDecepticon.setAlgoformerActual(this);
 	}
 
-	@Override
-	public void serDesafectado(SuperficieAire superficieAire) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

@@ -43,6 +43,14 @@ public class EquipoAutobots extends Equipo {
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(this.superion);
 	}
+
+	@Override
+	public void terminarTurno() {
+		this.optimus.terminaTurno();
+		this.ratchet.terminaTurno();
+		this.bumblebee.terminaTurno();
+		
+	}
 	
 
 }

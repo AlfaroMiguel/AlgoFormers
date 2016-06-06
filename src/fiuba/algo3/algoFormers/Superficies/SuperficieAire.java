@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.afectadores.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.efectos.Efecto;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
@@ -26,6 +27,7 @@ public abstract class SuperficieAire{
 		return transeunte.simularEfecto(this);
 	}
 	public abstract int simularPasoDe(Algoformer algoformer);
+	public abstract void ponerSuperficieAire(Coordenada coordenada);
 
 	
 }

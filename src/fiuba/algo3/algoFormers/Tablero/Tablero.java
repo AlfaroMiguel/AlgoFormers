@@ -8,6 +8,8 @@ import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
+import fiuba.algo3.algoFormers.Vista.Aplicacion;
+import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.Superficies.*;
 
 
@@ -16,6 +18,7 @@ public class Tablero {
 	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
 	
 	public Tablero(int height,int width){
+		HexGrid.crearTablero(height,width);
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
 	}
@@ -25,9 +28,11 @@ public class Tablero {
 	}
 	public void colocarSuperficieEnTablero(SuperficieTierra superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
+		HexGrid.ponerSuperficieTierra(coordenada, superficie);
 	}
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
+		HexGrid.ponerSuperficieAire(coordenada, superficie);
 	}
 	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
 		try{
@@ -179,8 +184,12 @@ public class Tablero {
 
 	public void reposicionar(Algoformer algoformer) {
 		Coordenada coordenada =	this.obtenerCoordenadaDeHabitable((HabitableDelMapa)algoformer);
-		this.superficies.get(coordenada).revertirEfecto(algoformer);
 		this.colocarEnTablero((HabitableDelMapa)algoformer, coordenada);
+		
+	}
+	public void retirarAlgoformer(Algoformer algoformer) {
+		Coordenada coordenadaActual =this.obtenerCoordenadaDeHabitable(algoformer);
+		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
 		
 	}
 	
