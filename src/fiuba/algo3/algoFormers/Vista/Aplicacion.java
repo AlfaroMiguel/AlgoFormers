@@ -73,6 +73,8 @@ public class Aplicacion extends Application {
 
 	private Parent crearContenedor(Group grid) {
 	    final double SCALE_DELTA = 1.1;
+	    final double SCALE_MAX = 1.25;
+	    final double SCALE_MIN = 0.25;
 	    final StackPane zoomPane = new StackPane();
 
 	    zoomPane.getChildren().add(grid);
@@ -80,7 +82,7 @@ public class Aplicacion extends Application {
 	    final ScrollPane scroller = new ScrollPane();
 	    scroller.setVbarPolicy(ScrollBarPolicy.NEVER);
 	    scroller.setHbarPolicy(ScrollBarPolicy.NEVER);
-	    scroller.setMaxHeight(500);
+	    
 	    final Group scrollContent = new Group(zoomPane);
 	    scroller.setContent(scrollContent);
 	    
@@ -105,11 +107,13 @@ public class Aplicacion extends Application {
 	        double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA
 	            : 1 / SCALE_DELTA;
 	        double escala = grid.getScaleX()* scaleFactor;
-	        if(escala < 0.25) escala = 0.25;
-	        else if (escala > 1.25) escala = 1.25;
+	        
+	        if(escala < SCALE_MIN) escala = SCALE_MIN;
+	        else if (escala > SCALE_MAX) escala = SCALE_MAX;
 	        
 	        grid.setScaleX(escala);
 	        grid.setScaleY(escala);
+	        
 	      }
 	    });
 	 // Mover el tablero arrastrandolo
