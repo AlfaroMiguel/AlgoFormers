@@ -10,6 +10,8 @@ import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
@@ -96,5 +98,10 @@ public class ChispaSuprema implements Collectable{
 
 	@Override
 	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica) {	
+	}
+
+	@Override
+	public void ponerHabitable(Coordenada coordenada) {
+		HexGrid.ponerChispa(coordenada);
 	}
 }

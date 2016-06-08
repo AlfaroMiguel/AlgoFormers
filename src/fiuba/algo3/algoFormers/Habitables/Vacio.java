@@ -10,6 +10,7 @@ import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
@@ -92,6 +93,11 @@ public class Vacio implements HabitableDelMapa{
 
 	@Override
 	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica) {	
+	}
+
+	@Override
+	public void ponerHabitable(Coordenada coordenada) {
+		
 	}
 
 }

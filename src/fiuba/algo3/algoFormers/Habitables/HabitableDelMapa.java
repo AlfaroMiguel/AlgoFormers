@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.Superficies.*;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
 
 public interface HabitableDelMapa {
 
@@ -29,6 +30,7 @@ public interface HabitableDelMapa {
 	
 	public int simularEfecto(SuperficieAire superficieAire);
 	public int simularEfecto(SuperficieTierra superficieTierra);
+	public void ponerHabitable(Coordenada coordenada);
 	
 	
 }

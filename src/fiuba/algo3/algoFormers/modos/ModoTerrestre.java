@@ -65,5 +65,8 @@ public abstract class ModoTerrestre implements Modo {
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
 		//Nada
 	}
+	public void ponerAlgoformer(Coordenada coordenada){
+		
+	}
 	
 }

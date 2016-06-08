@@ -11,8 +11,8 @@ public class Juego {
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
 
-	public Juego(){
-		this.tablero = new Tablero(20,20);
+	public Juego(int alto, int ancho){
+		this.tablero = new Tablero(alto,ancho);
 		
 		Equipo equipoAutobots = new EquipoAutobots();
 		this.jugadorActual = new Jugador(equipoAutobots, tablero);
@@ -21,8 +21,10 @@ public class Juego {
 		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		
 		this.ubicarPersonajes();
-		this.ubicarChispa();
-		
+		this.ubicarChispa();		
+	}
+	public Juego(){
+		this(20,20);
 	}
 	
 	private void ubicarChispa() {

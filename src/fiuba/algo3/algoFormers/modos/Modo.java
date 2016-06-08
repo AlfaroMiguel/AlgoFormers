@@ -27,4 +27,5 @@ public interface Modo{
 	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda, Algoformer afectado);
 	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado);
 	public int verAtaque();
+	public void ponerAlgoFormer(Coordenada coordenada);
 }

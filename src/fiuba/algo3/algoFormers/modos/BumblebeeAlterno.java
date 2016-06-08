@@ -6,6 +6,8 @@ import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class BumblebeeAlterno extends ModoTerrestre{
@@ -60,5 +62,9 @@ public class BumblebeeAlterno extends ModoTerrestre{
 	
 	@Override
 	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado){
+	}
+	
+	public void ponerAlgoFormer(Coordenada coordenada){
+		HexGrid.ponerBumbleBeeAlterno(coordenada);
 	}
 }

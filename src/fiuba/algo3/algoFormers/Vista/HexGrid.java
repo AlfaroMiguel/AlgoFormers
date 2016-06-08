@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.Tablero.Casillero;
@@ -78,6 +79,15 @@ public class HexGrid {
 		}
 		public static void ponerSuperficiePsionica(Coordenada coordenada) {
 			grid.get(coordenada).ponerPsionica();
+		}
+		public static void ponerPersonaje(HabitableDelMapa habitable, Coordenada coordenada) {
+			habitable.ponerHabitable(coordenada);
+		}
+		public static void ponerChispa(Coordenada coordenada) {
+			grid.get(coordenada).ponerChispa();
+		}
+		public static void ponerBumbleBeeAlterno(Coordenada coordenada) {
+			grid.get(coordenada).ponerBumbleBeeAlterno();
 		}
 
 }

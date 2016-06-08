@@ -6,6 +6,7 @@ import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
+import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class OptimusAlterno extends ModoTerrestre {
@@ -58,5 +59,11 @@ public class OptimusAlterno extends ModoTerrestre {
 	
 	@Override
 	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado){
+	}
+
+	@Override
+	public void ponerAlgoFormer(Coordenada coordenada) {
+		// TODO Auto-generated method stub
+		
 	}
 }

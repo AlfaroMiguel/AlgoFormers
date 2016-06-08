@@ -17,10 +17,10 @@ public class Tablero {
 	HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
 	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
 	
-	public Tablero(int height,int width){
-		Aplicacion.crearTablero(height,width);
-		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
-		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
+	public Tablero(int alto,int ancho){
+		Aplicacion.crearTablero(alto,ancho);
+		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,alto,ancho);
+		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,alto,ancho);
 	}
 	
 	public boolean estaVacio(Coordenada coordenada) {
@@ -44,6 +44,7 @@ public class Tablero {
 			//habitable.recibir(this.habitables.get(coordenada));
 			this.superficies.get(coordenada).producirEfecto(habitable);
 			this.habitables.put(coordenada,habitable);
+			//Aplicacion.ponerPersonaje(habitable,coordenada);
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();

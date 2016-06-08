@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.Vista;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
@@ -11,6 +13,7 @@ public class Hexagono extends StackPane {
 	private int y;
 	
 	private Text text = new Text();
+	private ImageView algoFormer = new ImageView();
 	private Polyline hexagon;
 	public boolean pinto=false;
 	
@@ -36,7 +39,8 @@ public class Hexagono extends StackPane {
         text.setText(String.valueOf(x) +"," + String.valueOf(y));
         
 //        this.setOnMouseExited(e-> close());
-//        this.setOnMouseClicked(e -> seleccionado());
+          this.setOnMouseClicked(e -> seleccionado());
+          this.setOnDragDetected(null);
 //        this.setOnMouseEntered(e -> open());
 	}
 
@@ -82,6 +86,25 @@ public class Hexagono extends StackPane {
 	}
 
 	public void ponerPsionica() {
+		
+	}
+
+	public void ponerChispa() {
+		// TODO Auto-generated method stub
+	}
+
+	public void ponerBumbleBeeAlterno() {
+		Image bumblebee = new Image("file:img/Alterno/BumbleBee.png");
+		algoFormer.setImage(bumblebee);
+		algoFormer.fitWidthProperty().set(40);
+		algoFormer.fitHeightProperty().set(60);
+
+		//text.setText("BumbleBee");
+		this.getChildren().add(algoFormer);
+	}
+
+	public void ponerBumbleBeeHumanoide() {
+		// TODO Auto-generated method stub
 		
 	}
 	

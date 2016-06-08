@@ -4,6 +4,7 @@ package fiuba.algo3.algoFormers.Vista;
 
 import java.util.HashMap;
 
+import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Juego.Juego;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
 import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
@@ -25,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Priority;
@@ -45,12 +47,12 @@ public class Aplicacion extends Application {
 //		Layout layout = new Layout(grid);
 		
 		Juego juego = new Juego();
-		Group grid = HexGrid.GrupoDeTablero(10,10);
+		Group grid = HexGrid.GrupoDeTablero(20,20);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 		
-		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
+//		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
 		
 		Scene scene = new Scene(layout);
 	    stage.setScene(scene);
@@ -65,6 +67,11 @@ public class Aplicacion extends Application {
 	public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
 		HexGrid.ponerSuperficieAire(coordenada,superficieAire);	
 	}
+	
+	public static void ponerPersonaje(HabitableDelMapa habitable, Coordenada coordenada) {
+		HexGrid.ponerPersonaje(habitable,coordenada);
+	}
+
 
 	public static void crearTablero(int alto, int ancho) {
 		HexGrid.crearTablero(ancho, alto);
@@ -85,6 +92,8 @@ public class Aplicacion extends Application {
 	    
 	    final Group scrollContent = new Group(zoomPane);
 	    scroller.setContent(scrollContent);
+	    scroller.prefHeight(500);
+	    scroller.prefWidth(500);
 	    
 
 	    scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
@@ -116,6 +125,10 @@ public class Aplicacion extends Application {
 	        
 	      }
 	    });
+	    
+	 // Mover el tablero con teclas
+
+	    
 	 // Mover el tablero arrastrandolo
 	    
 	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();

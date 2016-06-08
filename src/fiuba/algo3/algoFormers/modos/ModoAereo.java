@@ -67,4 +67,7 @@ public abstract class ModoAereo implements Modo {
 	public int verAtaque(){
 		return this.ataque;
 	}
+	public void ponerAlgoformer(Coordenada coordenada){
+	
+	}
 }
