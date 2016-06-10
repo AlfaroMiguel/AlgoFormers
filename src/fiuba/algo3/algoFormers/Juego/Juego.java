@@ -75,7 +75,10 @@ public class Juego {
 	}
 	
 	public void seleccionarCoordenada(Coordenada coordenada){
-		this.jugadorActual.seleccionarAlgoformer(coordenada);
+		try	{
+			this.jugadorActual.seleccionarAlgoformer(coordenada);
+		}
+		catch(Throwable e) {}
 		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
 	}
 	public void moverSeleccionadoACoordenada(Coordenada coordenada){
@@ -87,7 +90,7 @@ public class Juego {
 	public void transformarSeleccionado(){
 		this.jugadorActual.transformarAlgoformer();
 	}
-	public void combinarAlgoFormers(){
+	public void combinarAlgoFormers(){	
 		this.jugadorActual.combinarAlgoformers();
 	}
 	public void descombinarAlgoFormers(){
