@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
 import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
@@ -17,12 +17,12 @@ public abstract class ModoAereo implements Modo {
 	protected int velocidad;
 	
 	@Override
-	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado,Potencia potencia) {
+	public void atacar(Tablero tablero, Autobot atacante, Accionable atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 	@Override
-	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado,Potencia potencia) {
+	public void atacar(Tablero tablero, Decepticon atacante, Accionable atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 
@@ -31,8 +31,6 @@ public abstract class ModoAereo implements Modo {
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero,Agilidad agilidad) {
 		tablero.mover(algoformer, coordenada, (int)(this.velocidad*agilidad.getAgilidad()));
 	}
-	
-	
 
 	@Override
 	public void cambiar(Algoformer algoformer) {
@@ -67,7 +65,6 @@ public abstract class ModoAereo implements Modo {
 	}
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado){
 	}
-	
 	
 	public int verAtaque(){
 		return this.ataque;

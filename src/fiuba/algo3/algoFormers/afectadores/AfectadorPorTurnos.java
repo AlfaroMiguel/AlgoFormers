@@ -17,6 +17,7 @@ public class AfectadorPorTurnos extends Afectador {
 	@Override
 	public void pasarTurno(){
 		this.turnos--;
+		System.out.println(this.turnos);
 		if(this.turnos == 0)
 			this.cambiarEfecto();
 	}

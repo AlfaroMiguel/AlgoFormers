@@ -18,11 +18,11 @@ public class Jugador{
 	}
 
 	public void seleccionarAlgoformer(Coordenada coordenada){
-		this.equipo.seleccionarAlgoformer(this.tablero.obtenerHabitableEnCoordenada(coordenada));
+		this.equipo.seleccionarAlgoformer(this.tablero.obtenerAccionableEnCoordenada(coordenada));
 	}
 	
 	public void atacar(Coordenada coordenadaDestino) {
-		this.equipo.atacar(this.tablero, this.tablero.obtenerHabitableEnCoordenada(coordenadaDestino));
+		this.equipo.atacar(this.tablero, this.tablero.obtenerAccionableEnCoordenada(coordenadaDestino));
 	}
 	
 	public void mover(Coordenada coordenada) {
@@ -37,7 +37,7 @@ public class Jugador{
 	}
 	
 	public boolean ubicoSusPersonajes() {
-		 return !(this.tablero.obtenerCoordenadaDeHabitable(this.verAlgoformerActual()) == null);
+		 return !(this.tablero.obtenerCoordenadaDeElemento(this.verAlgoformerActual()) == null);
 	 }
 	
 	public void ubicarPersonajes() {

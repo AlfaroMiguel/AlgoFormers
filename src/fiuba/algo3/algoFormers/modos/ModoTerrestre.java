@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 import fiuba.algo3.algoFormers.Superficies.*;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
@@ -21,12 +21,12 @@ public abstract class ModoTerrestre implements Modo {
 	}
 	
 	@Override
-	public void atacar(Tablero tablero, Autobot atacante, HabitableDelMapa atacado,Potencia potencia) {
+	public void atacar(Tablero tablero, Autobot atacante, Accionable atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 	@Override
-	public void atacar(Tablero tablero, Decepticon atacante, HabitableDelMapa atacado,Potencia potencia) {
+	public void atacar(Tablero tablero, Decepticon atacante, Accionable atacado,Potencia potencia) {
 		tablero.coordinateAttack(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
 	}
 

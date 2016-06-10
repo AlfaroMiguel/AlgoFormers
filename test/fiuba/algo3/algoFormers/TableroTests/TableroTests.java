@@ -39,14 +39,14 @@ public class TableroTests {
 		Coordenada coordenada = new Coordenada(1,0);
 		Optimus optimus = new Optimus();
 		tablero.colocarEnTablero(optimus,coordenada);
-		Assert.assertTrue("El tablero NO encuentra las coordenadas correctamente", tablero.obtenerCoordenadaDeHabitable(optimus).equals(coordenada));
+		Assert.assertTrue("El tablero NO encuentra las coordenadas correctamente", tablero.obtenerCoordenadaDeElemento(optimus).equals(coordenada));
 	}
 
 	@Test (expected = ElementoNoExisteException.class)
 	public void test04ElTableroNoEncuentraElementosQueNoContiene(){
 		Tablero tablero = new Tablero(10,10);
 		Optimus optimus = new Optimus();
-		tablero.obtenerCoordenadaDeHabitable(optimus);
+		tablero.obtenerCoordenadaDeElemento(optimus);
 	}
 	@Test (expected = MovimientoInvalidoException.class)
 	public void test05ElTableroLanzaUnaExcepcionEnCasoDeUnMovimientoInvalido(){
@@ -91,7 +91,7 @@ public class TableroTests {
 		tablero.colocarEnTablero(ratchet, coordRatchet);
 		Superion superion = new Superion(optimus, ratchet, bumblebee);
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
-		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus), superion);
+		assertEquals(tablero.obtenerAccionableEnCoordenada(coordOptimus), superion);
 		assertTrue(tablero.estaVacio(coordBumblebee));
 		assertTrue(tablero.estaVacio(coordRatchet));
 	}

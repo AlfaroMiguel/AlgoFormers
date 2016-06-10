@@ -13,9 +13,10 @@ import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
-import fiuba.algo3.algoFormers.excepciones.NoAtacableException;;
+import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
+import fiuba.algo3.algoFormers.generico.Algoformer;;
 
-public class Vacio implements HabitableDelMapa{
+public class Vacio implements Accionable{
 
 	public Vacio(){}
 
@@ -73,13 +74,16 @@ public class Vacio implements HabitableDelMapa{
 	@Override
 	public void reaccionarASuperficie(SuperficieAire superficieAire) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void recolectar(Collectable colectable) {
+		// TODO Auto-generated method stub	
 	}
 	
 }

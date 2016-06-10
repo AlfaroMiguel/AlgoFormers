@@ -85,7 +85,7 @@ public class efectosTest {
 		Coordenada coordenadaDestino = new Coordenada(3,4);
 		tablero.colocarEnTablero(optimus, coordenada);
 		optimus.moverse(coordenadaDestino, tablero);
-		Assert.assertEquals(tablero.obtenerHabitableEnCoordenada(coordenadaDestino),optimus);
+		Assert.assertEquals(tablero.obtenerAccionableEnCoordenada(coordenadaDestino),optimus);
 	}
 	
 	@Test

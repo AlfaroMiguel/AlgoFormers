@@ -2,17 +2,16 @@ package fiuba.algo3.algoFormers.efectos;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class EfectoTerminado implements Efecto {
+public class EfectoDobleCanion implements Efecto {
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer) {
-
+		algoformer.multiplicarAtaque(2);
 	}
 
 	@Override
 	public void desafectarAlgoformer(Algoformer algoformer) {
-		// TODO Auto-generated method stub
-		
+		algoformer.multiplicarAtaque(0.5);
 	}
 
 }

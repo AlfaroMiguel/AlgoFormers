@@ -103,7 +103,7 @@ public class JugadorTest {
 	jugador.seleccionarAlgoformer(coordenada);
 	
 	jugador.mover(nuevaCoordenada);
-	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeElemento(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 	@Test
@@ -118,7 +118,7 @@ public class JugadorTest {
 	jugador.seleccionarAlgoformer(coordenada);
 	jugador.transformarAlgoformer();
 	jugador.mover(nuevaCoordenada);
-	assertEquals(tablero.obtenerCoordenadaDeHabitable(jugador.verAlgoformerActual()), nuevaCoordenada);
+	assertEquals(tablero.obtenerCoordenadaDeElemento(jugador.verAlgoformerActual()), nuevaCoordenada);
 	}
 	
 	@Test
@@ -131,6 +131,6 @@ public class JugadorTest {
 		tablero.colocarEnTablero(equipoAutobots.bumblebee, new Coordenada(1,3));
 		tablero.colocarEnTablero(equipoAutobots.ratchet, new Coordenada(1,4));
 		jugador.combinarAlgoformers();
-		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus).getClass(), Superion.class);
+		assertEquals(tablero.obtenerAccionableEnCoordenada(coordOptimus).getClass(), Superion.class);
 	}
 }

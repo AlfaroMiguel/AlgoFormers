@@ -1,0 +1,31 @@
+package fiuba.algo3.algoFormers.Habitables;
+
+import fiuba.algo3.algoFormers.generico.Algoformer;
+
+public class BonusVacio implements Collectable {
+
+	@Override
+	public void colisionar() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean ocupaLugar() {
+		return false;
+	}
+
+
+	@Override
+	public void producirEfecto(Algoformer algoformer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void desafectar(Algoformer algoformer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

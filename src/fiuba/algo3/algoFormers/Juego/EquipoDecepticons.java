@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.Juego;
 import java.util.*;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.*;
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 
 
 public class EquipoDecepticons extends Equipo {
@@ -20,7 +20,7 @@ public class EquipoDecepticons extends Equipo {
 		this.algoformerActual = megatron;
 	}
 	
-	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
+	public void seleccionarAlgoformer(Accionable seleccionado){
 		seleccionado.serSeleccionado(this);
 	}
 	
