@@ -74,5 +74,23 @@ public class Juego {
 		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal);
 	}
 	
-	
+	public void seleccionarCoordenada(Coordenada coordenada){
+		this.jugadorActual.seleccionarAlgoformer(coordenada);
+		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
+	}
+	public void moverSeleccionadoACoordenada(Coordenada coordenada){
+		this.jugadorActual.mover(coordenada);
+	}
+	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
+		this.jugadorActual.atacar(coordenada);
+	}
+	public void transformarSeleccionado(){
+		this.jugadorActual.transformarAlgoformer();
+	}
+	public void combinarAlgoFormers(){
+		this.jugadorActual.combinarAlgoformers();
+	}
+	public void descombinarAlgoFormers(){
+		this.jugadorActual.descombinarAlgoformers();
+	}
 }
