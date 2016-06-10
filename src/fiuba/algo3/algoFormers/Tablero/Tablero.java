@@ -36,7 +36,7 @@ public class Tablero {
 
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
-		Aplicacion.ponerSuperficieAire(coordenada, superficie);
+		//Aplicacion.ponerSuperficieAire(coordenada, superficie);
 	}
 
 	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){

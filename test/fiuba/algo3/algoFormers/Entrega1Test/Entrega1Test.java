@@ -90,15 +90,7 @@ public class Entrega1Test {
 	public void test06PruebIntegracion(){
 		Juego juego = new Juego();
 		assertTrue(juego.seUbicoALosPersonajes());
-		Boolean encontroLaChispa = false;
-		for(int i=9;i<12;i++){
-			for(int j=9;j<12;j++){
-				if(juego.estaLaChispa(i,j)){
-					encontroLaChispa = true;
-				}
-			}
-		}
-		assertTrue(encontroLaChispa);
+		assertTrue(juego.estaLaChispa());
 	}
 	
 	@Test (expected = MismoEquipoException.class)

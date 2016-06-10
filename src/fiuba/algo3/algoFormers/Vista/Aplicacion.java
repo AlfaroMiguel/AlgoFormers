@@ -45,7 +45,7 @@ public class Aplicacion extends Application {
 //		Layout layout = new Layout(grid);
 		
 		Juego juego = new Juego();
-		Group grid = HexGrid.GrupoDeTablero(10,10);
+		Group grid = HexGrid.GrupoDeTablero(20,20);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);

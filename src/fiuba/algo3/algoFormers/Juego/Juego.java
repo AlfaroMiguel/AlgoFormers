@@ -12,30 +12,43 @@ public class Juego {
 	protected Tablero tablero;
 
 	public Juego(){
-		this.tablero = new Tablero(20,20);
+		final int ancho = 20;
+		final int alto = 20;
+		this.tablero = new Tablero(alto,ancho);
 		
-		Equipo equipoAutobots = new EquipoAutobots();
-		this.jugadorActual = new Jugador(equipoAutobots, tablero);
-		
-		Equipo equipoDecepticons = new EquipoDecepticons();
-		this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
+		this.elegirPrimerJugador();
 		
 		this.ubicarPersonajes();
-		this.ubicarChispa();
+		this.ubicarChispa(alto,ancho);
 		
 	}
 	
-	private void ubicarChispa() {
+	private void elegirPrimerJugador(){
+
+		Equipo equipoAutobots = new EquipoAutobots();
+		Equipo equipoDecepticons = new EquipoDecepticons();
+
+		if(Math.random()>0.5) {
+			this.jugadorActual = new Jugador(equipoAutobots, tablero);
+			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
+		}
+		else {
+			this.jugadorActual = new Jugador(equipoDecepticons, tablero);
+			this.jugadorAnterior = new Jugador(equipoAutobots, tablero);
+		}
+	}
+	
+	private void ubicarChispa(int alto,int ancho) {
 		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
 		
-		this.tablero.colocarEnTablero(chispaSuprema, coordenadaChispa());
+		this.tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
 		
 	}
 	
-	private Coordenada coordenadaChispa(){
-		int i=9 + (int) (Math.random()*(11-9+1));
-		int j=9 + (int) (Math.random()*(11-9+1));
-		return new Coordenada(i,j);
+	private Coordenada coordenadaChispa(int alto, int ancho){
+		int q= 3 + (int) (Math.random()*((ancho - 6)));
+		int r= alto/2 + (int) (Math.random()*((alto/2))- 3 );
+		return new Coordenada(q,r);
 	}
 
 
@@ -49,8 +62,12 @@ public class Juego {
  		return jugadorActual.ubicoSusPersonajes();
   	}
  	
- 	public boolean estaLaChispa(int i, int j) {
- 			return !(tablero.estaVacio(new Coordenada(i,j)));
+ 	public boolean estaLaChispa() {
+ 			try {
+ 				tablero.obtenerCoordenadaDeHabitable(ChispaSuprema.getInstance());
+ 				return true;
+ 			}
+ 			catch(Throwable e){ return false;}
  		}
  	
 	public void cambiarTurno(){

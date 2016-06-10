@@ -32,14 +32,6 @@ public class JuegoTest{
 	@Test
 	public void test03UbicarChispa(){
 		Juego juego = new Juego();
-		Boolean encontro = false;
-		for(int i=9;i<12;i++){
-			for(int j=9;j<12;j++){
-				if(juego.estaLaChispa(i,j)){
-					encontro = true;
-				}
-			}
-		}
-		assertTrue(encontro);
+		assertTrue(juego.estaLaChispa());
 	}
 }
