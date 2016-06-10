@@ -80,21 +80,6 @@ public class IntegrandoSuperficieTest {
 //		
 //	}
 	@Test
-	public void test05EntrarEnModoTerrestreAPantanaYSalirEnModoAereoSinRealentizacion(){
-		Tablero tablero = new Tablero(20,20);
-		Equipo equipoAutobots = new EquipoAutobots();
-		Jugador jugador= new Jugador(equipoAutobots, tablero);
-		jugador.ubicarPersonajes();
-		Coordenada inicialRatchet = new Coordenada(2,1);
-		jugador.seleccionarAlgoformer(inicialRatchet);
-		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,1));
-		jugador.mover(new Coordenada(3,1));
-		jugador.terminarTurno();
-		jugador.transformarAlgoformer();
-		jugador.terminarTurno();
-		jugador.mover(new Coordenada(8,1));		
-	}
-	@Test
 	public void test05EntroEnModoTerrestreAEspinasYCambioAAereoSeRetiraElEfecto(){
 		Tablero tablero = new Tablero(20,20);
 		Equipo equipoAutobots = new EquipoAutobots();

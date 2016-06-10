@@ -58,11 +58,16 @@ public abstract class ModoAereo implements Modo {
 		return 0;
 	}
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
-		
 	}
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
-		superficieAire.desafectar(algoformer);
+		superficieAire.desafectar(algoformer,this);
 	}
+	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado){
+		superficieAire.afectar(afectado,this);
+	}
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado){
+	}
+	
 	
 	public int verAtaque(){
 		return this.ataque;

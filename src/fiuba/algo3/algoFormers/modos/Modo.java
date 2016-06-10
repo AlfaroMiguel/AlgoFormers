@@ -18,13 +18,10 @@ public interface Modo{
 	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer);
 	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public int simularPasoDe(SuperficiePantano superficiePantano);
+	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer algoformer);
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer);
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano, Algoformer afectado);
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa, Algoformer afectado);
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas, Algoformer afectado);
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes, Algoformer afectado);
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda, Algoformer afectado);
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado);
 	public int verAtaque();
+	
 }

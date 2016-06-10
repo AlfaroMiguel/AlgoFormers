@@ -309,38 +309,7 @@ public class Entrega2Test {
 		Coordenada coordenadaFinalBonecrusher = new Coordenada(3,9);
 		bonecrusher.moverse(coordenadaFinalBonecrusher, tablero);
 	}
-	
-	@Test 
-	public void test16AlgoformerUnidadAereaModoHumanoidePuedeAtravesarZonaPantano(){
-		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
-		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
-		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
-		Coordenada coordenadaFinalFrenzy = new Coordenada(3,5);
-		frenzy.moverse(coordenadaFinalFrenzy, tablero);
-		assertEquals(tablero.obtenerCoordenadaDeHabitable(frenzy), coordenadaFinalFrenzy);
-	}
-	
-	@Test 
-	public void test16AlgoformerUnidadAereaModoHumanoideNoPierdeVelocidadZonaPantano(){
-		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
-		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
-		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
-		Coordenada coordenadaFinalFrenzy = new Coordenada(3,6);
-		frenzy.moverse(coordenadaFinalFrenzy, tablero);
-		assertEquals(tablero.obtenerCoordenadaDeHabitable(frenzy), coordenadaFinalFrenzy);
-	}
+
 	
 	@Test 
 	public void test18AlgoformerUnidadAereaModoAlternoPuedeAtravesarZonaPantano(){
@@ -362,18 +331,18 @@ public class Entrega2Test {
 	@Test 
 	public void test19AlgoformerUnidadAereaModoAlternoNoPierdeVelocidadZonaPantano(){
 		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		frenzy.cambiarModo();
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
 		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
 		Coordenada coordenadaSuperficie = new Coordenada(3,4);
 		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
+		tablero.colocarEnTablero(megatron, coordenadaInicialFrenzy);
 		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
+		megatron.moverse(coordenadaSuperficie,tablero);	
+		megatron.terminaTurno();
 		Coordenada coordenadaFinalFrenzy = new Coordenada(3,8);
-		frenzy.moverse(coordenadaFinalFrenzy, tablero);
-		assertEquals(tablero.obtenerCoordenadaDeHabitable(frenzy), coordenadaFinalFrenzy);
+		megatron.moverse(coordenadaFinalFrenzy, tablero);
+		assertEquals(tablero.obtenerCoordenadaDeHabitable(megatron), coordenadaFinalFrenzy);
 	}
 	
 	//UNIDADES TERRESTRES PIERDEN 5% EN ESPINAS EN CUALQUIER MODO
@@ -455,7 +424,7 @@ public class Entrega2Test {
 	}
 	
 	@Test 
-	public void test25MegatronModoAlternoPierdeVidaZonaEspinas(){
+	public void test25MegatronModoAlternoNoPierdeVidaZonaEspinas(){
 		Tablero tablero = new Tablero(10,10);
 		Megatron megatron = new Megatron();
 		megatron.cambiarModo();
@@ -467,7 +436,7 @@ public class Entrega2Test {
 		//Los efectos se aplican al final de cada turno
 		megatron.moverse(coordenadaSuperficie,tablero);	
 		megatron.terminaTurno();
-		Assert.assertEquals(megatron.verVida(), (int)(Math.ceil(vidaInicial*0.95)));
+		Assert.assertEquals(megatron.verVida(), (int)(Math.ceil(vidaInicial)));
 	}
 	
 	@Test 
@@ -501,26 +470,12 @@ public class Entrega2Test {
 		Assert.assertEquals(bonecrusher.verVida(), (int)(Math.ceil(vidaInicial*0.95)));
 	}
 	
-	//UNIDADES AEREAS NO SON AFECTADAS POR ESPINAS
-	@Test
-	public void test28FrenzyModoHumanoideNoEsAfectadoZonaEspinas(){
-		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
-		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
-		int vidaInicial = frenzy.verVida();
-		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
-		Assert.assertEquals(frenzy.verVida(), vidaInicial);
-	}
+	//UNIDADES AEREAS SON AFECTADAS POR ESPINAS
 	
 	@Test
 	public void test28FrenzyModoAlternoNoEsAfectadoZonaEspinas(){
 		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
+		Megatron frenzy = new Megatron();
 		frenzy.cambiarModo();
 		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
 		Coordenada coordenadaSuperficie = new Coordenada(3,4);
@@ -531,21 +486,6 @@ public class Entrega2Test {
 		frenzy.moverse(coordenadaSuperficie,tablero);	
 		frenzy.terminaTurno();
 		Assert.assertEquals(frenzy.verVida(), vidaInicial);
-	}
-	
-	@Test
-	public void test28RatchetModoHumanoideNoEsAfectadoZonaEspinas(){
-		Tablero tablero = new Tablero(10,10);
-		Ratchet ratchet = new Ratchet();
-		Coordenada coordenadaInicialRatchet = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
-		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), coordenadaSuperficie);
-		tablero.colocarEnTablero(ratchet, coordenadaInicialRatchet);
-		int vidaInicial = ratchet.verVida();
-		//Los efectos se aplican al final de cada turno
-		ratchet.moverse(coordenadaSuperficie,tablero);	
-		ratchet.terminaTurno();
-		Assert.assertEquals(ratchet.verVida(), vidaInicial);
 	}
 	
 	@Test
@@ -633,46 +573,6 @@ public class Entrega2Test {
 	}
 	
 	//NEBULOSA ANDROMEDA UNIDAD AEREA QUEDA ATRAPADA 3 TURNOS
-	@Test
-	public void test32RatchetHumanoideQuedaAtrapado3TurnosSuperficieAndromeda(){
-			Tablero tablero = new Tablero(10,10);
-			Ratchet ratchet = new Ratchet();
-			Coordenada coordenadaInicialRatchet = new Coordenada(3,3);
-			Coordenada coordenadaSuperficie = new Coordenada(3,4);
-			tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaSuperficie);
-			tablero.colocarEnTablero(ratchet, coordenadaInicialRatchet);
-			//Los efectos se aplican al final de cada turno
-			ratchet.moverse(coordenadaSuperficie,tablero);	
-			ratchet.terminaTurno();
-			Coordenada coordenadaFinalRatchet = new Coordenada(4,4);
-			//primer turno
-			try{
-				ratchet.moverse(coordenadaFinalRatchet, tablero);
-				throw new FailTestException();
-			}
-			catch(Throwable MovimientoInvalidoException){
-			}
-			ratchet.terminaTurno();
-			//segundo turno
-			try{
-				ratchet.moverse(coordenadaFinalRatchet, tablero);
-				throw new FailTestException();
-			}
-			catch(Throwable MovimientoInvalidoException){
-			}
-			ratchet.terminaTurno();
-			//tercer turno
-			try{
-				ratchet.moverse(coordenadaFinalRatchet, tablero);
-				throw new FailTestException();
-			}
-			catch(Throwable MovimientoInvalidoException){
-			}
-			ratchet.terminaTurno();
-			//cuarto turno, se puede mover
-			ratchet.moverse(coordenadaFinalRatchet, tablero);
-			assertEquals(tablero.obtenerCoordenadaDeHabitable(ratchet), coordenadaFinalRatchet);
-	}
 	
 	@Test
 	public void test33RatchetAlternoQuedaAtrapado3TurnosSuperficieAndromeda(){
@@ -717,86 +617,45 @@ public class Entrega2Test {
 	}
 	
 	@Test
-	public void test34FrenzyHumanoideQuedaAtrapado3TurnosSuperficieAndromeda(){
-		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
-		tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
-		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
-		Coordenada coordenadaFinalFrenzy = new Coordenada(4,4);
-		//primer turno
-		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
-			throw new FailTestException();
-		}
-		catch(Throwable MovimientoInvalidoException){
-		}
-		frenzy.terminaTurno();
-		//segundo turno
-		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
-			throw new FailTestException();
-		}
-		catch(Throwable MovimientoInvalidoException){
-		}
-		frenzy.terminaTurno();
-		//tercer turno
-		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
-			throw new FailTestException();
-		}
-		catch(Throwable MovimientoInvalidoException){
-		}
-		frenzy.terminaTurno();
-		//cuarto turno, se puede mover
-		frenzy.moverse(coordenadaFinalFrenzy, tablero);
-		assertEquals(tablero.obtenerCoordenadaDeHabitable(frenzy), coordenadaFinalFrenzy);
-	}	
-	
-	@Test
 	public void test35FrenzyAlternoQuedaAtrapado3TurnosSuperficieAndromeda(){
 		Tablero tablero = new Tablero(10,10);
-		Frenzy frenzy = new Frenzy();
-		frenzy.cambiarModo();
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
 		Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);
 		Coordenada coordenadaSuperficie = new Coordenada(3,4);
 		tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), coordenadaSuperficie);
-		tablero.colocarEnTablero(frenzy, coordenadaInicialFrenzy);
+		tablero.colocarEnTablero(megatron, coordenadaInicialFrenzy);
 		//Los efectos se aplican al final de cada turno
-		frenzy.moverse(coordenadaSuperficie,tablero);	
-		frenzy.terminaTurno();
+		megatron.moverse(coordenadaSuperficie,tablero);	
+		megatron.terminaTurno();
 		Coordenada coordenadaFinalFrenzy = new Coordenada(4,4);
 		//primer turno
 		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
+			megatron.moverse(coordenadaFinalFrenzy, tablero);
 			throw new FailTestException();
 		}
 		catch(Throwable MovimientoInvalidoException){
 		}
-		frenzy.terminaTurno();
+		megatron.terminaTurno();
 		//segundo turno
 		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
+			megatron.moverse(coordenadaFinalFrenzy, tablero);
 			throw new FailTestException();
 		}
 		catch(Throwable MovimientoInvalidoException){
 		}
-		frenzy.terminaTurno();
+		megatron.terminaTurno();
 		//tercer turno
 		try{
-			frenzy.moverse(coordenadaFinalFrenzy, tablero);
+			megatron.moverse(coordenadaFinalFrenzy, tablero);
 			throw new FailTestException();
 		}
 		catch(Throwable MovimientoInvalidoException){
 		}
-		frenzy.terminaTurno();
+		megatron.terminaTurno();
 		//cuarto turno, se puede mover
-		frenzy.moverse(coordenadaFinalFrenzy, tablero);
-		assertEquals(tablero.obtenerCoordenadaDeHabitable(frenzy), coordenadaFinalFrenzy);
+		megatron.moverse(coordenadaFinalFrenzy, tablero);
+		assertEquals(tablero.obtenerCoordenadaDeHabitable(megatron), coordenadaFinalFrenzy);
 	}	
 	
 	//TORMENTA PSIONICA UNIDAD AEREA PASA UNA VEZ Y PIERDE ATAQUE, PASA OTRA VEZ Y NO LO AFECTA
@@ -895,7 +754,7 @@ public class Entrega2Test {
 	@Test
 	public void test39FrenzyAlternoEnTormentaPsionicaPierdeAtaque(){
 			Tablero tablero = new Tablero(10,10);
-			Frenzy frenzy = new Frenzy();
+			Megatron frenzy = new Megatron();
 			frenzy.cambiarModo();
 			
 			Coordenada coordenadaInicialFrenzy = new Coordenada(3,3);

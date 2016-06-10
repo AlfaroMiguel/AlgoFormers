@@ -8,7 +8,7 @@ import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class OptimusAlterno extends ModoTerrestre {
+public class OptimusAlterno extends ModoTerrestreAlterno {
 	
 	private static OptimusAlterno instancia;
 	
@@ -32,31 +32,5 @@ public class OptimusAlterno extends ModoTerrestre {
 	@Override
 	public int simularPasoDe(SuperficiePantano superficiePantano){
 		return 2;
-	}
-	@Override
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano, Algoformer afectado){
-		superficiePantano.afectar(afectado);
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa, Algoformer afectado){
-		superficieRocosa.afectar(afectado);
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas, Algoformer afectado){
-		superficieEspinas.afectar(afectado);
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado){
 	}
 }

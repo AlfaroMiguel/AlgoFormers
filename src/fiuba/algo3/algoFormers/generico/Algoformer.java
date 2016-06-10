@@ -63,30 +63,7 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public boolean ocupaLugar() {
 		return true;
 	}
-	
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano){
-		this.modo.reaccionarASuperficie(superficiePantano, this);
-	}
-	
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa){
-		this.modo.reaccionarASuperficie(superficieRocosa, this);
-	}
-	
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas){
-		this.modo.reaccionarASuperficie(superficieEspinas, this);
-	}
-	
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes){
-		this.modo.reaccionarASuperficie(superficieNubes, this);
-	}
-	
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda){
-		this.modo.reaccionarASuperficie(superficieAndromeda, this);
-	}
-	
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica){
-		this.modo.reaccionarASuperficie(superficiePsionica, this);
-	}
+
 	
 	public int simularEfecto(SuperficieAire superficieAire){
 		return this.modo.simularEfecto(superficieAire, this);
@@ -96,6 +73,12 @@ public abstract class Algoformer implements HabitableDelMapa {
 		return this.modo.simularEfecto(superficieTierra, this);
 	}
 	
+	public void reaccionarASuperficie(SuperficieAire superficieAire){
+		this.modo.reaccionarASuperficie(superficieAire, this);
+	}
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra){
+		this.modo.reaccionarASuperficie(superficieTierra, this);
+	}
 	public void serDesafectado(SuperficieTierra superficieTierra){
 		this.modo.serDesafectado(superficieTierra,this);
 	}

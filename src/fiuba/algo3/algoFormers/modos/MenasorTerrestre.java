@@ -9,7 +9,7 @@ import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.excepciones.ModoUnicoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class MenasorTerrestre extends ModoTerrestre {
+public class MenasorTerrestre extends ModoHumanoide {
 
 	private static MenasorTerrestre instancia;
 
@@ -35,28 +35,4 @@ public class MenasorTerrestre extends ModoTerrestre {
 		return 1000000;
 	}
 	
-	@Override
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado){
-	}
-
 }

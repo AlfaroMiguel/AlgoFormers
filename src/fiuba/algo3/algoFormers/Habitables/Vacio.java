@@ -69,29 +69,17 @@ public class Vacio implements HabitableDelMapa{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
 	
-	@Override
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano) {
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa) {
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas) {	
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes) {
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda) {	
-	}
-
-	@Override
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica) {	
-	}
-
 }

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Assert;
 import org.junit.Test;
-
+import javafx.scene.text.Text;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
@@ -12,7 +12,7 @@ import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 
 public class TableroTests {
-	
+
 
 	@Test
 	public void test01ElTableroSeCreaVacio(){
@@ -95,7 +95,7 @@ public class TableroTests {
 		assertTrue(tablero.estaVacio(coordBumblebee));
 		assertTrue(tablero.estaVacio(coordRatchet));
 	}
-	
+
 	@Test (expected = NoCombinableException.class)
 	public void test09ElTableroNoCreaSuperionADistanciaIncorrecta(){
 		Optimus optimus = new Optimus();

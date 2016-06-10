@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoEspinas;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.modos.*;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Vista.HexGrid;
@@ -20,10 +21,38 @@ public class SuperficieEspinas extends SuperficieTierra {
 
 	@Override
 	public void ponerSuperficieTierra(Coordenada coordenada) {
-		HexGrid.ponerSuperficieEspinas(coordenada);
+		//HexGrid.ponerSuperficieEspinas(coordenada);
 	}
 	
-	public void producirEfecto(HabitableDelMapa afectado){
-		afectado.reaccionarASuperficie(this);
+	
+	public void afectar(Algoformer algoformer,ModoTerrestreAlterno modo){
+		afectador.afectarAlgoformer(algoformer);
+	}
+	
+	public void afectar(Algoformer algoformer,ModoAereo modo){
+	}
+	
+	public void desafectar(Algoformer algoformer){
+		afectador.desafectarAlgoformer(algoformer);
+	}
+
+	
+
+	@Override
+	public void afectar(Algoformer afectado, ModoHumanoide modo) {
+		afectador.afectarAlgoformer(afectado);
+		
+	}
+
+	@Override
+	public void desafectar(Algoformer algoformer, ModoTerrestreAlterno modoTerrestreAlterno) {
+		afectador.desafectarAlgoformer(algoformer);
+		
+	}
+
+	@Override
+	public void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno) {
+		afectador.desafectarAlgoformer(algoformer);
+		
 	}
 }

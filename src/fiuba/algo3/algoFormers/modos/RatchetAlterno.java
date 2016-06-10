@@ -8,7 +8,7 @@ import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
 import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class RatchetAlterno extends ModoAereo {
+public class RatchetAlterno extends ModoAereoAlterno {
 
 	private static RatchetAlterno instancia;
 	
@@ -33,32 +33,5 @@ public class RatchetAlterno extends ModoAereo {
 	@Override
 	public int simularPasoDe(SuperficiePantano superficiePantano){
 		return 2;
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficiePantano superficiePantano, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieRocosa superficieRocosa, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieEspinas superficieEspinas, Algoformer afectado){
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieNubes superficieNubes, Algoformer afectado){
-		superficieNubes.afectar(afectado);
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficieAndromeda superficieAndromeda, Algoformer afectado){
-		superficieAndromeda.afectar(afectado);
-	}
-	
-	@Override
-	public void reaccionarASuperficie(SuperficiePsionica superficiePsionica, Algoformer afectado){
-		superficiePsionica.afectar(afectado);
 	}
 }

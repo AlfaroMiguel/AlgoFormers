@@ -59,11 +59,11 @@ public abstract class ModoTerrestre implements Modo {
 
 	@Override
 	public abstract int simularPasoDe(SuperficiePantano superficiePantano);
-	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
-		superficieTierra.desafectar(algoformer);
-	}
+	
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
-		//Nada
 	}
+	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado){	
+	}
+	
 	
 }
