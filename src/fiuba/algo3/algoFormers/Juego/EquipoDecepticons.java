@@ -28,6 +28,7 @@ public class EquipoDecepticons extends Equipo {
 	
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
+		//Documentacion
 		List<Decepticon> integrantes = new ArrayList<Decepticon>();
 		integrantes.add(this.megatron);
 		integrantes.add(this.bonecrusher);
