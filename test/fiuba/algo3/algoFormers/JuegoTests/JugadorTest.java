@@ -3,11 +3,13 @@ package fiuba.algo3.algoFormers.JuegoTests;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.Entrega2Test.FailTestException;
 import fiuba.algo3.algoFormers.Habitables.Vacio;
 import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.Juego.Equipo;
 import fiuba.algo3.algoFormers.Juego.Jugador;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
@@ -132,5 +134,34 @@ public class JugadorTest {
 		tablero.colocarEnTablero(equipoAutobots.ratchet, new Coordenada(1,4));
 		jugador.combinarAlgoformers();
 		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus).getClass(), Superion.class);
+	}
+	@Test
+	public void test10UnJugadorCombinaASuAlgoformerPeroNoLoPuedeMoverNiAtacarPor2Turnos(){
+		EquipoAutobots equipoAutobots = new EquipoAutobots();
+		Tablero tablero = new Tablero(10,10);
+		Jugador jugador = new Jugador(equipoAutobots, tablero);
+		Coordenada coordOptimus = new Coordenada(1,2);
+		tablero.colocarEnTablero(equipoAutobots.optimus, coordOptimus);
+		tablero.colocarEnTablero(equipoAutobots.bumblebee, new Coordenada(1,3));
+		tablero.colocarEnTablero(equipoAutobots.ratchet, new Coordenada(1,4));
+		Megatron megatron = new Megatron();
+		jugador.combinarAlgoformers();
+		jugador.seleccionarAlgoformer(new Coordenada(1,2));
+		tablero.colocarEnTablero(megatron, new Coordenada(1,4));
+		int vidaInicial = megatron.verVida();
+		jugador.terminarTurno();
+		//primer turno
+		try{
+			jugador.atacar(new Coordenada(1,4));
+			jugador.mover(new Coordenada(1,3));
+			throw new FailTestException();
+		}
+		catch(Throwable MovimientoInvalidoException){
+		}
+		jugador.terminarTurno();
+		//Ya se puede mover
+		jugador.mover(new Coordenada(1,3));
+		assertEquals(megatron.verVida(),vidaInicial);
+		assertEquals(tablero.obtenerHabitableEnCoordenada(new Coordenada(1,3)), jugador.verAlgoformerActual());
 	}
 }

@@ -2,6 +2,9 @@ package fiuba.algo3.algoFormers.algoFormersTests;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import fiuba.algo3.algoFormers.Entrega2Test.FailTestException;
+import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Bumblebee;
@@ -545,5 +548,28 @@ public class algoformersTest {
 		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
 		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
-	}	
+	}
+	@Test
+	public void test16CombinarAutobotsDistanciaCorrectaYMoverSuperion(){
+		Tablero tablero = new Tablero(100,100);
+		
+		Optimus optimus = new Optimus();
+		Ratchet ratchet = new Ratchet();
+		Bumblebee bumblebee = new Bumblebee();
+		
+		Coordenada coordOptimus = new Coordenada(4,4);
+		Coordenada coordRatchet = new Coordenada(5,4);
+		Coordenada coordBumblebee = new Coordenada(4,5);
+		
+		tablero.colocarEnTablero(optimus, coordOptimus);
+		tablero.colocarEnTablero(ratchet, coordRatchet);
+		tablero.colocarEnTablero(bumblebee, coordBumblebee);
+		
+		Superion superion = new Superion(optimus,ratchet,bumblebee);
+		
+		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
+		superion.moverse(coordRatchet, tablero);
+		
+		assertSame(tablero.obtenerHabitableEnCoordenada(coordRatchet),superion);
+	}
 }

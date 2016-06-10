@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.Juego;
 import java.util.*;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.*;
+import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
 
 
@@ -17,6 +18,7 @@ public class EquipoDecepticons extends Equipo {
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
 		this.bonecrusher = new Bonecrusher();
+		this.menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.algoformerActual = megatron;
 	}
 	
@@ -35,7 +37,7 @@ public class EquipoDecepticons extends Equipo {
 	
 	@Override
 	public void combinarAlgoformers(Tablero tablero) {
-		Menasor menasor = new Menasor(this.megatron, this.bonecrusher, this.frenzy);
+		Menasor menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.menasor = menasor;
 		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
 	}
@@ -50,6 +52,7 @@ public class EquipoDecepticons extends Equipo {
 		this.bonecrusher.terminaTurno();
 		this.megatron.terminaTurno();
 		this.frenzy.terminaTurno();
+		this.menasor.terminaTurno();
 		
 	}
 }

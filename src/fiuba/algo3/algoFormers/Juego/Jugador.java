@@ -49,6 +49,7 @@ public class Jugador{
 	}
 	
 	public void descombinarAlgoformers(){
+		//Esto despues lo sacamos
 		this.equipo.descombinarAlgoformers(this.tablero);
 	}
 
