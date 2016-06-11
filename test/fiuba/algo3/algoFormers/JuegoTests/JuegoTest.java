@@ -16,7 +16,6 @@ public class JuegoTest{
 		Jugador jugador2 = juego.obtenerJugadorActual();
 		juego.cambiarTurno();
 		Jugador jugador3 = juego.obtenerJugadorActual();
-		juego.cambiarTurno();
 		Jugador jugador4 = juego.obtenerJugadorActual();
 		
 		assertEquals(jugador1,jugador3);
