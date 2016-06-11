@@ -46,9 +46,9 @@ public class Juego {
 	}
 	
 	private Coordenada coordenadaChispa(int alto, int ancho){
-		int q= 3 + (int) (Math.random()*((ancho - 6)));
-		int r= alto/2 + (int) (Math.random()*((alto/2))- 3 );
-		return new Coordenada(q,r);
+//		int q= 3 + (int) (Math.random()*((ancho - 6)));
+//		int r= alto/2 + (int) (Math.random()*((alto/2))- 3 );
+		return new Coordenada(10,10);
 	}
 
 
