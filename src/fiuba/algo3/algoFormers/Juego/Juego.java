@@ -64,7 +64,7 @@ public class Juego {
  	
  	public boolean estaLaChispa() {
  			try {
- 				tablero.obtenerCoordenadaDeHabitable(ChispaSuprema.getInstance());
+ 				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
  				return true;
  			}
  			catch(Throwable e){ return false;}

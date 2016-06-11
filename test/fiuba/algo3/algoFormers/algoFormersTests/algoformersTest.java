@@ -570,6 +570,6 @@ public class algoformersTest {
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
 		superion.moverse(coordRatchet, tablero);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordRatchet),superion);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordRatchet),superion);
 	}
 }

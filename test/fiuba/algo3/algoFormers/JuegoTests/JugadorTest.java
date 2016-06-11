@@ -162,6 +162,6 @@ public class JugadorTest {
 		//Ya se puede mover
 		jugador.mover(new Coordenada(1,3));
 		assertEquals(megatron.verVida(),vidaInicial);
-		assertEquals(tablero.obtenerHabitableEnCoordenada(new Coordenada(1,3)), jugador.verAlgoformerActual());
+		assertEquals(tablero.obtenerAccionableEnCoordenada(new Coordenada(1,3)), jugador.verAlgoformerActual());
 	}
 }
