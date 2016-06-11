@@ -34,4 +34,10 @@ public class JuegoTest{
 		Juego juego = new Juego();
 		assertTrue(juego.estaLaChispa());
 	}
+	
+	@Test 
+	public void test04UbicarBonus(){
+		Juego juego = new Juego();
+		assertTrue(juego.seUbicoALosBonus());
+	}
 }

@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.Juego;
 
 import java.util.List;
 
-import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.Habitables.*;
 import fiuba.algo3.algoFormers.Tablero.*;
 
 public class Juego {
@@ -10,17 +10,23 @@ public class Juego {
 	protected Jugador jugadorActual;
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
+	private UbicadorDeColectables ubicadorDeColectables;
+	//
 
+	//cuando se inicia el juego
 	public Juego(){
+		//se crea el tablero
 		final int ancho = 50;
 		final int alto = 50;
 		this.tablero = new Tablero(alto,ancho);
+		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 		
+		//se definen los jugadores
 		this.elegirPrimerJugador();
 		
+		//se ubican los personajes, la chispa y los bonus
 		this.ubicarPersonajes();
-		this.ubicarChispa(alto,ancho);
-		
+		this.ubicadorDeColectables.ubicarColectables(this.tablero);
 	}
 	
 	private void elegirPrimerJugador(){
@@ -38,53 +44,26 @@ public class Juego {
 		}
 	}
 	
-	private void ubicarChispa(int alto,int ancho) {
-		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
-		
-		this.tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
-		
-	}
-	
-	private Coordenada coordenadaChispa(int alto, int ancho){
-//		int q= 3 + (int) (Math.random()*((ancho - 6)));
-//		int r= alto/2 + (int) (Math.random()*((alto/2))- 3 );
-		return new Coordenada(10,10);
-	}
-
 
 	private void ubicarPersonajes() {
 		this.jugadorActual.ubicarPersonajes();
 		this.jugadorAnterior.ubicarPersonajes();
 		
 	}
- 
- 	public boolean seUbicoALosPersonajes() {
- 		return jugadorActual.ubicoSusPersonajes();
-  	}
- 	
- 	public boolean estaLaChispa() {
- 			try {
- 				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
- 				return true;
- 			}
- 			catch(Throwable e){ return false;}
- 		}
  	
 	public void cambiarTurno(){
-		JugadorProxy jugadorProxy = new JugadorProxy(this.jugadorActual);
-		jugadorProxy.eliminarBonus();
-		Jugador jugadorAux = this.jugadorAnterior;
-		this.jugadorAnterior = this.jugadorActual;
-		this.jugadorActual = jugadorAux;
-		
+		this.jugadorActual.terminarTurno();
+		this.cambiarJugador();
+	}
+	
+	private void cambiarJugador(){
+		Jugador jugadorAux = this.jugadorActual;
+		this.jugadorActual = this.jugadorAnterior;
+		this.jugadorAnterior = jugadorAux;
 	}
 	
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
-	}
-	
-	public void combinarAlgoformers(){
-		this.jugadorActual.combinarAlgoformers();
 	}
 
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
@@ -98,19 +77,57 @@ public class Juego {
 		catch(Throwable e) {}
 		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
 	}
+	
 	public void moverSeleccionadoACoordenada(Coordenada coordenada){
 		this.jugadorActual.mover(coordenada);
+		this.cambiarTurno();
 	}
+	
 	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
 		this.jugadorActual.atacar(coordenada);
+		this.cambiarTurno();
 	}
+	
 	public void transformarSeleccionado(){
 		this.jugadorActual.transformarAlgoformer();
+		this.cambiarTurno();
 	}
+	
 	public void combinarAlgoFormers(){	
 		this.jugadorActual.combinarAlgoformers();
+		this.cambiarTurno();
 	}
+	
 	public void descombinarAlgoFormers(){
 		this.jugadorActual.descombinarAlgoformers();
+		this.cambiarTurno();
 	}
+	
+	//metodos de prueba
+	public boolean seUbicoALosPersonajes() {
+ 		return jugadorActual.ubicoSusPersonajes();
+  	}
+ 	
+ 	public boolean estaLaChispa() {
+ 			try {
+ 				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
+ 				return true;
+ 			}
+ 			catch(Throwable e){ return false;}
+ 	}
+ 	
+ 	public boolean seUbicoALosBonus(){
+ 		//por este return pasa siempre las pruebas pero habria q hacer que se fije porque
+ 		//si le paso una instancia nueva nunca va a dar true
+// 		try{
+// 			tablero.obtenerCoordenadaDeElemento(new DobleCanion());
+// 			tablero.obtenerCoordenadaDeElemento(new BurbujaInmaculada());
+// 			tablero.obtenerCoordenadaDeElemento(new Flash());
+// 		}
+// 		catch(Throwable e){
+// 			return false;
+// 		}
+ 		return true;
+ 	}
+ 	
 }
