@@ -1,6 +1,6 @@
 package fiuba.algo3.algoFormers.Juego;
 
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.generico.Algoformer;
@@ -13,7 +13,7 @@ public abstract class Equipo{
 	public abstract void combinarAlgoformers(Tablero tablero);
 	public abstract void descombinarAlgoformers(Tablero tablero);
 	public abstract void ubicarPersonajes(Tablero tablero);
-	public abstract void seleccionarAlgoformer(HabitableDelMapa seleccionado);
+	public abstract void seleccionarAlgoformer(Accionable seleccionado);
 	
 	public Equipo(){
 		this.distanciaMinimaCombinacion = 1;
@@ -36,7 +36,7 @@ public abstract class Equipo{
 	}
 
 	
-	public void atacar(Tablero tablero, HabitableDelMapa atacado){
+	public void atacar(Tablero tablero, Accionable atacado){
 		this.algoformerActual.atacar(tablero, atacado);
 	}
 	public void reposicionarAlgoformer(Tablero tablero) {

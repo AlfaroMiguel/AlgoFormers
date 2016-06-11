@@ -3,8 +3,12 @@ package fiuba.algo3.algoFormers.Juego;
 import java.util.*;
 import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
+<<<<<<< HEAD
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+=======
+import fiuba.algo3.algoFormers.Habitables.Accionable;
+>>>>>>> refactor
 
 public class EquipoAutobots extends Equipo {
 	
@@ -21,7 +25,7 @@ public class EquipoAutobots extends Equipo {
 		this.algoformerActual = optimus;
 	}
 	
-	public void seleccionarAlgoformer(HabitableDelMapa seleccionado){
+	public void seleccionarAlgoformer(Accionable seleccionado){
 		seleccionado.serSeleccionado(this);
 	}
 	

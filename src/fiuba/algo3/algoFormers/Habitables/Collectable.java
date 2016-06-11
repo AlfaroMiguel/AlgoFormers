@@ -1,5 +1,11 @@
 package fiuba.algo3.algoFormers.Habitables;
 
-public interface Collectable extends HabitableDelMapa{
+import fiuba.algo3.algoFormers.generico.Algoformer;
+
+public interface Collectable{
 	
+	public void colisionar();
+	public boolean ocupaLugar();
+	public void producirEfecto(Algoformer algoformer);
+	public void desafectar(Algoformer algoformer);
 }

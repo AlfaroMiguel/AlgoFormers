@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.afectadores.*;
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.modos.ModoAereo;
@@ -11,16 +11,14 @@ import fiuba.algo3.algoFormers.modos.ModoTerrestre;
 public abstract class SuperficieAire{
 	public Afectador afectador;
 	
-	public void producirEfecto(HabitableDelMapa afectado){
+	public void producirEfecto(Accionable afectado){
 		afectado.reaccionarASuperficie(this);
 	}
-	public void revertirEfecto(HabitableDelMapa afectado){
+	public void revertirEfecto(Accionable afectado){
 		afectado.serDesafectado(this);
 	}
 	
-	
-	
-	public int simularRecorrido(HabitableDelMapa transeunte) {
+	public int simularRecorrido(Accionable transeunte) {
 		return transeunte.simularEfecto(this);
 	}
 	

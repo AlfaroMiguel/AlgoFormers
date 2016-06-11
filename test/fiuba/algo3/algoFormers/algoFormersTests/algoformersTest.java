@@ -224,7 +224,7 @@ public class algoformersTest {
 		
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus),superion);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus),superion);
 	}
 	
 	@Test (expected = NoCombinableException.class)
@@ -269,7 +269,7 @@ public class algoformersTest {
 		
 		tablero.combinarAlgoformers(menasor, megatron, bonecrusher, frenzy, 1);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordMegatron), menasor);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordMegatron), menasor);
 	}
 	
 	@Test (expected = NoCombinableException.class)
@@ -319,9 +319,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(5,4);
 		Coordenada coordNuevaBumblebee = new Coordenada(5,3);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 	}
 	
 	@Test
@@ -354,9 +354,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(5,3);
 		Coordenada coordNuevaBumblebee = new Coordenada(4,3);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 	}
 	
 	@Test
@@ -393,9 +393,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(5,3);
 		Coordenada coordNuevaBumblebee = new Coordenada(3,4);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 	}
 	
 	@Test
@@ -423,9 +423,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(2,8);
 		Coordenada coordNuevaBumblebee = new Coordenada(1,8);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
 	}
 	
@@ -466,9 +466,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(3,8);
 		Coordenada coordNuevaBumblebee = new Coordenada(3,7);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
 	}
 	
@@ -509,9 +509,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(0,5);
 		Coordenada coordNuevaBumblebee = new Coordenada(2,6);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordOptimus), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordOptimus), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
 	}
 	
@@ -544,9 +544,9 @@ public class algoformersTest {
 		Coordenada coordNuevaRatchet = new Coordenada(6,4);
 		Coordenada coordNuevaBumblebee = new Coordenada(6,3);
 		
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordDestino), optimus);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaRatchet), ratchet);
-		assertSame(tablero.obtenerHabitableEnCoordenada(coordNuevaBumblebee), bumblebee);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordDestino), optimus);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaRatchet), ratchet);
+		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
 	}
 	@Test

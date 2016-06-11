@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.Superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoAndromeda;
-import fiuba.algo3.algoFormers.Habitables.HabitableDelMapa;
+import fiuba.algo3.algoFormers.Habitables.Accionable;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.afectadores.*;
@@ -22,6 +22,7 @@ public class SuperficieAndromeda extends SuperficieAire {
 		Afectador afectadorCopia = new AfectadorPorTurnos(3,new EfectoAndromeda());
 		afectadorCopia.afectarAlgoformer(algoformer);
 	}
+	
 	public void afectar(Algoformer algoformer,ModoTerrestreAlterno modo){
 	}
 	public void afectar(Algoformer algoformer,ModoHumanoide modo){
@@ -34,7 +35,7 @@ public class SuperficieAndromeda extends SuperficieAire {
 		//HexGrid.ponerSuperficieAndromeda(coordenada);
 	}
 	
-	public void producirEfecto(HabitableDelMapa afectado){
+	public void producirEfecto(Accionable afectado){
 		afectado.reaccionarASuperficie(this);
 	}
 
@@ -42,6 +43,5 @@ public class SuperficieAndromeda extends SuperficieAire {
 	@Override
 	public void desafectar(Algoformer algoformer, ModoAereo modoAereo) {
 		afectador.desafectarAlgoformer(algoformer);
-		
 	}
 }

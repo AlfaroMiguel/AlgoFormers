@@ -12,14 +12,15 @@ import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 
 
-public abstract class Algoformer implements HabitableDelMapa {
+public abstract class Algoformer implements Accionable {
 	
 	protected Modo modo;
 	protected Vida vida;
 	protected ListaDeAfectadores afectadores = new ListaDeAfectadores();
-	protected Agilidad agilidad= new Agilidad() ;
+	protected Agilidad agilidad = new Agilidad();
 	protected Potencia potencia = new Potencia();
-	public abstract void atacar(Tablero tablero, HabitableDelMapa atacado);
+	protected Escudo escudo = new Escudo();
+	public abstract void atacar(Tablero tablero, Accionable atacado);
 	public abstract void serAtacado(Autobot atacante, int ataque);
 	public abstract void serAtacado(Decepticon atacante, int ataque);
 	public abstract void serSeleccionado(EquipoAutobots equipoAutobot);
@@ -90,8 +91,9 @@ public abstract class Algoformer implements HabitableDelMapa {
 	public void terminaTurno(){
 		this.agilidad = new Agilidad();
 		this.potencia= new Potencia();
+		this.escudo = new Escudo();
 		this.afectadores.afectarAlgoformer(this);
-		afectadores.pasarTurno();	
+		afectadores.pasarTurno();
 	}
 	
 	public void multiplicarVelocidad(double factor) {
@@ -121,12 +123,24 @@ public abstract class Algoformer implements HabitableDelMapa {
 		return this.modo.simularPasoDe(superficiePantano);
 	}
 	
-	public ListaDeAfectadores getAfectadores() {
+	public ListaDeAfectadores obtenerAfectadoresEnAtacable() {
 		return this.afectadores;
 	}
 	
 	public int verAtaque(){
 		return (int)((this.modo.verAtaque()*this.potencia.getPotencia()));
 	}
-
+	
+	@Override
+	public void recolectar(Collectable colectable){
+		colectable.producirEfecto(this);
+	}
+	
+	public void colocarEscudo() {
+		this.escudo.colocarEscudo();
+	}
+	public void sacarEscudo() {
+		this.escudo.sacarEscudo();
+	}
+	
 }

@@ -33,21 +33,23 @@ public class TableroTests {
 		tablero.colocarEnTablero(optimus,coordenada);
 		Assert.assertFalse("El tablero NO agrega Habitables a posiciones", tablero.estaVacio(coordenada));
 	}
+	
 	@Test
 	public void test03ElTableroEncuentraLasCoordenadasCorrectamente(){
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordenada = new Coordenada(1,0);
 		Optimus optimus = new Optimus();
 		tablero.colocarEnTablero(optimus,coordenada);
-		Assert.assertTrue("El tablero NO encuentra las coordenadas correctamente", tablero.obtenerCoordenadaDeHabitable(optimus).equals(coordenada));
+		Assert.assertTrue("El tablero NO encuentra las coordenadas correctamente", tablero.obtenerCoordenadaDeElemento(optimus).equals(coordenada));
 	}
 
 	@Test (expected = ElementoNoExisteException.class)
 	public void test04ElTableroNoEncuentraElementosQueNoContiene(){
 		Tablero tablero = new Tablero(10,10);
 		Optimus optimus = new Optimus();
-		tablero.obtenerCoordenadaDeHabitable(optimus);
+		tablero.obtenerCoordenadaDeElemento(optimus);
 	}
+	
 	@Test (expected = MovimientoInvalidoException.class)
 	public void test05ElTableroLanzaUnaExcepcionEnCasoDeUnMovimientoInvalido(){
 		Tablero tablero = new Tablero(10,10);
@@ -58,6 +60,7 @@ public class TableroTests {
 		int paso = 2;
 		tablero.mover(optimus,coordenadaFinal,paso);
 	}
+	
 	@Test
 	public void test06ElTableroDesplazaUnHabitableDelMapa(){
 		Tablero tablero = new Tablero(10,10);
@@ -70,6 +73,7 @@ public class TableroTests {
 		assertTrue("El tablero NO vacia el espacio del cual se movio el habitable",tablero.estaVacio(coordenadaInic));
 		assertFalse("El tablero NO pone en el lugar de destino al habitable que se movio",tablero.estaVacio(coordenadaFinal));
 	}
+	
 	@Test(expected = MovimientoInvalidoException.class)
 	public void test07ElTableroUbicaHabitablesEnElMapaEnPosicionInvalida(){
 		Tablero tablero = new Tablero(10,10);
@@ -77,6 +81,7 @@ public class TableroTests {
 		Optimus optimus = new Optimus();
 		tablero.colocarEnTablero(optimus,coordenada);
 	}
+	
 	@Test
 	public void test08ElTableroCreaSuperionADistanciaCorrecta(){
 		Optimus optimus = new Optimus();
@@ -91,7 +96,7 @@ public class TableroTests {
 		tablero.colocarEnTablero(ratchet, coordRatchet);
 		Superion superion = new Superion(optimus, ratchet, bumblebee);
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
-		assertEquals(tablero.obtenerHabitableEnCoordenada(coordOptimus), superion);
+		assertEquals(tablero.obtenerAccionableEnCoordenada(coordOptimus), superion);
 		assertTrue(tablero.estaVacio(coordBumblebee));
 		assertTrue(tablero.estaVacio(coordRatchet));
 	}
@@ -111,6 +116,8 @@ public class TableroTests {
 		Superion superion = new Superion(optimus, ratchet, bumblebee);
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
 	}
+	
+	
 //
 //	@Test
 //	public void test10ColocarHabitableEnPosicionValida(){

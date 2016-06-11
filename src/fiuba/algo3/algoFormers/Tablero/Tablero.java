@@ -16,16 +16,18 @@ import fiuba.algo3.algoFormers.Superficies.*;
 
 public class Tablero {
 	HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
-	HashMap<Coordenada,HabitableDelMapa> habitables = new HashMap<Coordenada,HabitableDelMapa>();
+	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
+	HashMap<Coordenada,Collectable> colectables = new HashMap<Coordenada, Collectable>();
 
 	public Tablero(int height,int width){
 		//Aplicacion.crearTablero(height,width);
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
-		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.habitables,height,width);
+		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.accionables,height,width);
+		GeneradorDeCoordenadas.generarBonusDelTablero(this.colectables, height, width);
 	}
 
 	public boolean estaVacio(Coordenada coordenada) {
-		return !(this.habitables.get(coordenada).ocupaLugar());
+		return !(this.accionables.get(coordenada).ocupaLugar()) && !(this.colectables.get(coordenada).ocupaLugar());
 
 	}
 
@@ -39,12 +41,13 @@ public class Tablero {
 		//Aplicacion.ponerSuperficieAire(coordenada, superficie);
 	}
 
-	public void colocarEnTablero(HabitableDelMapa habitable,Coordenada coordenada){
+	public void colocarEnTablero(Accionable accionable,Coordenada coordenada){
 		try{
-			this.habitables.get(coordenada).colisionar();
-			//habitable.recibir(this.habitables.get(coordenada));
-			this.superficies.get(coordenada).producirEfecto(habitable);
-			this.habitables.put(coordenada,habitable);
+			this.accionables.get(coordenada).colisionar();
+			accionable.recolectar(this.colectables.get(coordenada));
+//			this.colectables.remove(coordenada) ESTO HAY QUE HACERLO SOLO SI LO PUDO RECOLECTAR
+			this.superficies.get(coordenada).producirEfecto(accionable);
+			this.accionables.put(coordenada, accionable);
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();
@@ -52,26 +55,36 @@ public class Tablero {
 	}
 
 	public void colocarEnTablero(Collectable collectable,Coordenada coordenada){
-		if(!this.habitables.get(coordenada).ocupaLugar()){
-			this.habitables.put(coordenada, collectable);
+		if(!this.colectables.get(coordenada).ocupaLugar()){
+			this.colectables.put(coordenada, collectable);
 			return;
 		}
 		throw new MovimientoInvalidoException();
 
 	}
-	public void mover(HabitableDelMapa habitable, Coordenada coordenadaFinal, int paso) {
-		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(habitable);
-		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.habitables, habitable, coordInic, coordenadaFinal);
+	public void mover(Accionable accionable, Coordenada coordenadaFinal, int paso) {
+		Coordenada coordInic = this.obtenerCoordenadaDeElemento(accionable);
+		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.accionables, accionable, coordInic, coordenadaFinal);
 		if(coordInic.distancia(coordenadaFinal)>paso)
 			throw new MovimientoInvalidoException();
-		this.colocarEnTablero(habitable,coordenadaFinal);
-		this.habitables.put(coordInic,new Vacio());
+		this.colocarEnTablero(accionable,coordenadaFinal);
+		this.accionables.put(coordInic,new Vacio());
 	}
 
 
-	public Coordenada obtenerCoordenadaDeHabitable(HabitableDelMapa value){
-        for(Map.Entry<Coordenada, HabitableDelMapa> entry : this.habitables.entrySet()) {
-            if(value.equals(entry.getValue())) {
+	public Coordenada obtenerCoordenadaDeElemento(Accionable accionable){
+        for(Map.Entry<Coordenada, Accionable> entry : this.accionables.entrySet()) {
+            if(accionable.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        throw new ElementoNoExisteException();
+
+	}
+	
+	public Coordenada obtenerCoordenadaDeElemento(Collectable colectable){
+        for(Map.Entry<Coordenada, Collectable> entry : this.colectables.entrySet()) {
+            if(colectable.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }
@@ -79,26 +92,30 @@ public class Tablero {
 
 	}
 
-	public void coordinateAttack(Autobot atacante, int range, HabitableDelMapa atacado, int ataque) {
-		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
-		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
+	public void coordinateAttack(Autobot atacante, int range, Accionable atacado, int ataque) {
+		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
+		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new FueraDeRangoException();
 		atacado.serAtacado(atacante, ataque);
 	}
 
-	public void coordinateAttack(Decepticon atacante, int range, HabitableDelMapa atacado, int ataque) {
-		Coordenada coordInic = this.obtenerCoordenadaDeHabitable(atacante);
-		Coordenada coordFinal = this.obtenerCoordenadaDeHabitable(atacado);
+	public void coordinateAttack(Decepticon atacante, int range, Accionable atacado, int ataque) {
+		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
+		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new FueraDeRangoException();
 		atacado.serAtacado(atacante, ataque);
 	}
 
-	public HabitableDelMapa obtenerHabitableEnCoordenada(Coordenada coordenada){
-		return habitables.get(coordenada);
+	public Collectable obtenerColectableEnCoordenada(Coordenada coordenada){
+		return colectables.get(coordenada);
 	}
-
+	
+	public Accionable obtenerAccionableEnCoordenada(Coordenada coordenada){
+		return accionables.get(coordenada);
+	}
+	
 	private void validarDistancias(Coordenada coordUno, Coordenada coordDos, Coordenada coordTres, int distMinima){
 		if(coordUno.distancia(coordDos)>distMinima*2 || coordUno.distancia(coordTres)>distMinima*2 || coordDos.distancia(coordTres)>distMinima*2){
 			throw new DistanciaInvalidaException();
@@ -110,9 +127,9 @@ public class Tablero {
 	}
 
 	public void combinarAlgoformers(Superion superion, Optimus optimus, Ratchet ratchet, Bumblebee bumblebee, int distMinimaCombinacion){
-		Coordenada coordOptimus = this.obtenerCoordenadaDeHabitable(optimus);
-		Coordenada coordRatchet = this.obtenerCoordenadaDeHabitable(ratchet);
-		Coordenada coordBumblebee = this.obtenerCoordenadaDeHabitable(bumblebee);
+		Coordenada coordOptimus = this.obtenerCoordenadaDeElemento(optimus);
+		Coordenada coordRatchet = this.obtenerCoordenadaDeElemento(ratchet);
+		Coordenada coordBumblebee = this.obtenerCoordenadaDeElemento(bumblebee);
 		try{
 			this.validarDistancias(coordOptimus, coordRatchet, coordBumblebee, distMinimaCombinacion);
 		}
@@ -125,9 +142,9 @@ public class Tablero {
 	}
 
 	public void combinarAlgoformers(Menasor menasor, Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
-		Coordenada coordMegatron = this.obtenerCoordenadaDeHabitable(megatron);
-		Coordenada coordBonecrusher = this.obtenerCoordenadaDeHabitable(bonecrusher);
-		Coordenada coordFrenzy = this.obtenerCoordenadaDeHabitable(frenzy);
+		Coordenada coordMegatron = this.obtenerCoordenadaDeElemento(megatron);
+		Coordenada coordBonecrusher = this.obtenerCoordenadaDeElemento(bonecrusher);
+		Coordenada coordFrenzy = this.obtenerCoordenadaDeElemento(frenzy);
 		try{
 			this.validarDistancias(coordMegatron, coordBonecrusher, coordFrenzy, distMinimaCombinacion);
 		}
@@ -144,11 +161,11 @@ public class Tablero {
 		Bumblebee bumblebee = superion.getBumblebee();
 		Ratchet ratchet = superion.getRatchet();
 
-		Coordenada coordSuperion = this.obtenerCoordenadaDeHabitable(superion);
+		Coordenada coordSuperion = this.obtenerCoordenadaDeElemento(superion);
 
 		this.colocarEnTablero(optimus, coordSuperion);
-		this.colocarHabitableEnPosicionValidaDesde(ratchet,coordSuperion);
-		this.colocarHabitableEnPosicionValidaDesde(bumblebee, coordSuperion);
+		this.colocarAccionableEnPosicionValidaDesde(ratchet,coordSuperion);
+		this.colocarAccionableEnPosicionValidaDesde(bumblebee, coordSuperion);
 	}
 
 	public void descombinarAlgoformers(Menasor menasor){
@@ -156,14 +173,14 @@ public class Tablero {
 		Bonecrusher bonecrusher = menasor.getBonecrusher();
 		Frenzy frenzy = menasor.getFrenzy();
 
-		Coordenada coordMenasor = this.obtenerCoordenadaDeHabitable(menasor);
+		Coordenada coordMenasor = this.obtenerCoordenadaDeElemento(menasor);
 
 		this.colocarEnTablero(megatron, coordMenasor);
-		this.colocarHabitableEnPosicionValidaDesde(bonecrusher, coordMenasor);
-		this.colocarHabitableEnPosicionValidaDesde(frenzy, coordMenasor);
+		this.colocarAccionableEnPosicionValidaDesde(bonecrusher, coordMenasor);
+		this.colocarAccionableEnPosicionValidaDesde(frenzy, coordMenasor);
 	}
 
-	public void colocarHabitableEnPosicionValidaDesde(HabitableDelMapa habitable, Coordenada coordInicial){
+	public void colocarAccionableEnPosicionValidaDesde(Accionable accionable, Coordenada coordInicial){
 		boolean sePudoUbicar = false;
 		int radioDeVecindad = 1;
 		while(!sePudoUbicar){
@@ -171,9 +188,9 @@ public class Tablero {
 		ArrayList<Coordenada> coordenadasVecinos = coordInicial.neighborsInRange(coordInicial, radioDeVecindad);
 		for(int i = 0; i < coordenadasVecinos.size(); i++){
 			Coordenada coordVecino = coordenadasVecinos.get(i);
-			if(this.habitables.containsKey(coordVecino)){
+			if(this.accionables.containsKey(coordVecino)){
 				if(this.estaVacio(coordVecino)){
-					this.colocarEnTablero(habitable, coordVecino);
+					this.colocarEnTablero(accionable, coordVecino);
 					sePudoUbicar = true;
 					break;
 					}
@@ -184,17 +201,17 @@ public class Tablero {
 	}
 
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
-		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, habitables, new Optimus(), coordenadaInicial, coordenadaFinal);
+		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, new Optimus(), coordenadaInicial, coordenadaFinal);
 	}
 
 
 	public void reposicionar(Algoformer algoformer) {
-		Coordenada coordenada =	this.obtenerCoordenadaDeHabitable((HabitableDelMapa)algoformer);
-		this.colocarEnTablero((HabitableDelMapa)algoformer, coordenada);
+		Coordenada coordenada =	this.obtenerCoordenadaDeElemento(algoformer);
+		this.colocarEnTablero(algoformer, coordenada);
 
 	}
 	public void retirarAlgoformer(Algoformer algoformer) {
-		Coordenada coordenadaActual =this.obtenerCoordenadaDeHabitable(algoformer);
+		Coordenada coordenadaActual =this.obtenerCoordenadaDeElemento(algoformer);
 		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
 
 	}
