@@ -86,12 +86,12 @@ public class Entrega1Test {
 		tablero.mover(optimus,coordenadaFinal,paso);
 	}
 	
-//	@Test
-//	public void test06PruebIntegracion(){
-//		Juego juego = new Juego();
-//		assertTrue(juego.seUbicoALosPersonajes());
-//		assertTrue(juego.estaLaChispa());
-//	}
+	@Test
+	public void test06PruebIntegracion(){
+		Juego juego = new Juego();
+		assertTrue(juego.seUbicoALosPersonajes());
+		assertTrue(juego.estaLaChispa());
+	}
 	
 	@Test (expected = MismoEquipoException.class)
 	public void test07AutobotAtacarAutobotDistanciaCorrecta(){
