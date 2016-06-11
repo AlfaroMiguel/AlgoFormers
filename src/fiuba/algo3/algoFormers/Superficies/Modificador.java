@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.Superficies;
+package fiuba.algo3.algoFormers.superficies;
 
 public abstract class Modificador {
 	//private Efecto efecto;

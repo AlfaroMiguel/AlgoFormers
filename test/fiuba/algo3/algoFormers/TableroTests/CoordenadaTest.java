@@ -5,8 +5,7 @@ import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Test;
 
-//import fiuba.algo3.algoformers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.*;
+import fiuba.algo3.algoFormers.tablero.*;
 
 public class CoordenadaTest {
 

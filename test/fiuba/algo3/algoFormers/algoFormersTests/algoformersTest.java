@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Entrega2Test.FailTestException;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Bumblebee;
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.autobots.Ratchet;

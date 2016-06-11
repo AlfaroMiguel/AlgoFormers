@@ -1,11 +1,10 @@
-package fiuba.algo3.algoFormers.Habitables;
+package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 
 public interface Accionable{
 

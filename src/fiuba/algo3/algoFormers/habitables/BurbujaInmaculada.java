@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.Habitables;
+package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;

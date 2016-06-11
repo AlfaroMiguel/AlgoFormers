@@ -1,6 +1,6 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoFormers.tablero;
 
-import fiuba.algo3.algoFormers.Tablero.*;
+import fiuba.algo3.algoFormers.tablero.*;
 
 
 public class Tupla implements Comparable<Tupla>{

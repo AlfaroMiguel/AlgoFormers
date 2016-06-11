@@ -1,10 +1,9 @@
 package fiuba.algo3.algoFormers.TableroTests;
 
-import fiuba.algo3.algoFormers.Tablero.*;
-
-
 import java.util.*;
 import org.junit.*;
+
+import fiuba.algo3.algoFormers.tablero.*;
 public class PriorityQueueTest {
 	@Test
 	public void test01PriorityQueueConElementosEnOrden(){

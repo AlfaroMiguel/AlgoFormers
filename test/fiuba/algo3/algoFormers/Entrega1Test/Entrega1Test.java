@@ -4,19 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
-import fiuba.algo3.algoFormers.Juego.Juego;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.autobots.Ratchet;
 import fiuba.algo3.algoFormers.decepticons.Bonecrusher;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.excepciones.FueraDeRangoException;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;
 import fiuba.algo3.algoFormers.modos.OptimusHumanoide;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class Entrega1Test {
 

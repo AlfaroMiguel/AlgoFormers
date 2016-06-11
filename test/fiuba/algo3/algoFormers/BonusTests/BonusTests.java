@@ -4,14 +4,14 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.Habitables.BonusVacio;
-import fiuba.algo3.algoFormers.Habitables.BurbujaInmaculada;
-import fiuba.algo3.algoFormers.Habitables.DobleCanion;
-import fiuba.algo3.algoFormers.Habitables.Flash;
-import fiuba.algo3.algoFormers.Tablero.*;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.habitables.BonusVacio;
+import fiuba.algo3.algoFormers.habitables.BurbujaInmaculada;
+import fiuba.algo3.algoFormers.habitables.DobleCanion;
+import fiuba.algo3.algoFormers.habitables.Flash;
+import fiuba.algo3.algoFormers.tablero.*;
 
 public class BonusTests{
 

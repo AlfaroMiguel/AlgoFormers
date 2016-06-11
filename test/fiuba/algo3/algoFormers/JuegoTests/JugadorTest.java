@@ -4,18 +4,17 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import fiuba.algo3.algoFormers.Entrega2Test.FailTestException;
-import fiuba.algo3.algoFormers.Habitables.Vacio;
-import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
-import fiuba.algo3.algoFormers.Juego.Equipo;
-import fiuba.algo3.algoFormers.Juego.Jugador;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
+import fiuba.algo3.algoFormers.habitables.Vacio;
+import fiuba.algo3.algoFormers.juego.Equipo;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.juego.Jugador;
 
 
 public class JugadorTest {

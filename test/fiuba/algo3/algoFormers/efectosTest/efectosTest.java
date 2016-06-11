@@ -1,11 +1,11 @@
 package fiuba.algo3.algoFormers.efectosTest;
 
 import fiuba.algo3.algoFormers.generico.*;
+import fiuba.algo3.algoFormers.tablero.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.efectos.*;
-import fiuba.algo3.algoFormers.Tablero.*;
 
 import org.junit.*;
 public class efectosTest {

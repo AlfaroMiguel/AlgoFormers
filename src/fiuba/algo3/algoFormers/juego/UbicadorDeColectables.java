@@ -1,14 +1,14 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-import fiuba.algo3.algoFormers.Habitables.BurbujaInmaculada;
-import fiuba.algo3.algoFormers.Habitables.ChispaSuprema;
-import fiuba.algo3.algoFormers.Habitables.DobleCanion;
-import fiuba.algo3.algoFormers.Habitables.Flash;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.habitables.BurbujaInmaculada;
+import fiuba.algo3.algoFormers.habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.habitables.DobleCanion;
+import fiuba.algo3.algoFormers.habitables.Flash;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class UbicadorDeColectables {
 	

@@ -8,10 +8,10 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
-import fiuba.algo3.algoFormers.Superficies.*;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class GeneradorDeCaminosTest {
 

@@ -1,15 +1,15 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoFormers.tablero;
 
 import fiuba.algo3.algoFormers.efectos.*;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.BonusVacio;
+import fiuba.algo3.algoFormers.habitables.Collectable;
+import fiuba.algo3.algoFormers.habitables.Vacio;
+
 import java.util.HashMap;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
-import fiuba.algo3.algoFormers.Habitables.BonusVacio;
-import fiuba.algo3.algoFormers.Habitables.Collectable;
-import fiuba.algo3.algoFormers.Habitables.Vacio;
-import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
-import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
-import fiuba.algo3.algoFormers.Vista.Aplicacion;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.vista.Aplicacion;
 
 public class GeneradorDeCoordenadas {
 

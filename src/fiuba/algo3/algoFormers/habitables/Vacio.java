@@ -1,20 +1,12 @@
-package fiuba.algo3.algoFormers.Habitables;
+package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
-import fiuba.algo3.algoFormers.Superficies.SuperficieEspinas;
-import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
-import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
-import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
-import fiuba.algo3.algoFormers.generico.Algoformer;;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 
 public class Vacio implements Accionable{
 

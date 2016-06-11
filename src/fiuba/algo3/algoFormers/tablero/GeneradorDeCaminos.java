@@ -1,8 +1,8 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoFormers.tablero;
 
 import java.util.*;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.Accionable;
 public class GeneradorDeCaminos {
 	public static void solicitarCamino(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,Accionable> personajes,Accionable personaje,Coordenada origen,Coordenada destino,int paso){
 		List<Coordenada> camino =  calcularCaminoDeCostoMinimo(superficies,personajes, personaje, origen, destino);

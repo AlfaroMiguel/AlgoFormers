@@ -1,10 +1,10 @@
-package fiuba.algo3.algoFormers.Superficies;
+package fiuba.algo3.algoFormers.superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Vista.HexGrid;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 import fiuba.algo3.algoFormers.afectadores.*;
 
 public class SuperficieNubes extends SuperficieAire {

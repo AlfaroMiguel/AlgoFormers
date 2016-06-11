@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.Vista;
+package fiuba.algo3.algoFormers.vista;
 
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;

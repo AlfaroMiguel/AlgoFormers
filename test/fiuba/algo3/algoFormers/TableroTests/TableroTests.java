@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 import javafx.scene.text.Text;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 //import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class TableroTests {
 

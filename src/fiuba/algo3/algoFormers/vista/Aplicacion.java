@@ -1,10 +1,9 @@
-package fiuba.algo3.algoFormers.Vista;
+package fiuba.algo3.algoFormers.vista;
 
 
-import fiuba.algo3.algoFormers.Juego.Juego;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
+import fiuba.algo3.algoFormers.juego.Juego;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;

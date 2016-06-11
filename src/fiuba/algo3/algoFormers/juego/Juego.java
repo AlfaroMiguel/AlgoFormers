@@ -1,9 +1,9 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
 import java.util.List;
 
-import fiuba.algo3.algoFormers.Habitables.*;
-import fiuba.algo3.algoFormers.Tablero.*;
+import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.tablero.*;
 
 public class Juego {
 	

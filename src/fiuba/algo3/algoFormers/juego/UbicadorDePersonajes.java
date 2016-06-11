@@ -1,11 +1,11 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
 import java.util.*;
 
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 
 public class UbicadorDePersonajes {

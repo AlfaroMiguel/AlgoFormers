@@ -1,12 +1,12 @@
-package fiuba.algo3.algoFormers.Superficies;
+package fiuba.algo3.algoFormers.superficies;
 
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Vista.HexGrid;
 import fiuba.algo3.algoFormers.afectadores.*;
 import fiuba.algo3.algoFormers.efectos.EfectoPantano;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.modos.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class SuperficiePantano extends SuperficieTierra {
 

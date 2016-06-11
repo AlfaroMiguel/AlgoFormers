@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoFormers.tablero;
 
 import java.util.*;
 import fiuba.algo3.algoFormers.autobots.*;
@@ -6,11 +6,12 @@ import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.Habitables.*;
-import fiuba.algo3.algoFormers.Tablero.GeneradorDeCaminos;
-import fiuba.algo3.algoFormers.Vista.Aplicacion;
-import fiuba.algo3.algoFormers.Vista.HexGrid;
-import fiuba.algo3.algoFormers.Superficies.*;
+import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.superficies.SuperficieTierra;
+import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
+import fiuba.algo3.algoFormers.vista.Aplicacion;
+import fiuba.algo3.algoFormers.vista.HexGrid;
+import fiuba.algo3.algoFormers.superficies.*;
 
 
 

@@ -1,14 +1,13 @@
-package fiuba.algo3.algoFormers.Vista;
+package fiuba.algo3.algoFormers.vista;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
-import fiuba.algo3.algoFormers.Tablero.Casillero;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Vista.Hexagono;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Casillero;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.Hexagono;
 import javafx.scene.Group;
 
 public class HexGrid {

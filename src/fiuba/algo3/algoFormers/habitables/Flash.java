@@ -1,20 +1,20 @@
-package fiuba.algo3.algoFormers.Habitables;
+package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
-import fiuba.algo3.algoFormers.efectos.EfectoDobleCanion;
+import fiuba.algo3.algoFormers.efectos.EfectoFlash;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public class DobleCanion extends Bonus {
+public class Flash extends Bonus {
 	
 
-	public DobleCanion(){
-		this.afectador = new AfectadorPorTurnos(3, new EfectoDobleCanion());
+	public Flash(){
+		this.afectador = new AfectadorPorTurnos(3, new EfectoFlash());
 	}
 	
 	@Override
 	public void producirEfecto(Algoformer algoformer){
-		Afectador afectadorCopia = new AfectadorPorTurnos(3,new EfectoDobleCanion());
+		Afectador afectadorCopia = new AfectadorPorTurnos(3, new EfectoFlash());
 		afectadorCopia.afectarAlgoformer(algoformer);
 	}
 

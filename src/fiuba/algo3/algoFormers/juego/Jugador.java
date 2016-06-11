@@ -1,8 +1,8 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class Jugador{
 	protected Equipo equipo;

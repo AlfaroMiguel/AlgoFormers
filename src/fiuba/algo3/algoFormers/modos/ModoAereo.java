@@ -1,14 +1,12 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
-import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
-import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.*;
+import fiuba.algo3.algoFormers.habitables.Accionable;
 
 public abstract class ModoAereo implements Modo {
 	

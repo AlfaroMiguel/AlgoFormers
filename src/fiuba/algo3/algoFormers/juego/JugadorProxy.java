@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
 public class JugadorProxy {
 	

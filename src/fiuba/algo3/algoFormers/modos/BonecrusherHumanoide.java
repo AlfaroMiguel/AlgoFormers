@@ -1,13 +1,7 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
-import fiuba.algo3.algoFormers.Superficies.SuperficieEspinas;
-import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
-import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
-import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.superficies.*;
 
 public class BonecrusherHumanoide extends ModoHumanoide {
 	

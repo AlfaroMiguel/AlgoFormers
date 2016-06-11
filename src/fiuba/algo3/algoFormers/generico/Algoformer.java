@@ -2,13 +2,13 @@ package fiuba.algo3.algoFormers.generico;
 
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.modos.Modo;
-import fiuba.algo3.algoFormers.Habitables.*;
-import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
-import fiuba.algo3.algoFormers.Superficies.*;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 
 

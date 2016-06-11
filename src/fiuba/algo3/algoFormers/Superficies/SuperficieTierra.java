@@ -1,10 +1,10 @@
-package fiuba.algo3.algoFormers.Superficies;
+package fiuba.algo3.algoFormers.superficies;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
-import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import fiuba.algo3.algoFormers.afectadores.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.modos.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public abstract class SuperficieTierra{
 	public Afectador afectador;

@@ -1,13 +1,13 @@
 package fiuba.algo3.algoFormers.decepticons;
 
-import fiuba.algo3.algoFormers.Habitables.Accionable;
-import fiuba.algo3.algoFormers.Juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.Juego.EquipoDecepticons;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class Decepticon extends Algoformer {
 

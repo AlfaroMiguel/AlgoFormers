@@ -1,10 +1,11 @@
-package fiuba.algo3.algoFormers.Juego;
+package fiuba.algo3.algoFormers.juego;
 
 import java.util.*;
-import fiuba.algo3.algoFormers.Tablero.Tablero;
+
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
-import fiuba.algo3.algoFormers.Habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class EquipoAutobots extends Equipo {
 	

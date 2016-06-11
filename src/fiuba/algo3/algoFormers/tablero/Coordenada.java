@@ -1,5 +1,5 @@
 
-package fiuba.algo3.algoFormers.Tablero;
+package fiuba.algo3.algoFormers.tablero;
 
 import java.util.ArrayList;
 

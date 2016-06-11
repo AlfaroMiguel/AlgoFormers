@@ -1,11 +1,6 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.Superficies.SuperficieAndromeda;
-import fiuba.algo3.algoFormers.Superficies.SuperficieEspinas;
-import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePantano;
-import fiuba.algo3.algoFormers.Superficies.SuperficiePsionica;
-import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class BumblebeeAlterno extends ModoTerrestreAlterno{
