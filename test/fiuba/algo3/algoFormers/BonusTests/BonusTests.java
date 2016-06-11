@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import fiuba.algo3.algoFormers.Habitables.BonusVacio;
 import fiuba.algo3.algoFormers.Habitables.BurbujaInmaculada;
 import fiuba.algo3.algoFormers.Habitables.DobleCanion;
 import fiuba.algo3.algoFormers.Habitables.Flash;
@@ -355,7 +356,7 @@ public class BonusTests{
 		Flash flash = new Flash();
 		
 		Coordenada coordInicialBumblebee = new Coordenada(2,4);
-		Coordenada coordBonus = new Coordenada (2,6);
+		Coordenada coordBonus = new Coordenada(2,6);
 		
 		tablero.colocarEnTablero(bumblebee, coordInicialBumblebee);
 		tablero.colocarEnTablero(flash, coordBonus);
@@ -391,9 +392,7 @@ public class BonusTests{
 		assertEquals(tablero.obtenerAccionableEnCoordenada(coordPaso), bumblebee);
 		
 		//Cuarto turno (No tiene el bonus activado no llega a la coordenada del bonus)
-		
 		bumblebee.moverse(coordBonus, tablero);
-		
 	}
 	
 	@Test
@@ -682,6 +681,7 @@ public class BonusTests{
 		
 		Coordenada coordPaso = new Coordenada(2,12);
 		
+		
 		//Primer turno
 		
 		bumblebee.moverse(coordPaso, tablero);
@@ -707,8 +707,8 @@ public class BonusTests{
 		assertEquals(tablero.obtenerAccionableEnCoordenada(coordPaso), bumblebee);
 		
 		//Cuarto turno (No tiene el bonus activado no llega a la coordenada del bonus)
+		bumblebee.moverse(new Coordenada(2,1), tablero);
 		
-		bumblebee.moverse(coordBonus, tablero);
 		
 	}
 	
@@ -789,12 +789,64 @@ public class BonusTests{
 		tablero.colocarEnTablero(dobleCanion2, coordenadaInicialDobleCanion2);
 		
 		optimus.moverse(coordenadaInicialDobleCanion1, tablero);
+		optimus.terminaTurno();
 		
 		assertEquals(optimus.verAtaque(), 100);
 		
 		optimus.moverse(coordenadaInicialDobleCanion2, tablero);
+		optimus.terminaTurno();
 		
 		assertEquals(optimus.verAtaque(), 100);
 	}
 	
+	@Test
+	public void test17ApenasTerminaEfectoDeBonusSiAgarraOtroBonusTieneEfecto(){
+		Tablero tablero = new Tablero(10,10);
+			
+		Optimus optimus = new Optimus();
+		BurbujaInmaculada burbujaInmaculada1 = new BurbujaInmaculada();
+		BurbujaInmaculada burbujaInmaculada2 = new BurbujaInmaculada();
+		Megatron megatron = new Megatron();
+			
+		Coordenada coordenadaInicialOptimus = new Coordenada(3,4);
+		Coordenada coordenadaInicialMegatron = new Coordenada(3,6);
+		Coordenada coordenadaInicialBurbujaInmaculada1 = new Coordenada(3,5);
+		Coordenada coordenadaInicialBurbujaInmaculada2 = new Coordenada(4,5);
+			
+		tablero.colocarEnTablero(optimus, coordenadaInicialOptimus);
+		tablero.colocarEnTablero(megatron, coordenadaInicialMegatron);
+		tablero.colocarEnTablero(burbujaInmaculada1, coordenadaInicialBurbujaInmaculada1);
+		tablero.colocarEnTablero(burbujaInmaculada2, coordenadaInicialBurbujaInmaculada2);
+			
+			// vida inicial optimus 500
+			// ataque megatron humanoide 10
+			
+		optimus.moverse(coordenadaInicialBurbujaInmaculada1, tablero);
+		optimus.terminaTurno();
+			
+			//primer turno
+		megatron.atacar(tablero, optimus);
+		optimus.terminaTurno();
+			
+		assertEquals(optimus.verVida(), 500);
+			
+			//segundo turno
+		megatron.atacar(tablero, optimus);
+		optimus.terminaTurno();
+			
+		assertEquals(optimus.verVida(), 500);
+			
+			//tercer turno: perdio el anterior bonus, agarra otro.
+		megatron.atacar(tablero, optimus);
+		optimus.moverse(coordenadaInicialBurbujaInmaculada2, tablero);
+		optimus.terminaTurno();
+			
+		assertEquals(optimus.verVida(), 490);
+		
+		//cuarto turno: agarro un nuevo bonus, le hace efecto.
+		megatron.atacar(tablero, optimus);
+		optimus.terminaTurno();
+		
+		assertEquals(optimus.verVida(), 490);
+	}
 }

@@ -7,11 +7,11 @@ public class ListaDeAfectadores {
 	
 	List<Afectador> afectadores = new ArrayList<Afectador>();
 	
-	public void agregarAfectador(Afectador afectador){
-		afectadores.add(afectador);
-	}
+//	public void agregarAfectador(Afectador afectador){
+//		afectadores.add(afectador);
+//	}
 	
-	public void agregarAfectador(AfectadorPermanente afectador){
+	public void agregarAfectador(Afectador afectador){
 		boolean tieneAfectador = false;
 		for(Afectador afectadoresContenidos: afectadores){
 			if(afectadoresContenidos.equals(afectador))
@@ -19,8 +19,7 @@ public class ListaDeAfectadores {
 		}
 		if(!tieneAfectador){
 			afectadores.add(afectador);
-		}
-			
+		}	
 	}
 	
 	public void pasarTurno(){
@@ -43,6 +42,7 @@ public class ListaDeAfectadores {
 	
 	public void sacarAfectador(AfectadorPorPosicion afectador) {
 		this.afectadores.remove(afectador);
-		
 	}
+	
+
 }

@@ -13,5 +13,15 @@ public class EfectoDobleCanion implements Efecto {
 	public void desafectarAlgoformer(Algoformer algoformer) {
 		algoformer.multiplicarAtaque(0.5);
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return true;
+	}
 }

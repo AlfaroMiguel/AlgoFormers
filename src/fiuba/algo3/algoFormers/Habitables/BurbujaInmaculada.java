@@ -12,13 +12,13 @@ public class BurbujaInmaculada extends Bonus {
 	}
 	
 	@Override
-	public void producirEfecto(Algoformer algoformer) {
+	public void producirEfecto(Algoformer algoformer){
 		Afectador afectadorCopia = new AfectadorPorTurnos(2, new EfectoBurbujaInmaculada());
 		afectadorCopia.afectarAlgoformer(algoformer);
 	}
 
 	@Override
-	public void desafectar(Algoformer algoformer) {
+	public void desafectar(Algoformer algoformer){
 		afectador.desafectarAlgoformer(algoformer);
 	}
 

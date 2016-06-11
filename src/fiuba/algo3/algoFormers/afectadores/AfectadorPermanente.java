@@ -13,10 +13,6 @@ public class AfectadorPermanente extends Afectador {
 	@Override
 	public void desafectarAlgoformer(Algoformer algoformer){	
 	}
-	
-	@Override
-	public void pasarTurno() {
-	}
 
 	@Override
 	public void afectarPorPaso(Algoformer algoformer) {
@@ -25,7 +21,11 @@ public class AfectadorPermanente extends Afectador {
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer) {
-		ListaDeAfectadores afectadores  = algoformer.getAfectadores();
+		ListaDeAfectadores afectadores  = algoformer.obtenerAfectadoresEnAtacable();
 		afectadores.agregarAfectador(this);
+	}
+
+	@Override
+	public void pasarTurno() {
 	}
 }

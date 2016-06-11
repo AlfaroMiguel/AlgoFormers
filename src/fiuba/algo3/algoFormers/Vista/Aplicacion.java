@@ -1,15 +1,9 @@
 package fiuba.algo3.algoFormers.Vista;
 
 
-
-import java.util.HashMap;
-
 import fiuba.algo3.algoFormers.Juego.Juego;
 import fiuba.algo3.algoFormers.Superficies.SuperficieAire;
-import fiuba.algo3.algoFormers.Superficies.SuperficieNubes;
-import fiuba.algo3.algoFormers.Superficies.SuperficieRocosa;
 import fiuba.algo3.algoFormers.Superficies.SuperficieTierra;
-import fiuba.algo3.algoFormers.Tablero.Casillero;
 import fiuba.algo3.algoFormers.Tablero.Coordenada;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
@@ -24,7 +18,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Priority;
@@ -45,7 +38,7 @@ public class Aplicacion extends Application {
 //		Layout layout = new Layout(grid);
 		
 		Juego juego = new Juego();
-		Group grid = HexGrid.GrupoDeTablero(10,10);
+		Group grid = HexGrid.GrupoDeTablero(20,20);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);

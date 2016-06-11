@@ -17,7 +17,7 @@ public abstract class Algoformer implements Accionable {
 	protected Modo modo;
 	protected Vida vida;
 	protected ListaDeAfectadores afectadores = new ListaDeAfectadores();
-	protected Agilidad agilidad= new Agilidad() ;
+	protected Agilidad agilidad = new Agilidad();
 	protected Potencia potencia = new Potencia();
 	protected Escudo escudo = new Escudo();
 	public abstract void atacar(Tablero tablero, Accionable atacado);
@@ -123,7 +123,7 @@ public abstract class Algoformer implements Accionable {
 		return this.modo.simularPasoDe(superficiePantano);
 	}
 	
-	public ListaDeAfectadores getAfectadores() {
+	public ListaDeAfectadores obtenerAfectadoresEnAtacable() {
 		return this.afectadores;
 	}
 	
@@ -132,7 +132,7 @@ public abstract class Algoformer implements Accionable {
 	}
 	
 	@Override
-	public void recolectar(Collectable colectable) {
+	public void recolectar(Collectable colectable){
 		colectable.producirEfecto(this);
 	}
 	
@@ -142,4 +142,5 @@ public abstract class Algoformer implements Accionable {
 	public void sacarEscudo() {
 		this.escudo.sacarEscudo();
 	}
+	
 }

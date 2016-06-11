@@ -17,7 +17,6 @@ public class AfectadorPorTurnos extends Afectador {
 	@Override
 	public void pasarTurno(){
 		this.turnos--;
-		System.out.println(this.turnos);
 		if(this.turnos == 0)
 			this.cambiarEfecto();
 	}
@@ -27,7 +26,7 @@ public class AfectadorPorTurnos extends Afectador {
 	}
 	
 	@Override
-	public void desafectarAlgoformer(Algoformer algoformer) {
+	public void desafectarAlgoformer(Algoformer algoformer){
 	}
 	
 	@Override
@@ -37,7 +36,7 @@ public class AfectadorPorTurnos extends Afectador {
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer) {
-		ListaDeAfectadores afectadores  = algoformer.getAfectadores();
+		ListaDeAfectadores afectadores  = algoformer.obtenerAfectadoresEnAtacable();
 		afectadores.agregarAfectador(this);	
 	}
 }

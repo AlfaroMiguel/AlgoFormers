@@ -18,7 +18,8 @@ public class ChispaSuprema implements Collectable{
 		
 	}
 	@Override
-	public void producirEfecto(Algoformer algoformer) {
+	public void producirEfecto(Algoformer algoformer){
+		//algoformer.obtenerColectablesEnAtacable().agregarColectable(this); si cambiamos el final
 		throw new JuegoGanadoException();
 	}
 

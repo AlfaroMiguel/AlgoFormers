@@ -12,11 +12,11 @@ public class AfectadorPorPosicion extends Afectador {
 	
 	@Override
 	public void desafectarAlgoformer(Algoformer algoformer){
-		algoformer.getAfectadores().sacarAfectador(this);
+		algoformer.obtenerAfectadoresEnAtacable().sacarAfectador(this);
 	}
 	
 	@Override
-	public void pasarTurno() {
+	public void pasarTurno(){
 	}
 	
 	@Override
@@ -27,7 +27,7 @@ public class AfectadorPorPosicion extends Afectador {
 
 	@Override
 	public void afectarAlgoformer(Algoformer algoformer) {
-		ListaDeAfectadores afectadores  = algoformer.getAfectadores();
+		ListaDeAfectadores afectadores  = algoformer.obtenerAfectadoresEnAtacable();
 		afectadores.agregarAfectador(this);
 	}
 }
