@@ -3,6 +3,8 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.*;
 
 public class Juego {
@@ -129,5 +131,12 @@ public class Juego {
 // 		}
  		return true;
  	}
+
+	public SuperficieTierra obtenerSuperficieTierra(Coordenada c) {
+		return this.tablero.obtenerSuperficieTierra(c);
+	}
+	public SuperficieAire obtenerSuperficieAire(Coordenada c) {
+		return this.tablero.obtenerSuperficieAire(c);
+	}
  	
 }

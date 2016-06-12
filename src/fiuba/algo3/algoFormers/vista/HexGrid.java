@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.juego.Juego;
+
 import fiuba.algo3.algoFormers.tablero.Casillero;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.Hexagono;
@@ -17,13 +19,13 @@ public class HexGrid {
 	private static HashMap<Coordenada,Hexagono> grid = new HashMap<Coordenada,Hexagono>();
 	
 
-	public static Group crearTablero(int width,int height) {
+	public static Group crearTablero(int ancho,int alto) {
 		
 		Group  group = new Group();
 		//esto lo haria el generador de coordenadas pero no quiero tocar todavia
-		for (int q = 0; q < width; q++) {
+		for (int q = 0; q < ancho; q++) {
 		    int q_offset = (int)Math.floor(q/2);
-		    for (int r = -q_offset; r < height - q_offset; r++) {
+		    for (int r = -q_offset; r < alto - q_offset; r++) {
 		        Hexagono hex = new Hexagono(q,r,l);
 		        grid.put(new Coordenada(q,r),hex); //agrega en mi matriz para despues tenerlos
 		        group.getChildren().add(hex);//los agrega al grupo que termina en el layout que es lo que se imprime
@@ -55,17 +57,17 @@ public class HexGrid {
 		public static void ponerSuperficieEspinas(Coordenada coordenada) {
 			grid.get(coordenada).ponerEspinas();
 		}
-		public static Group GrupoDeTablero(int width, int height) {
-			Group group = new Group();
-			for (int q = 0; q < width; q++) {
-			    int q_offset = (int)Math.floor(q/2);
-			    for (int r = -q_offset; r < height - q_offset; r++) {
-			        Hexagono hex = grid.get(new Coordenada(q,r));
-			        group.getChildren().add(hex);
-			    }
-			}
-	        return group;
-		}
+//		public static Group GrupoDeTablero(int width, int height) {
+//			Group group = new Group();
+//			for (int q = 0; q < width; q++) {
+//			    int q_offset = (int)Math.floor(q/2);
+//			    for (int r = -q_offset; r < height - q_offset; r++) {
+//			        Hexagono hex = grid.get(new Coordenada(q,r));
+//			        group.getChildren().add(hex);
+//			    }
+//			}
+//	        return group;
+//		}
 		public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
 			superficieAire.ponerSuperficieAire(coordenada);
 		}
@@ -77,6 +79,17 @@ public class HexGrid {
 		}
 		public static void ponerSuperficiePsionica(Coordenada coordenada) {
 			grid.get(coordenada).ponerPsionica();
+		}
+		public static void inicializarTablero(int alto, int ancho,Juego juego) {
+			for (int q = 0; q < ancho; q++) {
+			    int q_offset = (int)Math.floor(q/2);
+			    for (int r = -q_offset; r < alto - q_offset; r++) {
+			    	Coordenada c = new Coordenada(q,r);
+			        HexGrid.ponerSuperficieTierra(c,juego.obtenerSuperficieTierra(c));
+			        HexGrid.ponerSuperficieAire(c, juego.obtenerSuperficieAire(c));
+			        //TODO Falta poner algoformers y bonus y demas
+			    }
+			}
 		}
 
 }

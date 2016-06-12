@@ -5,8 +5,8 @@ import fiuba.algo3.algoFormers.superficie.*;
 
 public class Casillero {
 	
-	private SuperficieAire aire;
-	private SuperficieTierra tierra;
+	public SuperficieAire aire;
+	public SuperficieTierra tierra;
 	
 	public Casillero(){
 	}

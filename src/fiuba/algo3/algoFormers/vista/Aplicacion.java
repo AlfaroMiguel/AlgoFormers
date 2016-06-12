@@ -32,12 +32,12 @@ public class Aplicacion extends Application {
 	
 	@Override
 	public void start(Stage stage){
-		
-//		Group grid = HexGrid.crearTablero(10,10);
-//		Layout layout = new Layout(grid);
+		int alto = 50;
+		int ancho = 50;
 		
 		Juego juego = new Juego();
-		Group grid = HexGrid.GrupoDeTablero(20,20);
+		Group grid = crearTablero(alto, ancho);
+		inicializarTablero(alto,ancho,juego);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
@@ -50,16 +50,12 @@ public class Aplicacion extends Application {
 	    stage.show();
 	}
 	
-	public static void ponerSuperficieTierra(Coordenada coordenada, SuperficieTierra superficieTierra) {
-		HexGrid.ponerSuperficieTierra(coordenada,superficieTierra);	
+	private void inicializarTablero(int alto, int ancho,Juego juego) {
+		HexGrid.inicializarTablero(alto, ancho,juego);
 	}
 
-	public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
-		HexGrid.ponerSuperficieAire(coordenada,superficieAire);	
-	}
-
-	public static void crearTablero(int alto, int ancho) {
-		HexGrid.crearTablero(ancho, alto);
+	public static Group crearTablero(int alto, int ancho) {
+		return HexGrid.crearTablero(ancho, alto);
 	}
 
 

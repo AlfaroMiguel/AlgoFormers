@@ -21,8 +21,6 @@ public class GeneradorDeCoordenadas {
 		    	casillero.agregarSuperficie(new SuperficieNubes());
 		    	casillero.agregarSuperficie(new SuperficieRocosa());
 		        tablero.put(new Coordenada(q,r),casillero);
-		        Aplicacion.ponerSuperficieTierra(new Coordenada(q,r),new SuperficieRocosa());
-		        Aplicacion.ponerSuperficieAire(new Coordenada(q,r),new SuperficieNubes());
 		    }
 		}
 	}

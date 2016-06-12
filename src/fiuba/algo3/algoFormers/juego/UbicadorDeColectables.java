@@ -57,16 +57,17 @@ public class UbicadorDeColectables {
 
 	private void ubicarChispa(int alto,int ancho, Tablero tablero) {
 		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
-		boolean pudoColocar = false;
-		while (! pudoColocar){
-			try{
-				tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
-				pudoColocar = true;
-			}
-			catch(Throwable g){
-				continue;
-			}
-		}
+//		boolean pudoColocar = false;
+//		while (! pudoColocar){
+//			try{
+//				tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
+//				pudoColocar = true;
+//			}
+//			catch(Throwable g){
+//				continue;
+//			}
+//		}
+		tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
 	}
 
 	private void ubicarBurbujaInmaculada(Tablero tablero) {
@@ -120,8 +121,10 @@ public class UbicadorDeColectables {
 	}
 
 	private Coordenada coordenadaChispa(int alto, int ancho){
-		int q = 3 + (int) (Math.random()*((ancho - 6)));
-		int r = alto/2 + (int) (Math.random()*((alto/2))- 3 );
+		Random rand = new Random();
+		int q = rand.nextInt((ancho - 6) + 3);
+		int q_offset = (int)Math.floor(q/2); 
+		int r = rand.nextInt((alto - q_offset - alto/2) + 1);
 		return new Coordenada(q,r);
 	}
 
