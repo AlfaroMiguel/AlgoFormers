@@ -14,8 +14,7 @@ public class DobleCanion extends Bonus {
 	
 	@Override
 	public void producirEfecto(Algoformer algoformer){
-		Afectador afectadorCopia = new AfectadorPorTurnos(3,new EfectoDobleCanion());
-		afectadorCopia.afectarAlgoformer(algoformer);
+		this.afectador.afectarAlgoformer(algoformer);
 	}
 
 	@Override

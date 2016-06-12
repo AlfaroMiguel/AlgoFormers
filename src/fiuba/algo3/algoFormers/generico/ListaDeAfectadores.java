@@ -21,6 +21,17 @@ public class ListaDeAfectadores {
 			afectadores.add(afectador);
 		}	
 	}
+	public void agregarAfectador(AfectadorPorTurnos afectador){
+		boolean tieneAfectador = false;
+		for(Afectador afectadoresContenidos: afectadores){
+			if(afectadoresContenidos.equals(afectador))
+				tieneAfectador = true;
+		}
+		if(!tieneAfectador){
+			afectadores.add(afectador);
+			afectador.activar();
+		}	
+	}
 	
 	public void pasarTurno(){
 		for(Afectador afectador: afectadores){

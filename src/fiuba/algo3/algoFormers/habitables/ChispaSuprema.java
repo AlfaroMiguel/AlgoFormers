@@ -29,4 +29,15 @@ public class ChispaSuprema implements Collectable{
 		
 	}
 
+	@Override
+	public boolean consumido() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean equals(BonusVacio otro) {
+		return false;
+	}
+
 }

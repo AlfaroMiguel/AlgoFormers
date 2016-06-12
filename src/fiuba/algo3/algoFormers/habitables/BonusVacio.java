@@ -10,7 +10,9 @@ public class BonusVacio implements Collectable {
 		// TODO Auto-generated method stub
 
 	}
-
+	public boolean consumido(){
+		return false;
+	}
 	@Override
 	public boolean ocupaLugar() {
 		return false;
@@ -25,6 +27,10 @@ public class BonusVacio implements Collectable {
 	public void desafectar(Algoformer algoformer) {
 		// TODO Auto-generated method stub
 		
+	}
+	@Override
+	public boolean equals(BonusVacio otro){
+		return true;
 	}
 
 }

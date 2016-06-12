@@ -14,8 +14,7 @@ public class Flash extends Bonus {
 	
 	@Override
 	public void producirEfecto(Algoformer algoformer){
-		Afectador afectadorCopia = new AfectadorPorTurnos(3, new EfectoFlash());
-		afectadorCopia.afectarAlgoformer(algoformer);
+		this.afectador.afectarAlgoformer(algoformer);
 	}
 
 	@Override

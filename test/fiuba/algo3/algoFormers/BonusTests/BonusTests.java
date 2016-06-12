@@ -849,4 +849,29 @@ public class BonusTests{
 		
 		assertEquals(optimus.verVida(), 490);
 	}
+	@Test
+	public void test18SiPasaPorUnBonusQueYaTieneEsteNoDesaparece(){
+	Tablero tablero = new Tablero(10,10);
+		
+		Optimus optimus = new Optimus();
+		DobleCanion dobleCanion1 = new DobleCanion();
+		DobleCanion dobleCanion2 = new DobleCanion();
+		
+		Coordenada coordenadaInicialOptimus = new Coordenada(2,3);
+		Coordenada coordenadaInicialDobleCanion1 = new Coordenada(2,4);
+		Coordenada coordenadaInicialDobleCanion2 = new Coordenada(2,5);
+		tablero.colocarEnTablero(optimus, coordenadaInicialOptimus);
+		tablero.colocarEnTablero(dobleCanion1, coordenadaInicialDobleCanion1);
+		tablero.colocarEnTablero(dobleCanion2, coordenadaInicialDobleCanion2);
+		
+		optimus.moverse(coordenadaInicialDobleCanion1, tablero);
+		optimus.terminaTurno();
+		
+		assertNotEquals(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion1),dobleCanion1);
+		
+		optimus.moverse(coordenadaInicialDobleCanion2, tablero);
+		optimus.terminaTurno();
+		
+		assertEquals(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion2),dobleCanion2);
+	}
 }

@@ -8,4 +8,6 @@ public interface Collectable{
 	public boolean ocupaLugar();
 	public void producirEfecto(Algoformer algoformer);
 	public void desafectar(Algoformer algoformer);
+	public boolean consumido();
+	public boolean equals(BonusVacio otro);
 }

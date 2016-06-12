@@ -45,9 +45,10 @@ public class Tablero {
 		try{
 			this.accionables.get(coordenada).colisionar();
 			accionable.recolectar(this.colectables.get(coordenada));
-//			this.colectables.remove(coordenada) ESTO HAY QUE HACERLO SOLO SI LO PUDO RECOLECTAR
 			this.superficies.get(coordenada).producirEfecto(accionable);
 			this.accionables.put(coordenada, accionable);
+			if(this.colectables.get(coordenada).consumido())
+				this.colectables.replace(coordenada, new BonusVacio());
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();

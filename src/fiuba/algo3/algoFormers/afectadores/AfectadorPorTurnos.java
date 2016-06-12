@@ -8,12 +8,19 @@ import fiuba.algo3.algoFormers.generico.ListaDeAfectadores;
 public class AfectadorPorTurnos extends Afectador {
 	
 	int turnos;
+	private boolean activado;
 	
 	public AfectadorPorTurnos(int turnos,Efecto efecto){
 		this.turnos = turnos;
-		this.efecto = efecto;		
+		this.efecto = efecto;
+		this.activado=false;
 	}
-	
+	public void activar(){
+		this.activado=true;
+	}
+	public boolean activado(){
+		return this.activado;
+	}
 	@Override
 	public void pasarTurno(){
 		this.turnos--;
