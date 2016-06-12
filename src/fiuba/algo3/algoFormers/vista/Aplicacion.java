@@ -32,8 +32,8 @@ public class Aplicacion extends Application {
 	
 	@Override
 	public void start(Stage stage){
-		int alto = 50;
-		int ancho = 50;
+		int alto = 10;
+		int ancho = 10;
 		
 		Juego juego = new Juego();
 		Group grid = crearTablero(alto, ancho);

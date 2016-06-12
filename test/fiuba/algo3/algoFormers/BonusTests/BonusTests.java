@@ -849,9 +849,10 @@ public class BonusTests{
 		
 		assertEquals(optimus.verVida(), 490);
 	}
+	
 	@Test
 	public void test18SiPasaPorUnBonusQueYaTieneEsteNoDesaparece(){
-	Tablero tablero = new Tablero(10,10);
+		Tablero tablero = new Tablero(10,10);
 		
 		Optimus optimus = new Optimus();
 		DobleCanion dobleCanion1 = new DobleCanion();
@@ -874,4 +875,96 @@ public class BonusTests{
 		
 		assertEquals(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion2),dobleCanion2);
 	}
+	
+	@Test 
+	public void test19AgarraUnBonusYEsteDesapareceDelTablero(){
+		Tablero tablero = new Tablero(10,10);
+		
+		Optimus optimus = new Optimus();
+		Flash flash = new Flash();
+		
+		Coordenada coordInicialOptimus = new Coordenada(2,3);
+		Coordenada coordFlash = new Coordenada(3,3);
+		
+		tablero.colocarEnTablero(optimus, coordInicialOptimus);
+		tablero.colocarEnTablero(flash, coordFlash);
+		
+		optimus.moverse(coordFlash, tablero);
+		
+		assertNotEquals(tablero.obtenerColectableEnCoordenada(coordFlash), flash);
+	}
+	
+	@Test //supuesto
+	public void test20SiPasaPorCasillerosConBonusMientrasSeMueveNoLosAgarra(){
+		Tablero tablero = new Tablero(10,10);
+		
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo(); //le cambio el modo para que tenga mas velocidad
+		Megatron megatron = new Megatron();
+		DobleCanion dobleCanion = new DobleCanion();
+		BurbujaInmaculada burbuja = new BurbujaInmaculada();
+		
+		Coordenada coordInicialOptimus = new Coordenada(0,0);
+		Coordenada coordMegatron = new Coordenada(1,2);
+		Coordenada coordCanion = new Coordenada(0,1);
+		Coordenada coordBurbuja = new Coordenada(0,2);
+		
+		tablero.colocarEnTablero(optimus, coordInicialOptimus);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		tablero.colocarEnTablero(burbuja, coordBurbuja);
+		tablero.colocarEnTablero(dobleCanion, coordCanion);
+		
+		optimus.moverse(new Coordenada(0,3), tablero);
+		optimus.terminaTurno();
+		
+		megatron.atacar(tablero, optimus);
+		megatron.terminaTurno();
+		
+		assertEquals(optimus.verVida(), 490);
+		
+		optimus.atacar(tablero, megatron);
+		
+		assertEquals(megatron.verVida(), 535);
+	}
+	
+	@Test //supuesto
+	public void test21CuandoSeCombinanNoSePasanLosBonusAlAlgoformerCombinado(){
+		Tablero tablero = new Tablero(10,10);
+		
+		Optimus optimus = new Optimus();
+		Bumblebee bumblebee = new Bumblebee();
+		Ratchet ratchet = new Ratchet();
+		BurbujaInmaculada burbuja = new BurbujaInmaculada();
+		Megatron megatron = new Megatron();
+		
+		Coordenada coordInicialOptimus = new Coordenada(0,0);
+		Coordenada coordInicialBumblebee = new Coordenada(0,1);
+		Coordenada coordInicialRatchet = new Coordenada(1,0);
+		Coordenada coordBurbuja = new Coordenada(0,2);
+		Coordenada coordMegatron = new Coordenada(1,1);
+		
+		tablero.colocarEnTablero(ratchet, coordInicialRatchet);
+		tablero.colocarEnTablero(bumblebee, coordInicialBumblebee);
+		tablero.colocarEnTablero(optimus, coordInicialOptimus);
+		tablero.colocarEnTablero(burbuja, coordBurbuja);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		
+		optimus.moverse(coordBurbuja, tablero);
+		optimus.terminaTurno();
+		
+		//optimus tiene activado el bonus
+		megatron.atacar(tablero, optimus);
+		
+		assertEquals(optimus.verVida(), 500);
+		
+		Superion superion = new Superion(optimus, ratchet, bumblebee);
+		
+		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
+		superion.terminaTurno();
+		
+		//superion no tiene el bonus
+		megatron.atacar(tablero, superion);
+		assertEquals(superion.verVida(), 990);
+	}
+
 }

@@ -14,6 +14,7 @@ public abstract class Equipo{
 	public abstract void descombinarAlgoformers(Tablero tablero);
 	public abstract void ubicarPersonajes(Tablero tablero);
 	public abstract void seleccionarAlgoformer(Accionable seleccionado);
+	public abstract void terminarTurno();
 	
 	public Equipo(){
 		this.distanciaMinimaCombinacion = 1;
@@ -42,7 +43,7 @@ public abstract class Equipo{
 	public void reposicionarAlgoformer(Tablero tablero) {
 		this.algoformerActual.reposicionarse(tablero);
 	}
-	public abstract void terminarTurno();
+	
 	public void retirarPersonajeActual(Tablero tablero) {
 		tablero.retirarAlgoformer(this.algoformerActual);
 		

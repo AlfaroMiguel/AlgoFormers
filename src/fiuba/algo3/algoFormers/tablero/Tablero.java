@@ -120,7 +120,7 @@ public class Tablero {
 		}
 	}
 
-	private void vaciarCoordenada(Coordenada coordenada){
+	private void vaciarCoordenadaAccionable(Coordenada coordenada){
 		this.colocarEnTablero(new Vacio(), coordenada);
 	}
 
@@ -135,8 +135,8 @@ public class Tablero {
 			throw new NoCombinableException();
 		}
 		this.colocarEnTablero(superion, coordOptimus);
-		this.vaciarCoordenada(coordRatchet);
-		this.vaciarCoordenada(coordBumblebee);
+		this.vaciarCoordenadaAccionable(coordRatchet);
+		this.vaciarCoordenadaAccionable(coordBumblebee);
 	}
 
 	public void combinarAlgoformers(Menasor menasor, Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
@@ -150,8 +150,8 @@ public class Tablero {
 			throw new NoCombinableException();
 		}
 		this.colocarEnTablero(menasor, coordMegatron);
-		this.vaciarCoordenada(coordBonecrusher);
-		this.vaciarCoordenada(coordFrenzy);
+		this.vaciarCoordenadaAccionable(coordBonecrusher);
+		this.vaciarCoordenadaAccionable(coordFrenzy);
 	}
 
 	public void descombinarAlgoformers(Superion superion){

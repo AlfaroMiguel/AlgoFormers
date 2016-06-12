@@ -55,7 +55,6 @@ public class Jugador{
 
 	public void terminarTurno() {
 		this.equipo.terminarTurno();
-		
 	}
 	
 	

@@ -53,7 +53,6 @@ public class EquipoAutobots extends Equipo {
 		this.ratchet.terminaTurno();
 		this.bumblebee.terminaTurno();
 		this.superion.terminaTurno();
-		
 	}
 	
 
