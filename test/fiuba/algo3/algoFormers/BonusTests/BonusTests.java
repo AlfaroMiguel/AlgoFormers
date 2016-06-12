@@ -868,7 +868,7 @@ public class BonusTests{
 		optimus.moverse(coordenadaInicialDobleCanion1, tablero);
 		optimus.terminaTurno();
 		
-		assertNotEquals(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion1),dobleCanion1);
+		assertNotEquals((Object)tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion1),(Object)dobleCanion1);
 		
 		optimus.moverse(coordenadaInicialDobleCanion2, tablero);
 		optimus.terminaTurno();
@@ -890,8 +890,7 @@ public class BonusTests{
 		tablero.colocarEnTablero(flash, coordFlash);
 		
 		optimus.moverse(coordFlash, tablero);
-		
-		assertNotEquals(tablero.obtenerColectableEnCoordenada(coordFlash), flash);
+		assertNotEquals((Object)tablero.obtenerColectableEnCoordenada(coordFlash), (Object)flash);
 	}
 	
 	@Test //supuesto
