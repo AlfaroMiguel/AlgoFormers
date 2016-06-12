@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 
 public class BonecrusherHumanoide extends ModoHumanoide {
 	

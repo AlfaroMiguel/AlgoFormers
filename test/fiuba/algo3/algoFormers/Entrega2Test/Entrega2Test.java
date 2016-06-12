@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;

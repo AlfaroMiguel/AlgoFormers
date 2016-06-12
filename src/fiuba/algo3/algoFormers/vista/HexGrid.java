@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Casillero;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.Hexagono;

@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 
 import fiuba.algo3.algoFormers.juego.Juego;
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;

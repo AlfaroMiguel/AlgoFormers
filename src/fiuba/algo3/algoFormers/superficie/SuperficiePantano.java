@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.superficies;
+package fiuba.algo3.algoFormers.superficie;
 
 import fiuba.algo3.algoFormers.afectadores.*;
 import fiuba.algo3.algoFormers.efectos.EfectoPantano;
@@ -10,7 +10,7 @@ import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class SuperficiePantano extends SuperficieTierra {
 
-	public SuperficiePantano(){
+	public SuperficiePantano() {
 		this.afectador = new AfectadorPorPosicion(new EfectoPantano());
 	}
 
@@ -20,35 +20,34 @@ public class SuperficiePantano extends SuperficieTierra {
 
 	@Override
 	public void ponerSuperficieTierra(Coordenada coordenada) {
-		//HexGrid.ponerSuperficiePantano(coordenada);
-		
-	}
-	
-	public void afectar(Algoformer algoformer,ModoTerrestreAlterno modo){
-		afectador.afectarAlgoformer(algoformer);
-	}
-	public void afectar(Algoformer algoformer,ModoHumanoide modo){
-		throw new MovimientoInvalidoException();
-	}
-	public void afectar(Algoformer algoformer,ModoAereo modo){
-	}
-	
-	public void desafectar(Algoformer algoformer){
-		afectador.desafectarAlgoformer(algoformer);
+		// HexGrid.ponerSuperficiePantano(coordenada);
+
 	}
 
-	
+	public void afectar(Algoformer algoformer, ModoTerrestreAlterno modo) {
+		afectador.afectarAlgoformer(algoformer);
+	}
+
+	public void afectar(Algoformer algoformer, ModoHumanoide modo) {
+		throw new MovimientoInvalidoException();
+	}
+
+	public void afectar(Algoformer algoformer, ModoAereo modo) {
+	}
+
+	public void desafectar(Algoformer algoformer) {
+		afectador.desafectarAlgoformer(algoformer);
+	}
 
 	@Override
 	public void desafectar(Algoformer algoformer, ModoTerrestreAlterno modoTerrestreAlterno) {
 		afectador.desafectarAlgoformer(algoformer);
-		
+
 	}
 
 	@Override
 	public void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno) {
 
-		
 	}
 
 }

@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.superficies;
+package fiuba.algo3.algoFormers.superficie;
 
 import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.Algoformer;
@@ -8,8 +8,8 @@ import fiuba.algo3.algoFormers.vista.HexGrid;
 import fiuba.algo3.algoFormers.afectadores.*;
 
 public class SuperficieNubes extends SuperficieAire {
-	
-	public SuperficieNubes(){
+
+	public SuperficieNubes() {
 		this.afectador = new AfectadorPorPosicion(new EfectoNubes());
 	}
 
@@ -18,17 +18,16 @@ public class SuperficieNubes extends SuperficieAire {
 	}
 
 	public void ponerSuperficieAire(Coordenada coordenada) {
-		//HexGrid.ponerSuperficieNubes(coordenada);
+		// HexGrid.ponerSuperficieNubes(coordenada);
 	}
-	
-	public void afectar(Algoformer algoformer,ModoAereo modo){
+
+	public void afectar(Algoformer algoformer, ModoAereo modo) {
 		afectador.afectarAlgoformer(algoformer);
 	}
-	
 
 	@Override
 	public void desafectar(Algoformer algoformer, ModoAereo modoAereo) {
 		afectador.desafectarAlgoformer(algoformer);
-		
+
 	}
 }

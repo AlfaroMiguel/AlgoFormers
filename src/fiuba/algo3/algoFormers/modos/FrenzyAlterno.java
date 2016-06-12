@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.modos;
 
 
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
 public class FrenzyAlterno extends ModoTerrestreAlterno {

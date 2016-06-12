@@ -6,7 +6,7 @@ import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.modos.Modo;
-import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.afectadores.Afectador;
