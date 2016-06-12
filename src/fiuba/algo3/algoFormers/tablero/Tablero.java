@@ -21,7 +21,6 @@ public class Tablero {
 	HashMap<Coordenada,Collectable> colectables = new HashMap<Coordenada, Collectable>();
 
 	public Tablero(int height,int width){
-//		Aplicacion.crearTablero(height,width);
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.accionables,height,width);
 		GeneradorDeCoordenadas.generarBonusDelTablero(this.colectables, height, width);
@@ -34,12 +33,10 @@ public class Tablero {
 
 	public void colocarSuperficieEnTablero(SuperficieTierra superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
-//		Aplicacion.ponerSuperficieTierra(coordenada, superficie);
 	}
 
 	public void colocarSuperficieEnTablero(SuperficieAire superficie,Coordenada coordenada){
 		this.superficies.get(coordenada).agregarSuperficie(superficie);
-//		Aplicacion.ponerSuperficieAire(coordenada, superficie);
 	}
 
 	public void colocarEnTablero(Accionable accionable,Coordenada coordenada){
@@ -215,6 +212,12 @@ public class Tablero {
 		Coordenada coordenadaActual =this.obtenerCoordenadaDeElemento(algoformer);
 		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
 
+	}
+	public SuperficieTierra obtenerSuperficieTierra(Coordenada coordenada){
+		return this.superficies.get(coordenada).tierra;
+	}
+	public SuperficieAire obtenerSuperficieAire(Coordenada coordenada){
+		return this.superficies.get(coordenada).aire;
 	}
 
 

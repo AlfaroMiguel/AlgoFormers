@@ -32,7 +32,7 @@ public class SuperficieAndromeda extends SuperficieAire {
 	}
 	@Override
 	public void ponerSuperficieAire(Coordenada coordenada) {
-		//HexGrid.ponerSuperficieAndromeda(coordenada);
+		HexGrid.ponerSuperficieAndromeda(coordenada);
 	}
 	
 	public void producirEfecto(Accionable afectado){

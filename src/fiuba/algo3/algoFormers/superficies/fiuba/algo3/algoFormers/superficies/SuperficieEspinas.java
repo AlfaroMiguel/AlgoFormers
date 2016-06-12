@@ -20,7 +20,7 @@ public class SuperficieEspinas extends SuperficieTierra {
 
 	@Override
 	public void ponerSuperficieTierra(Coordenada coordenada) {
-		//HexGrid.ponerSuperficieEspinas(coordenada);
+		HexGrid.ponerSuperficieEspinas(coordenada);
 	}
 	
 	

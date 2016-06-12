@@ -17,7 +17,7 @@ public class SuperficiePsionica extends SuperficieAire {
 	}
 
 	public void ponerSuperficieAire(Coordenada coordenada) {
-		//HexGrid.ponerSuperficiePsionica(coordenada);
+		HexGrid.ponerSuperficiePsionica(coordenada);
 	}
 	public void afectar(Algoformer algoformer,ModoAereo modo){
 		afectador.afectarAlgoformer(algoformer);
