@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.juego;
 
 import java.util.List;
 
+import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
@@ -18,8 +19,10 @@ public class Juego {
 	//cuando se inicia el juego
 	public Juego(){
 		//se crea el tablero
-		final int ancho = 50;
+		
 		final int alto = 50;
+		final int ancho = 50;
+
 		this.tablero = new Tablero(alto,ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 		
@@ -73,11 +76,8 @@ public class Juego {
 	}
 	
 	public void seleccionarCoordenada(Coordenada coordenada){
-		try	{
-			this.jugadorActual.seleccionarAlgoformer(coordenada);
-		}
-		catch(Throwable e) {}
-		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
+		this.jugadorActual.seleccionarAlgoformer(coordenada);
+
 	}
 	
 	public void moverSeleccionadoACoordenada(Coordenada coordenada){
