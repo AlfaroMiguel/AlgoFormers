@@ -17,6 +17,7 @@ import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.decepticons.Menasor;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
+import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
 import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;
@@ -635,4 +636,37 @@ public class algoformersTest {
 			equipo.atacar(tablero, bonecrusher);
 		}
 	}
+	@Test(expected = CombinadoSinVidaException.class)
+	public void test19HacerSuperionMatarloYFijarseQueTireSuException(){
+		Tablero tablero = new Tablero(100,100);
+			
+		Optimus optimus = new Optimus();
+		Ratchet ratchet = new Ratchet();
+		Bumblebee bumblebee = new Bumblebee();
+			
+		Coordenada coordOptimus = new Coordenada(4,4);
+		Coordenada coordRatchet = new Coordenada(5,4);
+		Coordenada coordBumblebee = new Coordenada(4,5);
+		Coordenada coordMegatron = new Coordenada(3,3);
+			
+		tablero.colocarEnTablero(optimus, coordOptimus);
+		tablero.colocarEnTablero(ratchet, coordRatchet);
+		tablero.colocarEnTablero(bumblebee, coordBumblebee);
+		
+		Superion superion = new Superion(optimus,ratchet,bumblebee);
+		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
+		
+		
+		EquipoDecepticons equipo = new EquipoDecepticons();
+		//ataque 10
+		Megatron megatron = equipo.getMegatron();
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		equipo.seleccionarAlgoformer(megatron);
+			
+		//vida superion 500 + 150 + 350
+				for (int k = 0; k < 100; k++){
+					equipo.atacar(tablero, superion);
+				}
+		
+		}
 }

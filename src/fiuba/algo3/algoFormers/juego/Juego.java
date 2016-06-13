@@ -97,6 +97,10 @@ public class Juego {
 		catch(ChispaCapturadaException exception){
 			throw new JuegoGanadoException();
 		}
+		catch(CombinadoSinVidaException exception){
+			this.jugadorAnterior.descombinarAlgoformers();
+			//Aca Hariamos todo lo que querramos con las vidas del equipo Perdedor
+		}
 	}
 	
 	public void transformarSeleccionado(){

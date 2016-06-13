@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.juego;
 
 import java.util.*;
 
+import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.EquipoVencidoException;
 import fiuba.algo3.algoFormers.excepciones.SinVidaException;
@@ -24,6 +25,10 @@ public class EquipoDecepticons extends Equipo {
 		this.bonecrusher = new Bonecrusher();
 		this.menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.algoformerActual = megatron;
+	}
+	
+	public Megatron getMegatron(){
+		return this.megatron;
 	}
 	
 	public void seleccionarAlgoformer(Accionable seleccionado){

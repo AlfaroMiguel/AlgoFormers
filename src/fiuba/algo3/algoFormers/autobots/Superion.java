@@ -1,5 +1,8 @@
 package fiuba.algo3.algoFormers.autobots;
 
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.excepciones.CombinadoSinVidaException;
+import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.SuperionTerrestre;
 
@@ -36,5 +39,14 @@ public class Superion extends Autobot {
 	/*Devuelve el ratchet que contiene*/
 	public Ratchet getRatchet(){
 		return this.ratchet;
+	}
+	@Override
+	public void serAtacado(Decepticon atacante, int ataque){
+		try{ 
+			this.vida.sacarVida(ataque*this.escudo.getEscudo());
+		}
+		catch(SinVidaException e){
+			throw new CombinadoSinVidaException();
+		}
 	}
 }
