@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.BonusTests;
+package fiuba.algo3.algoFormers.Entrega3Test;
 
 import static org.junit.Assert.*;
 

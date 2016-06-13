@@ -44,7 +44,7 @@ public class Tablero {
 			accionable.recolectar(this.recolectables.get(coordenada));
 			this.superficies.get(coordenada).producirEfecto(accionable);
 			this.accionables.put(coordenada, accionable);
-			if(this.recolectables.get(coordenada).consumido())
+			if(this.recolectables.get(coordenada).fueConsumido())
 				this.eliminarRecolectableDeTablero(coordenada);
 		}
 		catch(Throwable g){

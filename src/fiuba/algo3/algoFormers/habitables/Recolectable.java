@@ -8,6 +8,6 @@ public interface Recolectable{
 	public boolean ocupaLugar();
 	public void producirEfecto(Algoformer algoformer);
 	public void desafectar(Algoformer algoformer);
-	public boolean consumido();
+	public boolean fueConsumido();
 	public boolean equals(BonusVacio otro);
 }
