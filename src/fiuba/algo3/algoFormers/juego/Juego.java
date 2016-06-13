@@ -97,11 +97,7 @@ public class Juego {
 			this.jugadorActual.atacar(coordenada);
 			this.cambiarTurno();
 		}
-		//ver como manejarlas en el mismo bloque
-		catch(EquipoVencidoException exception ){
-			throw new JuegoGanadoException();
-		}
-		catch(ChispaCapturadaException exception){
+		catch(EquipoVencidoException | ChispaCapturadaException exception){
 			throw new JuegoGanadoException();
 		}
 	}
