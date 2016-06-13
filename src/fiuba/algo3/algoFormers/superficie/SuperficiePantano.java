@@ -20,7 +20,7 @@ public class SuperficiePantano extends SuperficieTierra {
 
 	@Override
 	public void ponerSuperficieTierra(Coordenada coordenada) {
-		// HexGrid.ponerSuperficiePantano(coordenada);
+		 HexGrid.ponerSuperficiePantano(coordenada);
 
 	}
 
