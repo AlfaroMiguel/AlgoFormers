@@ -154,5 +154,9 @@ public class Juego {
 	public SuperficieAire obtenerSuperficieAire(Coordenada c) {
 		return this.tablero.obtenerSuperficieAire(c);
 	}
+
+	public Recolectable obtenerRecolectable(Coordenada c) {
+		return this.tablero.obtenerRecolectableEnCoordenada(c);
+	}
  	
 }

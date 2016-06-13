@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoFlash;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public class Flash extends Bonus {
 	
@@ -19,5 +20,11 @@ public class Flash extends Bonus {
 	@Override
 	public void desafectar(Algoformer algoformer) {
 		afectador.desafectarAlgoformer(algoformer);
+	}
+
+	@Override
+	public void ponerRecolectable(Coordenada c) {
+		// TODO Auto-generated method stub
+		
 	}
 }

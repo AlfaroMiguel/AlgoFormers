@@ -108,5 +108,9 @@ public class Hexagono extends StackPane {
 	public void ponerRatchetHumanoide() {
 		text.setText("Ratchet");
 	}
+
+	public void ponerChispa() {
+		text.setText("Chispa");		
+	}
 	
 }

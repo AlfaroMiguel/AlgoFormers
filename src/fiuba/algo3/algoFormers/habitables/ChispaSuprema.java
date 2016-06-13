@@ -3,6 +3,8 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.excepciones.ChispaCapturadaException;
 import fiuba.algo3.algoFormers.excepciones.JuegoGanadoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class ChispaSuprema implements Recolectable{
 
@@ -39,6 +41,11 @@ public class ChispaSuprema implements Recolectable{
 	@Override
 	public boolean equals(BonusVacio otro) {
 		return false;
+	}
+
+	@Override
+	public void ponerRecolectable(Coordenada c) {
+		HexGrid.ponerChispa(c);
 	}
 
 }

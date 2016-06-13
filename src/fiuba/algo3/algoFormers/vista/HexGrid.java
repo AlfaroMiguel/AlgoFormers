@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Casillero;
@@ -88,9 +89,13 @@ public class HexGrid {
 			        HexGrid.ponerSuperficieTierra(c,juego.obtenerSuperficieTierra(c));
 			        HexGrid.ponerSuperficieAire(c, juego.obtenerSuperficieAire(c));
 			        HexGrid.ponerAccionable(c,juego.obtenerAccionable(c));
+			        HexGrid.ponerRecolectable(c,juego.obtenerRecolectable(c));
 			        //TODO Falta poner algoformers y bonus y demas
 			    }
 			}
+		}
+		private static void ponerRecolectable(Coordenada c, Recolectable recolectable) {
+			recolectable.ponerRecolectable(c);
 		}
 		private static void ponerAccionable(Coordenada c, Accionable accionable) {
 			accionable.ponerAccionable(c);
@@ -139,6 +144,9 @@ public class HexGrid {
 		}
 		public static void ponerSuperion(Coordenada coordenada) {
 			// TODO Auto-generated method stub
+		}
+		public static void ponerChispa(Coordenada c) {
+			grid.get(c).ponerChispa();
 		}
 
 }

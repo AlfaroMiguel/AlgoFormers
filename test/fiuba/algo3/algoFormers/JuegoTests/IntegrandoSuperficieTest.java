@@ -14,7 +14,7 @@ public class IntegrandoSuperficieTest {
 		Equipo equipoAutobots = new EquipoAutobots();
 		Jugador jugador= new Jugador(equipoAutobots, tablero);
 		jugador.ubicarPersonajes();
-		Coordenada inicialRatchet = new Coordenada(2,1);
+		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);
 		tablero.colocarSuperficieEnTablero(new SuperficieAndromeda(), new Coordenada(3,1));
 		jugador.mover(new Coordenada(3,1));
@@ -45,7 +45,7 @@ public class IntegrandoSuperficieTest {
 		Equipo equipoAutobots = new EquipoAutobots();
 		Jugador jugador= new Jugador(equipoAutobots, tablero);
 		jugador.ubicarPersonajes();
-		Coordenada inicialRatchet = new Coordenada(2,1);
+		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);
 		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,1));
 		Megatron megatron = new Megatron();
@@ -85,7 +85,7 @@ public class IntegrandoSuperficieTest {
 		Equipo equipoAutobots = new EquipoAutobots();
 		Jugador jugador= new Jugador(equipoAutobots, tablero);
 		jugador.ubicarPersonajes();
-		Coordenada inicialRatchet = new Coordenada(2,1);
+		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);
 		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,1));
 		jugador.mover(new Coordenada(3,1));
