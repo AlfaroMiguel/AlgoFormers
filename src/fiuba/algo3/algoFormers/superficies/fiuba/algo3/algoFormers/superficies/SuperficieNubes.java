@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.superficie;
+package fiuba.algo3.algoFormers.superficies;
 
 import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.Algoformer;

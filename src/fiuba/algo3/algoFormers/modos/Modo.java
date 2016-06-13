@@ -1,12 +1,12 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.*;
 import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.superficies.*;
 
 public interface Modo{
 	
@@ -23,5 +23,6 @@ public interface Modo{
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer);
 	public int verAtaque();
+	public void ponerAccionable(Coordenada coordenada);
 	
 }

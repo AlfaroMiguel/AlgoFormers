@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.tablero;
 
 import fiuba.algo3.algoFormers.habitables.Accionable;
-import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.superficies.*;
 
 public class Casillero {
 	

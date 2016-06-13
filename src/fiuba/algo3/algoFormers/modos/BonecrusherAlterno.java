@@ -1,7 +1,9 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class BonecrusherAlterno extends ModoTerrestreAlterno {
 	
@@ -28,6 +30,11 @@ public class BonecrusherAlterno extends ModoTerrestreAlterno {
 	@Override
 	public int simularPasoDe(SuperficiePantano superficiePantano){
 		return 2;
+	}
+
+	@Override
+	public void ponerAccionable(Coordenada coordenada) {
+		HexGrid.ponerBonecrusherAlterno(coordenada);
 	}
 	
 }

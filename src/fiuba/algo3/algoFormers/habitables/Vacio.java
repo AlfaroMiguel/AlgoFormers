@@ -1,12 +1,14 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class Vacio implements Accionable{
 
@@ -76,6 +78,11 @@ public class Vacio implements Accionable{
 	@Override
 	public void recolectar(Collectable colectable) {
 		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void ponerAccionable(Coordenada c) {
+		HexGrid.ponerVacio(c);
 	}
 	
 }

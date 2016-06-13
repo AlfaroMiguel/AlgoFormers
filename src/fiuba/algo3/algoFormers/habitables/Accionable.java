@@ -1,10 +1,11 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.superficies.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public interface Accionable{
 
@@ -29,5 +30,6 @@ public interface Accionable{
 	public int simularEfecto(SuperficieTierra superficieTierra);
 
 	public void recolectar(Collectable colectable);
+	public void ponerAccionable(Coordenada c);
 
 }

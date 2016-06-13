@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.Autobot;
@@ -9,6 +8,7 @@ import fiuba.algo3.algoFormers.generico.Agilidad;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.Potencia;
 import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.superficies.*;
 
 public abstract class ModoTerrestre implements Modo {
 	
@@ -64,6 +64,7 @@ public abstract class ModoTerrestre implements Modo {
 	}
 	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer afectado){	
 	}
+	
 	
 	
 }

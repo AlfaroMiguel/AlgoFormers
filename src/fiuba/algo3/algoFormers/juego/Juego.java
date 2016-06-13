@@ -4,8 +4,8 @@ import java.util.List;
 
 import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 import fiuba.algo3.algoFormers.habitables.*;
-import fiuba.algo3.algoFormers.superficie.SuperficieAire;
-import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
+import fiuba.algo3.algoFormers.superficies.SuperficieAire;
+import fiuba.algo3.algoFormers.superficies.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.*;
 
 public class Juego {
@@ -17,11 +17,8 @@ public class Juego {
 	//
 
 	//cuando se inicia el juego
-	public Juego(){
+	public Juego(int alto, int ancho){
 		//se crea el tablero
-		
-		final int alto = 50;
-		final int ancho = 50;
 
 		this.tablero = new Tablero(alto,ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
@@ -32,6 +29,9 @@ public class Juego {
 		//se ubican los personajes, la chispa y los bonus
 		this.ubicarPersonajes();
 		this.ubicadorDeColectables.ubicarColectables(this.tablero);
+	}
+	public Juego(){
+		this(50, 50);
 	}
 	
 	private void elegirPrimerJugador(){
@@ -137,6 +137,10 @@ public class Juego {
 	}
 	public SuperficieAire obtenerSuperficieAire(Coordenada c) {
 		return this.tablero.obtenerSuperficieAire(c);
+	}
+
+	public Accionable obtenerAccionable(Coordenada c) {
+		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}
  	
 }

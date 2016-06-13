@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 
 import fiuba.algo3.algoFormers.juego.Juego;
-import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
@@ -32,10 +32,10 @@ public class Aplicacion extends Application {
 	
 	@Override
 	public void start(Stage stage){
-		int alto = 10;
-		int ancho = 10;
+		int alto = 50;
+		int ancho = 40;
 		
-		Juego juego = new Juego();
+		Juego juego = new Juego(alto, ancho);
 		Group grid = crearTablero(alto, ancho);
 		inicializarTablero(alto,ancho,juego);
 		Parent contenedor = crearContenedor(grid);

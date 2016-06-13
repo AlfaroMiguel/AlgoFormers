@@ -7,10 +7,10 @@ import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.vista.Aplicacion;
 import fiuba.algo3.algoFormers.vista.HexGrid;
-import fiuba.algo3.algoFormers.superficie.*;
 
 
 

@@ -1,13 +1,14 @@
 package fiuba.algo3.algoFormers.efectosTest;
 
 import org.junit.*;
-import fiuba.algo3.algoFormers.superficie.*;
+
 import fiuba.algo3.algoFormers.tablero.*;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.efectos.Efecto;
 import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.*;
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 
 public class SuperficiesTest {

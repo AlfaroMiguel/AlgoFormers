@@ -1,7 +1,7 @@
 package fiuba.algo3.algoFormers.modos;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.superficies.*;
 
 public abstract class ModoHumanoide extends ModoTerrestre {
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer afectado){

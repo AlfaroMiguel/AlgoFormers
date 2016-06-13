@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.Juego;
-
+import fiuba.algo3.algoFormers.superficies.*;
 import fiuba.algo3.algoFormers.tablero.Casillero;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.Hexagono;
@@ -87,9 +87,68 @@ public class HexGrid {
 			    	Coordenada c = new Coordenada(q,r);
 			        HexGrid.ponerSuperficieTierra(c,juego.obtenerSuperficieTierra(c));
 			        HexGrid.ponerSuperficieAire(c, juego.obtenerSuperficieAire(c));
+			        HexGrid.ponerAccionable(c,juego.obtenerAccionable(c));
 			        //TODO Falta poner algoformers y bonus y demas
 			    }
 			}
+		}
+		private static void ponerAccionable(Coordenada c, Accionable accionable) {
+			accionable.ponerAccionable(c);
+		}
+		public static void ponerVacio(Coordenada c) {
+			
+		}
+		public static void ponerBonecrusherAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub	
+		}
+		public static void ponerBonecrusherHumanoide(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerBumblebeeAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+	
+		}
+		public static void ponerBumblebeeHumanoide(Coordenada coordenada) {
+			grid.get(coordenada).ponerBumblebeeHumanoide();
+		}
+		public static void ponerFrenzyAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerFrenzyHumanoide(Coordenada coordenada) {
+			grid.get(coordenada).ponerFrenzyHumanoide();
+			}
+		public static void ponerMegatronAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerMegatronHumanoide(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerMenasor(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerOptimusAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerOptimusHumanoide(Coordenada coordenada) {
+			grid.get(coordenada).ponerOptimusHumanoide();
+		}
+		public static void ponerRatchetAlterno(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerRatchetHumanoide(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
+		}
+		public static void ponerSuperion(Coordenada coordenada) {
+			// TODO Auto-generated method stub
+			
 		}
 
 }

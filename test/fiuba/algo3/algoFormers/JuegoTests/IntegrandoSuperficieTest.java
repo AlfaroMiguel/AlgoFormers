@@ -1,10 +1,10 @@
 package fiuba.algo3.algoFormers.JuegoTests;
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.juego.*;
+import fiuba.algo3.algoFormers.superficies.*;
 
 import org.junit.*;
 public class IntegrandoSuperficieTest {
