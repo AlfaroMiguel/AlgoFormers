@@ -14,12 +14,14 @@ public class ChispaSuprema implements Recolectable{
 	public static ChispaSuprema getInstance(){
 		return INSTANCE;
 	}
+	
 	public boolean ocupaLugar(){
 		return true;
 	}
-	public void colisionar(){
-		
+	
+	public void colisionar(){	
 	}
+	
 	@Override
 	public void producirEfecto(Algoformer algoformer){
 		//algoformer.obtenerColectablesEnAtacable().agregarColectable(this); si cambiamos el final
@@ -28,13 +30,10 @@ public class ChispaSuprema implements Recolectable{
 
 	@Override
 	public void desafectar(Algoformer algoformer) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
-	public boolean consumido() {
-		// TODO Auto-generated method stub
+	public boolean fueConsumido() {
 		return true;
 	}
 

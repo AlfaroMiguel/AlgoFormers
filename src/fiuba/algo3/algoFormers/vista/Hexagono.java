@@ -12,7 +12,7 @@ public class Hexagono extends StackPane {
 	
 	private Text text = new Text();
 	private Polyline hexagon;
-	public boolean pinto=false;
+	public boolean pinto = false;
 	
 	public Hexagono (int x, int y, double l){
 		this.x= x;
@@ -60,7 +60,7 @@ public class Hexagono extends StackPane {
 
 	public void ponerRocosa() {
 		this.hexagon.setFill(Color.DARKGRAY);
-		//text.setText("Rocosa");
+		text.setText("Rocosa");
 	}
 
 	public void ponerPantano() {

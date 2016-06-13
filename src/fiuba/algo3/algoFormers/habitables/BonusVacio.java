@@ -10,7 +10,7 @@ public class BonusVacio implements Recolectable {
 		// TODO Auto-generated method stub
 
 	}
-	public boolean consumido(){
+	public boolean fueConsumido(){
 		return false;
 	}
 	@Override

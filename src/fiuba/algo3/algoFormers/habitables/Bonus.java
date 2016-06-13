@@ -9,9 +9,10 @@ public abstract class Bonus implements Recolectable{
 	public abstract void producirEfecto(Algoformer algoformer);
 	public abstract void desafectar(Algoformer algoformer);
 
-	public boolean consumido(){
+	public boolean fueConsumido(){
 		return this.afectador.estaActivado();
 	}
+	
 	@Override
 	public void colisionar() {
 	}
@@ -20,6 +21,7 @@ public abstract class Bonus implements Recolectable{
 	public boolean ocupaLugar() {
 		return true;
 	}	
+	
 	public boolean equals(BonusVacio otro){
 		return false;
 	}
