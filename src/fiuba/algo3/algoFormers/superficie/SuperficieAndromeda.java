@@ -6,11 +6,8 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.modos.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class SuperficieAndromeda extends SuperficieAire {
-
-	private EfectoAndromeda efecto;
 
 	public SuperficieAndromeda() {
 		this.afectador = new AfectadorPorTurnos(3, new EfectoAndromeda());

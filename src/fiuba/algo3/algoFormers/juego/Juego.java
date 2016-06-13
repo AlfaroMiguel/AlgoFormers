@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.juego;
 
 import java.util.List;
 
+import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
@@ -13,7 +14,6 @@ public class Juego {
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
 	private UbicadorDeColectables ubicadorDeColectables;
-	//
 
 	//cuando se inicia el juego
 	public Juego(){
@@ -86,8 +86,17 @@ public class Juego {
 	}
 	
 	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
-		this.jugadorActual.atacar(coordenada);
-		this.cambiarTurno();
+		try{
+			this.jugadorActual.atacar(coordenada);
+			this.cambiarTurno();
+		}
+		//ver como manejarlas en el mismo bloque
+		catch(EquipoVencidoException exception ){
+			throw new JuegoGanadoException();
+		}
+		catch(ChispaCapturadaException exception){
+			throw new JuegoGanadoException();
+		}
 	}
 	
 	public void transformarSeleccionado(){

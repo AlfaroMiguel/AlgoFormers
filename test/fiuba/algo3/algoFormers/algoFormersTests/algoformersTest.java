@@ -16,6 +16,7 @@ import fiuba.algo3.algoFormers.decepticons.Frenzy;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.decepticons.Menasor;
 import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
 import fiuba.algo3.algoFormers.modos.FrenzyHumanoide;
 import fiuba.algo3.algoFormers.modos.OptimusAlterno;
@@ -549,6 +550,7 @@ public class algoformersTest {
 		assertSame(tablero.obtenerAccionableEnCoordenada(coordNuevaBumblebee), bumblebee);
 		
 	}
+	
 	@Test
 	public void test16CombinarAutobotsDistanciaCorrectaYMoverSuperion(){
 		Tablero tablero = new Tablero(100,100);
@@ -571,5 +573,66 @@ public class algoformersTest {
 		superion.moverse(coordRatchet, tablero);
 		
 		assertSame(tablero.obtenerAccionableEnCoordenada(coordRatchet),superion);
+	}
+	
+	@Test(expected = SinVidaException.class)
+	public void test17AlgoformerMuereYLanzaExcepcion(){
+		Tablero tablero = new Tablero(10,10);
+		
+		//vida ratchet = 150
+		Ratchet ratchet = new Ratchet();
+		//ataque megatron alterno = 55
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
+		
+		Coordenada coordRatchet = new Coordenada(2,2);
+		Coordenada coordMegatron = new Coordenada(2,3);
+		
+		tablero.colocarEnTablero(ratchet, coordRatchet);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		
+		megatron.atacar(tablero, ratchet);
+		assertEquals(ratchet.verVida(), 95);
+		
+		megatron.atacar(tablero, ratchet);
+		assertEquals(ratchet.verVida(), 40);
+		
+		megatron.atacar(tablero, ratchet);	
+	}
+	
+	@Test(expected = EquipoVencidoException.class)
+	public void test18EquipoLanzaExcepcionCuandoSeVacia(){
+		Tablero tablero= new Tablero(10,10);
+		
+		EquipoAutobots equipo = new EquipoAutobots();
+		Megatron megatron = new Megatron();
+		Bonecrusher bonecrusher = new Bonecrusher();
+		Frenzy frenzy = new Frenzy();
+		
+		Coordenada coordMegatron = new Coordenada(1,1);
+		Coordenada coordBonecrusher = new Coordenada(2,0);
+		Coordenada coordFrenzy = new Coordenada(3,0);
+		Coordenada coordOptimus = new Coordenada(2,1);
+		
+		tablero.colocarEnTablero(frenzy, coordFrenzy);
+		tablero.colocarEnTablero(bonecrusher, coordBonecrusher);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		//ataque 50
+		Optimus optimus = equipo.getOptimus();
+		tablero.colocarEnTablero(optimus, coordOptimus);
+		equipo.seleccionarAlgoformer(optimus);
+		
+		//vida frenzy 400
+		for (int i = 0; i < 8; i++){
+			equipo.atacar(tablero, frenzy);
+		}
+		//vida megatron 550
+		for (int j = 0; j < 11; j++){
+			equipo.atacar(tablero, megatron);
+		}
+		//vida bonecrusher 200
+		for (int k = 0; k < 4; k++){
+			equipo.atacar(tablero, bonecrusher);
+		}
 	}
 }

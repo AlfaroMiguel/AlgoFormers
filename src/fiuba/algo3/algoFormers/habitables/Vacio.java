@@ -3,8 +3,8 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
+import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 
@@ -15,8 +15,8 @@ public class Vacio implements Accionable{
 	public boolean ocupaLugar(){
 		return false;
 	}
+	
 	public void colisionar(){
-
 	}
 
 	@Override
@@ -30,46 +30,46 @@ public class Vacio implements Accionable{
 	}
 	
 	@Override
-	public void serSeleccionado(EquipoAutobots equipoAutobots) {
-		throw new NoAlgoformerException();
+	public void serSeleccionado(EquipoAutobots equipo) {
+		throw new NoSeleccionableException();
 	}
 
 	@Override
-	public void serSeleccionado(EquipoDecepticons equipoDecepticons) {
-		throw new NoAlgoformerException();
+	public void serSeleccionado(EquipoDecepticons equipo) {
+		throw new NoSeleccionableException();
 	}
 	
 	@Override
-	public void serDesafectado(SuperficieAire superficieAire) {
+	public void serDesafectado(SuperficieAire superficie) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void serDesafectado(SuperficieTierra superficieTierra) {
+	public void serDesafectado(SuperficieTierra superficie) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public int simularEfecto(SuperficieAire superficieAire) {
+	public int simularEfecto(SuperficieAire superficie) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int simularEfecto(SuperficieTierra superficieTierra) {
+	public int simularEfecto(SuperficieTierra superficie) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void reaccionarASuperficie(SuperficieAire superficieAire) {
+	public void reaccionarASuperficie(SuperficieAire superficie) {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
-	public void reaccionarASuperficie(SuperficieTierra superficieTierra) {
+	public void reaccionarASuperficie(SuperficieTierra superficie) {
 		// TODO Auto-generated method stub	
 	}
 

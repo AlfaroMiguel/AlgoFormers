@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.habitables;
 
+import fiuba.algo3.algoFormers.excepciones.ChispaCapturadaException;
 import fiuba.algo3.algoFormers.excepciones.JuegoGanadoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
@@ -20,7 +21,7 @@ public class ChispaSuprema implements Collectable{
 	@Override
 	public void producirEfecto(Algoformer algoformer){
 		//algoformer.obtenerColectablesEnAtacable().agregarColectable(this); si cambiamos el final
-		throw new JuegoGanadoException();
+		throw new ChispaCapturadaException();
 	}
 
 	@Override

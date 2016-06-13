@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoFlash;
 import fiuba.algo3.algoFormers.generico.Algoformer;

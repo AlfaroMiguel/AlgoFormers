@@ -98,8 +98,7 @@ public class SuperficiesTest {
 			int vidaInicial = optimus.verVida();
 			//Los efectos se aplican al final de cada turno
 			optimus.terminaTurno();
-			Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*0.95));
-			
+			Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*0.95));		
 	}
 	
 	@Test

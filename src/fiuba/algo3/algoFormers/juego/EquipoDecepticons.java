@@ -3,13 +3,16 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.decepticons.*;
+import fiuba.algo3.algoFormers.excepciones.EquipoVencidoException;
+import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
 
 public class EquipoDecepticons extends Equipo {
-	
+
+	private static final int CANT_MIEMBROS_CONTRARIOS = 3;
 	protected Megatron megatron;
 	protected Frenzy frenzy;
 	protected Bonecrusher bonecrusher;
@@ -54,7 +57,19 @@ public class EquipoDecepticons extends Equipo {
 		this.bonecrusher.terminaTurno();
 		this.megatron.terminaTurno();
 		this.frenzy.terminaTurno();
-		this.menasor.terminaTurno();
-		
+		this.menasor.terminaTurno();		
+	}
+	
+	@Override
+	public void atacar(Tablero tablero, Accionable atacado) {
+		try{
+			this.algoformerActual.atacar(tablero, atacado);
+		}
+		catch(SinVidaException exception){
+			this.vencidos++;
+			if (this.vencidos == EquipoDecepticons.CANT_MIEMBROS_CONTRARIOS){
+				throw new EquipoVencidoException();
+			}
+		}
 	}
 }

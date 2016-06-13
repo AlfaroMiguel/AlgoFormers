@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
@@ -11,7 +10,7 @@ public abstract class Bonus implements Collectable{
 	public abstract void desafectar(Algoformer algoformer);
 
 	public boolean consumido(){
-		return this.afectador.activado();
+		return this.afectador.estaActivado();
 	}
 	@Override
 	public void colisionar() {

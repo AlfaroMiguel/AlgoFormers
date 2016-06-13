@@ -9,7 +9,7 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.autobots.*;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
-import fiuba.algo3.algoFormers.excepciones.NoAlgoformerException;
+import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
 import fiuba.algo3.algoFormers.habitables.Vacio;
 import fiuba.algo3.algoFormers.juego.Equipo;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
@@ -65,7 +65,7 @@ public class JugadorTest {
 		assertEquals(jugador.verAlgoformerActual(), megatron);
 	}
 
-	@Test (expected = NoAlgoformerException.class)
+	@Test (expected = NoSeleccionableException.class)
 	public void test05SeleccionarEspacioVacioEquipoAutobots(){
 		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);

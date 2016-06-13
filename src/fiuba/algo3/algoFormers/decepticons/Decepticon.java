@@ -9,11 +9,10 @@ import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
+/*Clase que representa al tipo de algoformer Decepticon*/
 public class Decepticon extends Algoformer {
-
-	public Decepticon() {
-	}
 	
+	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot autobot, int ataque){
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());

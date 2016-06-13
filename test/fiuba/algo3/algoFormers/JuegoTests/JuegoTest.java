@@ -40,4 +40,5 @@ public class JuegoTest{
 		Juego juego = new Juego();
 		assertTrue(juego.seUbicoALosBonus());
 	}
+	
 }

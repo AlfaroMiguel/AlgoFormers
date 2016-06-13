@@ -5,16 +5,14 @@ import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.Accionable;
-import fiuba.algo3.algoFormers.habitables.Collectable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
+/*Clase que representa al tipo de algoformer Autobot*/
 public class Autobot extends Algoformer{
-
-	public Autobot(){
-	}
-
+	
+	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot atacante, int ataque){
 		throw new MismoEquipoException();

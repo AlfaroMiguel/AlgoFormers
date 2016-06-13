@@ -45,7 +45,7 @@ public class Tablero {
 			this.superficies.get(coordenada).producirEfecto(accionable);
 			this.accionables.put(coordenada, accionable);
 			if(this.colectables.get(coordenada).consumido())
-				this.colectables.replace(coordenada, new BonusVacio());
+				this.eliminarColectableDeTablero(coordenada);
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();
@@ -53,11 +53,10 @@ public class Tablero {
 	}
 
 	public void colocarEnTablero(Collectable collectable, Coordenada coordenada){
-		if(!this.colectables.get(coordenada).ocupaLugar()){
+		if(!this.colectables.get(coordenada).ocupaLugar())
 			this.colectables.put(coordenada, collectable);
-			return;
-		}
-		throw new MovimientoInvalidoException();
+		else
+			throw new MovimientoInvalidoException();
 
 	}
 	public void mover(Accionable accionable, Coordenada coordenadaFinal, int paso) {
@@ -90,20 +89,32 @@ public class Tablero {
 
 	}
 
-	public void coordinateAttack(Autobot atacante, int range, Accionable atacado, int ataque) {
+	public void coordinarAtaque(Autobot atacante, int range, Accionable atacado, int ataque) {
 		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new FueraDeRangoException();
-		atacado.serAtacado(atacante, ataque);
+		try{
+			atacado.serAtacado(atacante, ataque);
+		}
+		catch(SinVidaException exception){
+			this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(atacado));
+			throw exception;
+		}
 	}
 
-	public void coordinateAttack(Decepticon atacante, int range, Accionable atacado, int ataque) {
+	public void coordinarAtaque(Decepticon atacante, int range, Accionable atacado, int ataque) {
 		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>range)
 			throw new FueraDeRangoException();
-		atacado.serAtacado(atacante, ataque);
+		try{
+			atacado.serAtacado(atacante, ataque);
+		}
+		catch(SinVidaException exception){
+			this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(atacado));
+			throw exception;
+		}
 	}
 
 	public Collectable obtenerColectableEnCoordenada(Coordenada coordenada){
@@ -131,7 +142,7 @@ public class Tablero {
 		try{
 			this.validarDistancias(coordOptimus, coordRatchet, coordBumblebee, distMinimaCombinacion);
 		}
-		catch (Throwable DistanciaInvalidaException){
+		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
 		this.colocarEnTablero(superion, coordOptimus);
@@ -146,7 +157,7 @@ public class Tablero {
 		try{
 			this.validarDistancias(coordMegatron, coordBonecrusher, coordFrenzy, distMinimaCombinacion);
 		}
-		catch (Throwable DistanciaInvalidaException){
+		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
 		this.colocarEnTablero(menasor, coordMegatron);
@@ -208,8 +219,8 @@ public class Tablero {
 		this.colocarEnTablero(algoformer, coordenada);
 
 	}
-	public void retirarAlgoformer(Algoformer algoformer) {
-		Coordenada coordenadaActual =this.obtenerCoordenadaDeElemento(algoformer);
+	public void retirarAlgoformer(Accionable algoformer) {
+		Coordenada coordenadaActual = this.obtenerCoordenadaDeElemento(algoformer);
 		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
 
 	}
@@ -219,7 +230,12 @@ public class Tablero {
 	public SuperficieAire obtenerSuperficieAire(Coordenada coordenada){
 		return this.superficies.get(coordenada).aire;
 	}
+	
+	public void eliminarAccionableDeTablero(Coordenada coordenada){
+		this.accionables.replace(coordenada, new Vacio());
+	}
 
-
-
+	public void eliminarColectableDeTablero(Coordenada coordenada){
+		this.colectables.replace(coordenada, new BonusVacio());
+	}
 }

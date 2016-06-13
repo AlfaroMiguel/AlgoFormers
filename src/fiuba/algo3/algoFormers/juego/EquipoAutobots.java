@@ -3,12 +3,15 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.autobots.*;
+import fiuba.algo3.algoFormers.excepciones.EquipoVencidoException;
+import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class EquipoAutobots extends Equipo {
 	
+	private static final int CANT_MIEMBROS_CONTRARIOS = 3;
 	public Optimus optimus;
 	public Bumblebee bumblebee;
 	public Ratchet ratchet;
@@ -54,6 +57,22 @@ public class EquipoAutobots extends Equipo {
 		this.bumblebee.terminaTurno();
 		this.superion.terminaTurno();
 	}
-	
 
+	@Override
+	public void atacar(Tablero tablero, Accionable atacado) {
+		try{
+			this.algoformerActual.atacar(tablero, atacado);
+		}
+		catch(SinVidaException exception){
+			this.vencidos++;
+			if (this.vencidos == EquipoAutobots.CANT_MIEMBROS_CONTRARIOS){
+				throw new EquipoVencidoException();
+			}
+		}
+	}
+	
+	public Optimus getOptimus(){
+		return this.optimus;
+	}
+	
 }

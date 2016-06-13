@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import javafx.scene.text.Text;
 import fiuba.algo3.algoFormers.autobots.*;
+import fiuba.algo3.algoFormers.decepticons.Megatron;
 //import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
@@ -75,7 +76,7 @@ public class TableroTests {
 	}
 	
 	@Test(expected = MovimientoInvalidoException.class)
-	public void test07ElTableroUbicaHabitablesEnElMapaEnPosicionInvalida(){
+	public void test07ElTableroNoUbicaHabitablesEnElMapaEnPosicionInvalida(){
 		Tablero tablero = new Tablero(10,10);
 		Coordenada coordenada = new Coordenada(100000,10);
 		Optimus optimus = new Optimus();
@@ -117,7 +118,35 @@ public class TableroTests {
 		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
 	}
 	
-	
+	@Test
+	public void test10AlgoformerMuereYDesapareceDelTablero(){
+		Tablero tablero = new Tablero(10,10);
+		
+		//vida ratchet = 150
+		Ratchet ratchet = new Ratchet();
+		//ataque megatron alterno = 55
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
+		
+		Coordenada coordRatchet = new Coordenada(2,2);
+		Coordenada coordMegatron = new Coordenada(2,3);
+		
+		tablero.colocarEnTablero(ratchet, coordRatchet);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		
+		tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+		assertEquals(ratchet.verVida(), 95);
+		
+		tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+		assertEquals(ratchet.verVida(), 40);
+		
+		try{
+			tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+		}
+		catch(SinVidaException exception){
+		}
+		assertFalse(tablero.obtenerAccionableEnCoordenada(coordRatchet) == ratchet);	
+	}
 //
 //	@Test
 //	public void test10ColocarHabitableEnPosicionValida(){
@@ -138,4 +167,5 @@ public class TableroTests {
 //		assertSame(tablero.obtenerHabitableEnCoordenada(coordRatchet), ratchet);
 //	}
 	// FALTA PROBAR QUE SE PONGA BIEN LA VIDA DEL SUPERION Y PROBAR TODO LO MISMO CON MENASOR
+	
 }
