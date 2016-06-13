@@ -134,14 +134,14 @@ public class TableroTests {
 		tablero.colocarEnTablero(ratchet, coordRatchet);
 		tablero.colocarEnTablero(megatron, coordMegatron);
 		
-		tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+		tablero.coordinarAtaque(megatron, ratchet, 1, 55);
 		assertEquals(ratchet.verVida(), 95);
 		
-		tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+		tablero.coordinarAtaque(megatron, ratchet, 1, 55);
 		assertEquals(ratchet.verVida(), 40);
 		
 		try{
-			tablero.coordinarAtaque(megatron, 1, ratchet, 55);
+			tablero.coordinarAtaque(megatron, ratchet, 1, 55);
 		}
 		catch(SinVidaException exception){
 		}

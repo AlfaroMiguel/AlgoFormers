@@ -22,12 +22,12 @@ public abstract class ModoTerrestre implements Modo {
 	
 	@Override
 	public void atacar(Tablero tablero, Autobot atacante, Accionable atacado,Potencia potencia) {
-		tablero.coordinarAtaque(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
+		tablero.coordinarAtaque(atacante, atacado, this.distAtaque, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 	@Override
 	public void atacar(Tablero tablero, Decepticon atacante, Accionable atacado,Potencia potencia) {
-		tablero.coordinarAtaque(atacante, this.distAtaque, atacado, (int)(this.ataque*potencia.getPotencia()));
+		tablero.coordinarAtaque(atacante, atacado, this.distAtaque, (int)(this.ataque*potencia.getPotencia()));
 	}
 
 
