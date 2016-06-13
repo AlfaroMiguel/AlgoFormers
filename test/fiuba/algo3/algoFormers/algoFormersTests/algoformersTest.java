@@ -669,4 +669,35 @@ public class algoformersTest {
 				}
 		
 		}
+	@Test(expected = CombinadoSinVidaException.class)
+	public void test20HacerMenasorMatarloYFijarseQueTireSuException(){
+		Tablero tablero= new Tablero(100,100);
+		
+		Megatron megatron = new Megatron();
+		Bonecrusher bonecrusher = new Bonecrusher();
+		Frenzy frenzy = new Frenzy();
+		
+		Coordenada coordMegatron = new Coordenada(4,4);
+		Coordenada coordBonecrusher = new Coordenada(5,4);
+		Coordenada coordFrenzy = new Coordenada(4,5);
+		Coordenada coordOptimus = new Coordenada(5,5);
+		
+		tablero.colocarEnTablero(frenzy, coordFrenzy);
+		tablero.colocarEnTablero(bonecrusher, coordBonecrusher);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		
+		Menasor menasor = new Menasor(megatron, bonecrusher, frenzy);
+		tablero.combinarAlgoformers(menasor, megatron, bonecrusher, frenzy, 1);
+		
+		EquipoAutobots equipo = new EquipoAutobots();
+		//ataque 50
+		Optimus optimus = equipo.getOptimus();
+		tablero.colocarEnTablero(optimus, coordOptimus);
+		equipo.seleccionarAlgoformer(optimus);
+		
+		//vida menasor 400 + 200 + 550
+		for (int i = 0; i < 23; i++){
+			equipo.atacar(tablero, menasor);
+		}
+	}
 }

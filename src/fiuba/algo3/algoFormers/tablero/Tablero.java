@@ -98,6 +98,7 @@ public class Tablero {
 			atacado.serAtacado(atacante, ataque);
 		}
 		catch(SinVidaException exception){
+			System.out.println("Elimino a Menasor del tablero");
 			this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(atacado));
 			throw exception;
 		}
