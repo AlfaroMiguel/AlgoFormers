@@ -102,53 +102,43 @@ public class HexGrid {
 			// TODO Auto-generated method stub	
 		}
 		public static void ponerBonecrusherHumanoide(Coordenada coordenada) {
-			// TODO Auto-generated method stub
-			
+			grid.get(coordenada).ponerBonecrusherHumanoide();			
 		}
 		public static void ponerBumblebeeAlterno(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-	
 		}
 		public static void ponerBumblebeeHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerBumblebeeHumanoide();
 		}
 		public static void ponerFrenzyAlterno(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-			
 		}
 		public static void ponerFrenzyHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerFrenzyHumanoide();
 			}
 		public static void ponerMegatronAlterno(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-			
 		}
 		public static void ponerMegatronHumanoide(Coordenada coordenada) {
-			// TODO Auto-generated method stub
-			
+			grid.get(coordenada).ponerMegatronHumanoide();
 		}
 		public static void ponerMenasor(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-			
 		}
 		public static void ponerOptimusAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
-			
+			// TODO Auto-generated method stub	
 		}
 		public static void ponerOptimusHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerOptimusHumanoide();
 		}
 		public static void ponerRatchetAlterno(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-			
 		}
 		public static void ponerRatchetHumanoide(Coordenada coordenada) {
-			// TODO Auto-generated method stub
-			
+			grid.get(coordenada).ponerRatchetHumanoide();
 		}
 		public static void ponerSuperion(Coordenada coordenada) {
 			// TODO Auto-generated method stub
-			
 		}
 
 }

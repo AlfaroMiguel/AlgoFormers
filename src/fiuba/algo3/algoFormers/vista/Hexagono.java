@@ -96,5 +96,17 @@ public class Hexagono extends StackPane {
 	public void ponerFrenzyHumanoide() {
 		text.setText("Frenzy");
 	}
+
+	public void ponerBonecrusherHumanoide() {
+		text.setText("Bonecrusher");		
+	}
+
+	public void ponerMegatronHumanoide() {
+		text.setText("Megatron");
+	}
+
+	public void ponerRatchetHumanoide() {
+		text.setText("Ratchet");
+	}
 	
 }

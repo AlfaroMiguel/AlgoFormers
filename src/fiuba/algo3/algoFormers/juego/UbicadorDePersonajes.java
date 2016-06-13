@@ -12,15 +12,15 @@ public class UbicadorDePersonajes {
 
 	public static void posicionarEquipoAutobot(List<Autobot> integrantes, Tablero tablero) {
 		tablero.colocarEnTablero(integrantes.get(0), new Coordenada(1,2));
-	 	tablero.colocarEnTablero(integrantes.get(1), new Coordenada(2,2));
-	 	tablero.colocarEnTablero(integrantes.get(2), new Coordenada(2,1));
+	 	tablero.colocarEnTablero(integrantes.get(1), new Coordenada(3,2));
+	 	tablero.colocarEnTablero(integrantes.get(2), new Coordenada(3,0));
 		
 	}
 
 	public static void posicionarEquipoDecepticon(List<Decepticon> integrantes, Tablero tablero) {
-		tablero.colocarEnTablero(integrantes.get(0), new Coordenada(18,1));
-	 	tablero.colocarEnTablero(integrantes.get(1), new Coordenada(18,2));
-	 	tablero.colocarEnTablero(integrantes.get(2), new Coordenada(19,1));
+		tablero.colocarEnTablero(integrantes.get(0), new Coordenada(18,-7));
+	 	tablero.colocarEnTablero(integrantes.get(1), new Coordenada(17,-5));
+	 	tablero.colocarEnTablero(integrantes.get(2), new Coordenada(16,-6));
 		
 	}
 
