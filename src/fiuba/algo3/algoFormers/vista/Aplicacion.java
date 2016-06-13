@@ -42,11 +42,8 @@ public class Aplicacion extends Application {
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 		
-<<<<<<< HEAD
 		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
-=======
-//		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
->>>>>>> bdd9670de80c412937c0c15a5548dfec0a911dec
+
 		
 		Scene scene = new Scene(layout);
 	    stage.setScene(scene);

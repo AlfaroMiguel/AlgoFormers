@@ -191,9 +191,17 @@ public class Tablero{
 	 * 									   poder combinarse.
 	 * Lanza: NoCombinableException si no estan a la distancia correcta y por lo tanto no se pueden combinar.*/
 	public void combinarAlgoformers(Superion superion, Optimus optimus, Ratchet ratchet, Bumblebee bumblebee, int distMinimaCombinacion){
-		Coordenada coordOptimus = this.obtenerCoordenadaDeElemento(optimus);
-		Coordenada coordRatchet = this.obtenerCoordenadaDeElemento(ratchet);
-		Coordenada coordBumblebee = this.obtenerCoordenadaDeElemento(bumblebee);
+		Coordenada coordOptimus;
+		Coordenada coordRatchet;
+		Coordenada coordBumblebee;
+		try{
+			coordOptimus = this.obtenerCoordenadaDeElemento(optimus);
+			coordRatchet = this.obtenerCoordenadaDeElemento(ratchet);
+			coordBumblebee = this.obtenerCoordenadaDeElemento(bumblebee);
+		}
+		catch(ElementoNoExisteException exception){
+			throw new NoCombinableException();
+		}
 		try{
 			this.validarDistancias(coordOptimus, coordRatchet, coordBumblebee, distMinimaCombinacion);
 		}
@@ -204,11 +212,28 @@ public class Tablero{
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
 	}
-
+	/* Coloca en el tablero un Menasor a partir de los decepticons si se encuentran a la distancia correcta para 
+	 * realizar esta accion. Elimina del tablero a los algoformers individuales.
+	 * Parametros: -menasor: decepticon combinado a colocar.
+	 * 			   -megatron: megatron que compone al combinado.
+	 * 			   -bonecrusher: bonecrusher que compone al combinado.
+	 * 			   -frenzy: frenzy que compone al combinado.
+	 * 			   -distMinimaCombinacion: distancia minima a la que tienen que estar los 3 autobots individuales para
+	 * 									   poder combinarse.
+	 * Lanza: NoCombinableException si no estan a la distancia correcta y por lo tanto no se pueden combinar.*/
 	public void combinarAlgoformers(Menasor menasor, Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy, int distMinimaCombinacion){
-		Coordenada coordMegatron = this.obtenerCoordenadaDeElemento(megatron);
-		Coordenada coordBonecrusher = this.obtenerCoordenadaDeElemento(bonecrusher);
-		Coordenada coordFrenzy = this.obtenerCoordenadaDeElemento(frenzy);
+		Coordenada coordMegatron;
+		Coordenada coordBonecrusher;
+		Coordenada coordFrenzy;
+		try{
+			coordMegatron = this.obtenerCoordenadaDeElemento(megatron);
+			coordBonecrusher = this.obtenerCoordenadaDeElemento(bonecrusher);
+			coordFrenzy = this.obtenerCoordenadaDeElemento(frenzy);
+		}
+		catch(ElementoNoExisteException exception){
+			throw new NoCombinableException();
+		}
+		
 		try{
 			this.validarDistancias(coordMegatron, coordBonecrusher, coordFrenzy, distMinimaCombinacion);
 		}
@@ -219,7 +244,10 @@ public class Tablero{
 		this.eliminarAccionableDeTablero(coordBonecrusher);
 		this.eliminarAccionableDeTablero(coordFrenzy);
 	}
-
+	
+	/* Elimina a superion del tablero y vuelve a colocar a los algoformers que lo componen en las posiciones
+	 * mas cercanas a la ultima posicion del superion posibles.
+	 * Parametros: -superion: superion a descombinar.*/
 	public void descombinarAlgoformers(Superion superion){
 		Optimus optimus = superion.getOptimus();
 		Bumblebee bumblebee = superion.getBumblebee();
@@ -231,7 +259,9 @@ public class Tablero{
 		this.colocarAccionableEnPosicionValidaDesde(ratchet,coordSuperion);
 		this.colocarAccionableEnPosicionValidaDesde(bumblebee, coordSuperion);
 	}
-
+	/* Elimina a menasor del tablero y vuelve a colocar a los algoformers que lo componen en las posiciones
+	 * mas cercanas a la ultima posicion del menasor posibles.
+	 * Parametros: -menasor: menasor a descombinar.*/
 	public void descombinarAlgoformers(Menasor menasor){
 		Megatron megatron = menasor.getMegatron();
 		Bonecrusher bonecrusher = menasor.getBonecrusher();
@@ -243,13 +273,15 @@ public class Tablero{
 		this.colocarAccionableEnPosicionValidaDesde(bonecrusher, coordMenasor);
 		this.colocarAccionableEnPosicionValidaDesde(frenzy, coordMenasor);
 	}
-
-	public void colocarAccionableEnPosicionValidaDesde(Accionable accionable, Coordenada coordInicial){
+	/* Colocar a un accionable en la posicion mas cercana posible a una posicion de referencia.
+	 * Parametros: -accionable: accionable a mover.
+	 * 			   -coordReferencia: coordenada que indica la posicion desde la que se intenta colocar al accionable.*/
+	public void colocarAccionableEnPosicionValidaDesde(Accionable accionable, Coordenada coordReferencia){
 		boolean sePudoUbicar = false;
 		int radioDeVecindad = 1;
 		while(!sePudoUbicar){
 		@SuppressWarnings("static-access")
-		ArrayList<Coordenada> coordenadasVecinos = coordInicial.neighborsInRange(coordInicial, radioDeVecindad);
+		ArrayList<Coordenada> coordenadasVecinos = coordReferencia.neighborsInRange(coordReferencia, radioDeVecindad);
 		for(int i = 0; i < coordenadasVecinos.size(); i++){
 			Coordenada coordVecino = coordenadasVecinos.get(i);
 			if(this.accionables.containsKey(coordVecino)){
@@ -263,16 +295,16 @@ public class Tablero{
 			radioDeVecindad++;
 		}
 	}
-
+	/* Genera el camino de costo minimo para ir de una coordenada a otra.
+	 * Parametros: -coordenadaInicial: coordenada desde donde se inicia el camino.
+	 * 			   -coordenadaFinal: coordenada hasta la que llega el camino.*/
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
 		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, new Optimus(), coordenadaInicial, coordenadaFinal);
 	}
-
-
+	
 	public void reposicionar(Algoformer algoformer) {
 		Coordenada coordenada =	this.obtenerCoordenadaDeElemento(algoformer);
 		this.colocarEnTablero(algoformer, coordenada);
-
 	}
 	
 	public void desafectarAlgoformer(Accionable algoformer) {
