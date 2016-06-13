@@ -49,8 +49,7 @@ public abstract class Equipo{
 	}
 	
 	public void retirarPersonajeActual(Tablero tablero) {
-		tablero.retirarAlgoformer(this.algoformerActual);
-		
+		tablero.desafectarAlgoformer(this.algoformerActual);
 	}
 	
 }

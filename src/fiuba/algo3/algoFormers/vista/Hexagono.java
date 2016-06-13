@@ -84,5 +84,17 @@ public class Hexagono extends StackPane {
 	public void ponerPsionica() {
 		
 	}
+
+	public void ponerOptimusHumanoide() {
+		text.setText("Optimus");
+	}
+
+	public void ponerBumblebeeHumanoide() {
+		text.setText("Bumblebee");
+	}
+
+	public void ponerFrenzyHumanoide() {
+		text.setText("Frenzy");
+	}
 	
 }
