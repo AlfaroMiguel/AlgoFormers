@@ -18,7 +18,7 @@ public class SuperficieNubes extends SuperficieAire {
 	}
 
 	public void ponerSuperficieAire(Coordenada coordenada) {
-		// HexGrid.ponerSuperficieNubes(coordenada);
+		 HexGrid.ponerSuperficieNubes(coordenada);
 	}
 
 	public void afectar(Algoformer algoformer, ModoAereo modo) {

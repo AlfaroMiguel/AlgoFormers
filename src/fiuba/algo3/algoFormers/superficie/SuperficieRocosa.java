@@ -19,7 +19,7 @@ public class SuperficieRocosa extends SuperficieTierra {
 
 	@Override
 	public void ponerSuperficieTierra(Coordenada coordenada) {
-		// HexGrid.ponerSuperficieRocosa(coordenada);
+		 HexGrid.ponerSuperficieRocosa(coordenada);
 	}
 
 	public void afectar(Algoformer algoformer, ModoAereo modo) {
