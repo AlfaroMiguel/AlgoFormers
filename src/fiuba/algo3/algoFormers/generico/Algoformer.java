@@ -127,6 +127,9 @@ public abstract class Algoformer implements Accionable {
 		this.escudo.sacarEscudo();
 	}
 	
+	public void ponerAccionable(Coordenada coordenada) {
+		this.modo.ponerAccionable(coordenada);
+	}
 	
 	/* Metodos abstractos redefinidos. */
 	@Override
@@ -140,7 +143,7 @@ public abstract class Algoformer implements Accionable {
 	}
 	
 	@Override
-	public void recolectar(Collectable colectable){
+	public void recolectar(Recolectable colectable){
 		colectable.producirEfecto(this);
 	}
 	

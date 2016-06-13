@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 
-public abstract class Bonus implements Collectable{
+public abstract class Bonus implements Recolectable{
 	
 	public AfectadorPorTurnos afectador;
 	public abstract void producirEfecto(Algoformer algoformer);

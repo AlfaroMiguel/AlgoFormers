@@ -7,11 +7,16 @@ import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class Vacio implements Accionable{
 
-	public Vacio(){}
-
+	@Override
+	 public void ponerAccionable(Coordenada c) {
+	 	HexGrid.ponerVacio(c);
+	}
+	
 	public boolean ocupaLugar(){
 		return false;
 	}
@@ -74,7 +79,7 @@ public class Vacio implements Accionable{
 	}
 
 	@Override
-	public void recolectar(Collectable colectable) {
+	public void recolectar(Recolectable colectable) {
 		// TODO Auto-generated method stub	
 	}
 	

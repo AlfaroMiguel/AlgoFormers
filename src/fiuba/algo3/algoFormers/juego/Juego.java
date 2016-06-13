@@ -16,11 +16,10 @@ public class Juego {
 	private UbicadorDeColectables ubicadorDeColectables;
 
 	//cuando se inicia el juego
-	public Juego(){
+	public Juego(int alto, int ancho){
 		//se crea el tablero
-		final int ancho = 50;
-		final int alto = 50;
-		this.tablero = new Tablero(alto,ancho);
+		
+		this.tablero = new Tablero(alto, ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 		
 		//se definen los jugadores
@@ -29,6 +28,14 @@ public class Juego {
 		//se ubican los personajes, la chispa y los bonus
 		this.ubicarPersonajes();
 		this.ubicadorDeColectables.ubicarColectables(this.tablero);
+	}
+	
+	public Juego(){
+	 	this(50, 50);
+ 	}
+	
+	public Accionable obtenerAccionable(Coordenada c) {
+		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}
 	
 	private void elegirPrimerJugador(){
@@ -90,11 +97,7 @@ public class Juego {
 			this.jugadorActual.atacar(coordenada);
 			this.cambiarTurno();
 		}
-		//ver como manejarlas en el mismo bloque
-		catch(EquipoVencidoException exception ){
-			throw new JuegoGanadoException();
-		}
-		catch(ChispaCapturadaException exception){
+		catch(EquipoVencidoException | ChispaCapturadaException exception){
 			throw new JuegoGanadoException();
 		}
 		catch(CombinadoSinVidaException exception){

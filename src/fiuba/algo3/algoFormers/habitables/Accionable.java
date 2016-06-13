@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 /* Interfaz que representa a los elementos del juego que pueden realizar
  * acciones tales como atacar y moverse.*/
@@ -58,6 +59,6 @@ public interface Accionable{
 	public int simularEfecto(SuperficieAire superficie);
 	public int simularEfecto(SuperficieTierra superficie);
 
-	public void recolectar(Collectable colectable);
-
+	public void recolectar(Recolectable colectable);
+	public void ponerAccionable(Coordenada c);
 }

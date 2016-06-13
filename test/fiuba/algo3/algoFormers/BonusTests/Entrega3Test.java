@@ -868,12 +868,12 @@ public class Entrega3Test{
 		optimus.moverse(coordenadaInicialDobleCanion1, tablero);
 		optimus.terminaTurno();
 		
-		assertFalse(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion1)==dobleCanion1);
+		assertFalse(tablero.obtenerRecolectableEnCoordenada(coordenadaInicialDobleCanion1)==dobleCanion1);
 		
 		optimus.moverse(coordenadaInicialDobleCanion2, tablero);
 		optimus.terminaTurno();
 		
-		assertEquals(tablero.obtenerColectableEnCoordenada(coordenadaInicialDobleCanion2),dobleCanion2);
+		assertEquals(tablero.obtenerRecolectableEnCoordenada(coordenadaInicialDobleCanion2),dobleCanion2);
 	}
 	
 	@Test 
@@ -891,7 +891,7 @@ public class Entrega3Test{
 		
 		optimus.moverse(coordFlash, tablero);
 		
-		assertFalse(tablero.obtenerColectableEnCoordenada(coordFlash)==flash);
+		assertFalse(tablero.obtenerRecolectableEnCoordenada(coordFlash)==flash);
 	}
 	
 	@Test //supuesto

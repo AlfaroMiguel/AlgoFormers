@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.tablero;
 
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.habitables.BonusVacio;
-import fiuba.algo3.algoFormers.habitables.Collectable;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
 import fiuba.algo3.algoFormers.habitables.Vacio;
 
 import java.util.HashMap;
@@ -31,7 +31,7 @@ public class GeneradorDeCoordenadas {
 		}
 	}
 
-	public static void generarBonusDelTablero(HashMap<Coordenada,Collectable> tablero,int height, int width){
+	public static void generarBonusDelTablero(HashMap<Coordenada,Recolectable> tablero,int height, int width){
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2); // or q>>1
 		    for (int r = -q_offset; r < height - q_offset; r++) {

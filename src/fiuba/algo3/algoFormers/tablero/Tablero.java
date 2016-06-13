@@ -17,16 +17,16 @@ import fiuba.algo3.algoFormers.superficie.*;
 public class Tablero {
 	HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
 	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
-	HashMap<Coordenada,Collectable> colectables = new HashMap<Coordenada, Collectable>();
+	HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
 
 	public Tablero(int height,int width){
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,height,width);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.accionables,height,width);
-		GeneradorDeCoordenadas.generarBonusDelTablero(this.colectables, height, width);
+		GeneradorDeCoordenadas.generarBonusDelTablero(this.recolectables, height, width);
 	}
 
 	public boolean estaVacio(Coordenada coordenada) {
-		return !(this.accionables.get(coordenada).ocupaLugar()) && !(this.colectables.get(coordenada).ocupaLugar());
+		return !(this.accionables.get(coordenada).ocupaLugar()) && !(this.recolectables.get(coordenada).ocupaLugar());
 
 	}
 
@@ -41,20 +41,20 @@ public class Tablero {
 	public void colocarEnTablero(Accionable accionable,Coordenada coordenada){
 		try{
 			this.accionables.get(coordenada).colisionar();
-			accionable.recolectar(this.colectables.get(coordenada));
+			accionable.recolectar(this.recolectables.get(coordenada));
 			this.superficies.get(coordenada).producirEfecto(accionable);
 			this.accionables.put(coordenada, accionable);
-			if(this.colectables.get(coordenada).consumido())
-				this.eliminarColectableDeTablero(coordenada);
+			if(this.recolectables.get(coordenada).consumido())
+				this.eliminarRecolectableDeTablero(coordenada);
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();
 		}
 	}
 
-	public void colocarEnTablero(Collectable collectable, Coordenada coordenada){
-		if(!this.colectables.get(coordenada).ocupaLugar())
-			this.colectables.put(coordenada, collectable);
+	public void colocarEnTablero(Recolectable recolectable, Coordenada coordenada){
+		if(!this.recolectables.get(coordenada).ocupaLugar())
+			this.recolectables.put(coordenada, recolectable);
 		else
 			throw new MovimientoInvalidoException();
 
@@ -79,9 +79,9 @@ public class Tablero {
 
 	}
 	
-	public Coordenada obtenerCoordenadaDeElemento(Collectable colectable){
-        for(Map.Entry<Coordenada, Collectable> entry : this.colectables.entrySet()) {
-            if(colectable.equals(entry.getValue())) {
+	public Coordenada obtenerCoordenadaDeElemento(Recolectable recolectable){
+        for(Map.Entry<Coordenada, Recolectable> entry : this.recolectables.entrySet()) {
+            if(recolectable.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }
@@ -117,8 +117,8 @@ public class Tablero {
 		}
 	}
 
-	public Collectable obtenerColectableEnCoordenada(Coordenada coordenada){
-		return colectables.get(coordenada);
+	public Recolectable obtenerRecolectableEnCoordenada(Coordenada coordenada){
+		return recolectables.get(coordenada);
 	}
 	
 	public Accionable obtenerAccionableEnCoordenada(Coordenada coordenada){
@@ -219,11 +219,12 @@ public class Tablero {
 		this.colocarEnTablero(algoformer, coordenada);
 
 	}
-	public void retirarAlgoformer(Accionable algoformer) {
+	
+	public void desafectarAlgoformer(Accionable algoformer) {
 		Coordenada coordenadaActual = this.obtenerCoordenadaDeElemento(algoformer);
 		this.superficies.get(coordenadaActual).revertirEfecto(algoformer);
-
 	}
+	
 	public SuperficieTierra obtenerSuperficieTierra(Coordenada coordenada){
 		return this.superficies.get(coordenada).tierra;
 	}
@@ -235,7 +236,7 @@ public class Tablero {
 		this.accionables.replace(coordenada, new Vacio());
 	}
 
-	public void eliminarColectableDeTablero(Coordenada coordenada){
-		this.colectables.replace(coordenada, new BonusVacio());
+	public void eliminarRecolectableDeTablero(Coordenada coordenada){
+		this.recolectables.replace(coordenada, new BonusVacio());
 	}
 }
