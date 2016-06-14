@@ -1,5 +1,7 @@
 package fiuba.algo3.algoFormers.vista;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polyline;
@@ -12,6 +14,7 @@ public class Hexagono extends StackPane {
 	
 	private Text text = new Text();
 	private Polyline hexagon;
+	private ImageView algoFormer = new ImageView();
 	public boolean pinto = false;
 	
 	public Hexagono (int x, int y, double l){
@@ -27,10 +30,10 @@ public class Hexagono extends StackPane {
 									l*1.0, 0.0
 									);
 		
-		hexagon.setFill(Color.GREEN);
-		hexagon.setStroke(Color.WHITE);
+		hexagon.setStroke(Color.IVORY);
+		hexagon.setStrokeWidth(0.2);
 		
-		this.getChildren().addAll(hexagon,text);
+		this.getChildren().addAll(hexagon,text,algoFormer);
 
 		text.setFont(Font.font(18));
         text.setText(String.valueOf(x) +"," + String.valueOf(y));
@@ -46,7 +49,7 @@ public class Hexagono extends StackPane {
 	}
 
 	public void paint() {
-		this.hexagon.setFill(Color.LIGHTBLUE);
+		this.hexagon.setStroke(Color.LIGHTBLUE);
 	}
 
 	private void close() {
@@ -85,30 +88,63 @@ public class Hexagono extends StackPane {
 		
 	}
 
+	public void ponerOptimusAlterno() {
+		text.setText("Optimus");
+	}
+
+	public void ponerBumblebeeAlterno() {
+		this.ponerAlgoFormer("file:img/alterno/Bumblebee.png");
+	}
+
+	public void ponerFrenzyAlterno() {
+		this.ponerAlgoFormer("file:img/alterno/Frenzy.png");
+	}
+
+	public void ponerBonecrusherAlterno() {
+		this.ponerAlgoFormer("file:img/alterno/Bonecrusher.png");
+	}
+
+	public void ponerMegatronAlterno() {
+		this.ponerAlgoFormer("file:img/alterno/Megatron.png");
+	}
+
+	public void ponerRatchetAlterno() {
+		this.ponerAlgoFormer("file:img/alterno/Ratchet.png");
+	}
+
 	public void ponerOptimusHumanoide() {
 		text.setText("Optimus");
 	}
 
 	public void ponerBumblebeeHumanoide() {
-		text.setText("Bumblebee");
+		//Para probar
+		this.ponerBumblebeeAlterno();
 	}
 
 	public void ponerFrenzyHumanoide() {
-		text.setText("Frenzy");
+		//Para probar
+		this.ponerFrenzyAlterno();
 	}
 
 	public void ponerBonecrusherHumanoide() {
-		text.setText("Bonecrusher");		
+		//Para probar
+		this.ponerBonecrusherAlterno();
 	}
 
 	public void ponerMegatronHumanoide() {
-		text.setText("Megatron");
+		//Para probar
+		this.ponerMegatronAlterno();
 	}
 
 	public void ponerRatchetHumanoide() {
-		text.setText("Ratchet");
+		//Para probar
+		this.ponerRatchetAlterno();
 	}
-
+	
+	private void ponerAlgoFormer(String path) {
+		Image imagen = new Image(path,40,60,true,true,false);
+		this.algoFormer.setImage(imagen);
+	}
 	public void ponerChispa() {
 		text.setText("Chispa");		
 	}
