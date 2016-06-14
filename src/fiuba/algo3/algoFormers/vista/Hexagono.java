@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polyline;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -14,6 +15,7 @@ public class Hexagono extends StackPane {
 	
 	private Text text = new Text();
 	private Polyline hexagon;
+	private ImagePattern tierra;
 	private ImageView habitable = new ImageView();
 	private ImageView aire = new ImageView();
 	public boolean pinto = false;
@@ -70,18 +72,16 @@ public class Hexagono extends StackPane {
 //		this.text.setText("");
 	}
 	public void ponerRocosa() {
-		this.hexagon.setFill(Color.DARKGRAY);
-		//text.setText("Rocosa");
+		this.ponerTierra("file:img/texturas/rocas3.jpg");
+//		this.hexagon.setFill(Color.DARKGRAY);
 	}
 
 	public void ponerPantano() {
-		this.hexagon.setFill(Color.GREEN);
-		text.setText("Pantano");
+		this.ponerTierra("file:img/texturas/pantano.jpg");
 	}
 
 	public void ponerEspinas() {
-		this.hexagon.setFill(Color.CHOCOLATE);
-		text.setText("Espinas");
+		this.ponerTierra("file:img/texturas/espinas.jpg");
 	}
 
 	public void ponerAndromeda() {
@@ -94,6 +94,14 @@ public class Hexagono extends StackPane {
 
 	public void ponerPsionica() {
 		
+	}
+	
+	private void ponerTierra(String path) {
+		Image imagen = new Image(path);
+		this.tierra = new ImagePattern (imagen);
+		this.hexagon.setFill(tierra);
+		
+//		this.hexagon.setFill(Color.BLACK);
 	}
 
 	public void ponerOptimusAlterno() {

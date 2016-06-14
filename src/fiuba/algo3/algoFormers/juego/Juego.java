@@ -5,6 +5,8 @@ import java.util.List;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieEspinas;
+import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.*;
 
@@ -21,6 +23,10 @@ public class Juego {
 		
 		this.tablero = new Tablero(alto, ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
+		
+		//Para probar
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(5,5));
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(14,5));
 		
 		//se definen los jugadores
 		this.elegirPrimerJugador();
