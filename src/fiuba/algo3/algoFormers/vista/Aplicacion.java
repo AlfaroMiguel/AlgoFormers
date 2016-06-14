@@ -1,9 +1,8 @@
 package fiuba.algo3.algoFormers.vista;
 
 
+import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.juego.Juego;
-import fiuba.algo3.algoFormers.superficie.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -29,34 +28,37 @@ public class Aplicacion extends Application {
 	public static void main(String[] args) {
 	    Application.launch(args);
 	    }
-	
+
 	@Override
 	public void start(Stage stage){
+		stage.setTitle("AlgoFormers");
 		int alto = 20;
 		int ancho = 20;
-		
+
 		Juego juego = new Juego(alto, ancho);
-		Group grid = crearTablero(alto, ancho);
+		Controlador controlador =  new Controlador(juego);
+		//Esto es nuevo 13/6/2016
+		Group grid = crearTablero(alto, ancho,controlador);
 		inicializarTablero(alto,ancho,juego);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
-		
+
 		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
 
-		
+
 		Scene scene = new Scene(layout);
 	    stage.setScene(scene);
-	    stage.setTitle("AlgoFormers");
+
 	    stage.show();
 	}
-	
+
 	private void inicializarTablero(int alto, int ancho,Juego juego) {
 		HexGrid.inicializarTablero(alto, ancho,juego);
 	}
 
-	public static Group crearTablero(int alto, int ancho) {
-		return HexGrid.crearTablero(ancho, alto);
+	public static Group crearTablero(int alto, int ancho,Controlador controlador) {
+		return HexGrid.crearTablero(ancho, alto,controlador);
 	}
 
 
@@ -71,10 +73,10 @@ public class Aplicacion extends Application {
 	    final ScrollPane scroller = new ScrollPane();
 	    scroller.setVbarPolicy(ScrollBarPolicy.NEVER);
 	    scroller.setHbarPolicy(ScrollBarPolicy.NEVER);
-	    
+
 	    final Group scrollContent = new Group(zoomPane);
 	    scroller.setContent(scrollContent);
-	    
+
 
 	    scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
 	      @Override
@@ -92,21 +94,21 @@ public class Aplicacion extends Application {
 	        if (event.getDeltaY() == 0) {
 	          return;
 	        }
-	        
+
 	        double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA
 	            : 1 / SCALE_DELTA;
 	        double escala = grid.getScaleX()* scaleFactor;
-	        
+
 	        if(escala < SCALE_MIN) escala = SCALE_MIN;
 	        else if (escala > SCALE_MAX) escala = SCALE_MAX;
-	        
+
 	        grid.setScaleX(escala);
 	        grid.setScaleY(escala);
-	        
+
 	      }
 	    });
 	 // Mover el tablero arrastrandolo
-	    
+
 	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
 	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
 	      @Override

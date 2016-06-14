@@ -11,25 +11,26 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 
 /*Clase que representa al tipo de algoformer Decepticon*/
 public class Decepticon extends Algoformer {
-	
+
 	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot autobot, int ataque){
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 	}
-	
+
 	@Override
 	public void serAtacado(Decepticon decepticon, int ataque){
 		throw new MismoEquipoException();
 	}
-	
+
 	@Override
 	public void atacar(Tablero tablero, Accionable atacado) {
-		this.modo.atacar(tablero, this,atacado,this.potencia);		
+		this.modo.atacar(tablero, this,atacado,this.potencia);
 	}
-	
+
 	@Override
 	public void serSeleccionado(EquipoAutobots equipoAutobot) {
+		System.out.println("Me seleccionaron Decepticon");
 		throw new EquipoInvalidoException();
 	}
 

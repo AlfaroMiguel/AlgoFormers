@@ -9,7 +9,7 @@ import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.*;
 
 public class Juego {
-	
+
 	protected Jugador jugadorActual;
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
@@ -18,26 +18,26 @@ public class Juego {
 	//cuando se inicia el juego
 	public Juego(int alto, int ancho){
 		//se crea el tablero
-		
+
 		this.tablero = new Tablero(alto, ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
-		
+
 		//se definen los jugadores
 		this.elegirPrimerJugador();
-		
+
 		//se ubican los personajes, la chispa y los bonus
 		this.ubicarPersonajes();
 		this.ubicadorDeColectables.ubicarColectables(this.tablero);
 	}
-	
+
 	public Juego(){
 	 	this(50, 50);
  	}
-	
+
 	public Accionable obtenerAccionable(Coordenada c) {
 		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}
-	
+
 	private void elegirPrimerJugador(){
 
 		Equipo equipoAutobots = new EquipoAutobots();
@@ -52,25 +52,25 @@ public class Juego {
 			this.jugadorAnterior = new Jugador(equipoAutobots, tablero);
 		}
 	}
-	
+
 
 	private void ubicarPersonajes() {
 		this.jugadorActual.ubicarPersonajes();
 		this.jugadorAnterior.ubicarPersonajes();
-		
+
 	}
- 	
+
 	public void cambiarTurno(){
 		this.jugadorActual.terminarTurno();
 		this.cambiarJugador();
 	}
-	
+
 	private void cambiarJugador(){
 		Jugador jugadorAux = this.jugadorActual;
 		this.jugadorActual = this.jugadorAnterior;
 		this.jugadorAnterior = jugadorAux;
 	}
-	
+
 	public Jugador obtenerJugadorActual(){
 		return this.jugadorActual;
 	}
@@ -78,20 +78,25 @@ public class Juego {
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
 		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal);
 	}
-	
-	public void seleccionarCoordenada(Coordenada coordenada){
+
+	public boolean seleccionarCoordenada(Coordenada coordenada){
 		try	{
 			this.jugadorActual.seleccionarAlgoformer(coordenada);
+			//Esto es nuevo 13/6/2016
+			System.out.println("Selecciona correctamente");
+			return true;
+
 		}
 		catch(Throwable e) {}
 		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
+		return false;
 	}
-	
+
 	public void moverSeleccionadoACoordenada(Coordenada coordenada){
 		this.jugadorActual.mover(coordenada);
 		this.cambiarTurno();
 	}
-	
+
 	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
 		try{
 			this.jugadorActual.atacar(coordenada);
@@ -105,27 +110,27 @@ public class Juego {
 			//Aca Hariamos todo lo que querramos con las vidas del equipo Perdedor
 		}
 	}
-	
+
 	public void transformarSeleccionado(){
 		this.jugadorActual.transformarAlgoformer();
 		this.cambiarTurno();
 	}
-	
-	public void combinarAlgoFormers(){	
+
+	public void combinarAlgoFormers(){
 		this.jugadorActual.combinarAlgoformers();
 		this.cambiarTurno();
 	}
-	
+
 	public void descombinarAlgoFormers(){
 		this.jugadorActual.descombinarAlgoformers();
 		this.cambiarTurno();
 	}
-	
+
 	//metodos de prueba
 	public boolean seUbicoALosPersonajes() {
  		return jugadorActual.ubicoSusPersonajes();
   	}
- 	
+
  	public boolean estaLaChispa() {
  			try {
  				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
@@ -133,7 +138,7 @@ public class Juego {
  			}
  			catch(Throwable e){ return false;}
  	}
- 	
+
  	public boolean seUbicoALosBonus(){
  		//por este return pasa siempre las pruebas pero habria q hacer que se fije porque
  		//si le paso una instancia nueva nunca va a dar true
@@ -158,5 +163,5 @@ public class Juego {
 	public Recolectable obtenerRecolectable(Coordenada c) {
 		return this.tablero.obtenerRecolectableEnCoordenada(c);
 	}
- 	
+
 }
