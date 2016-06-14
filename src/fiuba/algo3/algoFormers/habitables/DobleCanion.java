@@ -4,6 +4,7 @@ import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoDobleCanion;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class DobleCanion extends Bonus {
 	
@@ -24,7 +25,6 @@ public class DobleCanion extends Bonus {
 
 	@Override
 	public void ponerRecolectable(Coordenada c) {
-		// TODO Auto-generated method stub
-		
+		HexGrid.ponerCanion(c);
 	}
 }

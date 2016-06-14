@@ -14,7 +14,7 @@ public class Hexagono extends StackPane {
 	
 	private Text text = new Text();
 	private Polyline hexagon;
-	private ImageView algoFormer = new ImageView();
+	private ImageView habitable = new ImageView();
 	private ImageView aire = new ImageView();
 	public boolean pinto = false;
 	
@@ -34,10 +34,10 @@ public class Hexagono extends StackPane {
 		hexagon.setStroke(Color.IVORY);
 		hexagon.setStrokeWidth(0.2);
 		
-		this.getChildren().addAll(hexagon,text,algoFormer);
+		this.getChildren().addAll(hexagon,text,habitable);
 
 		text.setFont(Font.font(18));
-        text.setText(String.valueOf(x) +"," + String.valueOf(y));
+//        text.setText(String.valueOf(x) +"," + String.valueOf(y));
         
 //        this.setOnMouseExited(e-> close());
 //        this.setOnMouseClicked(e -> this.atacado(50));
@@ -148,14 +148,36 @@ public class Hexagono extends StackPane {
 		//Para probar
 		this.ponerRatchetAlterno();
 	}
+
+	public void ponerSuperion() {
+		// TODO Auto-generated method stub
+	}
+	
+	public void ponerMenasor() {
+		// TODO Auto-generated method stub	
+	}
 	
 	private void ponerAlgoFormer(String path) {
 		Image imagen = new Image(path,40,60,true,true,false);
-		this.algoFormer.setImage(imagen);
+		this.habitable.setImage(imagen);
 		this.aire.toFront();
 	}
 	public void ponerChispa() {
-		text.setText("Chispa");		
+		this.ponerRecolectable("file:img/recolectable/chispa.png");
+	}
+	public void ponerBurbuja() {
+		this.ponerRecolectable("file:img/recolectable/burbuja.png");	
+	}
+	public void ponerFlash() {
+		this.ponerRecolectable("file:img/recolectable/flash.png");
+	}
+	public void ponerCanion() {
+		this.ponerRecolectable("file:img/recolectable/cañon.png");
+	}
+	
+	private void ponerRecolectable(String path) {
+		Image imagen = new Image(path,40,40,true,true,false);
+		this.habitable.setImage(imagen);
 	}
 	
 }
