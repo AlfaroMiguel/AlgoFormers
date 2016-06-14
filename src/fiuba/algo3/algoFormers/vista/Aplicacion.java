@@ -64,8 +64,8 @@ public class Aplicacion extends Application {
 
 	private Parent crearContenedor(Group grid) {
 	    final double SCALE_DELTA = 1.1;
-	    final double SCALE_MAX = 1.25;
-	    final double SCALE_MIN = 0.25;
+	    final double SCALE_MAX = 1.75;
+	    final double SCALE_MIN = 0.5;
 	    final StackPane zoomPane = new StackPane();
 
 	    zoomPane.getChildren().add(grid);

@@ -118,8 +118,10 @@ public class HexGrid {
 
 		}
 
+
 	public static void ponerBonecrusherAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerBonecrusherAlterno();		
+
 		}
 
 	public static void ponerBonecrusherHumanoide(Coordenada coordenada) {
@@ -127,7 +129,8 @@ public class HexGrid {
 		}
 
 	public static void ponerBumblebeeAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerBumblebeeAlterno();		
+
 		}
 
 	public static void ponerBumblebeeHumanoide(Coordenada coordenada) {
@@ -135,47 +138,68 @@ public class HexGrid {
 		}
 
 	public static void ponerFrenzyAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerFrenzyAlterno();
+
 		}
 
 	public static void ponerFrenzyHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerFrenzyHumanoide();
 			}
 
+
 	public static void ponerMegatronAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerMegatronAlterno();
+
 		}
 
 	public static void ponerMegatronHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerMegatronHumanoide();
 		}
 
+	
 	public static void ponerMenasor(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerMenasor();
 		}
-
+	
 	public static void ponerOptimusAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerOptimusAlterno();	
+
 		}
 
 	public static void ponerOptimusHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerOptimusHumanoide();
 		}
 
+	
 	public static void ponerRatchetAlterno(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerRatchetAlterno();
+
 		}
 
 	public static void ponerRatchetHumanoide(Coordenada coordenada) {
 			grid.get(coordenada).ponerRatchetHumanoide();
 		}
 
+	
 	public static void ponerSuperion(Coordenada coordenada) {
-			// TODO Auto-generated method stub
+			grid.get(coordenada).ponerSuperion();
+
 		}
 
 	public static void ponerChispa(Coordenada c) {
 			grid.get(c).ponerChispa();
+		}
+	
+	public static void ponerBurbuja(Coordenada c) {
+			grid.get(c).ponerBurbuja();
+		}
+	
+	public static void ponerFlash(Coordenada c) {
+			grid.get(c).ponerFlash();
+		}
+	
+	public static void ponerCanion(Coordenada c) {
+			grid.get(c).ponerCanion();
 		}
 
 }

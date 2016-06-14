@@ -4,6 +4,7 @@ import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoBurbujaInmaculada;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class BurbujaInmaculada extends Bonus {
 
@@ -23,8 +24,7 @@ public class BurbujaInmaculada extends Bonus {
 
 	@Override
 	public void ponerRecolectable(Coordenada c) {
-		// TODO Auto-generated method stub
-		
+		HexGrid.ponerBurbuja(c);
 	}
 
 }

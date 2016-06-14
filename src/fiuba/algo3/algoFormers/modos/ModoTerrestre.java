@@ -33,6 +33,7 @@ public abstract class ModoTerrestre implements Modo {
 
 	@Override
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero,Agilidad agilidad) {
+		System.out.println("Definitivamente Me Movi");
 		tablero.mover(algoformer, coordenada, (int)(this.velocidad*agilidad.getAgilidad()));
 	}
 

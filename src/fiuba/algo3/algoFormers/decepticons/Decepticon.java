@@ -30,12 +30,13 @@ public class Decepticon extends Algoformer {
 
 	@Override
 	public void serSeleccionado(EquipoAutobots equipoAutobot) {
-		System.out.println("Me seleccionaron Decepticon");
+		
 		throw new EquipoInvalidoException();
 	}
 
 	@Override
 	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
+		System.out.println("Me seleccionaron Decepticon");
 		equipoDecepticon.setAlgoformerActual(this);
 	}
 
