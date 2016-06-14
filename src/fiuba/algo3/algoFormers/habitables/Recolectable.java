@@ -1,9 +1,10 @@
 package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observable;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 
-public interface Recolectable{
+public interface Recolectable extends Observable{
 	
 	public void colisionar();
 	public boolean ocupaLugar();

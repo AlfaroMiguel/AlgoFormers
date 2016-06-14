@@ -9,29 +9,53 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
-
+	
+	private Stage stage;
 	public static void main(String[] args) {
 	    Application.launch(args);
 	    }
 	
+//	@Override
+//	public void start(Stage stage){
+//		
+//		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
+//
+//		
+//		Scene scene = new Scene(layout);
+//	    stage.setScene(scene);
+//	    stage.setTitle("AlgoFormers");
+//	    stage.show();
+//	}
+	
 	@Override
-	public void start(Stage stage){
+	public void start(Stage primaryStage){
+		stage = primaryStage;
+		Scene scene = pantallaInicio();
+		primaryStage.setTitle("Algoformers");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	public Scene layout(){
 		int alto = 20;
 		int ancho = 20;
 		
@@ -41,14 +65,21 @@ public class Aplicacion extends Application {
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
-		
-		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
-
-		
-		Scene scene = new Scene(layout);
-	    stage.setScene(scene);
-	    stage.setTitle("AlgoFormers");
-	    stage.show();
+		return new Scene(layout);
+	}
+	
+	public Scene pantallaInicio(){
+		Pane pane = new Pane();
+		Button botonEntrar = new Button();
+		botonEntrar.setText("Comenzar");
+		botonEntrar.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent evento){
+				stage.setScene(layout());
+			}
+		});
+		pane.getChildren().add(botonEntrar);
+		return new Scene(pane);
 	}
 	
 	private void inicializarTablero(int alto, int ancho,Juego juego) {

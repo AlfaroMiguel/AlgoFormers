@@ -3,6 +3,8 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieEspinas;
@@ -10,12 +12,15 @@ import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.*;
 
-public class Juego {
+public class Juego implements Observador{
 	
 	protected Jugador jugadorActual;
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
 	private UbicadorDeColectables ubicadorDeColectables;
+	private Observable observado;
+	private boolean terminado = false;
+	
 
 	//cuando se inicia el juego
 	public Juego(int alto, int ancho){
@@ -89,27 +94,26 @@ public class Juego {
 		try	{
 			this.jugadorActual.seleccionarAlgoformer(coordenada);
 		}
-		catch(Throwable e) {}
-		// TODO Ver que pasa cuando no hay algoFormer, en principio nada estaria bien
+		catch(NoSeleccionableException exception) {
+			//no se puede seleccionar lo que hay en la coordenada
+		}
+		catch(EquipoInvalidoException exception){
+			//el algoformer en la posicion es del otro equipo
+		}
 	}
 	
 	public void moverSeleccionadoACoordenada(Coordenada coordenada){
+		this.observarA(ChispaSuprema.getInstance());
+		ChispaSuprema.getInstance().agregarObservador(this);
 		this.jugadorActual.mover(coordenada);
 		this.cambiarTurno();
 	}
 	
 	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
-		try{
-			this.jugadorActual.atacar(coordenada);
-			this.cambiarTurno();
-		}
-		catch(EquipoVencidoException | ChispaCapturadaException exception){
-			throw new JuegoGanadoException();
-		}
-		catch(CombinadoSinVidaException exception){
-			this.jugadorAnterior.descombinarAlgoformers();
-			//Aca Hariamos todo lo que querramos con las vidas del equipo Perdedor
-		}
+		this.observarA(this.jugadorActual.verEquipo());
+		this.jugadorActual.verEquipo().agregarObservador(this);
+		this.jugadorActual.atacar(coordenada);
+		this.cambiarTurno();
 	}
 	
 	public void transformarSeleccionado(){
@@ -126,19 +130,6 @@ public class Juego {
 		this.jugadorActual.descombinarAlgoformers();
 		this.cambiarTurno();
 	}
-	
-	//metodos de prueba
-	public boolean seUbicoALosPersonajes() {
- 		return jugadorActual.ubicoSusPersonajes();
-  	}
- 	
- 	public boolean estaLaChispa() {
- 			try {
- 				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
- 				return true;
- 			}
- 			catch(Throwable e){ return false;}
- 	}
  	
  	public boolean seUbicoALosBonus(){
  		//por este return pasa siempre las pruebas pero habria q hacer que se fije porque
@@ -164,5 +155,47 @@ public class Juego {
 	public Recolectable obtenerRecolectable(Coordenada c) {
 		return this.tablero.obtenerRecolectableEnCoordenada(c);
 	}
+
+	@Override
+	public void actualizar(){
+		this.terminarJuego();
+	}
+
+	private void terminarJuego(){
+		this.terminado = true;
+	}
+	
+	public boolean estaTerminado(){
+		return terminado;
+	}
+
+	@Override
+	public void observarA(Observable observable) {
+		this.observado = observable;
+		observado.agregarObservador(this);
+	}
  	
+	//metodos de prueba
+	public void capturarChispa(){
+		this.observarA(ChispaSuprema.getInstance());
+		ChispaSuprema.getInstance().producirEfecto(this.jugadorActual.verAlgoformerActual());
+	}
+	
+	public void hacerGanarEquipo(){
+		this.observarA(this.jugadorActual.equipo);
+		this.jugadorActual.equipo.hacerGanar();
+	}
+	
+	public boolean seUbicoALosPersonajes() {
+ 		return jugadorActual.ubicoSusPersonajes();
+  	}
+ 	
+ 	public boolean estaLaChispa() {
+ 			try {
+ 				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
+ 				return true;
+ 			}
+ 			catch(Throwable e){ return false;}
+ 	}
+	
 }

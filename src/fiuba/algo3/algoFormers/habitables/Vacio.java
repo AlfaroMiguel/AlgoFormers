@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
@@ -46,41 +47,44 @@ public class Vacio implements Accionable{
 	
 	@Override
 	public void serDesafectado(SuperficieAire superficie) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void serDesafectado(SuperficieTierra superficie) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public int simularEfecto(SuperficieAire superficie) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int simularEfecto(SuperficieTierra superficie) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void reaccionarASuperficie(SuperficieAire superficie) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void reaccionarASuperficie(SuperficieTierra superficie) {
-		// TODO Auto-generated method stub	
 	}
 
 	@Override
 	public void recolectar(Recolectable colectable) {
-		// TODO Auto-generated method stub	
+	}
+
+	@Override
+	public void agregarObservador(Observador observador) {
+	}
+
+	@Override
+	public void eliminarObservador(Observador observador) {
+	}
+
+	@Override
+	public void notificarObservadores() {
 	}
 	
 }

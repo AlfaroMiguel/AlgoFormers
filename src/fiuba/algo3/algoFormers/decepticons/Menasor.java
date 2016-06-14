@@ -1,8 +1,6 @@
 package fiuba.algo3.algoFormers.decepticons;
 
 import fiuba.algo3.algoFormers.autobots.Autobot;
-import fiuba.algo3.algoFormers.excepciones.CombinadoSinVidaException;
-import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.MenasorTerrestre;
 
@@ -43,15 +41,6 @@ public class Menasor extends Decepticon {
 		return this.frenzy;
 	}
 	
-	@Override
-	public void serAtacado(Autobot atacante, int ataque){
-		try{ 
-			this.vida.sacarVida(ataque*this.escudo.getEscudo());
-		}
-		catch(SinVidaException e){
-			throw new CombinadoSinVidaException();
-			
-		}
-	}
+	
 }	
 	

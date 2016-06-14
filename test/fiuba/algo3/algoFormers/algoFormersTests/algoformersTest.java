@@ -576,8 +576,8 @@ public class algoformersTest {
 		assertSame(tablero.obtenerAccionableEnCoordenada(coordRatchet),superion);
 	}
 	
-	@Test(expected = SinVidaException.class)
-	public void test17AlgoformerMuereYLanzaExcepcion(){
+	@Test
+	public void test17AlgoformerMuereYActualizaEstado(){
 		Tablero tablero = new Tablero(10,10);
 		
 		//vida ratchet = 150
@@ -599,10 +599,12 @@ public class algoformersTest {
 		assertEquals(ratchet.verVida(), 40);
 		
 		megatron.atacar(tablero, ratchet);	
+		assertFalse(megatron.estaMuerto());
+		assertTrue(ratchet.estaMuerto());
 	}
 	
-	@Test(expected = EquipoVencidoException.class)
-	public void test18EquipoLanzaExcepcionCuandoSeVacia(){
+	@Test
+	public void test18EquipoCambiaEstadoCuandoVenceAOtro(){
 		Tablero tablero= new Tablero(10,10);
 		
 		EquipoAutobots equipo = new EquipoAutobots();
@@ -635,9 +637,11 @@ public class algoformersTest {
 		for (int k = 0; k < 4; k++){
 			equipo.atacar(tablero, bonecrusher);
 		}
+		assertTrue(equipo.vencioEquipoContrario());
 	}
-	@Test(expected = CombinadoSinVidaException.class)
-	public void test19HacerSuperionMatarloYFijarseQueTireSuException(){
+	
+	@Test
+	public void test19SuperionMuereYActualizazSuEstado(){
 		Tablero tablero = new Tablero(100,100);
 			
 		Optimus optimus = new Optimus();
@@ -664,13 +668,16 @@ public class algoformersTest {
 		equipo.seleccionarAlgoformer(megatron);
 			
 		//vida superion 500 + 150 + 350
-				for (int k = 0; k < 100; k++){
-					equipo.atacar(tablero, superion);
-				}
-		
+		for (int k = 0; k < 100; k++){
+			equipo.atacar(tablero, superion);
 		}
-	@Test(expected = CombinadoSinVidaException.class)
-	public void test20HacerMenasorMatarloYFijarseQueTireSuException(){
+		
+		assertTrue(superion.estaMuerto());
+		
+	}
+	
+	@Test
+	public void test20MenasorMuereYActualizaSuEstado(){
 		Tablero tablero= new Tablero(100,100);
 		
 		Megatron megatron = new Megatron();
@@ -699,5 +706,8 @@ public class algoformersTest {
 		for (int i = 0; i < 23; i++){
 			equipo.atacar(tablero, menasor);
 		}
+		
+		assertTrue(menasor.estaMuerto());
 	}
+	
 }

@@ -140,11 +140,9 @@ public class TableroTests {
 		tablero.coordinarAtaque(megatron, ratchet, 1, 55);
 		assertEquals(ratchet.verVida(), 40);
 		
-		try{
-			tablero.coordinarAtaque(megatron, ratchet, 1, 55);
-		}
-		catch(SinVidaException exception){
-		}
+		tablero.coordinarAtaque(megatron, ratchet, 1, 55);
+		
+		assertTrue(ratchet.estaMuerto());
 		assertFalse(tablero.obtenerAccionableEnCoordenada(coordRatchet) == ratchet);	
 	}
 //

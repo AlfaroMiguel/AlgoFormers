@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observador;
 
 public abstract class Bonus implements Recolectable{
 	
@@ -24,5 +25,17 @@ public abstract class Bonus implements Recolectable{
 	
 	public boolean equals(BonusVacio otro){
 		return false;
+	}
+	
+	@Override
+	public void agregarObservador(Observador observador) {
+	}
+	
+	@Override
+	public void eliminarObservador(Observador observador) {
+	}
+	
+	@Override
+	public void notificarObservadores() {
 	}
 }

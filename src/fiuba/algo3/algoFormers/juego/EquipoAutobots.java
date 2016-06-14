@@ -3,9 +3,8 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.autobots.*;
-import fiuba.algo3.algoFormers.excepciones.EquipoVencidoException;
-import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
+import fiuba.algo3.algoFormers.generico.Observable;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
@@ -60,19 +59,19 @@ public class EquipoAutobots extends Equipo {
 
 	@Override
 	public void atacar(Tablero tablero, Accionable atacado) {
-		try{
-			this.algoformerActual.atacar(tablero, atacado);
-		}
-		catch(SinVidaException exception){
-			this.vencidos++;
-			if (this.vencidos == EquipoAutobots.CANT_MIEMBROS_CONTRARIOS){
-				throw new EquipoVencidoException();
-			}
+		this.observarA(atacado);
+		this.algoformerActual.atacar(tablero, atacado);
+		if (this.vencioEquipoContrario()){
+			this.notificarObservadores();
 		}
 	}
 	
 	public Optimus getOptimus(){
 		return this.optimus;
+	}
+
+	public boolean vencioEquipoContrario(){
+		return this.oponentesVencidos == EquipoAutobots.CANT_MIEMBROS_CONTRARIOS;
 	}
 	
 }

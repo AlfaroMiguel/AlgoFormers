@@ -4,6 +4,7 @@ import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
@@ -21,6 +22,7 @@ public class Autobot extends Algoformer{
 	@Override
 	public void serAtacado(Decepticon atacante, int ataque){
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
+		this.actualizarEstadoDeVida();
 	}
 
 	@Override
@@ -37,5 +39,4 @@ public class Autobot extends Algoformer{
 	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
 		throw new EquipoInvalidoException();
 	}
-
 }
