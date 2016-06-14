@@ -15,6 +15,7 @@ public class Hexagono extends StackPane {
 	private Text text = new Text();
 	private Polyline hexagon;
 	private ImageView algoFormer = new ImageView();
+	private ImageView aire = new ImageView();
 	public boolean pinto = false;
 	
 	public Hexagono (int x, int y, double l){
@@ -39,7 +40,7 @@ public class Hexagono extends StackPane {
         text.setText(String.valueOf(x) +"," + String.valueOf(y));
         
 //        this.setOnMouseExited(e-> close());
-//        this.setOnMouseClicked(e -> seleccionado());
+//        this.setOnMouseClicked(e -> this.atacado(50));
 //        this.setOnMouseEntered(e -> open());
 	}
 
@@ -61,6 +62,13 @@ public class Hexagono extends StackPane {
 		this.hexagon.setFill(Color.IVORY);
 	}
 
+	public void atacado(int vida){
+		this.text.setFill(Color.DARKRED);
+		this.text.setText("-"+ String.valueOf(vida));
+		this.text.toFront();
+		
+//		this.text.setText("");
+	}
 	public void ponerRocosa() {
 		this.hexagon.setFill(Color.DARKGRAY);
 		//text.setText("Rocosa");
@@ -144,6 +152,7 @@ public class Hexagono extends StackPane {
 	private void ponerAlgoFormer(String path) {
 		Image imagen = new Image(path,40,60,true,true,false);
 		this.algoFormer.setImage(imagen);
+		this.aire.toFront();
 	}
 	public void ponerChispa() {
 		text.setText("Chispa");		
