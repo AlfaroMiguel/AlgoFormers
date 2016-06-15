@@ -1,14 +1,18 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.excepciones.ChispaCapturadaException;
-import fiuba.algo3.algoFormers.excepciones.JuegoGanadoException;
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.HexGrid;
 
 public class ChispaSuprema implements Recolectable{
 
 	private static final ChispaSuprema INSTANCE = new ChispaSuprema();
+	private List<Observador> observadores = new ArrayList<Observador>();
+	
 	private ChispaSuprema(){}
 
 	public static ChispaSuprema getInstance(){
@@ -25,7 +29,7 @@ public class ChispaSuprema implements Recolectable{
 	@Override
 	public void producirEfecto(Algoformer algoformer){
 		//algoformer.obtenerColectablesEnAtacable().agregarColectable(this); si cambiamos el final
-		throw new ChispaCapturadaException();
+		algoformer.capturarChispa(this);
 	}
 
 	@Override
@@ -45,6 +49,30 @@ public class ChispaSuprema implements Recolectable{
 	@Override
 	public void ponerRecolectable(Coordenada c) {
 		HexGrid.ponerChispa(c);
+	}
+
+
+	@Override
+	public void agregarObservador(Observador observador) {
+		if (!this.observadores.contains(observador)){
+			this.observadores.add(observador);
+		}
+	}
+
+	@Override
+	public void eliminarObservador(Observador observador) {
+		this.observadores.remove(observador);
+	}
+
+	@Override
+	public void notificarObservadores() {
+		for (Observador observador: observadores){
+			observador.actualizar();
+		}
+	}
+
+	public void serCapturada() {
+		this.notificarObservadores();
 	}
 
 }

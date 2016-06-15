@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 
-public class BonusVacio implements Recolectable {
+public class BonusVacio extends Bonus {
 
 	@Override
 	public void colisionar() {

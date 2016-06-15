@@ -3,13 +3,14 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.generico.Observable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 /* Interfaz que representa a los elementos del juego que pueden realizar
  * acciones tales como atacar y moverse.*/
-public interface Accionable{
+public interface Accionable extends Observable{
 
 	/* Metodos abstractos */
 	/* Colisiona con cualquier elemento.

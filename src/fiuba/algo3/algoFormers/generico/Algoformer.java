@@ -1,19 +1,18 @@
 package fiuba.algo3.algoFormers.generico;
 
-import fiuba.algo3.algoFormers.autobots.Autobot;
-import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.NoColisionableException;
 import fiuba.algo3.algoFormers.habitables.*;
-import fiuba.algo3.algoFormers.juego.EquipoAutobots;
-import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 
 /* Clase que representa un algoformer generico */
-public abstract class Algoformer implements Accionable {
+public abstract class Algoformer implements Accionable{
 	
 	/* Atributos */
 	/* Indica el modo actual del algoformer. */
@@ -28,6 +27,9 @@ public abstract class Algoformer implements Accionable {
 	protected Potencia potencia = new Potencia();
 	/* Representa el actudo presente en el algoformer. */
 	protected Escudo escudo = new Escudo();
+	/* Lista de observadores para el patron observer */
+	private List<Observador> observadores = new ArrayList<Observador>(); 
+	private boolean estaMuerto = false; 
 	
 	/* Metodos abstractos */
 	/* Ataca a otro accionable. 
@@ -131,6 +133,17 @@ public abstract class Algoformer implements Accionable {
 		this.modo.ponerAccionable(coordenada);
 	}
 	
+	public boolean estaMuerto(){
+		return estaMuerto;
+	}
+	
+	public void actualizarEstadoDeVida(){
+		if (this.vida.seTermino()){
+			estaMuerto = true;
+			this.notificarObservadores();
+		}
+	}
+	
 	/* Metodos abstractos redefinidos. */
 	@Override
 	public void colisionar() {
@@ -166,4 +179,30 @@ public abstract class Algoformer implements Accionable {
 	public void serDesafectado(SuperficieAire superficie){
 		this.modo.serDesafectado(superficie,this);
 	}
+	
+
+	@Override
+	public void agregarObservador(Observador observador) {
+		if (!this.observadores.contains(observador)){
+			this.observadores.add(observador);
+		}
+	}
+
+	@Override
+	public void eliminarObservador(Observador observador) {
+		this.observadores.remove(observador);
+	}
+
+	@Override
+	public void notificarObservadores() {
+		for (Observador observador: observadores){
+			observador.actualizar();
+		}
+	}
+
+	public void capturarChispa(ChispaSuprema chispaSuprema) {
+		chispaSuprema.serCapturada();
+	}
+
+	
 }

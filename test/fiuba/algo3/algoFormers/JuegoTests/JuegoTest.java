@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.juego.Jugador;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public class JuegoTest{
 
@@ -41,4 +42,17 @@ public class JuegoTest{
 		assertTrue(juego.seUbicoALosBonus());
 	}
 	
+	@Test
+	public void test05AlgoformerCapturaChispaYTerminaElJuego(){
+		Juego juego = new Juego();
+		juego.capturarChispa();
+		assertTrue(juego.estaTerminado());
+	}
+	
+	@Test
+	public void test06EquipoEsVencidoYTerminaElJuego(){
+		Juego juego = new Juego();
+		juego.hacerGanarEquipo();
+		assertTrue(juego.estaTerminado());
+	}
 }

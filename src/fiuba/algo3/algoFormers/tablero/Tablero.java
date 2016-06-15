@@ -6,13 +6,15 @@ import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.vista.Aplicacion;
 import fiuba.algo3.algoFormers.vista.HexGrid;
 import fiuba.algo3.algoFormers.superficie.*;
 
-public class Tablero{
+public class Tablero implements Observador{
 	
 	/* Atributos */
 	/* Representacion del tablero que contiene a las superficies */
@@ -21,6 +23,7 @@ public class Tablero{
 	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
 	/* Representacion del tablero que contiene a los recolectables */
 	HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
+	private Observable observado;
 	
 	/* Constructor */
 	/* Crea un tablero de tamanio alto*ancho. 
@@ -56,7 +59,8 @@ public class Tablero{
 	public void colocarEnTablero(Accionable accionable,Coordenada coordenada){
 		try{
 			this.accionables.get(coordenada).colisionar();
-			accionable.recolectar(this.recolectables.get(coordenada));
+			Recolectable recolectableEnCoordenada = this.recolectables.get(coordenada);
+			accionable.recolectar(recolectableEnCoordenada);
 			this.superficies.get(coordenada).producirEfecto(accionable);
 			this.accionables.put(coordenada, accionable);
 			if(this.recolectables.get(coordenada).fueConsumido())
@@ -93,9 +97,9 @@ public class Tablero{
 	/* Devuelve la coordenada en la que se encuentra un accionable.
 	 * Parametros: -accionable: accionable del que se quiere saber la posicion.
 	 * Lanza: ElementoNoExisteException si no se encuentra el accionable en el tablero.*/
-	public Coordenada obtenerCoordenadaDeElemento(Accionable accionable){
+	public Coordenada obtenerCoordenadaDeElemento(Observable observado){
         for(Map.Entry<Coordenada, Accionable> entry : this.accionables.entrySet()) {
-            if(accionable.equals(entry.getValue())) {
+            if(observado.equals(entry.getValue())) {
                 return entry.getKey();
             }
         }
@@ -128,13 +132,8 @@ public class Tablero{
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>rangoDeAtaque)
 			throw new FueraDeRangoException();
-		try{
-			atacado.serAtacado(atacante, ataque);
-		}
-		catch(SinVidaException exception){
-			this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(atacado));
-			throw exception;
-		}
+		this.observarA(atacado);
+		atacado.serAtacado(atacante, ataque);
 	}
 	/* Coordina el ataque entre dos algoformers, verificando la distancia entre ellos y si
 	 * alguno de los dos muere.
@@ -150,13 +149,8 @@ public class Tablero{
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>rangoDeAtaque)
 			throw new FueraDeRangoException();
-		try{
-			atacado.serAtacado(atacante, ataque);
-		}
-		catch(SinVidaException exception){
-			this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(atacado));
-			throw exception;
-		}
+		this.observarA(atacado);
+		atacado.serAtacado(atacante, ataque);
 	}
 	/* Devuelve el recolectable que se encuentra en una coordenada.
 	 * Parametros: coordenada: coordenada en la que se busca un recolectable.*/
@@ -326,4 +320,17 @@ public class Tablero{
 	public void eliminarRecolectableDeTablero(Coordenada coordenada){
 		this.recolectables.replace(coordenada, new BonusVacio());
 	}
+
+	@Override
+	public void actualizar() {
+		this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(this.observado));
+		
+	}
+
+	@Override
+	public void observarA(Observable observable){
+		this.observado = observable;
+		observable.agregarObservador(this);
+	}
+
 }

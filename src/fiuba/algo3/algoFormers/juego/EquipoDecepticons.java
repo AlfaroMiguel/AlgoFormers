@@ -4,9 +4,8 @@ import java.util.*;
 
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.decepticons.*;
-import fiuba.algo3.algoFormers.excepciones.EquipoVencidoException;
-import fiuba.algo3.algoFormers.excepciones.SinVidaException;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
+import fiuba.algo3.algoFormers.generico.Observable;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
@@ -67,14 +66,14 @@ public class EquipoDecepticons extends Equipo {
 	
 	@Override
 	public void atacar(Tablero tablero, Accionable atacado) {
-		try{
-			this.algoformerActual.atacar(tablero, atacado);
+		this.observarA(atacado);
+		this.algoformerActual.atacar(tablero, atacado);
+		if (this.vencioEquipoContrario()){
+			this.notificarObservadores();
 		}
-		catch(SinVidaException exception){
-			this.vencidos++;
-			if (this.vencidos == EquipoDecepticons.CANT_MIEMBROS_CONTRARIOS){
-				throw new EquipoVencidoException();
-			}
-		}
+	}
+	
+	public boolean vencioEquipoContrario() {
+		return this.oponentesVencidos == EquipoDecepticons.CANT_MIEMBROS_CONTRARIOS;
 	}
 }

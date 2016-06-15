@@ -1,6 +1,11 @@
 package fiuba.algo3.algoFormers.juego;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
@@ -56,6 +61,10 @@ public class Jugador{
 	public void terminarTurno() {
 		this.equipo.terminarTurno();
 	}
-	
+
+	public Observable verEquipo() {
+		return this.equipo;
+	}
+
 	
 }
