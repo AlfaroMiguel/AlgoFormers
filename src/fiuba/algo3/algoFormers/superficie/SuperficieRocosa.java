@@ -14,7 +14,7 @@ public class SuperficieRocosa extends SuperficieTierra {
 	}
 
 	public int simularPasoDe(Algoformer algoformer) {
-		return 1;
+		return algoformer.simularPasoDe(this);
 	}
 
 	@Override
@@ -48,5 +48,17 @@ public class SuperficieRocosa extends SuperficieTierra {
 	public void afectar(Algoformer afectado, ModoTerrestreAlterno modo) {
 		afectador.afectarAlgoformer(afectado);
 
+	}
+
+	@Override
+	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
+		// TODO Auto-generated method stub
+		return 1;
+	}
+
+	@Override
+	public int costoPorPaso(ModoHumanoide modoHumanoide) {
+		// TODO Auto-generated method stub
+		return 1;
 	}
 }

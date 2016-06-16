@@ -15,9 +15,8 @@ public interface Modo{
 	public void cambiar(Algoformer algoformer);
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero, Agilidad agilidad);
 	public void reposicionarse(Tablero tablero,Algoformer algoformer);
-	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer);
-	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer);
-	public int simularPasoDe(SuperficiePantano superficiePantano);
+	public int simularPasoDe(SuperficieTierra superficieTierra);
+	public int simularPasoDe(SuperficieAire superficieAire);
 	public void reaccionarASuperficie(SuperficieAire superficieAire, Algoformer algoformer);
 	public void reaccionarASuperficie(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);

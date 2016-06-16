@@ -50,4 +50,14 @@ public class SuperficiePantano extends SuperficieTierra {
 
 	}
 
+	@Override
+	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
+		return 2;
+	}
+
+	@Override
+	public int costoPorPaso(ModoHumanoide modoHumanoide) {
+		return 10000000;
+	}
+
 }

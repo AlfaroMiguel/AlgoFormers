@@ -66,14 +66,7 @@ public abstract class Algoformer implements Accionable{
 	public int verVida(){
 		return this.vida.verVida();
 	}
-	/**/
-	public int simularEfecto(SuperficieAire superficie){
-		return this.modo.simularEfecto(superficie, this);
-	}
-	/**/
-	public int simularEfecto(SuperficieTierra superficie){
-		return this.modo.simularEfecto(superficie, this);
-	}
+	
 	/* Termina el turno. Es afectado por los efectos que junto durante el turno.*/
 	public void terminaTurno(){
 		this.agilidad = new Agilidad();
@@ -88,6 +81,13 @@ public abstract class Algoformer implements Accionable{
 		this.agilidad.multiplicarVelocidad(factor);
 		
 	}
+	public int simularPasoPor(SuperficieTierra superficieTierra){
+		return this.modo.simularPasoDe(superficieTierra);
+	}
+	public int simularPasoPor(SuperficieAire superficieAire){
+		return this.modo.simularPasoDe(superficieAire);
+	}
+
 	/* Multiplica la vida por un factor dado.
 	 * Parametros: factor: factor por el que se quiere multiplicar.*/
 	public void multiplicarVida(double factor) {
@@ -109,9 +109,6 @@ public abstract class Algoformer implements Accionable{
 		this.modo.reposicionarse(tablero,this);
 	}
 	
-	public int simularPasoDe(SuperficiePantano superficiePantano) {
-		return this.modo.simularPasoDe(superficiePantano);
-	}
 	
 	public ListaDeAfectadores obtenerAfectadoresEnAtacable() {
 		return this.afectadores;
@@ -204,5 +201,11 @@ public abstract class Algoformer implements Accionable{
 		chispaSuprema.serCapturada();
 	}
 
+	public int simularPasoDe(SuperficieAire superficieAire) {
+		return this.modo.simularPasoDe(superficieAire);
+	}
+	public int simularPasoDe(SuperficieTierra superficieTierra) {
+		return this.modo.simularPasoDe(superficieTierra);
+	}
 	
 }

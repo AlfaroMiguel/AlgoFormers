@@ -27,10 +27,7 @@ public class MenasorTerrestre extends ModoHumanoide {
 	public void cambiar(Algoformer algoformer) {
 		throw new ModoUnicoException();
 	}
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 1000000;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerMenasor(coordenada);

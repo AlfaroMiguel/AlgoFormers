@@ -10,4 +10,7 @@ public abstract class ModoHumanoide extends ModoTerrestre {
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
 		superficieTierra.desafectar(algoformer,this);
 	}
+	public int simularPasoDe(SuperficieTierra superficieTierra){
+		return superficieTierra.costoPorPaso(this);
+	}
 }

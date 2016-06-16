@@ -58,5 +58,19 @@ public class GeneradorDeCaminos {
 		}
 		return camino;
 	}
+	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {
+		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos 
+		if( paso>0 && superficies.get(camino.get(camino.size()-1)).calcularMovimiento(accionable) > 100){
+			paso -= 1;
+			camino.remove(0);
+		}
+		//Hasta aca
+		for(Coordenada posicion : camino){
+			paso-= superficies.get(posicion).calcularMovimiento(accionable);
+		}
+		if(paso>=0)
+			return true;
+		return false;
+	}
 
 }

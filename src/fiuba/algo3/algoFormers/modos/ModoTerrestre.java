@@ -48,18 +48,13 @@ public abstract class ModoTerrestre implements Modo {
 		tablero.reposicionar(algoformer);
 	}
 
+
+
 	@Override
-	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer) {
+	public abstract int simularPasoDe(SuperficieTierra superficieTierra);
+	public int simularPasoDe(SuperficieAire superficieAire){
 		return 0;
 	}
-
-	@Override
-	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer) {
-		return superficieTierra.simularPasoDe(algoformer);
-	}
-
-	@Override
-	public abstract int simularPasoDe(SuperficiePantano superficiePantano);
 	
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){
 	}

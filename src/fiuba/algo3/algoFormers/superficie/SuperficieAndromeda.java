@@ -26,7 +26,7 @@ public class SuperficieAndromeda extends SuperficieAire {
 	}
 
 	public int simularPasoDe(Algoformer algoformer) {
-		return 1000000;
+		return algoformer.simularPasoDe(this);
 	}
 
 	@Override
@@ -41,5 +41,10 @@ public class SuperficieAndromeda extends SuperficieAire {
 	@Override
 	public void desafectar(Algoformer algoformer, ModoAereo modoAereo) {
 		afectador.desafectarAlgoformer(algoformer);
+	}
+
+	@Override
+	public int costoPorPaso(ModoAereo modoAereo) {
+		return 1000000;
 	}
 }

@@ -20,7 +20,7 @@ public abstract class SuperficieAire {
 	}
 
 	public int simularRecorrido(Accionable transeunte) {
-		return transeunte.simularEfecto(this);
+		return transeunte.simularPasoPor(this);
 	}
 
 	public abstract int simularPasoDe(Algoformer algoformer);
@@ -38,5 +38,7 @@ public abstract class SuperficieAire {
 	}
 
 	public abstract void desafectar(Algoformer algoformer, ModoAereo modoAereo);
+
+	public abstract int costoPorPaso(ModoAereo modoAereo);
 
 }

@@ -1,11 +1,8 @@
 package fiuba.algo3.algoFormers.juego;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.Observable;
-import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
@@ -35,10 +32,15 @@ public class Jugador{
 	}
 	
 	public void transformarAlgoformer(){
+		try{
 		this.equipo.retirarPersonajeActual(this.tablero);
 		this.equipo.transformarAlgoformer();
 		//Para que se apliquen los efectos cuando se cambia de modo a uno que si lo afecta
 		this.equipo.reposicionarAlgoformer(this.tablero);
+		}catch (MovimientoInvalidoException exception){
+			this.equipo.transformarAlgoformer();
+			this.equipo.reposicionarAlgoformer(this.tablero);
+		}
 	}
 	
 	public boolean ubicoSusPersonajes() {

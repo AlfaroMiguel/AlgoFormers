@@ -26,10 +26,7 @@ public class OptimusHumanoide extends ModoHumanoide {
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(OptimusAlterno.getInstance());
 	}
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 1000000;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerOptimusHumanoide(coordenada);

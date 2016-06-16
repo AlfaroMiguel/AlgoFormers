@@ -27,10 +27,7 @@ public class BonecrusherHumanoide extends ModoHumanoide {
 		algoformer.establecerModo(BonecrusherAlterno.getInstance());
 	}
 	
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 1000000;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerBonecrusherHumanoide(coordenada);

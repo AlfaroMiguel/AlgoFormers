@@ -18,7 +18,7 @@ public abstract class SuperficieTierra {
 	}
 
 	public int simularRecorrido(Accionable transeunte) {
-		return transeunte.simularEfecto(this);
+		return transeunte.simularPasoPor(this);
 	}
 
 	public void ubicar(Accionable habitable) {
@@ -41,4 +41,9 @@ public abstract class SuperficieTierra {
 	public abstract void desafectar(Algoformer algoformer, ModoTerrestreAlterno modoTerrestreAlterno);
 
 	public abstract void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno);
+
+	
+	public abstract int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno); 
+
+	public abstract int costoPorPaso(ModoHumanoide modoHumanoide);
 }

@@ -306,7 +306,7 @@ public class Entrega2Test {
 		//Los efectos se aplican al final de cada turno
 		bonecrusher.moverse(coordenadaSuperficie,tablero);	
 		bonecrusher.terminaTurno();
-		Coordenada coordenadaFinalBonecrusher = new Coordenada(3,9);
+		Coordenada coordenadaFinalBonecrusher = new Coordenada(3,-1);
 		bonecrusher.moverse(coordenadaFinalBonecrusher, tablero);
 	}
 
