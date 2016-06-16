@@ -37,17 +37,8 @@ public class Aplicacion extends Application {
 	    Application.launch(args);
 	    }
 	
-//	@Override
-//	public void start(Stage stage){
-//		
-//		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
-//
-//		
-//		Scene scene = new Scene(layout);
-//	    stage.setScene(scene);
-//	    stage.setTitle("AlgoFormers");
-//	    stage.show();
-//	}
+//		HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
+
 	
 	@Override
 	public void start(Stage primaryStage){
@@ -75,9 +66,9 @@ public class Aplicacion extends Application {
 
 		return new Scene(layout);
 	}
-	
+
 	public Scene pantallaInicio(){
-Pane root = new Pane();
+		Pane root = new Pane();
         
 		Button botonComenzar = new Button();
         Button botonEnter1 = new Button();
@@ -124,7 +115,9 @@ Pane root = new Pane();
 		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
-				stage.setScene(layout());
+				BarraDeMenu menuBar = new BarraDeMenu();
+				ContenedorGeneral contenedorGeneral = new ContenedorGeneral(menuBar);
+				stage.setScene(new Scene(contenedorGeneral, 800, 600));
 				stage.setFullScreen(true);
 			} 
 		});
@@ -167,6 +160,14 @@ Pane root = new Pane();
 		        }
 		});
 	    
+		TextoEventHandler texto1EventHandler = new TextoEventHandler(botonEnter1);
+        textoJugador1.setOnKeyPressed(texto1EventHandler);
+        
+        TextoEventHandler texto2EventHandler = new TextoEventHandler(botonEnter2);
+        textoJugador2.setOnKeyPressed(texto2EventHandler);
+        
+        TextoEventHandler botonComenzarEventHandler = new TextoEventHandler(botonComenzar);
+        botonComenzar.setOnKeyPressed(botonComenzarEventHandler);
         return new Scene(root);
 
 	}
