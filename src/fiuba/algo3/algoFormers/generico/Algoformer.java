@@ -207,5 +207,15 @@ public abstract class Algoformer implements Accionable{
 	public int simularPasoDe(SuperficieTierra superficieTierra) {
 		return this.modo.simularPasoDe(superficieTierra);
 	}
-	
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieAire superficie) {
+		this.modo.producirEfectoPorMicroMovimiento(superficie,this);
+		
+	}
+
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieTierra superficie) {
+		this.modo.producirEfectoPorMicroMovimiento(superficie,this);
+		
+	}
 }

@@ -61,4 +61,10 @@ public class SuperficieEspinas extends SuperficieTierra {
 	public int costoPorPaso(ModoHumanoide modoHumanoide) {
 		return 1;
 	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
+		this.afectador.producirEfecto(algoformer);
+		
+	}
 }

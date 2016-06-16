@@ -41,4 +41,11 @@ public abstract class SuperficieAire {
 
 	public abstract int costoPorPaso(ModoAereo modoAereo);
 
+	public void producirEfectoPorPaso(Accionable accionable) {
+		accionable.efectoPorMicroMovimiento(this);
+		
+	}
+
+	public abstract void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo);
+
 }

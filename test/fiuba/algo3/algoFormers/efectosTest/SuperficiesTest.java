@@ -117,7 +117,34 @@ public class SuperficiesTest {
 			Assert.assertEquals(megatron.verVida(), vidaInicial- 50);
 			
 	}
-	
+	@Test
+	public void test09AlPasarPorEnsimaDeUnaEspinaPierdeVida(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		int vidaInicial = optimus.verVida();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*(0.95)));
+	}
+	@Test
+	public void test10AlPasarPorEnsimaDeUnaEspinaPierdeVida(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		int vidaInicial = optimus.verVida();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*(0.95)));
+	}
 //	@Test
 //	public void test09AlPonerAlgoformerModoAereoEnUnaSuperficiePsionicaReduceSuAtaque(){
 //			Tablero tablero = new Tablero(10,10);

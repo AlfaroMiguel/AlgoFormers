@@ -35,4 +35,10 @@ public class SuperficieNubes extends SuperficieAire {
 	public int costoPorPaso(ModoAereo modoAereo) {
 		return 1;
 	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
+		// TODO Auto-generated method stub
+		
+	}
 }

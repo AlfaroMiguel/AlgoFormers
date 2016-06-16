@@ -47,4 +47,10 @@ public class SuperficieAndromeda extends SuperficieAire {
 	public int costoPorPaso(ModoAereo modoAereo) {
 		return 1000000;
 	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
+		//Nunca Va a pasar por ensima de una superficie de andromeda sin quedarse parado
+		
+	}
 }

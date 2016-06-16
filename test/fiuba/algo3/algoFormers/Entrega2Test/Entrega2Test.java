@@ -300,7 +300,7 @@ public class Entrega2Test {
 		Bonecrusher bonecrusher = new Bonecrusher();
 		bonecrusher.cambiarModo();
 		Coordenada coordenadaInicialBonecrusher = new Coordenada(3,3);
-		Coordenada coordenadaSuperficie = new Coordenada(3,4);
+		Coordenada coordenadaSuperficie = new Coordenada(3,7);
 		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), coordenadaSuperficie);
 		tablero.colocarEnTablero(bonecrusher, coordenadaInicialBonecrusher);
 		//Los efectos se aplican al final de cada turno

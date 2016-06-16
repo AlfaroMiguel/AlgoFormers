@@ -39,4 +39,10 @@ public class SuperficiePsionica extends SuperficieAire {
 		return 1;
 	}
 
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
+		this.afectador.afectarAlgoformer(algoformer);
+		
+	}
+
 }

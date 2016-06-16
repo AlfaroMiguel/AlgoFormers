@@ -46,4 +46,11 @@ public abstract class SuperficieTierra {
 	public abstract int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno); 
 
 	public abstract int costoPorPaso(ModoHumanoide modoHumanoide);
+
+	public void producirEfectoPorPaso(Accionable accionable) {
+		accionable.efectoPorMicroMovimiento(this);
+		
+	}
+
+	public abstract void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre);
 }

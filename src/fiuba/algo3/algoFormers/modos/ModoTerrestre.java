@@ -62,4 +62,10 @@ public abstract class ModoTerrestre implements Modo {
 	}
 	
 	
+	public void producirEfectoPorMicroMovimiento(SuperficieAire superficie, Algoformer algoformer){
+	}
+	public void producirEfectoPorMicroMovimiento(SuperficieTierra superficie, Algoformer algoformer){
+		superficie.producirEfectoPorPaso(algoformer,this);
+	}
+	
 }

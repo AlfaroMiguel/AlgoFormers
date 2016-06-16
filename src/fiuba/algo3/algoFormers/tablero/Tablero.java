@@ -92,6 +92,11 @@ public class Tablero implements Observador{
 		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.accionables, accionable, coordInic, coordenadaFinal);
 		if(!GeneradorDeCaminos.puedePagarCamino(camino, superficies, accionable, paso))
 			throw new MovimientoInvalidoException();
+		this.superficies.get(coordInic).revertirEfecto(accionable);
+		for(Coordenada posiciones : camino){
+			//Produce el efecto de las superficies intermedias de paso
+			this.superficies.get(posiciones).producirEfectoPorPaso(accionable);
+		}
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.accionables.put(coordInic,new Vacio());
 	}

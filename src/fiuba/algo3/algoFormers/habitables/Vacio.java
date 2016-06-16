@@ -83,5 +83,17 @@ public class Vacio implements Accionable{
 	@Override
 	public void notificarObservadores() {
 	}
+
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

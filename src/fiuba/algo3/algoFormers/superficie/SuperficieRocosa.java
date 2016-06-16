@@ -61,4 +61,10 @@ public class SuperficieRocosa extends SuperficieTierra {
 		// TODO Auto-generated method stub
 		return 1;
 	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
+		// TODO Auto-generated method stub
+		
+	}
 }

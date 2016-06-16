@@ -62,4 +62,10 @@ public abstract class ModoAereo implements Modo {
 	public int verAtaque(){
 		return this.ataque;
 	}
+	public void producirEfectoPorMicroMovimiento(SuperficieAire superficie, Algoformer algoformer){
+		superficie.producirEfectoPorPaso(algoformer,this);
+	}
+	public void producirEfectoPorMicroMovimiento(SuperficieTierra superficie, Algoformer algoformer){
+		//No hace nada porque es aereo
+	}
 }
