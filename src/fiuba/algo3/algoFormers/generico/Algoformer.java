@@ -135,9 +135,6 @@ public abstract class Algoformer implements Accionable{
 		this.escudo.sacarEscudo();
 	}
 	
-	public void ponerAccionable(Coordenada coordenada) {
-		this.modo.ponerAccionable(coordenada);
-	}
 	
 	public boolean estaMuerto(){
 		return estaMuerto;
