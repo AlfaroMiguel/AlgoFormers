@@ -40,17 +40,17 @@ public class BarraDeMenu extends MenuBar {
 
         @Override
         public void handle(ActionEvent actionEvent) {
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Acerca De...");
-            alert.setHeaderText("Algoformers");
-            alert.setContentText("Trabajo Practico Algoritmos 3\n" +
-                                "2016 - Primer Cuatrimestre\n" +
-                                "Grupo:\n" +
-                                "\tAlfaro, Miguel\n" +
-                                "\tMendez, Agustina\n" +
-                                "\tPeirano, Guido\n" +
-                                "\tValdivia, Rodrigo");
-            alert.show();
+//            Alert alert = new Alert(AlertType.INFORMATION);
+//            alert.setTitle("Acerca De...");
+//            alert.setHeaderText("Algoformers");
+//            alert.setContentText("Trabajo Practico Algoritmos 3\n" +
+//                                "2016 - Primer Cuatrimestre\n" +
+//                                "Grupo:\n" +
+//                                "\tAlfaro, Miguel\n" +
+//                                "\tMendez, Agustina\n" +
+//                                "\tPeirano, Guido\n" +
+//                                "\tValdivia, Rodrigo");
+//            alert.show();
         }
     }
 
