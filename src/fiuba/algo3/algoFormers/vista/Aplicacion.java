@@ -102,9 +102,7 @@ public class Aplicacion extends Application {
 		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
         ImageView imageView = new ImageView();
         imageView.setImage(imagenFondo);
-        imageView.setFitHeight(700);
-        imageView.setFitWidth(1300);
-	    StackPane root = new StackPane();
+	StackPane root = new StackPane();
         root.getChildren().add(imageView);
         root.getChildren().add(botonEntrar);
 
