@@ -1,11 +1,12 @@
 package fiuba.algo3.algoFormers.superficie;
 
+import fiuba.algo3.algoFormers.afectadores.AfectadorPermanente;
 import fiuba.algo3.algoFormers.efectos.EfectoPsionico;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
-import fiuba.algo3.algoFormers.afectadores.*;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.modos.ModoTerrestre;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
+import javafx.scene.image.Image;
 
 public class SuperficiePsionica extends SuperficieAire {
 	public SuperficiePsionica() {
@@ -16,8 +17,8 @@ public class SuperficiePsionica extends SuperficieAire {
 		return algoformer.simularPasoDe(this);
 	}
 
-	public void ponerSuperficieAire(Coordenada coordenada) {
-		 HexGrid.ponerSuperficiePsionica(coordenada);
+	public Image ponerSuperficieAire() {
+		return ClaseImagenes.getImageSuperficie(this);
 	}
 
 	public void afectar(Algoformer algoformer, ModoAereo modo) {

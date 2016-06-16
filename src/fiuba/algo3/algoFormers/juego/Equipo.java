@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
-public abstract class Equipo implements Observador, Observable{
+public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	
 	protected Algoformer algoformerActual;
 	public int distanciaMinimaCombinacion;
-	private Observable observado;
+	private ObservableTerminoJuego observado;
 	public int oponentesVencidos;
 	private List<Observador> observadores = new ArrayList<Observador>();
 	
@@ -63,7 +63,7 @@ public abstract class Equipo implements Observador, Observable{
 	}
 
 	@Override
-	public void observarA(Observable observable) {
+	public void observarA(ObservableTerminoJuego observable) {
 		this.observado = observable;
 		this.observado.agregarObservador(this); //eliminar esto de todos lados y dejarlo aca
 	}

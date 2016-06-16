@@ -1,12 +1,15 @@
 package fiuba.algo3.algoFormers.superficie;
 
+import fiuba.algo3.algoFormers.afectadores.Afectador;
+import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoAndromeda;
-import fiuba.algo3.algoFormers.afectadores.*;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.Accionable;
-import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.modos.ModoHumanoide;
+import fiuba.algo3.algoFormers.modos.ModoTerrestreAlterno;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
+import javafx.scene.image.Image;
 
 public class SuperficieAndromeda extends SuperficieAire {
 
@@ -30,8 +33,8 @@ public class SuperficieAndromeda extends SuperficieAire {
 	}
 
 	@Override
-	public void ponerSuperficieAire(Coordenada coordenada) {
-		 HexGrid.ponerSuperficieAndromeda(coordenada);
+	public Image ponerSuperficieAire() {
+		 return ClaseImagenes.getImageSuperficie(this);
 	}
 
 	public void producirEfecto(Accionable afectado) {

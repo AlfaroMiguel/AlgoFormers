@@ -2,15 +2,20 @@ package fiuba.algo3.algoFormers.juego;
 
 import java.util.List;
 
-import fiuba.algo3.algoFormers.excepciones.*;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
+import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
-import fiuba.algo3.algoFormers.habitables.*;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieEspinas;
 import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
-import fiuba.algo3.algoFormers.tablero.*;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 
 public class Juego implements Observador{
@@ -19,11 +24,12 @@ public class Juego implements Observador{
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
 	private UbicadorDeColectables ubicadorDeColectables;
-	private Observable observado;
+	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
 	
 
-	//cuando se inicia el juego
+
+	
 	public Juego(int alto, int ancho){
 		//se crea el tablero
 
@@ -43,7 +49,7 @@ public class Juego implements Observador{
 		this.ubicarPersonajes();
 		this.ubicadorDeColectables.ubicarColectables(this.tablero);
 	}
-
+	
 	public Juego(){
 	 	this(50, 50);
  	}
@@ -180,7 +186,7 @@ public class Juego implements Observador{
 	}
 
 	@Override
-	public void observarA(Observable observable) {
+	public void observarA(ObservableTerminoJuego observable) {
 		this.observado = observable;
 		observado.agregarObservador(this);
 	}
@@ -207,5 +213,10 @@ public class Juego implements Observador{
  			}
  			catch(Throwable e){ return false;}
  	}
+
+	public void agregarVista(Vista vista) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

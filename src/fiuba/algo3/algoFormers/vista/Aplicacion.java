@@ -62,12 +62,13 @@ public class Aplicacion extends Application {
 
 		int alto = 20;
 		int ancho = 20;
-
+		Vista vista = new Vista();
 		Juego juego = new Juego(alto, ancho);
+		juego.agregarVista(vista);
 		Controlador controlador =  new Controlador(juego);
 		//Esto es nuevo 13/6/2016
-		Group grid = crearTablero(alto, ancho,controlador);
-		inicializarTablero(alto,ancho,juego);
+		Group grid = crearTablero(alto, ancho, vista,controlador);
+		vista.inicializarTablero(alto,ancho,juego);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
@@ -110,12 +111,8 @@ public class Aplicacion extends Application {
 
 	}
 
-	private void inicializarTablero(int alto, int ancho,Juego juego) {
-		HexGrid.inicializarTablero(alto, ancho,juego);
-	}
-
-	public static Group crearTablero(int alto, int ancho,Controlador controlador) {
-		return HexGrid.crearTablero(ancho, alto,controlador);
+	public static Group crearTablero(int alto, int ancho,Vista vista, Controlador controlador) {
+		return vista.crearTablero(ancho, alto,controlador);
 	}
 
 

@@ -5,7 +5,7 @@ import java.util.*;
 import fiuba.algo3.algoFormers.autobots.Optimus;
 import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 

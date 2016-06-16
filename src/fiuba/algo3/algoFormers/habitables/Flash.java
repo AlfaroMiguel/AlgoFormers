@@ -4,7 +4,9 @@ import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoFlash;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class Flash extends Bonus {
 	
@@ -24,7 +26,8 @@ public class Flash extends Bonus {
 	}
 
 	@Override
-	public void ponerRecolectable(Coordenada c) {
-		HexGrid.ponerFlash(c);
+	public Image getImage() {
+		return ClaseImagenes.getImageRecolectable(this);
 	}
+
 }

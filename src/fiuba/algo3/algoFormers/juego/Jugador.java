@@ -2,7 +2,7 @@ package fiuba.algo3.algoFormers.juego;
 
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
@@ -64,7 +64,7 @@ public class Jugador{
 		this.equipo.terminarTurno();
 	}
 
-	public Observable verEquipo() {
+	public ObservableTerminoJuego verEquipo() {
 		return this.equipo;
 	}
 

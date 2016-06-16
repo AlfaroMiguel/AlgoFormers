@@ -1,21 +1,24 @@
 package fiuba.algo3.algoFormers.habitables;
 
-import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
+import fiuba.algo3.algoFormers.excepciones.NotMovibleException;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
+import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class Vacio implements Accionable{
 
 	@Override
-	 public void ponerAccionable(Coordenada c) {
-	 	HexGrid.ponerVacio(c);
+	 public Image getImage(){
+		return null;
 	}
 	
 	public boolean ocupaLugar(){
@@ -92,6 +95,17 @@ public class Vacio implements Accionable{
 
 	@Override
 	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Coordenada getCoordenada() {
+		throw new NotMovibleException();
+	}
+
+	@Override
+	public void setCoordenada(Coordenada coordenada) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -6,13 +6,16 @@ import java.util.List;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class ChispaSuprema implements Recolectable{
 
 	private static final ChispaSuprema INSTANCE = new ChispaSuprema();
 	private List<Observador> observadores = new ArrayList<Observador>();
-	
+	public Coordenada posicion;
+//	public Vista vista;
 	private ChispaSuprema(){}
 
 	public static ChispaSuprema getInstance(){
@@ -22,7 +25,16 @@ public class ChispaSuprema implements Recolectable{
 	public boolean ocupaLugar(){
 		return true;
 	}
-	
+	public void setCoordenada(Coordenada posicion){
+		this.posicion = posicion;
+		//this.vista.update(this,posicion);
+	}
+//	public void setVista(Vista vista){
+//		this.vista = vista;
+//	}
+	public Coordenada getCoordenada(){
+		return this.posicion;
+	}
 	public void colisionar(){	
 	}
 	
@@ -47,8 +59,8 @@ public class ChispaSuprema implements Recolectable{
 	}
 
 	@Override
-	public void ponerRecolectable(Coordenada c) {
-		HexGrid.ponerChispa(c);
+	public Image getImage() {
+		return ClaseImagenes.getImageRecolectable(this);
 	}
 
 

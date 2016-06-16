@@ -6,7 +6,7 @@ import fiuba.algo3.algoFormers.decepticons.*;
 import fiuba.algo3.algoFormers.excepciones.*;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.*;
 import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
@@ -23,7 +23,7 @@ public class Tablero implements Observador{
 	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
 	/* Representacion del tablero que contiene a los recolectables */
 	HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
-	private Observable observado;
+	private ObservableTerminoJuego observado;
 	private int alto;
 	private int ancho;
 	
@@ -68,6 +68,7 @@ public class Tablero implements Observador{
 			Recolectable recolectableEnCoordenada = this.recolectables.get(coordenada);
 			accionable.recolectar(recolectableEnCoordenada);
 			this.superficies.get(coordenada).producirEfecto(accionable);
+			accionable.setCoordenada(coordenada);
 			this.accionables.put(coordenada, accionable);
 			if(this.recolectables.get(coordenada).fueConsumido())
 				this.eliminarRecolectableDeTablero(coordenada);
@@ -93,7 +94,7 @@ public class Tablero implements Observador{
 	 * 			   -paso: velocidad del accionable.
 	 * Lanza: MovimientoInvalidoException si no se puede mover a la posicion.*/
 	public void mover(Accionable accionable, Coordenada coordenadaFinal, int paso) {
-		Coordenada coordInic = this.obtenerCoordenadaDeElemento(accionable);
+		Coordenada coordInic = accionable.getCoordenada();
 		
 		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.accionables, accionable, coordInic, coordenadaFinal);
 		if(!GeneradorDeCaminos.puedePagarCamino(camino, superficies, accionable, paso))
@@ -103,6 +104,7 @@ public class Tablero implements Observador{
 			//Produce el efecto de las superficies intermedias de paso
 			this.superficies.get(posiciones).producirEfectoPorPaso(accionable);
 		}
+		//this.vista.update(this,coordenadaInic);
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.accionables.put(coordInic,new Vacio());
 	}
@@ -110,7 +112,7 @@ public class Tablero implements Observador{
 	/* Devuelve la coordenada en la que se encuentra un accionable.
 	 * Parametros: -accionable: accionable del que se quiere saber la posicion.
 	 * Lanza: ElementoNoExisteException si no se encuentra el accionable en el tablero.*/
-	public Coordenada obtenerCoordenadaDeElemento(Observable observado){
+	public Coordenada obtenerCoordenadaDeElemento(ObservableTerminoJuego observado){
         for(Map.Entry<Coordenada, Accionable> entry : this.accionables.entrySet()) {
             if(observado.equals(entry.getValue())) {
                 return entry.getKey();
@@ -346,7 +348,7 @@ public class Tablero implements Observador{
 	}
 
 	@Override
-	public void observarA(Observable observable){
+	public void observarA(ObservableTerminoJuego observable){
 		this.observado = observable;
 		observable.agregarObservador(this);
 	}

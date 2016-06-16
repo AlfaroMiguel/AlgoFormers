@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.modos.Modo;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +31,7 @@ public abstract class Algoformer implements Accionable{
 	/* Lista de observadores para el patron observer */
 	private List<Observador> observadores = new ArrayList<Observador>(); 
 	private boolean estaMuerto = false; 
-	
+	public Coordenada posicion;
 	/* Metodos abstractos */
 	/* Ataca a otro accionable. 
 	 * Parametros: atacado: accionable a atacar.*/
@@ -40,6 +41,14 @@ public abstract class Algoformer implements Accionable{
 	/* Convierte su velocidad en 0 para no poder moverse.*/
 	public void inmovilizar(){
 		this.agilidad.multiplicarVelocidad(0);	
+	}
+	
+	public void setCoordenada(Coordenada posicion){
+		this.posicion = posicion;
+		//this.vista.update(this,posicion);
+	}
+	public Coordenada getCoordenada(){
+		return this.posicion;
 	}
 	/* Se mueve a una determinada coordenada.
 	 * Parametros: coordenada: coordenada a la que se quiere mover.
@@ -218,4 +227,9 @@ public abstract class Algoformer implements Accionable{
 		this.modo.producirEfectoPorMicroMovimiento(superficie,this);
 		
 	}
+
+	public Image getImage() {
+		return this.modo.getImage();
+	}
+	
 }

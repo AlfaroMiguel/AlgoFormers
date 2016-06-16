@@ -1,11 +1,11 @@
 package fiuba.algo3.algoFormers.superficie;
 
+import fiuba.algo3.algoFormers.afectadores.AfectadorPorPosicion;
 import fiuba.algo3.algoFormers.efectos.EfectoNubes;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
-import fiuba.algo3.algoFormers.afectadores.*;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
+import javafx.scene.image.Image;
 
 public class SuperficieNubes extends SuperficieAire {
 
@@ -17,8 +17,8 @@ public class SuperficieNubes extends SuperficieAire {
 		return algoformer.simularPasoDe(this);
 	}
 
-	public void ponerSuperficieAire(Coordenada coordenada) {
-		 HexGrid.ponerSuperficieNubes(coordenada);
+	public Image ponerSuperficieAire() {
+		return ClaseImagenes.getImageSuperficie(this);
 	}
 
 	public void afectar(Algoformer algoformer, ModoAereo modo) {

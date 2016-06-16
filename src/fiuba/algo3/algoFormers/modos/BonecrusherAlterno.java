@@ -3,7 +3,9 @@ package fiuba.algo3.algoFormers.modos;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class BonecrusherAlterno extends ModoTerrestreAlterno {
 	
@@ -29,9 +31,7 @@ public class BonecrusherAlterno extends ModoTerrestreAlterno {
 	
 	
 
-	@Override
-	public void ponerAccionable(Coordenada coordenada) {
-		HexGrid.ponerBonecrusherAlterno(coordenada);
-	}
-	
+	public Image getImage() {
+		return ClaseImagenes.getImageModo(this);
+	}	
 }

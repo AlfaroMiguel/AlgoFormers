@@ -3,14 +3,15 @@ package fiuba.algo3.algoFormers.habitables;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import javafx.scene.image.Image;
 
 /* Interfaz que representa a los elementos del juego que pueden realizar
  * acciones tales como atacar y moverse.*/
-public interface Accionable extends Observable{
+public interface Accionable extends ObservableTerminoJuego{
 
 	/* Metodos abstractos */
 	/* Colisiona con cualquier elemento.
@@ -59,9 +60,11 @@ public interface Accionable extends Observable{
 	
 
 	public void recolectar(Recolectable colectable);
-	public void ponerAccionable(Coordenada c);
 	public int simularPasoPor(SuperficieTierra superficieTierra);
 	public int simularPasoPor(SuperficieAire superficieAire);
 	public void efectoPorMicroMovimiento(SuperficieAire superficieAire);
 	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra);
+	public Coordenada getCoordenada();
+	public void setCoordenada(Coordenada coordenada);
+	public Image getImage();
 }

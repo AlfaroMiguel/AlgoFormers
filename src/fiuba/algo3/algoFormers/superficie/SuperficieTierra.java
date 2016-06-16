@@ -1,10 +1,13 @@
 package fiuba.algo3.algoFormers.superficie;
 
-import fiuba.algo3.algoFormers.afectadores.*;
+import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.Accionable;
-import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.modos.ModoHumanoide;
+import fiuba.algo3.algoFormers.modos.ModoTerrestre;
+import fiuba.algo3.algoFormers.modos.ModoTerrestreAlterno;
+import javafx.scene.image.Image;
 
 public abstract class SuperficieTierra {
 	public Afectador afectador;
@@ -28,7 +31,7 @@ public abstract class SuperficieTierra {
 
 	public abstract int simularPasoDe(Algoformer algoformer);
 
-	public abstract void ponerSuperficieTierra(Coordenada coordenada);
+	public abstract Image ponerSuperficieTierra();
 
 	public abstract void afectar(Algoformer afectado, ModoTerrestreAlterno modo);
 

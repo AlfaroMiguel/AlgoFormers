@@ -4,7 +4,9 @@ import fiuba.algo3.algoFormers.excepciones.ModoUnicoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.superficie.*;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class MenasorTerrestre extends ModoHumanoide {
 
@@ -28,9 +30,10 @@ public class MenasorTerrestre extends ModoHumanoide {
 		throw new ModoUnicoException();
 	}
 	
-	@Override
-	public void ponerAccionable(Coordenada coordenada) {
-		HexGrid.ponerMenasor(coordenada);
+	
+
+	public Image getImage() {
+		return ClaseImagenes.getImageModo(this);
 	}
 	
 }

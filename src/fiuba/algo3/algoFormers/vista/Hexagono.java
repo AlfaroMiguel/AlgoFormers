@@ -1,6 +1,10 @@
 package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
+import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +24,7 @@ public class Hexagono extends StackPane {
 	private Polyline hexagon;
 	private ImagePattern tierra;
 	private ImageView habitable = new ImageView();
+	private ImageView recolectable = new ImageView();
 	private ImageView aire = new ImageView();
 	public boolean pinto = false;
 	public Controlador controlador;
@@ -43,7 +48,7 @@ public class Hexagono extends StackPane {
 		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
 
 		
-		this.getChildren().addAll(hexagon,text,habitable,aire);
+		this.getChildren().addAll(hexagon,text,habitable,recolectable,aire);
 
 		text.setFont(Font.font(18));
 //        text.setText(String.valueOf(x) +"," + String.valueOf(y));
@@ -92,139 +97,34 @@ public class Hexagono extends StackPane {
 		this.text.toFront();
 		
 //		this.text.setText("");
-	}
-	public void ponerRocosa() {
-		this.ponerTierra("file:img/superficies/roca.png");
-	}
-
-	public void ponerPantano() {
-		this.ponerTierra("file:img/superficies/pantano.png");
-	}
-
-	public void ponerEspinas() {
-		this.ponerTierra("file:img/superficies/espina.png");
-	}
-
-	public void ponerAndromeda() {
-		this.ponerAire("file:img/superficies/nebulosa.png");
-	}
-
-	public void ponerNubes() {
-		//No hace nada
-	}
-
-	public void ponerPsionica() {
-		this.ponerAire("file:img/superficies/tormenta.png");
-	}
-//	
-//	private void ponerTierra(String path) {
-//		Image imagen = new Image(path,100,50*(1+Math.cos(Math.PI/3)),true,true,false);
-//		this.tierra.setImage(imagen);
-//		this.tierra.toBack();
-//	}
-	private void ponerTierra(String path) {
-		Image imagen = new Image(path);
-		this.tierra = new ImagePattern(imagen);
-		this.hexagon.setFill(tierra);
-	}
-	private void ponerAire(String path) {
-	Image imagen = new Image(path,60,60,true,true,false);
-	this.aire.setImage(imagen);
-	this.aire.setOpacity(0.4);
-	this.aire.toFront();
-}
-
-	public void ponerOptimusAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/optimus.png");
-	}
-
-	public void ponerBumblebeeAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/bumblebee.png");
-	}
-
-	public void ponerFrenzyAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/frenzy.png");
-	}
-
-	public void ponerBonecrusherAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/bonecrusher.png");
-	}
-
-	public void ponerMegatronAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/megatron.png");
-	}
-
-	public void ponerRatchetAlterno() {
-		this.ponerAlgoFormer("file:img/algoformers/alterno/ratchet.png");
-	}
-
-	public void ponerOptimusHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/optimus.png");
-	}
-
-	public void ponerBumblebeeHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/bumblebee.png");
-	}
-
-	public void ponerFrenzyHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/frenzy.png");
-	}
-
-	public void ponerBonecrusherHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/bonecrusher.png");
-	}
-
-	public void ponerMegatronHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/megatron.png");
-	}
-
-	public void ponerRatchetHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/ratchet.png");
-	}
-
-	public void ponerSuperion() {
-		this.ponerCombinado("file:img/algoformers/superion.png");
-	}
-	
-	public void ponerMenasor() {
-		this.ponerCombinado("file:img/algoformers/menasor.png");
-	}
-	
-	private void ponerCombinado(String path) {
-		Image imagen = new Image(path,80,100,true,true,false);
-		this.habitable.setImage(imagen);
-		this.aire.toFront();
-	}
-
-	private void ponerAlgoFormer(String path) {
-		Image imagen = new Image(path,70,90,true,true,false);
-		this.habitable.setImage(imagen);
-		this.aire.toFront();
-	}
-	
+	}	
 	public void sacarAlgoFormer(){
 		//Supongo que no es lo mas lindo mañana buscare como se hace bien
 		this.habitable.setImage(null);
 	}
-	
-	public void ponerChispa() {
-
-		this.ponerRecolectable("file:img/recolectable/chispa.png");
-	}
-	public void ponerBurbuja() {
-		this.ponerRecolectable("file:img/recolectable/burbuja.png");	
-	}
-	public void ponerFlash() {
-		this.ponerRecolectable("file:img/recolectable/flash.png");
-	}
-	public void ponerCanion() {
-		this.ponerRecolectable("file:img/recolectable/cañon.png");
+	public void sacarRecolectable(){
+		//Supongo que no es lo mas lindo mañana buscare como se hace bien
+		this.recolectable.setImage(null);
 	}
 	
-	private void ponerRecolectable(String path) {
-		Image imagen = new Image(path,40,40,true,true,false);
+	public void ponerSuperficie(SuperficieAire superficieAire) {
+		Image imagen = ClaseImagenes.getImage(superficieAire);
+		this.aire.setImage(imagen);
+		this.aire.setOpacity(0.4);
+		this.aire.toFront();
+	}
+	public void ponerSuperficie(SuperficieTierra superficieTierra) {
+		Image imagen = ClaseImagenes.getImage(superficieTierra);
+		this.tierra = new ImagePattern(imagen);
+		this.hexagon.setFill(tierra);
+	}
+	public void ponerAccionable(Accionable accionable) {
+		Image imagen = ClaseImagenes.getImage(accionable);
 		this.habitable.setImage(imagen);
-
+		this.aire.toFront();
 	}
-
+	public void ponerRecolectable(Recolectable recolectable) {
+		Image imagen = ClaseImagenes.getImage(recolectable);
+		this.recolectable.setImage(imagen);
+	}
 }

@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import javafx.scene.image.Image;
 
 public class BonusVacio extends Bonus {
 
@@ -32,10 +33,11 @@ public class BonusVacio extends Bonus {
 	public boolean equals(BonusVacio otro){
 		return true;
 	}
+	
 	@Override
-	public void ponerRecolectable(Coordenada c) {
-		// TODO Auto-generated method stub
-		
+	public Image getImage() {
+		return null;
 	}
+
 
 }

@@ -1,12 +1,15 @@
 package fiuba.algo3.algoFormers.superficie;
 
-import fiuba.algo3.algoFormers.afectadores.*;
+import fiuba.algo3.algoFormers.afectadores.AfectadorPorPosicion;
 import fiuba.algo3.algoFormers.efectos.EfectoPantano;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.modos.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.modos.ModoHumanoide;
+import fiuba.algo3.algoFormers.modos.ModoTerrestre;
+import fiuba.algo3.algoFormers.modos.ModoTerrestreAlterno;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
+import javafx.scene.image.Image;
 
 public class SuperficiePantano extends SuperficieTierra {
 
@@ -19,8 +22,8 @@ public class SuperficiePantano extends SuperficieTierra {
 	}
 
 	@Override
-	public void ponerSuperficieTierra(Coordenada coordenada) {
-		 HexGrid.ponerSuperficiePantano(coordenada);
+	public Image ponerSuperficieTierra() {
+		return ClaseImagenes.getImageSuperficie(this);
 
 	}
 

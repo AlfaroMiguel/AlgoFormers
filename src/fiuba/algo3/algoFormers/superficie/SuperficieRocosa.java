@@ -3,9 +3,13 @@ package fiuba.algo3.algoFormers.superficie;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorPosicion;
 import fiuba.algo3.algoFormers.efectos.EfectoRocas;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.modos.*;
+import fiuba.algo3.algoFormers.modos.ModoAereo;
+import fiuba.algo3.algoFormers.modos.ModoHumanoide;
+import fiuba.algo3.algoFormers.modos.ModoTerrestre;
+import fiuba.algo3.algoFormers.modos.ModoTerrestreAlterno;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.vista.HexGrid;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
+import javafx.scene.image.Image;
 
 public class SuperficieRocosa extends SuperficieTierra {
 
@@ -18,8 +22,9 @@ public class SuperficieRocosa extends SuperficieTierra {
 	}
 
 	@Override
-	public void ponerSuperficieTierra(Coordenada coordenada) {
-		 HexGrid.ponerSuperficieRocosa(coordenada);
+	public Image ponerSuperficieTierra() {
+			 return ClaseImagenes.getImageSuperficie(this);
+
 	}
 
 	public void afectar(Algoformer algoformer, ModoAereo modo) {

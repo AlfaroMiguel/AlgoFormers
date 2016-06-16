@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.modos;
 
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import javafx.scene.image.Image;
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.*;
@@ -22,8 +23,8 @@ public interface Modo{
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer);
 	public int verAtaque();
-	public void ponerAccionable(Coordenada coordenada);
 	public void producirEfectoPorMicroMovimiento(SuperficieAire superficie, Algoformer algoformer);
 	public void producirEfectoPorMicroMovimiento(SuperficieTierra superficie, Algoformer algoformer);
+	public Image getImage();
 	
 }

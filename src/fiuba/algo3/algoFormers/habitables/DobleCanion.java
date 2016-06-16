@@ -4,7 +4,9 @@ import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoDobleCanion;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
+import javafx.scene.image.Image;
 
 public class DobleCanion extends Bonus {
 	
@@ -22,9 +24,10 @@ public class DobleCanion extends Bonus {
 	public void desafectar(Algoformer algoformer) {
 		afectador.desafectarAlgoformer(algoformer);
 	}
-
+	
 	@Override
-	public void ponerRecolectable(Coordenada c) {
-		HexGrid.ponerCanion(c);
+	public Image getImage() {
+		return ClaseImagenes.getImageRecolectable(this);
 	}
+
 }

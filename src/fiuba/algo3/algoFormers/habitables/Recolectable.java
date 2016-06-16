@@ -1,10 +1,11 @@
 package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observable;
+import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import javafx.scene.image.Image;
 
-public interface Recolectable extends Observable{
+public interface Recolectable extends ObservableTerminoJuego{
 	
 	public void colisionar();
 	public boolean ocupaLugar();
@@ -12,5 +13,5 @@ public interface Recolectable extends Observable{
 	public void desafectar(Algoformer algoformer);
 	public boolean fueConsumido();
 	public boolean equals(BonusVacio otro);
-	public void ponerRecolectable(Coordenada c);
+	public Image getImage();
 }
