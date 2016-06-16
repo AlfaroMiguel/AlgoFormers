@@ -24,16 +24,22 @@ public class Tablero implements Observador{
 	/* Representacion del tablero que contiene a los recolectables */
 	HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
 	private Observable observado;
+	private int alto;
+	private int ancho;
 	
 	/* Constructor */
 	/* Crea un tablero de tamanio alto*ancho. 
 	 * Llena el tablero con posiciones "vacias" segun corresponda al tipo */
 	public Tablero(int alto,int ancho){
+		this.alto = alto;
+		this.ancho = ancho;
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,alto,ancho);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.accionables,alto,ancho);
 		GeneradorDeCoordenadas.generarBonusDelTablero(this.recolectables, alto, ancho);
 	}
-	
+	public void generarMapa(){
+		CreadorDeMapas.generarMapa(this.superficies,this.alto,this.ancho);
+	}
 	/* Parametros: -coordenada: coordenada del tablero que se quiere averiguar si esta vacia.
 	 * Devuelve: true si en la coordenada no hay un accionable o un colectable ocupando lugar. */
 	public boolean estaVacio(Coordenada coordenada) {
@@ -100,6 +106,7 @@ public class Tablero implements Observador{
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.accionables.put(coordInic,new Vacio());
 	}
+	
 	/* Devuelve la coordenada en la que se encuentra un accionable.
 	 * Parametros: -accionable: accionable del que se quiere saber la posicion.
 	 * Lanza: ElementoNoExisteException si no se encuentra el accionable en el tablero.*/
@@ -112,6 +119,7 @@ public class Tablero implements Observador{
         throw new ElementoNoExisteException();
 
 	}
+	
 	/* Devuelve la coordenada en la que se encuentra un recolectable.
 	 * Parametros: -recolectable: recolectable del que se quiere saber la posicion.
 	 * Lanza: ElementoNoExisteException si no se encuentra el recolectable en el tablero.*/
@@ -124,6 +132,7 @@ public class Tablero implements Observador{
         throw new ElementoNoExisteException();
 
 	}
+	
 	/* Coordina el ataque entre dos algoformers, verificando la distancia entre ellos y si
 	 * alguno de los dos muere.
 	 * Parametros: -atacante: autobot que ataca.
@@ -141,6 +150,7 @@ public class Tablero implements Observador{
 		this.observarA(atacado);
 		atacado.serAtacado(atacante, ataque);
 	}
+	
 	/* Coordina el ataque entre dos algoformers, verificando la distancia entre ellos y si
 	 * alguno de los dos muere.
 	 * Parametros: -atacante: decepticon que ataca.
@@ -158,6 +168,7 @@ public class Tablero implements Observador{
 		this.observarA(atacado);
 		atacado.serAtacado(atacante, ataque);
 	}
+	
 	/* Devuelve el recolectable que se encuentra en una coordenada.
 	 * Parametros: coordenada: coordenada en la que se busca un recolectable.*/
 	public Recolectable obtenerRecolectableEnCoordenada(Coordenada coordenada){
@@ -181,6 +192,7 @@ public class Tablero implements Observador{
 			throw new DistanciaInvalidaException();
 		}
 	}
+	
 	/* Coloca en el tablero un Superion a partir de los autobots si se encuentran a la distancia correcta para 
 	 * realizar esta accion. Elimina del tablero a los algoformers individuales.
 	 * Parametros: -superion: autobot combinado a colocar.

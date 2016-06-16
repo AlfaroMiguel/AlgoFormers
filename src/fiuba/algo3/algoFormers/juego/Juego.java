@@ -37,6 +37,7 @@ public class Juego implements Observador{
 		
 		//se definen los jugadores
 		this.elegirPrimerJugador();
+		this.tablero.generarMapa();
 
 		//se ubican los personajes, la chispa y los bonus
 		this.ubicarPersonajes();

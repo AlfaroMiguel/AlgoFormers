@@ -43,7 +43,7 @@ public abstract class ModoAereo implements Modo {
 
 	@Override
 	public int simularPasoDe(SuperficieTierra superficieTierra) {
-		return 0;
+		return 1;
 	}
 	public int simularPasoDe(SuperficieAire superficieAire) {
 		return superficieAire.costoPorPaso(this);
