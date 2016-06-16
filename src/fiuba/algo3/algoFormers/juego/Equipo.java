@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	
@@ -92,6 +93,7 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	public void hacerGanar(){
 		this.notificarObservadores();
 	}
+	public abstract void agregarVista(Vista vista);
 
 	
 }

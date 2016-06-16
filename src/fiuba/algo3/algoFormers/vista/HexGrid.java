@@ -71,8 +71,20 @@ public class HexGrid {
 			}
 		}
 
-	private void ponerAccionable(Coordenada coordenada, Accionable accionable) {
+	public void ponerAccionable(Coordenada coordenada, Accionable accionable) {
 			this.grid.get(coordenada).ponerAccionable(accionable);
 		}
+
+
+	
+
+
+	public void borrarRecolectable(Coordenada coordenada) {
+		this.grid.get(coordenada).sacarRecolectable();
+		
+	}
+	public void borrarAlgoformer(Coordenada coordenada) {
+		this.grid.get(coordenada).sacarAlgoFormer();
+	}
 
 }

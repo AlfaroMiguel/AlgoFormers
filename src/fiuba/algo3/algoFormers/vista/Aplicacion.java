@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
@@ -73,7 +74,12 @@ public class Aplicacion extends Application {
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 
-		return new Scene(layout);
+		Scene scene = new Scene(layout);
+		
+		KeyEventHandler handler = new KeyEventHandler(controlador);
+		scene.setOnKeyTyped(handler);
+		
+		return scene;
 	}
 	
 	public Scene pantallaInicio(){

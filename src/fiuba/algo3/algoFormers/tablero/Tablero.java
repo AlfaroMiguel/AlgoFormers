@@ -1,18 +1,35 @@
 package fiuba.algo3.algoFormers.tablero;
 
-import java.util.*;
-import fiuba.algo3.algoFormers.autobots.*;
-import fiuba.algo3.algoFormers.decepticons.*;
-import fiuba.algo3.algoFormers.excepciones.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import fiuba.algo3.algoFormers.autobots.Autobot;
+import fiuba.algo3.algoFormers.autobots.Bumblebee;
+import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.autobots.Ratchet;
+import fiuba.algo3.algoFormers.autobots.Superion;
+import fiuba.algo3.algoFormers.decepticons.Bonecrusher;
+import fiuba.algo3.algoFormers.decepticons.Decepticon;
+import fiuba.algo3.algoFormers.decepticons.Frenzy;
+import fiuba.algo3.algoFormers.decepticons.Megatron;
+import fiuba.algo3.algoFormers.decepticons.Menasor;
+import fiuba.algo3.algoFormers.excepciones.DistanciaInvalidaException;
+import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
+import fiuba.algo3.algoFormers.excepciones.FueraDeRangoException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
+import fiuba.algo3.algoFormers.excepciones.NoCombinableException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
-import fiuba.algo3.algoFormers.habitables.*;
-import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
-import fiuba.algo3.algoFormers.vista.Aplicacion;
-import fiuba.algo3.algoFormers.vista.HexGrid;
-import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.BonusVacio;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
+import fiuba.algo3.algoFormers.habitables.Vacio;
+import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 public class Tablero implements Observador{
 	
@@ -26,6 +43,7 @@ public class Tablero implements Observador{
 	private ObservableTerminoJuego observado;
 	private int alto;
 	private int ancho;
+	private List<Vista> vistas;
 	
 	/* Constructor */
 	/* Crea un tablero de tamanio alto*ancho. 
@@ -36,6 +54,7 @@ public class Tablero implements Observador{
 		GeneradorDeCoordenadas.generarCasillerosDelTablero(this.superficies,alto,ancho);
 		GeneradorDeCoordenadas.generarCoordenadasDelTablero(this.accionables,alto,ancho);
 		GeneradorDeCoordenadas.generarBonusDelTablero(this.recolectables, alto, ancho);
+		this.vistas = new ArrayList<Vista>();
 	}
 	public void generarMapa(){
 		CreadorDeMapas.generarMapa(this.superficies,this.alto,this.ancho);
@@ -68,14 +87,26 @@ public class Tablero implements Observador{
 			Recolectable recolectableEnCoordenada = this.recolectables.get(coordenada);
 			accionable.recolectar(recolectableEnCoordenada);
 			this.superficies.get(coordenada).producirEfecto(accionable);
+			if(this.recolectables.get(coordenada).fueConsumido()){
+				this.eliminarRecolectableDeTablero(coordenada);
+				boolean noEsAlgoformer = false;
+				//Para mas claridad directamente leer el metodo debajo
+				this.actualizarVistas(coordenada,noEsAlgoformer);
+			}
 			accionable.setCoordenada(coordenada);
 			this.accionables.put(coordenada, accionable);
-			if(this.recolectables.get(coordenada).fueConsumido())
-				this.eliminarRecolectableDeTablero(coordenada);
+			
 		}
 		catch(Throwable g){
 			throw new MovimientoInvalidoException();
 		}
+	}
+	private void actualizarVistas(Coordenada coordenada,boolean esAlgoformer){
+		for(Vista vista: vistas)
+			vista.update(this,coordenada,esAlgoformer);
+	}
+	public void agregarVista(Vista vista){
+		this.vistas.add(vista);
 	}
 	/* Coloca un recolectable en una coordenada del tablero. 
 	 * Parametros: recolectable: recolectable a colocar.
@@ -104,7 +135,9 @@ public class Tablero implements Observador{
 			//Produce el efecto de las superficies intermedias de paso
 			this.superficies.get(posiciones).producirEfectoPorPaso(accionable);
 		}
-		//this.vista.update(this,coordenadaInic);
+		//PAJA
+		boolean esAlgoformer = true;
+		this.actualizarVistas(coordInic,esAlgoformer);
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.accionables.put(coordInic,new Vacio());
 	}
@@ -317,7 +350,9 @@ public class Tablero implements Observador{
 	}
 	
 	public void reposicionar(Algoformer algoformer) {
-		Coordenada coordenada =	this.obtenerCoordenadaDeElemento(algoformer);
+		Coordenada coordenada =	algoformer.getCoordenada();
+		boolean esAlgoformer = true;
+		this.actualizarVistas(coordenada, esAlgoformer);
 		this.colocarEnTablero(algoformer, coordenada);
 	}
 	

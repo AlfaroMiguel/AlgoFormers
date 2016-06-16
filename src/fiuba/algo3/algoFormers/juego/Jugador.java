@@ -5,6 +5,7 @@ import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 public class Jugador{
 	protected Equipo equipo;
@@ -66,6 +67,11 @@ public class Jugador{
 
 	public ObservableTerminoJuego verEquipo() {
 		return this.equipo;
+	}
+
+	public void agregarVista(Vista vista) {
+		this.equipo.agregarVista(vista);
+		
 	}
 
 	

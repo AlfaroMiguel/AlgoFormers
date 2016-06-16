@@ -37,9 +37,6 @@ public class Juego implements Observador{
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 
 		
-		//Para probar
-		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(5,5));
-		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(14,5));
 		
 		//se definen los jugadores
 		this.elegirPrimerJugador();
@@ -215,8 +212,12 @@ public class Juego implements Observador{
  	}
 
 	public void agregarVista(Vista vista) {
-		// TODO Auto-generated method stub
+		this.jugadorActual.agregarVista(vista);
+		this.jugadorAnterior.agregarVista(vista);
+		this.tablero.agregarVista(vista);
 		
 	}
+
+	
 	
 }

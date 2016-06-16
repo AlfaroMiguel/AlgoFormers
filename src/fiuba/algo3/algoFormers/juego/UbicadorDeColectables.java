@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.habitables.DobleCanion;
 import fiuba.algo3.algoFormers.habitables.Flash;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 public class UbicadorDeColectables {
 	
@@ -133,5 +134,10 @@ public class UbicadorDeColectables {
 		int q = rand.nextInt((alto - 0) + 1);
 		int r = rand.nextInt((ancho - 0) + 1);
 		return new Coordenada(q,r);
+	}
+
+	public void ubicarColectables(Tablero tablero, Vista vista) {
+		// TODO Auto-generated method stub
+		
 	}
 }

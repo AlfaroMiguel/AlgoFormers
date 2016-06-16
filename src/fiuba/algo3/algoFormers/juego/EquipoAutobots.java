@@ -7,6 +7,7 @@ import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
 
 public class EquipoAutobots extends Equipo {
 	
@@ -72,6 +73,15 @@ public class EquipoAutobots extends Equipo {
 
 	public boolean vencioEquipoContrario(){
 		return this.oponentesVencidos == EquipoAutobots.CANT_MIEMBROS_CONTRARIOS;
+	}
+
+	@Override
+	public void agregarVista(Vista vista) {
+		this.optimus.agregarVista(vista);
+		this.bumblebee.agregarVista(vista);
+		this.ratchet.agregarVista(vista);
+		this.superion.agregarVista(vista);
+		
 	}
 	
 }

@@ -1,13 +1,16 @@
 package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.habitables.Recolectable;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -60,7 +63,9 @@ public class Hexagono extends StackPane {
         //this.setOnMouseExited(e-> close());
         //Esto es nuevo 13/06/2016
         this.setOnMouseClicked(e -> seleccionado());
-        //this.setOnMouseEntered(e -> open());
+//        KeyEventHandler handler = new KeyEventHandler(controlador);
+//        this.setOnKeyPressed(handler);
+//        //this.setOnMouseEntered(e -> open());
 	}
 	public void setControlador(Controlador controlador){
 		//Esto es nuevo 13/6/2016

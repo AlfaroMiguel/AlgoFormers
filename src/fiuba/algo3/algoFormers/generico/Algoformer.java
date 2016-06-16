@@ -1,16 +1,20 @@
 package fiuba.algo3.algoFormers.generico;
 
-import fiuba.algo3.algoFormers.habitables.*;
-import fiuba.algo3.algoFormers.modos.Modo;
-import fiuba.algo3.algoFormers.superficie.*;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.tablero.Tablero;
-import javafx.scene.image.Image;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.afectadores.Afectador;
+import fiuba.algo3.algoFormers.excepciones.NoColisionableException;
+import fiuba.algo3.algoFormers.habitables.Accionable;
+import fiuba.algo3.algoFormers.habitables.ChispaSuprema;
+import fiuba.algo3.algoFormers.habitables.Recolectable;
+import fiuba.algo3.algoFormers.modos.Modo;
+import fiuba.algo3.algoFormers.superficie.SuperficieAire;
+import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.Vista;
+import javafx.scene.image.Image;
 
 /* Clase que representa un algoformer generico */
 public abstract class Algoformer implements Accionable{
@@ -37,6 +41,10 @@ public abstract class Algoformer implements Accionable{
 	 * Parametros: atacado: accionable a atacar.*/
 	public abstract void atacar(Tablero tablero, Accionable atacado);
 	
+	/*
+	VISTAS
+	*/
+	public List<Vista> vistas = new ArrayList<Vista>();
 	/* Metodos de la clase. */
 	/* Convierte su velocidad en 0 para no poder moverse.*/
 	public void inmovilizar(){
@@ -45,7 +53,7 @@ public abstract class Algoformer implements Accionable{
 	
 	public void setCoordenada(Coordenada posicion){
 		this.posicion = posicion;
-		//this.vista.update(this,posicion);
+		this.actualizarVista();
 	}
 	public Coordenada getCoordenada(){
 		return this.posicion;
@@ -56,6 +64,7 @@ public abstract class Algoformer implements Accionable{
 	 * Lanza: MovimientoInvalidoException si el movimiento no se puede completar. */
 	public void moverse(Coordenada coordenada, Tablero tablero){
 		this.modo.moverse(this, coordenada, tablero, this.agilidad);
+
 	}
 	/* Cambia de modo humanoide a alterno o alterno a humanoide segun corresponda
 	 * por el modo actual. */
@@ -150,7 +159,7 @@ public abstract class Algoformer implements Accionable{
 	/* Metodos abstractos redefinidos. */
 	@Override
 	public void colisionar() {
-		//throw new NoColisionableException();
+//		throw new NoColisionableException();
 	}
 
 	@Override
@@ -228,5 +237,12 @@ public abstract class Algoformer implements Accionable{
 	public Image getImage() {
 		return this.modo.getImage();
 	}
-	
+	public void agregarVista(Vista vista){
+		this.vistas.add(vista);
+	}
+	public void actualizarVista(){
+		for(Vista vista: vistas){
+			vista.update(this, this.posicion);
+		}
+	}
 }
