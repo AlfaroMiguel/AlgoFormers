@@ -8,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polyline;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -35,9 +36,11 @@ public class Hexagono extends StackPane {
 									l/2.0 , -l*Math.sqrt(3.0)/2,
 									l*1.0, 0.0
 									);
-
+		//Separo los casilleros con lineas
 		hexagon.setStroke(Color.IVORY);
 		hexagon.setStrokeWidth(1.3);
+		//De ahora en mas las lineas van adentro de las lineas que separan (las blancas)
+		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
 
 		
 		this.getChildren().addAll(hexagon,text,habitable,aire);
@@ -70,15 +73,6 @@ public class Hexagono extends StackPane {
 		this.hexagon.setStroke(Color.LIGHTBLUE);
 	}
 
-	private void close() {
-		this.hexagon.setFill(Color.GREEN);
-
-	}
-
-	private void open() {
-		this.hexagon.setFill(Color.IVORY);
-	}
-
 	public void atacado(int vida){
 		this.text.setFill(Color.DARKRED);
 		this.text.setText("-"+ String.valueOf(vida));
@@ -99,7 +93,7 @@ public class Hexagono extends StackPane {
 	}
 
 	public void ponerAndromeda() {
-
+		this.ponerAire("file:img/superficies/nebulosa.png");
 	}
 
 	public void ponerNubes() {
@@ -107,7 +101,7 @@ public class Hexagono extends StackPane {
 	}
 
 	public void ponerPsionica() {
-
+		this.ponerAire("file:img/superficies/tormenta.png");
 	}
 //	
 //	private void ponerTierra(String path) {
@@ -120,7 +114,12 @@ public class Hexagono extends StackPane {
 		this.tierra = new ImagePattern(imagen);
 		this.hexagon.setFill(tierra);
 	}
-	
+	private void ponerAire(String path) {
+	Image imagen = new Image(path,60,60,true,true,false);
+	this.aire.setImage(imagen);
+	this.aire.setOpacity(0.8);
+	this.aire.toFront();
+}
 
 	public void ponerOptimusAlterno() {
 		this.ponerAlgoFormer("file:img/algoformers/alterno/optimus.png");
@@ -159,7 +158,7 @@ public class Hexagono extends StackPane {
 	}
 
 	public void ponerBonecrusherHumanoide() {
-		this.ponerAlgoFormer("file:img/algoformers/humanoide/bonecrushers.png");
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/bonecrusher.png");
 	}
 
 	public void ponerMegatronHumanoide() {
@@ -189,6 +188,12 @@ public class Hexagono extends StackPane {
 		this.habitable.setImage(imagen);
 		this.aire.toFront();
 	}
+	
+	public void sacarAlgoFormer(){
+		//Supongo que no es lo mas lindo mañana buscare como se hace bien
+		this.habitable.setImage(null);
+	}
+	
 	public void ponerChispa() {
 
 		this.ponerRecolectable("file:img/recolectable/chispa.png");

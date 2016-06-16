@@ -21,6 +21,7 @@ public class GeneradorDeCoordenadas {
 		        tablero.put(new Coordenada(q,r),casillero);
 		    }
 		}
+		CreadorDeMapas.generarMapa(tablero,height,width);
 	}
 	public static void generarCoordenadasDelTablero(HashMap<Coordenada,Accionable> tablero,int height, int width){
 		for (int q = 0; q < width; q++) {
