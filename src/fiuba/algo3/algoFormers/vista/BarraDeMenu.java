@@ -3,7 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
+//import javafx.scene.control.Alert.AlertType;
 
 
 public class BarraDeMenu extends MenuBar {
