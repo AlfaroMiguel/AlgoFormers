@@ -62,17 +62,30 @@ public class Hexagono extends StackPane {
 		this.controlador = controlador;
 	}
 	public void seleccionado() {
-		//this.hexagon.setFocusTraversable(true);
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
 		//Esto es nuevo 13/06/2016
 		this.controlador.fueSeleccionado(this.coordenada);
 	}
 
-	public void paint() {
-		this.hexagon.setStroke(Color.LIGHTBLUE);
+	public void pintarCaminoCorrecto() {
+		this.hexagon.setStroke(Color.CADETBLUE);
+		this.hexagon.setStrokeWidth(2);
 	}
-
+	public void pintarCaminoIncorrecto() {
+		this.hexagon.setStroke(Color.GREY);
+		this.hexagon.setStrokeWidth(2);
+	}
+	public void pintarRegionAtaque() {
+		this.hexagon.setStroke(Color.DARKRED);
+		this.hexagon.setStrokeWidth(2);
+	}	
+	public void despintar() {
+		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
+		hexagon.setStroke(Color.IVORY);
+		hexagon.setStrokeWidth(1.3);
+		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
+	}
 	public void atacado(int vida){
 		this.text.setFill(Color.DARKRED);
 		this.text.setText("-"+ String.valueOf(vida));
@@ -117,7 +130,7 @@ public class Hexagono extends StackPane {
 	private void ponerAire(String path) {
 	Image imagen = new Image(path,60,60,true,true,false);
 	this.aire.setImage(imagen);
-	this.aire.setOpacity(0.8);
+	this.aire.setOpacity(0.4);
 	this.aire.toFront();
 }
 

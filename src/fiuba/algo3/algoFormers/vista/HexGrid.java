@@ -41,10 +41,10 @@ public class HexGrid {
      }
 
 
- 	public static void pintarCamino(List<Coordenada> camino){
+ 	public static void pintarCaminoCorrecto(List<Coordenada> camino){
 	 		// Recorro la lista y pinto los hex correspondientes
 	 		for(Coordenada coordenada: camino){
-	 			grid.get(coordenada).paint();
+	 			grid.get(coordenada).pintarCaminoCorrecto();
 	 		}
 
  	}
