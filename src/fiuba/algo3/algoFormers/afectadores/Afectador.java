@@ -46,6 +46,8 @@ public abstract class Afectador{
 		if (getClass() != obj.getClass())
 			return false;
 		Afectador other = (Afectador) obj;
+		if(other.efecto.getClass() == this.efecto.getClass())
+			return true;
 		if (efecto == null) {
 			if (other.efecto != null)
 				return false;
