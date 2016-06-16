@@ -28,10 +28,7 @@ public class SuperionTerrestre extends ModoHumanoide {
 		throw new ModoUnicoException();
 	}
 	
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 1000000;
-	}
+	
 	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {

@@ -25,7 +25,7 @@ public class SuperficiePantano extends SuperficieTierra {
 	}
 
 	public void afectar(Algoformer algoformer, ModoTerrestreAlterno modo) {
-		afectador.afectarAlgoformer(algoformer);
+		//afectador.afectarAlgoformer(algoformer);
 	}
 
 	public void afectar(Algoformer algoformer, ModoHumanoide modo) {
@@ -48,6 +48,22 @@ public class SuperficiePantano extends SuperficieTierra {
 	@Override
 	public void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno) {
 
+	}
+
+	@Override
+	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
+		return 2;
+	}
+
+	@Override
+	public int costoPorPaso(ModoHumanoide modoHumanoide) {
+		return 10000000;
+	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

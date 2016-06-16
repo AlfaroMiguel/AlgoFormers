@@ -15,7 +15,7 @@ public class SuperficieEspinas extends SuperficieTierra {
 
 	@Override
 	public int simularPasoDe(Algoformer algoformer) {
-		return 1;
+		return algoformer.simularPasoDe(this);
 	}
 
 	@Override
@@ -50,5 +50,21 @@ public class SuperficieEspinas extends SuperficieTierra {
 	public void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno) {
 		afectador.desafectarAlgoformer(algoformer);
 
+	}
+
+	@Override
+	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
+		return 1;
+	}
+
+	@Override
+	public int costoPorPaso(ModoHumanoide modoHumanoide) {
+		return 1;
+	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
+		this.afectador.producirEfecto(algoformer);
+		
 	}
 }

@@ -53,13 +53,10 @@ public class Vacio implements Accionable{
 	public void serDesafectado(SuperficieTierra superficie) {
 	}
 
-	@Override
-	public int simularEfecto(SuperficieAire superficie) {
+	public int simularPasoPor(SuperficieTierra superficieTierra){
 		return 0;
 	}
-
-	@Override
-	public int simularEfecto(SuperficieTierra superficie) {
+	public int simularPasoPor(SuperficieAire superficieAire){
 		return 0;
 	}
 
@@ -85,6 +82,18 @@ public class Vacio implements Accionable{
 
 	@Override
 	public void notificarObservadores() {
+	}
+
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieAire superficieAire) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

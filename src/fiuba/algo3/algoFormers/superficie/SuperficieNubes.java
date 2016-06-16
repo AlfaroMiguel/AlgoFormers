@@ -14,7 +14,7 @@ public class SuperficieNubes extends SuperficieAire {
 	}
 
 	public int simularPasoDe(Algoformer algoformer) {
-		return 1;
+		return algoformer.simularPasoDe(this);
 	}
 
 	public void ponerSuperficieAire(Coordenada coordenada) {
@@ -29,5 +29,16 @@ public class SuperficieNubes extends SuperficieAire {
 	public void desafectar(Algoformer algoformer, ModoAereo modoAereo) {
 		afectador.desafectarAlgoformer(algoformer);
 
+	}
+
+	@Override
+	public int costoPorPaso(ModoAereo modoAereo) {
+		return 1;
+	}
+
+	@Override
+	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
+		// TODO Auto-generated method stub
+		
 	}
 }

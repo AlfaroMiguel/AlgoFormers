@@ -8,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polyline;
+import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -35,12 +36,14 @@ public class Hexagono extends StackPane {
 									l/2.0 , -l*Math.sqrt(3.0)/2,
 									l*1.0, 0.0
 									);
-
+		//Separo los casilleros con lineas
 		hexagon.setStroke(Color.IVORY);
-		hexagon.setStrokeWidth(0.2);
+		hexagon.setStrokeWidth(1.3);
+		//De ahora en mas las lineas van adentro de las lineas que separan (las blancas)
+		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
 
 		
-		this.getChildren().addAll(hexagon,text,habitable);
+		this.getChildren().addAll(hexagon,text,habitable,aire);
 
 		text.setFont(Font.font(18));
 //        text.setText(String.valueOf(x) +"," + String.valueOf(y));
@@ -59,25 +62,30 @@ public class Hexagono extends StackPane {
 		this.controlador = controlador;
 	}
 	public void seleccionado() {
-		//this.hexagon.setFocusTraversable(true);
-		this.hexagon.setFill(Color.DEEPPINK);
+		this.hexagon.setStroke(Color.YELLOW);
+		this.hexagon.setStrokeWidth(2);
 		//Esto es nuevo 13/06/2016
 		this.controlador.fueSeleccionado(this.coordenada);
 	}
 
-	public void paint() {
-		this.hexagon.setStroke(Color.LIGHTBLUE);
+	public void pintarCaminoCorrecto() {
+		this.hexagon.setStroke(Color.CADETBLUE);
+		this.hexagon.setStrokeWidth(2);
 	}
-
-	private void close() {
-		this.hexagon.setFill(Color.GREEN);
-
+	public void pintarCaminoIncorrecto() {
+		this.hexagon.setStroke(Color.GREY);
+		this.hexagon.setStrokeWidth(2);
 	}
-
-	private void open() {
-		this.hexagon.setFill(Color.IVORY);
+	public void pintarRegionAtaque() {
+		this.hexagon.setStroke(Color.DARKRED);
+		this.hexagon.setStrokeWidth(2);
+	}	
+	public void despintar() {
+		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
+		hexagon.setStroke(Color.IVORY);
+		hexagon.setStrokeWidth(1.3);
+		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
 	}
-
 	public void atacado(int vida){
 		this.text.setFill(Color.DARKRED);
 		this.text.setText("-"+ String.valueOf(vida));
@@ -86,20 +94,19 @@ public class Hexagono extends StackPane {
 //		this.text.setText("");
 	}
 	public void ponerRocosa() {
-		this.ponerTierra("file:img/texturas/rocas3.jpg");
-//		this.hexagon.setFill(Color.DARKGRAY);
+		this.ponerTierra("file:img/superficies/roca.png");
 	}
 
 	public void ponerPantano() {
-		this.ponerTierra("file:img/texturas/pantano.jpg");
+		this.ponerTierra("file:img/superficies/pantano.png");
 	}
 
 	public void ponerEspinas() {
-		this.ponerTierra("file:img/texturas/espinas.jpg");
+		this.ponerTierra("file:img/superficies/espina.png");
 	}
 
 	public void ponerAndromeda() {
-
+		this.ponerAire("file:img/superficies/nebulosa.png");
 	}
 
 	public void ponerNubes() {
@@ -107,84 +114,99 @@ public class Hexagono extends StackPane {
 	}
 
 	public void ponerPsionica() {
-
+		this.ponerAire("file:img/superficies/tormenta.png");
 	}
-	
+//	
+//	private void ponerTierra(String path) {
+//		Image imagen = new Image(path,100,50*(1+Math.cos(Math.PI/3)),true,true,false);
+//		this.tierra.setImage(imagen);
+//		this.tierra.toBack();
+//	}
 	private void ponerTierra(String path) {
 		Image imagen = new Image(path);
-		this.tierra = new ImagePattern (imagen);
+		this.tierra = new ImagePattern(imagen);
 		this.hexagon.setFill(tierra);
-		
-//		this.hexagon.setFill(Color.BLACK);
 	}
+	private void ponerAire(String path) {
+	Image imagen = new Image(path,60,60,true,true,false);
+	this.aire.setImage(imagen);
+	this.aire.setOpacity(0.4);
+	this.aire.toFront();
+}
 
 	public void ponerOptimusAlterno() {
-		text.setText("Optimus");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/optimus.png");
 	}
 
 	public void ponerBumblebeeAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Bumblebee.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/bumblebee.png");
 	}
 
 	public void ponerFrenzyAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Frenzy.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/frenzy.png");
 	}
 
 	public void ponerBonecrusherAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Bonecrusher.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/bonecrusher.png");
 	}
 
 	public void ponerMegatronAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Megatron.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/megatron.png");
 	}
 
 	public void ponerRatchetAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Ratchet.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/ratchet.png");
 	}
 
 	public void ponerOptimusHumanoide() {
-		text.setText("Optimus");
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/optimus.png");
 	}
 
 	public void ponerBumblebeeHumanoide() {
-		//Para probar
-		this.ponerBumblebeeAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/bumblebee.png");
 	}
 
 	public void ponerFrenzyHumanoide() {
-		//Para probar
-		this.ponerFrenzyAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/frenzy.png");
 	}
 
 	public void ponerBonecrusherHumanoide() {
-		//Para probar
-		this.ponerBonecrusherAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/bonecrusher.png");
 	}
 
 	public void ponerMegatronHumanoide() {
-		//Para probar
-		this.ponerMegatronAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/megatron.png");
 	}
 
 	public void ponerRatchetHumanoide() {
-		//Para probar
-		this.ponerRatchetAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/ratchet.png");
 	}
 
 	public void ponerSuperion() {
-		// TODO Auto-generated method stub
+		this.ponerCombinado("file:img/algoformers/superion.png");
 	}
 	
 	public void ponerMenasor() {
-		// TODO Auto-generated method stub	
+		this.ponerCombinado("file:img/algoformers/menasor.png");
 	}
 	
-
-	private void ponerAlgoFormer(String path) {
-		Image imagen = new Image(path,40,60,true,true,false);
+	private void ponerCombinado(String path) {
+		Image imagen = new Image(path,80,100,true,true,false);
 		this.habitable.setImage(imagen);
 		this.aire.toFront();
 	}
+
+	private void ponerAlgoFormer(String path) {
+		Image imagen = new Image(path,70,90,true,true,false);
+		this.habitable.setImage(imagen);
+		this.aire.toFront();
+	}
+	
+	public void sacarAlgoFormer(){
+		//Supongo que no es lo mas lindo mañana buscare como se hace bien
+		this.habitable.setImage(null);
+	}
+	
 	public void ponerChispa() {
 
 		this.ponerRecolectable("file:img/recolectable/chispa.png");

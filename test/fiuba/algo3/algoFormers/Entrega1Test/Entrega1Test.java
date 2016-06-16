@@ -39,7 +39,7 @@ public class Entrega1Test {
 		Coordenada coordenadaInic = new Coordenada(3,4);
 		Optimus optimus = new Optimus();
 		tablero.colocarEnTablero(optimus,coordenadaInic);
-		Coordenada coordenadaFinal = new Coordenada(3,9);
+		Coordenada coordenadaFinal = new Coordenada(3,-1);
 		int paso = 3;
 		tablero.mover(optimus,coordenadaFinal,paso);
 	}
@@ -79,10 +79,10 @@ public class Entrega1Test {
 		Optimus optimus = new Optimus();
 		optimus.cambiarModo();
 		Tablero tablero = new Tablero(10,10);
-		Coordenada coordenadaInic = new Coordenada(3,2);
+		Coordenada coordenadaInic = new Coordenada(3,4);
 		tablero.colocarEnTablero(optimus,coordenadaInic);
-		Coordenada coordenadaFinal = new Coordenada(3,9);
-		int paso = 5;
+		Coordenada coordenadaFinal = new Coordenada(3,-1);
+		int paso = 4;
 		tablero.mover(optimus,coordenadaFinal,paso);
 	}
 	

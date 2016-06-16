@@ -60,6 +60,7 @@ public class TableroTests {
 		Coordenada coordenadaFinal = new Coordenada(3,7);
 		int paso = 2;
 		tablero.mover(optimus,coordenadaFinal,paso);
+		
 	}
 	
 	@Test
@@ -73,6 +74,7 @@ public class TableroTests {
 		tablero.mover(optimus,coordenadaFinal,paso);
 		assertTrue("El tablero NO vacia el espacio del cual se movio el habitable",tablero.estaVacio(coordenadaInic));
 		assertFalse("El tablero NO pone en el lugar de destino al habitable que se movio",tablero.estaVacio(coordenadaFinal));
+		Assert.assertTrue(tablero.estaVacio(coordenadaInic));
 	}
 	
 	@Test(expected = MovimientoInvalidoException.class)

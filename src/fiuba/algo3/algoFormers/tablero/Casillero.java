@@ -32,5 +32,11 @@ public class Casillero {
 	public int calcularMovimiento(Accionable transeunte){
 		return Math.max(this.aire.simularRecorrido(transeunte), this.tierra.simularRecorrido(transeunte));
 	}
+
+	public void producirEfectoPorPaso(Accionable accionable) {
+		this.aire.producirEfectoPorPaso(accionable);
+		this.tierra.producirEfectoPorPaso(accionable);
+		
+	}
 	
 }

@@ -27,10 +27,7 @@ public class BonecrusherAlterno extends ModoTerrestreAlterno {
 		algoformer.establecerModo(BonecrusherHumanoide.getInstance());
 	}
 	
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 2;
-	}
+	
 
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {

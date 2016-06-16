@@ -28,10 +28,6 @@ public class FrenzyAlterno extends ModoTerrestreAlterno {
 		algoformer.establecerModo(FrenzyHumanoide.getInstance());
 	}
 	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 2;
-	}
-	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerFrenzyAlterno(coordenada);
 	}

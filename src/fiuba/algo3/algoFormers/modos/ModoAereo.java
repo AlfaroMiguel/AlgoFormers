@@ -39,19 +39,14 @@ public abstract class ModoAereo implements Modo {
 		tablero.reposicionar(algoformer);
 	}
 
-	@Override
-	public int simularEfecto(SuperficieAire superficieAire, Algoformer algoformer) {
-		return superficieAire.simularPasoDe(algoformer);
-	}
+
 
 	@Override
-	public int simularEfecto(SuperficieTierra superficieTierra, Algoformer algoformer) {
-		return 0;
+	public int simularPasoDe(SuperficieTierra superficieTierra) {
+		return 1;
 	}
-
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano) {
-		return 0;
+	public int simularPasoDe(SuperficieAire superficieAire) {
+		return superficieAire.costoPorPaso(this);
 	}
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
 	}
@@ -66,5 +61,11 @@ public abstract class ModoAereo implements Modo {
 	
 	public int verAtaque(){
 		return this.ataque;
+	}
+	public void producirEfectoPorMicroMovimiento(SuperficieAire superficie, Algoformer algoformer){
+		superficie.producirEfectoPorPaso(algoformer,this);
+	}
+	public void producirEfectoPorMicroMovimiento(SuperficieTierra superficie, Algoformer algoformer){
+		//No hace nada porque es aereo
 	}
 }

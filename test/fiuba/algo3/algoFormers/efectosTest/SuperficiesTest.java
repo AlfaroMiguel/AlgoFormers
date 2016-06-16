@@ -117,7 +117,174 @@ public class SuperficiesTest {
 			Assert.assertEquals(megatron.verVida(), vidaInicial- 50);
 			
 	}
-	
+	@Test
+	public void test09AlPasarPorEnsimaDeUnaEspinaEnHumanoidePierdeVida(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		int vidaInicial = optimus.verVida();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*(0.95)));
+	}
+	@Test
+	public void test10AlPasarPorEnsimaDeUnaEspinaEnAlternoTerrestrePierdeVida(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		int vidaInicial = optimus.verVida();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verVida(), (int)(vidaInicial*(0.95)));
+	}
+	@Test
+	public void test11AlPasarPorEnsimaDeUnaEspinaEnAlternoAereoNOPierdeVida(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		int vidaInicial = megatron.verVida();
+		megatron.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficieEspinas(), new Coordenada(3,4));
+		tablero.colocarEnTablero(megatron, coordenadaInicial);
+		megatron.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		megatron.terminaTurno();
+		Assert.assertEquals(megatron.verVida(), vidaInicial);
+	}
+	@Test
+	public void test12AlPasarPorEnsimaDeUnaPsionicaEnAlternoAereoPierdeAtaque(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
+		int ataqueInicial = megatron.verAtaque();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,4));
+		tablero.colocarEnTablero(megatron, coordenadaInicial);
+		megatron.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		megatron.terminaTurno();
+		Assert.assertEquals(megatron.verAtaque(), (int)(ataqueInicial*0.4));
+	}
+	@Test
+	public void test13AlPasarPorEnsimaDeDosPsionicaEnAlternoAereoPierdeAtaque(){
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
+		int ataqueInicial = megatron.verAtaque();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,4));
+		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,5));
+		tablero.colocarEnTablero(megatron, coordenadaInicial);
+		megatron.moverse(new Coordenada(3,6),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		megatron.terminaTurno();
+		Assert.assertEquals(megatron.verAtaque(), (int)(ataqueInicial*0.4));
+	}
+	@Test
+	public void test14AlPasarPorEnsimaDeUnaPsionicaEnAlternoTerrestreNOPierdeAtaque(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo();
+		int ataqueInicial = optimus.verAtaque();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verAtaque(), (int)(ataqueInicial));
+	}
+	@Test
+	public void test15AlPasarPorEnsimaDeUnaPsionicaEnHumanoideNOPierdeAtaque(){
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		int ataqueInicial = optimus.verAtaque();
+		Coordenada coordenadaInicial = new Coordenada(3,3);
+		tablero.colocarSuperficieEnTablero(new SuperficiePsionica(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,5),tablero);
+		
+		//Los efectos se aplican al final de cada turno
+		optimus.terminaTurno();
+		Assert.assertEquals(optimus.verAtaque(), (int)(ataqueInicial));
+	}
+	@Test(expected = MovimientoInvalidoException.class)
+	public void test16AlPasarPorEnsimaDeUnPantanoEnAlternoTerrestrePierdeVelocidad(){
+		//Caso donde falla
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,5);
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,0),tablero);
+	}
+	@Test
+	public void test17AlPasarPorEnsimaDeUnPantanoEnAlternoTerrestrePierdeVelocidad(){
+		//Caso donde no falla
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,5);
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,1),tablero);
+	}
+	@Test(expected = MovimientoInvalidoException.class)
+	public void test18AlPasarPorEnsimaDeDosPantanosEnAlternoTerrestrePierdeVelocidad(){
+		//Caso donde falla
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,5);
+		//Fuerzo que el camino mas corto sea por 3,5 3,4 3,3 3,2 3,1
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,4));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(2,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(1,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(4,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,1),tablero);
+	}
+	@Test
+	public void test19AlPasarPorEnsimaDeDosPantanosEnAlternoTerrestrePierdeVelocidad(){
+		//Caso donde no falla
+		Tablero tablero = new Tablero(10,10);
+		Optimus optimus = new Optimus();
+		optimus.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,5);
+		//Fuerzo que el camino mas corto sea por 3,5 3,4 3,3 3,2 3,1
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,4));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(2,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(1,3));
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(4,4));
+		tablero.colocarEnTablero(optimus, coordenadaInicial);
+		optimus.moverse(new Coordenada(3,2),tablero);
+	}
+	@Test
+	public void test20AlPasarPorEnsimaDeUnPantanoEnAlternoAereoNOPierdeVelocidad(){
+		//Caso donde falla
+		Tablero tablero = new Tablero(10,10);
+		Megatron megatron = new Megatron();
+		megatron.cambiarModo();
+		Coordenada coordenadaInicial = new Coordenada(3,7);
+		tablero.colocarSuperficieEnTablero(new SuperficiePantano(), new Coordenada(3,4));
+		tablero.colocarEnTablero(megatron, coordenadaInicial);
+		megatron.moverse(new Coordenada(3,-1),tablero);
+	}
 //	@Test
 //	public void test09AlPonerAlgoformerModoAereoEnUnaSuperficiePsionicaReduceSuAtaque(){
 //			Tablero tablero = new Tablero(10,10);

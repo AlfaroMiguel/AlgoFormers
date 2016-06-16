@@ -41,10 +41,10 @@ public class HexGrid {
      }
 
 
- 	public static void pintarCamino(List<Coordenada> camino){
+ 	public static void pintarCaminoCorrecto(List<Coordenada> camino){
 	 		// Recorro la lista y pinto los hex correspondientes
 	 		for(Coordenada coordenada: camino){
-	 			grid.get(coordenada).paint();
+	 			grid.get(coordenada).pintarCaminoCorrecto();
 	 		}
 
  	}
@@ -64,17 +64,6 @@ public class HexGrid {
 	public static void ponerSuperficieEspinas(Coordenada coordenada) {
 			grid.get(coordenada).ponerEspinas();
 	}
-//		public static Group GrupoDeTablero(int width, int height) {
-//			Group group = new Group();
-//			for (int q = 0; q < width; q++) {
-//			    int q_offset = (int)Math.floor(q/2);
-//			    for (int r = -q_offset; r < height - q_offset; r++) {
-//			        Hexagono hex = grid.get(new Coordenada(q,r));
-//			        group.getChildren().add(hex);
-//			    }
-//			}
-//	        return group;
-//		}
 
 	public static void ponerSuperficieAire(Coordenada coordenada, SuperficieAire superficieAire) {
 			superficieAire.ponerSuperficieAire(coordenada);

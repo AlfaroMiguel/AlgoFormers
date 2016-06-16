@@ -57,9 +57,11 @@ public interface Accionable extends Observable{
 	public void serDesafectado(SuperficieTierra superficie);
 	
 	
-	public int simularEfecto(SuperficieAire superficie);
-	public int simularEfecto(SuperficieTierra superficie);
 
 	public void recolectar(Recolectable colectable);
 	public void ponerAccionable(Coordenada c);
+	public int simularPasoPor(SuperficieTierra superficieTierra);
+	public int simularPasoPor(SuperficieAire superficieAire);
+	public void efectoPorMicroMovimiento(SuperficieAire superficieAire);
+	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra);
 }

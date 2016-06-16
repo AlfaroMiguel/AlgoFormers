@@ -27,10 +27,7 @@ public class RatchetAlterno extends ModoAereoAlterno {
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(RatchetHumanoide.getInstance());
 	}
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 2;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerRatchetAlterno(coordenada);

@@ -27,10 +27,7 @@ public class BumblebeeAlterno extends ModoTerrestreAlterno{
 		algoformer.establecerModo(BumblebeeHumanoide.getInstance());
 	}
 	
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 2;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerBumblebeeAlterno(coordenada);

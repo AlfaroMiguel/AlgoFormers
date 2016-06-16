@@ -27,10 +27,7 @@ public class MegatronHumanoide extends ModoHumanoide {
 	public void cambiar(Algoformer algoformer) {
 		algoformer.establecerModo(MegatronAlterno.getInstance());
 	}
-	@Override
-	public int simularPasoDe(SuperficiePantano superficiePantano){
-		return 1000000;
-	}
+	
 	@Override
 	public void ponerAccionable(Coordenada coordenada) {
 		HexGrid.ponerMegatronHumanoide(coordenada);
