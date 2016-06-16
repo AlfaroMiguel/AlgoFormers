@@ -37,10 +37,10 @@ public class Hexagono extends StackPane {
 									);
 
 		hexagon.setStroke(Color.IVORY);
-		hexagon.setStrokeWidth(0.2);
+		hexagon.setStrokeWidth(1.3);
 
 		
-		this.getChildren().addAll(hexagon,text,habitable);
+		this.getChildren().addAll(hexagon,text,habitable,aire);
 
 		text.setFont(Font.font(18));
 //        text.setText(String.valueOf(x) +"," + String.valueOf(y));
@@ -60,7 +60,8 @@ public class Hexagono extends StackPane {
 	}
 	public void seleccionado() {
 		//this.hexagon.setFocusTraversable(true);
-		this.hexagon.setFill(Color.DEEPPINK);
+		this.hexagon.setStroke(Color.YELLOW);
+		this.hexagon.setStrokeWidth(2);
 		//Esto es nuevo 13/06/2016
 		this.controlador.fueSeleccionado(this.coordenada);
 	}
@@ -86,16 +87,15 @@ public class Hexagono extends StackPane {
 //		this.text.setText("");
 	}
 	public void ponerRocosa() {
-		this.ponerTierra("file:img/texturas/rocas3.jpg");
-//		this.hexagon.setFill(Color.DARKGRAY);
+		this.ponerTierra("file:img/superficies/roca.png");
 	}
 
 	public void ponerPantano() {
-		this.ponerTierra("file:img/texturas/pantano.jpg");
+		this.ponerTierra("file:img/superficies/pantano.png");
 	}
 
 	public void ponerEspinas() {
-		this.ponerTierra("file:img/texturas/espinas.jpg");
+		this.ponerTierra("file:img/superficies/espina.png");
 	}
 
 	public void ponerAndromeda() {
@@ -109,79 +109,83 @@ public class Hexagono extends StackPane {
 	public void ponerPsionica() {
 
 	}
-	
+//	
+//	private void ponerTierra(String path) {
+//		Image imagen = new Image(path,100,50*(1+Math.cos(Math.PI/3)),true,true,false);
+//		this.tierra.setImage(imagen);
+//		this.tierra.toBack();
+//	}
 	private void ponerTierra(String path) {
 		Image imagen = new Image(path);
-		this.tierra = new ImagePattern (imagen);
+		this.tierra = new ImagePattern(imagen);
 		this.hexagon.setFill(tierra);
-		
-//		this.hexagon.setFill(Color.BLACK);
 	}
+	
 
 	public void ponerOptimusAlterno() {
-		text.setText("Optimus");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/optimus.png");
 	}
 
 	public void ponerBumblebeeAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Bumblebee.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/bumblebee.png");
 	}
 
 	public void ponerFrenzyAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Frenzy.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/frenzy.png");
 	}
 
 	public void ponerBonecrusherAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Bonecrusher.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/bonecrusher.png");
 	}
 
 	public void ponerMegatronAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Megatron.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/megatron.png");
 	}
 
 	public void ponerRatchetAlterno() {
-		this.ponerAlgoFormer("file:img/alterno/Ratchet.png");
+		this.ponerAlgoFormer("file:img/algoformers/alterno/ratchet.png");
 	}
 
 	public void ponerOptimusHumanoide() {
-		text.setText("Optimus");
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/optimus.png");
 	}
 
 	public void ponerBumblebeeHumanoide() {
-		//Para probar
-		this.ponerBumblebeeAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/bumblebee.png");
 	}
 
 	public void ponerFrenzyHumanoide() {
-		//Para probar
-		this.ponerFrenzyAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/frenzy.png");
 	}
 
 	public void ponerBonecrusherHumanoide() {
-		//Para probar
-		this.ponerBonecrusherAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/bonecrushers.png");
 	}
 
 	public void ponerMegatronHumanoide() {
-		//Para probar
-		this.ponerMegatronAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/megatron.png");
 	}
 
 	public void ponerRatchetHumanoide() {
-		//Para probar
-		this.ponerRatchetAlterno();
+		this.ponerAlgoFormer("file:img/algoformers/humanoide/ratchet.png");
 	}
 
 	public void ponerSuperion() {
-		// TODO Auto-generated method stub
+		this.ponerCombinado("file:img/algoformers/superion.png");
 	}
 	
 	public void ponerMenasor() {
-		// TODO Auto-generated method stub	
+		this.ponerCombinado("file:img/algoformers/menasor.png");
 	}
 	
+	private void ponerCombinado(String path) {
+		Image imagen = new Image(path,80,100,true,true,false);
+		this.habitable.setImage(imagen);
+		this.aire.toFront();
+	}
 
 	private void ponerAlgoFormer(String path) {
-		Image imagen = new Image(path,40,60,true,true,false);
+		Image imagen = new Image(path,70,90,true,true,false);
 		this.habitable.setImage(imagen);
 		this.aire.toFront();
 	}
