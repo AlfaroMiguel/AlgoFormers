@@ -18,6 +18,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.Pane;
@@ -51,6 +54,7 @@ public class Aplicacion extends Application {
 		Scene scene = pantallaInicio();
 		primaryStage.setTitle("Algoformers");
 		primaryStage.setScene(scene);
+		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 	
@@ -72,17 +76,37 @@ public class Aplicacion extends Application {
 	}
 	
 	public Scene pantallaInicio(){
-		Pane pane = new Pane();
 		Button botonEntrar = new Button();
 		botonEntrar.setText("Comenzar");
 		botonEntrar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
 				stage.setScene(layout());
+				stage.setFullScreen(true);
 			}
 		});
-		pane.getChildren().add(botonEntrar);
-		return new Scene(pane);
+		DropShadow shadow = new DropShadow();
+		botonEntrar.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		            botonEntrar.setEffect(shadow);
+		        }
+		});
+		botonEntrar.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		    new EventHandler<MouseEvent>() {
+		        @Override public void handle(MouseEvent e) {
+		            botonEntrar.setEffect(null);
+		        }
+		});
+		botonEntrar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
+		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
+        ImageView imageView = new ImageView();
+        imageView.setImage(imagenFondo);
+	StackPane root = new StackPane();
+        root.getChildren().add(imageView);
+        root.getChildren().add(botonEntrar);
+
+        return new Scene(root);
 
 	}
 
