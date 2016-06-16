@@ -97,7 +97,7 @@ public class Aplicacion extends Application {
 		        }
 		});
 		botonEntrar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-		Image imagenFondo = new Image("file:img/tt.jpg");
+		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
         ImageView imageView = new ImageView();
         imageView.setImage(imagenFondo);
         imageView.setFitHeight(700);
