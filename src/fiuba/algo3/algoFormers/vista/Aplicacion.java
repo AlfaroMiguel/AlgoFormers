@@ -54,6 +54,7 @@ public class Aplicacion extends Application {
 		Scene scene = pantallaInicio();
 		primaryStage.setTitle("Algoformers");
 		primaryStage.setScene(scene);
+		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 	
@@ -81,6 +82,7 @@ public class Aplicacion extends Application {
 			@Override
 			public void handle(ActionEvent evento){
 				stage.setScene(layout());
+				stage.setFullScreen(true);
 			}
 		});
 		DropShadow shadow = new DropShadow();
