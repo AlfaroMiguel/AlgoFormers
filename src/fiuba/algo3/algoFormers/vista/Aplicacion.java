@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
+import fiuba.algo3.algoFormers.controlador.TextoEventHandler;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
@@ -14,9 +15,11 @@ import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.control.TextField;
@@ -29,6 +32,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
@@ -80,40 +85,38 @@ public class Aplicacion extends Application {
         TextField textoJugador1 = new TextField();
         TextField textoJugador2 = new TextField();
         
+        Label errorIngreso = new Label("Debe ingresar un nombre");
+        
 		botonComenzar.setText("Comenzar");
 		botonEnter1.setText("Ingresar");
 		botonEnter2.setText("Ingresar");
 		
 		textoJugador1.setPromptText("nombre jugador 1");
 		textoJugador2.setPromptText("nombre jugador 2");
-        
 
 		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
         ImageView imageView = new ImageView();
         imageView.setImage(imagenFondo);
         
-        botonComenzar.setStyle("-fx-font: 22 arial; -fx-base: #a8b772;");		
-		
-		botonComenzar.setLayoutX(600);
-        botonComenzar.setLayoutY(350);
-        botonEnter1.setLayoutX(620);
-        botonEnter1.setLayoutY(400);
-        botonEnter2.setLayoutX(620);
-        botonEnter2.setLayoutY(400);
+        botonComenzar.setStyle("-fx-font: 22 arial; -fx-base: #a8b772;");	
+        
+        errorIngreso.setFont(Font.font("arial",15));
+        errorIngreso.setTextFill(Color.CRIMSON);
         
         textoJugador1.setMaxSize(300, 10);
-        textoJugador1.setLayoutX(570);
-        textoJugador1.setLayoutY(350);
         textoJugador2.setMaxSize(300, 10);
-        textoJugador2.setLayoutX(570);
-        textoJugador2.setLayoutY(350);
-
+       
         imageView.setFitHeight(800);
         imageView.setFitWidth(1400);
         
-        root.getChildren().add(imageView);
-        root.getChildren().add(botonEnter1);
-        root.getChildren().add(textoJugador1);
+        this.ubicarNodo(botonComenzar, 600, 350);
+        this.ubicarNodo(botonEnter1, 620, 400);
+        this.ubicarNodo(botonEnter2, 620, 400);
+        this.ubicarNodo(textoJugador1, 570, 350);
+        this.ubicarNodo(textoJugador2, 570, 350);
+        this.ubicarNodo(errorIngreso, 558, 330);
+        
+        root.getChildren().addAll(imageView, botonEnter1, textoJugador1);
         
 		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
@@ -127,11 +130,19 @@ public class Aplicacion extends Application {
 			@Override
 			public void handle(ActionEvent evento){
 				if (! textoJugador1.getText().trim().equals("")){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
 					root.getChildren().remove(textoJugador1);
 					root.getChildren().remove(botonEnter1);
 					root.getChildren().add(textoJugador2);
 					root.getChildren().add(botonEnter2);
 					botonEnter2.requestFocus();
+				}
+				else{
+					if (! root.getChildren().contains(errorIngreso)){
+						root.getChildren().add(errorIngreso);
+					}
 				}
 			} 
 		}); 
@@ -140,9 +151,18 @@ public class Aplicacion extends Application {
 			@Override
 			public void handle(ActionEvent evento){
 				if (! textoJugador2.getText().trim().equals("")){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
 					root.getChildren().remove(textoJugador2);
 					root.getChildren().remove(botonEnter2);
 					root.getChildren().add(botonComenzar);
+					botonComenzar.requestFocus();
+				}
+				else{
+					if (! root.getChildren().contains(errorIngreso)){
+						root.getChildren().add(errorIngreso);
+					}
 				}
 			} 
 		});
@@ -167,13 +187,24 @@ public class Aplicacion extends Application {
         TextoEventHandler texto2EventHandler = new TextoEventHandler(botonEnter2);
         textoJugador2.setOnKeyPressed(texto2EventHandler);
         
+        TextoEventHandler botonEnter1EventHandler = new TextoEventHandler(botonEnter1);
+        botonEnter1.setOnKeyPressed(botonEnter1EventHandler);
+        
+        TextoEventHandler botonEnter2EventHandler = new TextoEventHandler(botonEnter2);
+        botonEnter2.setOnKeyPressed(botonEnter2EventHandler);
+        
         TextoEventHandler botonComenzarEventHandler = new TextoEventHandler(botonComenzar);
         botonComenzar.setOnKeyPressed(botonComenzarEventHandler);
         
         return new Scene(root);
 
 	}
-
+	
+	public void ubicarNodo(Node nodo, int x, int y){		
+		nodo.setLayoutX(x);
+        nodo.setLayoutY(y);
+	}
+	
 	public static Group crearTablero(int alto, int ancho,Vista vista, Controlador controlador) {
 		return vista.crearTablero(ancho, alto,controlador);
 	}
