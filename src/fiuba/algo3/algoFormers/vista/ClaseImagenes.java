@@ -107,7 +107,7 @@ public class ClaseImagenes {
 		return recolectable.getImage();
 	}
 	public static Image getImageRecolectable(DobleCanion dobleCanion) {
-		return ponerRecolectable("file:img/recolectable/cañon.png");
+		return ponerRecolectable("file:img/recolectable/canion.png");
 	}
 	public static Image getImageRecolectable(BurbujaInmaculada burbujaInmaculada) {
 		return ponerRecolectable("file:img/recolectable/burbuja.png");
