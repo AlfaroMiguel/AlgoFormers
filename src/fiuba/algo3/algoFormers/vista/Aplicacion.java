@@ -37,37 +37,24 @@ public class Aplicacion extends Application {
 	    Application.launch(args);
 	    }
 	
-//	@Override
-//	public void start(Stage stage){
-//		
-//		//HexGrid.pintarCamino(juego.buscarCamino(new Coordenada(4,1), new Coordenada(5,5)));
-//
-//		
-//		Scene scene = new Scene(layout);
-//	    stage.setScene(scene);
-//	    stage.setTitle("AlgoFormers");
-//	    stage.show();
-//	}
-	
 	@Override
 	public void start(Stage primaryStage){
 		stage = primaryStage;
 		Scene scene = pantallaInicio();
 		primaryStage.setTitle("Algoformers");
 		primaryStage.setScene(scene);
-		primaryStage.setFullScreen(true);
+		//primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 	
 	public Scene layout(){
 
-		int alto = 20;
+		int alto = 30;
 		int ancho = 20;
 		Vista vista = new Vista();
 		Juego juego = new Juego(alto, ancho);
 		juego.agregarVista(vista);
 		Controlador controlador =  new Controlador(juego);
-		//Esto es nuevo 13/6/2016
 		Group grid = crearTablero(alto, ancho, vista,controlador);
 		vista.inicializarTablero(alto,ancho,juego);
 		Parent contenedor = crearContenedor(grid);
@@ -77,7 +64,7 @@ public class Aplicacion extends Application {
 		Scene scene = new Scene(layout);
 		
 		KeyEventHandler handler = new KeyEventHandler(controlador);
-		scene.setOnKeyTyped(handler);
+		scene.setOnKeyPressed(handler);
 		
 		return scene;
 	}

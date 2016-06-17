@@ -14,7 +14,7 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 		System.out.println("KEY EVENT" + event.getCode());
 		if(event.getCode()== KeyCode.T){
 			System.out.println("Entra");
-			controlador.juego.transformarSeleccionado();
+			controlador.transformarSeleccionado();
 		}
 		//event.consume();
 	}

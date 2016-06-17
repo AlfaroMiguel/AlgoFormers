@@ -72,10 +72,10 @@ public class Hexagono extends StackPane {
 		this.controlador = controlador;
 	}
 	public void seleccionado() {
+		this.controlador.fueSeleccionado(this.coordenada);
+		
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
-		//Esto es nuevo 13/06/2016
-		this.controlador.fueSeleccionado(this.coordenada);
 	}
 
 	public void pintarCaminoCorrecto() {
