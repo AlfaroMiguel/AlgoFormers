@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
@@ -85,6 +86,14 @@ public class HexGrid {
 	}
 	public void borrarAlgoformer(Coordenada coordenada) {
 		this.grid.get(coordenada).sacarAlgoFormer();
+	}
+
+
+	public void limpiarSeleccion() {
+		for(Map.Entry<Coordenada, Hexagono> entry : this.grid.entrySet()) {
+           //this.grid.get(entry).limpiarSeleccion();
+			entry.getValue().limpiarSeleccion();
+        }
 	}
 
 }

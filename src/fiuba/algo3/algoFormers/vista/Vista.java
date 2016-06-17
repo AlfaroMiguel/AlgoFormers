@@ -35,4 +35,8 @@ public class Vista {
 		
 	}
 
+	public void update(Tablero tablero) {
+		this.hexGrid.limpiarSeleccion();
+	}
+
 }

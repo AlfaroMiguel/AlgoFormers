@@ -55,16 +55,10 @@ public class Hexagono extends StackPane {
 
 		text.setFont(Font.font(18));
 //        text.setText(String.valueOf(x) +"," + String.valueOf(y));
-        
-//        this.setOnMouseExited(e-> close());
-//        this.setOnMouseClicked(e -> this.atacado(50));
 //        this.setOnMouseEntered(e -> open());
 
         //this.setOnMouseExited(e-> close());
-        //Esto es nuevo 13/06/2016
         this.setOnMouseClicked(e -> seleccionado());
-//        KeyEventHandler handler = new KeyEventHandler(controlador);
-//        this.setOnKeyPressed(handler);
 //        //this.setOnMouseEntered(e -> open());
 	}
 	public void setControlador(Controlador controlador){
@@ -76,6 +70,9 @@ public class Hexagono extends StackPane {
 		
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
+	}
+	public void limpiarSeleccion() {
+		this.despintar();
 	}
 
 	public void pintarCaminoCorrecto() {
@@ -89,7 +86,7 @@ public class Hexagono extends StackPane {
 	public void pintarRegionAtaque() {
 		this.hexagon.setStroke(Color.DARKRED);
 		this.hexagon.setStrokeWidth(2);
-	}	
+	}
 	public void despintar() {
 		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
 		hexagon.setStroke(Color.IVORY);

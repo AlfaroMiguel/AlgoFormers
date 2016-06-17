@@ -105,6 +105,10 @@ public class Tablero implements Observador{
 		for(Vista vista: vistas)
 			vista.update(this,coordenada,esAlgoformer);
 	}
+	private void actualizarVistas() {
+		for(Vista vista: vistas)
+			vista.update(this);
+	}
 	public void agregarVista(Vista vista){
 		this.vistas.add(vista);
 	}
@@ -140,6 +144,9 @@ public class Tablero implements Observador{
 		this.actualizarVistas(coordInic,esAlgoformer);
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.accionables.put(coordInic,new Vacio());
+	}
+	public void seleccionado(){
+		this.actualizarVistas();
 	}
 	
 	/* Devuelve la coordenada en la que se encuentra un accionable.
@@ -386,6 +393,9 @@ public class Tablero implements Observador{
 	public void observarA(ObservableTerminoJuego observable){
 		this.observado = observable;
 		observable.agregarObservador(this);
+	}
+	public void nuevaSeleccion() {
+		this.actualizarVistas();
 	}
 
 }

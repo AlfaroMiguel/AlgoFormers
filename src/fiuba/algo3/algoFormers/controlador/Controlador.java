@@ -11,8 +11,7 @@ public class Controlador {
 		this.seleccionado = false;
 	}
 	public void fueSeleccionado(Coordenada coordenada){
-		//Hay que ver como hacerlo mas lindo
-		//this.juego.nuevaSeleccion();
+		juego.nuevaSeleccion();
 		if(!seleccionado){
 			this.seleccionado = this.juego.seleccionarCoordenada(coordenada);
 			System.out.println("Seleccionamos");

@@ -218,6 +218,8 @@ public class Juego implements Observador{
 		
 	}
 
-	
+	public void nuevaSeleccion() {
+		this.tablero.nuevaSeleccion();
+	}
 	
 }
