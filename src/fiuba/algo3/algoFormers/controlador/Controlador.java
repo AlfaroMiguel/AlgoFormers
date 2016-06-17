@@ -28,4 +28,9 @@ public class Controlador {
 		this.juego.transformarSeleccionado();
 		this.seleccionado=false;
 	}
+	public void entro(Coordenada coordenada) {
+		if(seleccionado){
+			this.juego.simularMovimiento(coordenada);
+		}
+	}
 }

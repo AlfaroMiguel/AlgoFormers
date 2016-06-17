@@ -58,7 +58,8 @@ public class GeneradorDeCaminos {
 		}
 		camino.add(actual);
 		//Elimino la posicion de destino ya que no la tomo en cuenta
-		camino.remove(destino);
+		//No elimino la posicion de destino ya que es mejor asi
+		//camino.remove(destino);
 		return camino;
 	}
 	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {

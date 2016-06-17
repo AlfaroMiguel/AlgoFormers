@@ -19,6 +19,9 @@ public abstract class ModoTerrestre implements Modo {
 	public int verAtaque(){
 		return this.ataque;
 	}
+	public double verPaso(){
+		return this.velocidad;
+	}
 	
 	@Override
 	public void atacar(Tablero tablero, Autobot atacante, Accionable atacado,Potencia potencia) {

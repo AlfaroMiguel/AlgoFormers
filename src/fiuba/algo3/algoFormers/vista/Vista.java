@@ -1,19 +1,25 @@
 package fiuba.algo3.algoFormers.vista;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import javafx.scene.Group;
 
 public class Vista {
 	private HexGrid hexGrid;
-	public Vista(){
+	private Juego juego;
+	public Vista(Juego juego){
 		this.hexGrid = new HexGrid();
+		this.juego = juego;
 	}
 
-	public void inicializarTablero(int alto, int ancho, Juego juego) {
+	public void inicializarTablero(int alto, int ancho) {
 		this.hexGrid.inicializarTablero(alto,ancho,juego);
 		
 	}
@@ -37,6 +43,14 @@ public class Vista {
 
 	public void update(Tablero tablero) {
 		this.hexGrid.limpiarSeleccion();
+	}
+
+	public void update(Tablero tablero, Coordenada coordenadaInicial, Coordenada coordenadaFinal,Algoformer algoformerActual) {
+		List camino = this.juego.buscarCamino(coordenadaInicial, coordenadaFinal);
+		int paso = (int) Math.ceil(algoformerActual.verModo().verPaso());
+		Boolean puedePagar = GeneradorDeCaminos.puedePagarCamino(camino, tablero.superficies, algoformerActual, paso);
+		if (puedePagar) this.hexGrid.pintarCaminoCorrecto(camino);
+		else this.hexGrid.pintarCaminoIncorrecto(camino);
 	}
 
 }

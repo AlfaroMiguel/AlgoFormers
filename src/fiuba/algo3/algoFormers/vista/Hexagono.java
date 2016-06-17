@@ -59,7 +59,7 @@ public class Hexagono extends StackPane {
 
         //this.setOnMouseExited(e-> close());
         this.setOnMouseClicked(e -> seleccionado());
-//        //this.setOnMouseEntered(e -> open());
+        this.setOnMouseEntered(e -> entro());
 	}
 	public void setControlador(Controlador controlador){
 		//Esto es nuevo 13/6/2016
@@ -70,6 +70,9 @@ public class Hexagono extends StackPane {
 		
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
+	}
+	public void entro(){
+		this.controlador.entro(this.coordenada);
 	}
 	public void limpiarSeleccion() {
 		this.despintar();

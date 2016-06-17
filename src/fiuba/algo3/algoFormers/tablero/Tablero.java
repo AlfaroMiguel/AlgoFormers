@@ -35,7 +35,7 @@ public class Tablero implements Observador{
 	
 	/* Atributos */
 	/* Representacion del tablero que contiene a las superficies */
-	HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
+	public HashMap<Coordenada,Casillero> superficies = new HashMap<Coordenada,Casillero>();
 	/* Representacion del tablero que contiene a los accionables */
 	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
 	/* Representacion del tablero que contiene a los recolectables */
@@ -396,6 +396,12 @@ public class Tablero implements Observador{
 	}
 	public void nuevaSeleccion() {
 		this.actualizarVistas();
+	}
+	public void simularMovimiento(Coordenada coordenadaFinal, Algoformer algoformerActual) {
+		Coordenada coordenadaInicial = algoformerActual.posicion;
+		for(Vista vista: vistas){
+			vista.update(this,coordenadaInicial,coordenadaFinal,algoformerActual);
+		}
 	}
 
 }

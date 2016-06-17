@@ -42,12 +42,16 @@ public class HexGrid {
 
 
  	public void pintarCaminoCorrecto(List<Coordenada> camino){
-	 		// Recorro la lista y pinto los hex correspondientes
-	 		for(Coordenada coordenada: camino){
-	 			grid.get(coordenada).pintarCaminoCorrecto();
-	 		}
-
+	 	// Recorro la lista y pinto los hex correspondientes
+ 		for(Coordenada coordenada: camino){
+			grid.get(coordenada).pintarCaminoCorrecto();
+	 	}
  	}
+	public void pintarCaminoIncorrecto(List<Coordenada> camino) {
+		for(Coordenada coordenada: camino){
+			grid.get(coordenada).pintarCaminoIncorrecto();
+	 	}	
+	 }
 
 	public void ponerSuperficieTierra(Coordenada coordenada, SuperficieTierra superficieTierra) {
 			this.grid.get(coordenada).ponerSuperficie(superficieTierra);
@@ -76,10 +80,6 @@ public class HexGrid {
 			this.grid.get(coordenada).ponerAccionable(accionable);
 		}
 
-
-	
-
-
 	public void borrarRecolectable(Coordenada coordenada) {
 		this.grid.get(coordenada).sacarRecolectable();
 		
@@ -91,9 +91,7 @@ public class HexGrid {
 
 	public void limpiarSeleccion() {
 		for(Map.Entry<Coordenada, Hexagono> entry : this.grid.entrySet()) {
-           //this.grid.get(entry).limpiarSeleccion();
 			entry.getValue().limpiarSeleccion();
         }
 	}
-
 }

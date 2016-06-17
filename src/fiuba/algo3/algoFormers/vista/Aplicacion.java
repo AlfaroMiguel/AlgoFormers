@@ -51,12 +51,12 @@ public class Aplicacion extends Application {
 
 		int alto = 30;
 		int ancho = 20;
-		Vista vista = new Vista();
 		Juego juego = new Juego(alto, ancho);
+		Vista vista = new Vista(juego);
 		juego.agregarVista(vista);
 		Controlador controlador =  new Controlador(juego);
 		Group grid = crearTablero(alto, ancho, vista,controlador);
-		vista.inicializarTablero(alto,ancho,juego);
+		vista.inicializarTablero(alto,ancho);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);

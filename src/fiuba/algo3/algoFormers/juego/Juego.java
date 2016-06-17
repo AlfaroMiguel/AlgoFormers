@@ -221,5 +221,9 @@ public class Juego implements Observador{
 	public void nuevaSeleccion() {
 		this.tablero.nuevaSeleccion();
 	}
+
+	public void simularMovimiento(Coordenada coordenada) {
+		this.tablero.simularMovimiento(coordenada,jugadorActual.verAlgoformerActual());
+	}
 	
 }
