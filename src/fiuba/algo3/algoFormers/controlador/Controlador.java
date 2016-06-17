@@ -30,6 +30,7 @@ public class Controlador {
 	}
 	public void entro(Coordenada coordenada) {
 		if(seleccionado){
+			juego.nuevaSeleccion();
 			this.juego.simularMovimiento(coordenada);
 		}
 	}
