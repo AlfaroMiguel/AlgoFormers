@@ -11,10 +11,11 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 		this.controlador = controlador;
 	}
 	public void handle(KeyEvent event){
-		System.out.println("KEY EVENT" + event.getCode());
 		if(event.getCode()== KeyCode.T){
-			System.out.println("Entra");
 			controlador.transformarSeleccionado();
+		}
+		if(event.getCode()== KeyCode.A){
+//			controlador.modoAtaque();
 		}
 		//event.consume();
 	}
