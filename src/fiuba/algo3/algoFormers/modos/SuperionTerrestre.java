@@ -15,7 +15,7 @@ public class SuperionTerrestre extends ModoHumanoide {
 	private SuperionTerrestre(){
 		this.ataque = 100;
 		this.distAtaque = 2;
-		this.velocidad = 3;
+		this.velocidad = 100;
 	}
 		
 	public static SuperionTerrestre getInstance(){
@@ -33,6 +33,7 @@ public class SuperionTerrestre extends ModoHumanoide {
 	
 	
 	public Image getImage() {
+		System.out.println("Me pidieron la imagen");
 		return ClaseImagenes.getImageModo(this);
 	}
 }

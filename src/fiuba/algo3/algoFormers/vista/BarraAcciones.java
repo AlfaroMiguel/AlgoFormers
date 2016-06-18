@@ -11,6 +11,7 @@ public class BarraAcciones extends HBox {
 	private Controlador controlador;
 	Button botonTransformar = new Button();
 	Button botonCombinar = new Button();
+	Button botonTerminarTurno = new Button();
 	
 	public BarraAcciones(Controlador controlador){
 		this.controlador = controlador;
@@ -20,7 +21,7 @@ public class BarraAcciones extends HBox {
 	}
 	
 	public void agregarNodos(){
-		this.getChildren().addAll(botonMover, botonAtacar, botonTransformar, botonCombinar);
+		this.getChildren().addAll(botonMover, botonAtacar, botonTransformar, botonCombinar,botonTerminarTurno);
 	}
 	
 	public void configurarNodos(){
@@ -32,6 +33,8 @@ public class BarraAcciones extends HBox {
 		botonTransformar.setOnMouseClicked(e-> controlador.transformarSeleccionado());
 		botonCombinar.setText("combinar algoformers");
 		botonCombinar.setOnMouseClicked(e-> controlador.combinarSeleccionado());
+		botonTerminarTurno.setText("Terminar Turno");
+		botonTerminarTurno.setOnMouseClicked(e-> controlador.terminarTurno());
 	}
 	
 	public void ubicarNodos(){

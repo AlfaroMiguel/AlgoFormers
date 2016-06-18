@@ -1,8 +1,8 @@
 package fiuba.algo3.algoFormers.autobots;
 
-import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.SuperionTerrestre;
+import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 /*Clase que representa al algoformer autobot combinado Superion*/
 public class Superion extends Autobot {
@@ -38,5 +38,9 @@ public class Superion extends Autobot {
 	public Ratchet getRatchet(){
 		return this.ratchet;
 	}
-	
+	@Override
+	public void setCoordenada(Coordenada coordenada){
+		this.posicion = coordenada;
+		this.actualizarVista();
+	}
 }

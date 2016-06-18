@@ -131,6 +131,7 @@ public class Hexagono extends StackPane {
 		this.hexagon.setFill(tierra);
 	}
 	public void ponerAccionable(Accionable accionable) {
+		System.out.print("Entra a hexagono");
 		Image imagen = ClaseImagenes.getImage(accionable);
 		this.habitable.setImage(imagen);
 		this.aire.toFront();

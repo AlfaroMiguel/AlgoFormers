@@ -21,6 +21,7 @@ import fiuba.algo3.algoFormers.excepciones.FueraDeRangoException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoCombinableException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
+import fiuba.algo3.algoFormers.generico.AlgoformerMuertoException;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
@@ -141,8 +142,8 @@ public class Tablero implements Observador{
 		}
 		//PAJA
 		boolean esAlgoformer = true;
-		this.actualizarVistas(coordInic,esAlgoformer);
 		this.colocarEnTablero(accionable,coordenadaFinal);
+		this.actualizarVistas(coordInic,esAlgoformer);
 		this.accionables.put(coordInic,new Vacio());
 	}
 	public void seleccionado(){
@@ -185,12 +186,17 @@ public class Tablero implements Observador{
 	 * 		  SinVidaException si alguno de los algoformers muere durante el ataque. En caso de que esto
 	 * 		                   suceda tambien elimina al algoformer muerto del tablero. */
 	public void coordinarAtaque(Autobot atacante, Accionable atacado, int rangoDeAtaque, int ataque) {
+		try{
 		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>rangoDeAtaque)
 			throw new FueraDeRangoException();
 		this.observarA(atacado);
 		atacado.serAtacado(atacante, ataque);
+		}catch(AlgoformerMuertoException e){
+			boolean esAlgoformer = true;
+			this.actualizarVistas(this.obtenerCoordenadaDeElemento(atacado), esAlgoformer);
+		}
 	}
 	
 	/* Coordina el ataque entre dos algoformers, verificando la distancia entre ellos y si
@@ -203,12 +209,18 @@ public class Tablero implements Observador{
 	 * 		  SinVidaException si alguno de los algoformers muere durante el ataque. En caso de que esto
 	 * 		                   suceda tambien elimina al algoformer muerto del tablero. */
 	public void coordinarAtaque(Decepticon atacante, Accionable atacado, int rangoDeAtaque, int ataque) {
+		try{
 		Coordenada coordInic = this.obtenerCoordenadaDeElemento(atacante);
 		Coordenada coordFinal = this.obtenerCoordenadaDeElemento(atacado);
 		if(coordInic.distancia(coordFinal)>rangoDeAtaque)
 			throw new FueraDeRangoException();
 		this.observarA(atacado);
 		atacado.serAtacado(atacante, ataque);
+		}
+		catch (AlgoformerMuertoException e){
+			boolean esAlgoformer = true;
+			this.actualizarVistas(this.obtenerCoordenadaDeElemento(atacado), esAlgoformer);
+		}
 	}
 	
 	/* Devuelve el recolectable que se encuentra en una coordenada.
@@ -263,6 +275,7 @@ public class Tablero implements Observador{
 			throw new NoCombinableException();
 		}
 		this.eliminarAccionableDeTablero(coordOptimus);
+		System.out.println("Se combinan los algoformers");
 		this.colocarEnTablero(superion, coordOptimus);
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
@@ -381,6 +394,8 @@ public class Tablero implements Observador{
 	
 	public void eliminarAccionableDeTablero(Coordenada coordenada){
 		this.accionables.replace(coordenada, new Vacio());
+		boolean esAlgoformer = true;
+		this.actualizarVistas(coordenada, esAlgoformer);
 	}
 
 	public void eliminarRecolectableDeTablero(Coordenada coordenada){
