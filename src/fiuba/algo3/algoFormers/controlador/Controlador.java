@@ -34,4 +34,9 @@ public class Controlador {
 			this.juego.simularMovimiento(coordenada);
 		}
 	}
+	public void combinarSeleccionado() {
+		this.juego.combinarAlgoFormers();
+		this.seleccionado = false;
+		
+	}
 }
