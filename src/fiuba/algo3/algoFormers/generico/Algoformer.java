@@ -251,4 +251,9 @@ public abstract class Algoformer implements Accionable{
 			vista.update(this, this.posicion);
 		}
 	}
+	public void actualizarVista(int ataque){
+		for(Vista vista: vistas){
+			vista.update(this, this.posicion, ataque);
+		}
+	}
 }

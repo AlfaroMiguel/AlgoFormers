@@ -98,10 +98,17 @@ public class Hexagono extends StackPane {
 	}
 	public void atacado(int vida){
 		this.text.setFill(Color.DARKRED);
-		this.text.setText("-"+ String.valueOf(vida));
 		this.text.toFront();
+		this.text.setStrokeWidth(4);
+		this.text.setText("-"+ String.valueOf(vida));
 		
-//		this.text.setText("");
+		System.out.println("lo atacaron en la interfaz");
+		try {
+		    Thread.sleep(6000);   //6s.
+		} catch(InterruptedException ex) {
+		    Thread.currentThread().interrupt();
+		}
+		this.text.setText("");
 	}	
 	public void sacarAlgoFormer(){
 		//Supongo que no es lo mas lindo mañana buscare como se hace bien
