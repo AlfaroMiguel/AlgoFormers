@@ -262,6 +262,7 @@ public class Tablero implements Observador{
 		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
+		this.eliminarAccionableDeTablero(coordOptimus);
 		this.colocarEnTablero(superion, coordOptimus);
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
@@ -294,9 +295,10 @@ public class Tablero implements Observador{
 		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
-		this.colocarEnTablero(menasor, coordMegatron);
+		this.eliminarAccionableDeTablero(coordMegatron);
 		this.eliminarAccionableDeTablero(coordBonecrusher);
 		this.eliminarAccionableDeTablero(coordFrenzy);
+		this.colocarEnTablero(menasor, coordMegatron);
 	}
 	
 	/* Elimina a superion del tablero y vuelve a colocar a los algoformers que lo componen en las posiciones
@@ -308,7 +310,8 @@ public class Tablero implements Observador{
 		Ratchet ratchet = superion.getRatchet();
 
 		Coordenada coordSuperion = this.obtenerCoordenadaDeElemento(superion);
-
+		
+		this.eliminarAccionableDeTablero(coordSuperion);
 		this.colocarEnTablero(optimus, coordSuperion);
 		this.colocarAccionableEnPosicionValidaDesde(ratchet,coordSuperion);
 		this.colocarAccionableEnPosicionValidaDesde(bumblebee, coordSuperion);
@@ -360,6 +363,7 @@ public class Tablero implements Observador{
 		Coordenada coordenada =	algoformer.getCoordenada();
 		boolean esAlgoformer = true;
 		this.actualizarVistas(coordenada, esAlgoformer);
+		this.eliminarAccionableDeTablero(coordenada);
 		this.colocarEnTablero(algoformer, coordenada);
 	}
 	

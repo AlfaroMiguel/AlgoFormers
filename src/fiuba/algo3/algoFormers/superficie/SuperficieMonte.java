@@ -1,7 +1,5 @@
 package fiuba.algo3.algoFormers.superficie;
 
-import fiuba.algo3.algoFormers.afectadores.AfectadorPorPosicion;
-import fiuba.algo3.algoFormers.efectos.EfectoPantano;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.modos.ModoAereo;
@@ -11,12 +9,9 @@ import fiuba.algo3.algoFormers.modos.ModoTerrestreAlterno;
 import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import javafx.scene.image.Image;
 
-public class SuperficiePantano extends SuperficieTierra {
+public class SuperficieMonte extends SuperficieTierra {
 
-	public SuperficiePantano() {
-		this.afectador = new AfectadorPorPosicion(new EfectoPantano());
-	}
-
+	@Override
 	public int simularPasoDe(Algoformer algoformer) {
 		return algoformer.simularPasoDe(this);
 	}
@@ -24,45 +19,46 @@ public class SuperficiePantano extends SuperficieTierra {
 	@Override
 	public Image ponerSuperficieTierra() {
 		return ClaseImagenes.getImageSuperficie(this);
-
 	}
 
-	public void afectar(Algoformer algoformer, ModoTerrestreAlterno modo) {
-		//afectador.afectarAlgoformer(algoformer);
-	}
-
-	public void afectar(Algoformer algoformer, ModoHumanoide modo) {
+	@Override
+	public void afectar(Algoformer afectado, ModoTerrestreAlterno modo) {
 		throw new MovimientoInvalidoException();
 	}
 
-	public void afectar(Algoformer algoformer, ModoAereo modo) {
+	@Override
+	public void afectar(Algoformer afectado, ModoHumanoide modo) {
+		throw new MovimientoInvalidoException();
 	}
-
-	public void desafectar(Algoformer algoformer) {
-		afectador.desafectarAlgoformer(algoformer);
+	
+	@Override
+	public void afectar(Algoformer afectado, ModoAereo modo){
+		throw new MovimientoInvalidoException();
 	}
 
 	@Override
 	public void desafectar(Algoformer algoformer, ModoTerrestreAlterno modoTerrestreAlterno) {
-		afectador.desafectarAlgoformer(algoformer);
-
 	}
 
 	@Override
 	public void desafectar(Algoformer algoformer, ModoHumanoide modoTerrestreAlterno) {
-
 	}
 
 	@Override
 	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
-		return 2;
+		return 10000000;
 	}
 
 	@Override
 	public int costoPorPaso(ModoHumanoide modoHumanoide) {
 		return 10000000;
 	}
-
+	
+	@Override
+	public int costoPorPaso(ModoAereo modoAereo) {
+		return 10000000;
+	}
+	
 	@Override
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
 	}

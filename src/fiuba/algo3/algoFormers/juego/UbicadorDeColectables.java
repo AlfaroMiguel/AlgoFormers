@@ -15,9 +15,9 @@ public class UbicadorDeColectables {
 	
 	private int altoTablero;
 	private int anchoTablero;
-	private static final int CANT_BURBUJA_INM = 2;
-	private static final int CANT_DOBLE_CANION = 2;
-	private static final int CANT_FLASH = 2;
+	private static final int CANT_BURBUJA_INM = 5;
+	private static final int CANT_DOBLE_CANION = 5;
+	private static final int CANT_FLASH = 5;
 	
 	public UbicadorDeColectables(int alto, int ancho) {
 		this.altoTablero = alto;

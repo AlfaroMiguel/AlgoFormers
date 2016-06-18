@@ -35,8 +35,7 @@ public abstract class SuperficieTierra {
 
 	public abstract void afectar(Algoformer afectado, ModoTerrestreAlterno modo);
 
-	public void afectar(Algoformer afectado, ModoAereo modo) {
-
+	public void afectar(Algoformer afectado, ModoAereo modo){
 	}
 
 	public abstract void afectar(Algoformer afectado, ModoHumanoide modo);
@@ -56,4 +55,8 @@ public abstract class SuperficieTierra {
 	}
 
 	public abstract void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre);
+
+	public int costoPorPaso(ModoAereo modoAereo) {
+		return 1;
+	}
 }
