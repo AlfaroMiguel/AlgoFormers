@@ -18,8 +18,12 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 			System.out.println("Entra");
 			controlador.combinarSeleccionado();
 		}
+		if(event.getCode()== KeyCode.M){
+			System.out.println("cambia el modo");
+			controlador.combiarAModoMover();
+		}
 		if(event.getCode()== KeyCode.A){
-		//controlador.modoAtaque();
+			controlador.combiarAModoAtaque();
 		}
 		//event.consume();
 	}

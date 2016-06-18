@@ -5,42 +5,41 @@ import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public class Controlador {
 	public Juego juego;
-	public boolean seleccionado;
+	//public boolean seleccionado;
+	public ModoControlador modo;
 	
 	public Controlador(Juego juego){
 		this.juego = juego;
-		this.seleccionado = false;
+		this.modo = new ModoSeleccionar();
 	}
 	
 	public void fueSeleccionado(Coordenada coordenada){
 		juego.nuevaSeleccion();
-		if(!seleccionado){
-			this.seleccionado = this.juego.seleccionarCoordenada(coordenada);
-			System.out.println("Seleccionamos");
-			return;
-		}
-		else{
-			this.juego.moverSeleccionadoACoordenada(coordenada);
-			System.out.println("Movimos");
-			this.seleccionado = false;
-			return;
-		}
+		this.modo.fueSeleccionado(this.juego, coordenada);
+		this.modo = new ModoSeleccionar();
+		
+	}
+	public void combiarAModoMover(){
+		System.out.println("cambio a mover");
+		this.modo = new ModoMover();
 	}
 	
 	public void transformarSeleccionado() {
 		this.juego.transformarSeleccionado();
-		this.seleccionado=false;
+		this.modo = new ModoSeleccionar();
 	}
 	
 	public void entro(Coordenada coordenada) {
-		if(seleccionado){
-			juego.nuevaSeleccion();
-			this.juego.simularMovimiento(coordenada);
-		}
+		this.modo.entro(this.juego, coordenada);
 	}
+	
 	public void combinarSeleccionado() {
 		this.juego.combinarAlgoFormers();
-		this.seleccionado = false;
+		this.modo = new ModoSeleccionar();
 		
+	}
+
+	public void combiarAModoAtaque() {
+		// TODO Auto-generated method stub
 	}
 }

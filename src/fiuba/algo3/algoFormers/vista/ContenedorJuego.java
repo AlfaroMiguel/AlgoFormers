@@ -26,16 +26,16 @@ public class ContenedorJuego extends HBox{
 	VBox layout;
 	Controlador controlador;
 	
-	public ContenedorJuego(){
+	public ContenedorJuego(Juego juego, Controlador controlador){
 		
 		super();
 		int alto = 30;
 		int ancho = 20;
-		Juego juego = new Juego(alto, ancho);
+//		Juego juego =juego;
 		Vista vista = new Vista(juego);
 		juego.agregarVista(vista);
 //		Controlador controlador =  new Controlador(juego);
-		this.controlador = new Controlador(juego);
+		this.controlador = controlador;
 		Group grid = crearTablero(alto, ancho, vista, controlador);
 		vista.inicializarTablero(alto,ancho);
 		Parent contenedor = crearContenedor(grid);
