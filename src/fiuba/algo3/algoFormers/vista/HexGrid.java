@@ -63,18 +63,19 @@ public class HexGrid {
 	public void ponerRecolectable(Coordenada coordenada,Recolectable recolectable){
 			this.grid.get(coordenada).ponerRecolectable(recolectable);
 	}
+	
 	public void inicializarTablero(int alto, int ancho,Juego juego) {
-			for (int q = 0; q < ancho; q++) {
-			    int q_offset = (int)Math.floor(q/2);
-			    for (int r = -q_offset; r < alto - q_offset; r++) {
-			    	Coordenada c = new Coordenada(q,r);
-			        this.ponerSuperficieTierra(c,juego.obtenerSuperficieTierra(c));
-			        this.ponerSuperficieAire(c, juego.obtenerSuperficieAire(c));
-			        this.ponerAccionable(c,juego.obtenerAccionable(c));
-			        this.ponerRecolectable(c,juego.obtenerRecolectable(c));
-			    }
-			}
+		for (int q = 0; q < ancho; q++) {
+		    int q_offset = (int)Math.floor(q/2);
+		    for (int r = -q_offset; r < alto - q_offset; r++) {
+		    	Coordenada c = new Coordenada(q,r);
+		        this.ponerSuperficieTierra(c,juego.obtenerSuperficieTierra(c));
+		        this.ponerSuperficieAire(c, juego.obtenerSuperficieAire(c));
+		        this.ponerAccionable(c,juego.obtenerAccionable(c));
+		        this.ponerRecolectable(c,juego.obtenerRecolectable(c));
+		    }
 		}
+	}
 
 	public void ponerAccionable(Coordenada coordenada, Accionable accionable) {
 			this.grid.get(coordenada).ponerAccionable(accionable);

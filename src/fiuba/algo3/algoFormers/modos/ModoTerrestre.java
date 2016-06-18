@@ -55,6 +55,7 @@ public abstract class ModoTerrestre implements Modo {
 
 	@Override
 	public abstract int simularPasoDe(SuperficieTierra superficieTierra);
+	
 	public int simularPasoDe(SuperficieAire superficieAire){
 		return 0;
 	}

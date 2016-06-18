@@ -6,12 +6,15 @@ import fiuba.algo3.algoFormers.superficie.*;
 import javafx.scene.image.Image;
 
 public class ClaseImagenes {
+	
 	public static Image getImage(SuperficieAire superficieAire){
 		return superficieAire.ponerSuperficieAire();
 	}
+	
 	public static Image getImage(SuperficieTierra superficieTierra){
 		return superficieTierra.ponerSuperficieTierra();
 	} 
+	
 	public static Image getImageSuperficie(SuperficieAndromeda superficie){
 		return ponerAire("file:img/superficies/nebulosa.png");
 	}
@@ -27,13 +30,20 @@ public class ClaseImagenes {
 	public static Image getImageSuperficie(SuperficieEspinas superficie){
 		return ponerAire("file:img/superficies/espina.png");
 	}
+	
+	public static Image getImageSuperficie(SuperficieMonte superficieMonte) {
+		return ponerAire("file:img/superficies/monte.png");
+	}
+	
 	public static Image getImageSuperficie(SuperficieNubes superficie){
 //		return ponerAire();
 		return null;
 	}
+	
 	private static Image ponerAire(String path) {
-	return new Image(path,60,60,true,true,false);
+		return new Image(path,60,60,true,true,false);
 	}
+	
 	private static Image ponerTiera(String path) {
 		return new Image(path);
 	}
@@ -107,7 +117,7 @@ public class ClaseImagenes {
 		return recolectable.getImage();
 	}
 	public static Image getImageRecolectable(DobleCanion dobleCanion) {
-		return ponerRecolectable("file:img/recolectable/cañon.png");
+		return ponerRecolectable("file:img/recolectable/canion.png");
 	}
 	public static Image getImageRecolectable(BurbujaInmaculada burbujaInmaculada) {
 		return ponerRecolectable("file:img/recolectable/burbuja.png");
@@ -121,4 +131,5 @@ public class ClaseImagenes {
 	private static Image ponerRecolectable(String path) {
 		return new Image(path,40,40,true,true,false);
 	}
+
 }

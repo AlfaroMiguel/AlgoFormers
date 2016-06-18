@@ -26,8 +26,8 @@ public class Juego implements Observador{
 	private UbicadorDeColectables ubicadorDeColectables;
 	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
-	
-
+	public String nombreJugador1 = "a";
+	public String nombreJugador2 = "b";
 
 	
 	public Juego(int alto, int ancho){
@@ -59,14 +59,15 @@ public class Juego implements Observador{
 
 		Equipo equipoAutobots = new EquipoAutobots();
 		Equipo equipoDecepticons = new EquipoDecepticons();
-
+		
+		
 		if(Math.random()>0.5) {
-			this.jugadorActual = new Jugador(equipoAutobots, tablero);
-			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
+			this.jugadorActual = new Jugador(equipoAutobots, tablero, nombreJugador1);
+			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero, nombreJugador2);
 		}
 		else {
-			this.jugadorActual = new Jugador(equipoDecepticons, tablero);
-			this.jugadorAnterior = new Jugador(equipoAutobots, tablero);
+			this.jugadorActual = new Jugador(equipoDecepticons, tablero, nombreJugador2);
+			this.jugadorAnterior = new Jugador(equipoAutobots, tablero, nombreJugador1);
 		}
 	}
 

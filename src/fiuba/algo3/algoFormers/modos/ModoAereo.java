@@ -43,11 +43,13 @@ public abstract class ModoAereo implements Modo {
 
 	@Override
 	public int simularPasoDe(SuperficieTierra superficieTierra) {
-		return 1;
+		return superficieTierra.costoPorPaso(this);
 	}
+	
 	public int simularPasoDe(SuperficieAire superficieAire) {
 		return superficieAire.costoPorPaso(this);
 	}
+	
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer){
 	}
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){

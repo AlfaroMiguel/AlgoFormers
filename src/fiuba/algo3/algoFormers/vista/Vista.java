@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.vista;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;

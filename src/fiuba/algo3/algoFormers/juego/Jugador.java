@@ -10,10 +10,12 @@ import fiuba.algo3.algoFormers.vista.Vista;
 public class Jugador{
 	protected Equipo equipo;
 	protected Tablero tablero;
+	public String nombre;
 	
-	public Jugador(Equipo equipo, Tablero tablero){
+	public Jugador(Equipo equipo, Tablero tablero, String nombre){
 		this.equipo = equipo;
 		this.tablero = tablero;
+		this.nombre = nombre;
 	}
 	
 	public Algoformer verAlgoformerActual(){
@@ -34,10 +36,10 @@ public class Jugador{
 	
 	public void transformarAlgoformer(){
 		try{
-		this.equipo.retirarPersonajeActual(this.tablero);
-		this.equipo.transformarAlgoformer();
-		//Para que se apliquen los efectos cuando se cambia de modo a uno que si lo afecta
-		this.equipo.reposicionarAlgoformer(this.tablero);
+			this.equipo.retirarPersonajeActual(this.tablero);
+			this.equipo.transformarAlgoformer();
+			//Para que se apliquen los efectos cuando se cambia de modo a uno que si lo afecta
+			this.equipo.reposicionarAlgoformer(this.tablero);
 		}catch (MovimientoInvalidoException exception){
 			this.equipo.transformarAlgoformer();
 			this.equipo.reposicionarAlgoformer(this.tablero);

@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
+import fiuba.algo3.algoFormers.controlador.TextoEventHandler;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
@@ -14,20 +15,26 @@ import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
@@ -43,7 +50,7 @@ public class Aplicacion extends Application {
 		Scene scene = pantallaInicio();
 		primaryStage.setTitle("Algoformers");
 		primaryStage.setScene(scene);
-		//primaryStage.setFullScreen(true);
+		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 	
@@ -70,40 +77,160 @@ public class Aplicacion extends Application {
 	}
 	
 	public Scene pantallaInicio(){
-		Button botonEntrar = new Button();
-		botonEntrar.setText("Nueva Partida");
-		botonEntrar.setOnAction(new EventHandler<ActionEvent>(){
+		Pane root = new Pane();
+        
+		Button botonComenzar = new Button();
+        Button botonEnter1 = new Button();
+        Button botonEnter2 = new Button();
+        
+        TextField textoJugador1 = new TextField();
+        TextField textoJugador2 = new TextField();
+        
+        Label errorIngreso = new Label("Debe ingresar un nombre");
+        Label errorNombresIguales = new Label("Debe ingresar nombres distintos");
+        
+		botonComenzar.setText("Comenzar");
+		botonEnter1.setText("Ingresar");
+		botonEnter2.setText("Ingresar");
+		
+		textoJugador1.setPromptText("nombre jugador autobots");
+		textoJugador2.setPromptText("nombre jugador decepticons");
+
+		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
+        ImageView imageView = new ImageView();
+        imageView.setImage(imagenFondo);
+        
+        botonComenzar.setStyle("-fx-font: 22 arial; -fx-base: #a8b772;");	
+        
+        errorIngreso.setFont(Font.font("arial",15));
+        errorIngreso.setTextFill(Color.CRIMSON);
+        errorNombresIguales.setFont(Font.font("arial",15));
+        errorNombresIguales.setTextFill(Color.CRIMSON);
+        
+        textoJugador1.setMinSize(210, 10);
+        textoJugador2.setMinSize(210, 10);
+       
+        imageView.setFitHeight(800);
+        imageView.setFitWidth(1400);
+        
+        this.ubicarNodo(botonComenzar, 600, 350);
+        this.ubicarNodo(botonEnter1, 640, 400);
+        this.ubicarNodo(botonEnter2, 640, 400);
+        this.ubicarNodo(textoJugador1, 570, 350);
+        this.ubicarNodo(textoJugador2, 570, 350);
+        this.ubicarNodo(errorIngreso, 558, 330);
+        this.ubicarNodo(errorNombresIguales, 550, 330);
+        
+        root.getChildren().addAll(imageView, botonEnter1, textoJugador1);
+        
+		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
 				stage.setScene(layout());
 				stage.setFullScreen(true);
-			}
+			} 
 		});
+		
+		botonEnter1.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent evento){
+				if (! textoJugador1.getText().trim().equals("")){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
+					root.getChildren().remove(textoJugador1);
+					root.getChildren().remove(botonEnter1);
+					root.getChildren().add(textoJugador2);
+					root.getChildren().add(botonEnter2);
+					botonEnter2.requestFocus();
+				}
+				else{
+					if (! root.getChildren().contains(errorIngreso)){
+						root.getChildren().add(errorIngreso);
+					}
+				}
+			} 
+		}); 
+		
+		botonEnter2.setOnAction(new EventHandler<ActionEvent>(){
+			@Override
+			public void handle(ActionEvent evento){
+				if (! textoEstaVacio(textoJugador2) && ! textosSonIguales(textoJugador1, textoJugador2)){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
+					if (root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().remove(errorNombresIguales);
+					}
+					root.getChildren().remove(textoJugador2);
+					root.getChildren().remove(botonEnter2);
+					root.getChildren().add(botonComenzar);
+					botonComenzar.requestFocus();
+				}
+				else if (textosSonIguales(textoJugador1, textoJugador2)){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
+					if (! root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().add(errorNombresIguales);
+					}
+				}
+				else{
+					if (root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().remove(errorNombresIguales);
+					}
+					if (! root.getChildren().contains(errorIngreso)){
+						root.getChildren().add(errorIngreso);
+					}
+				}
+			} 
+		});
+		
 		DropShadow shadow = new DropShadow();
-		botonEntrar.addEventHandler(MouseEvent.MOUSE_ENTERED, 
+		botonComenzar.addEventHandler(MouseEvent.MOUSE_ENTERED, 
 		    new EventHandler<MouseEvent>() {
 		        @Override public void handle(MouseEvent e) {
-		            botonEntrar.setEffect(shadow);
+		            botonComenzar.setEffect(shadow);
 		        }
 		});
-		botonEntrar.addEventHandler(MouseEvent.MOUSE_EXITED, 
+		botonComenzar.addEventHandler(MouseEvent.MOUSE_EXITED, 
 		    new EventHandler<MouseEvent>() {
 		        @Override public void handle(MouseEvent e) {
-		            botonEntrar.setEffect(null);
+		            botonComenzar.setEffect(null);
 		        }
 		});
-		botonEntrar.setStyle("-fx-font: 22 arial; -fx-base: #b6e7c9;");
-		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
-        ImageView imageView = new ImageView();
-        imageView.setImage(imagenFondo);
-	StackPane root = new StackPane();
-        root.getChildren().add(imageView);
-        root.getChildren().add(botonEntrar);
-
+	    
+		TextoEventHandler texto1EventHandler = new TextoEventHandler(botonEnter1);
+        textoJugador1.setOnKeyPressed(texto1EventHandler);
+        
+        TextoEventHandler texto2EventHandler = new TextoEventHandler(botonEnter2);
+        textoJugador2.setOnKeyPressed(texto2EventHandler);
+        
+        TextoEventHandler botonEnter1EventHandler = new TextoEventHandler(botonEnter1);
+        botonEnter1.setOnKeyPressed(botonEnter1EventHandler);
+        
+        TextoEventHandler botonEnter2EventHandler = new TextoEventHandler(botonEnter2);
+        botonEnter2.setOnKeyPressed(botonEnter2EventHandler);
+        
+        TextoEventHandler botonComenzarEventHandler = new TextoEventHandler(botonComenzar);
+        botonComenzar.setOnKeyPressed(botonComenzarEventHandler);
+        
         return new Scene(root);
 
 	}
-
+	
+	private static boolean textoEstaVacio(TextField texto){
+		return texto.getText().trim().equals("");
+	}
+	
+	private static boolean textosSonIguales(TextField texto1, TextField texto2){
+		return texto1.getText().equalsIgnoreCase(texto2.getText());
+	}
+	private void ubicarNodo(Node nodo, int x, int y){		
+		nodo.setLayoutX(x);
+        nodo.setLayoutY(y);
+	}
+	
 	public static Group crearTablero(int alto, int ancho,Vista vista, Controlador controlador) {
 		return vista.crearTablero(ancho, alto,controlador);
 	}

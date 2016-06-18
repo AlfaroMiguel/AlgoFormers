@@ -162,7 +162,7 @@ public abstract class Algoformer implements Accionable{
 	/* Metodos abstractos redefinidos. */
 	@Override
 	public void colisionar() {
-//		throw new NoColisionableException();
+		throw new NoColisionableException();
 	}
 
 	@Override

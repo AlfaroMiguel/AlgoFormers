@@ -80,15 +80,15 @@ public class Hexagono extends StackPane {
 
 	public void pintarCaminoCorrecto() {
 		this.hexagon.setStroke(Color.CADETBLUE);
-		this.hexagon.setStrokeWidth(2);
+		this.hexagon.setStrokeWidth(3);
 	}
 	public void pintarCaminoIncorrecto() {
 		this.hexagon.setStroke(Color.GREY);
-		this.hexagon.setStrokeWidth(2);
+		this.hexagon.setStrokeWidth(3);
 	}
 	public void pintarRegionAtaque() {
 		this.hexagon.setStroke(Color.DARKRED);
-		this.hexagon.setStrokeWidth(2);
+		this.hexagon.setStrokeWidth(3);
 	}
 	public void despintar() {
 		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
