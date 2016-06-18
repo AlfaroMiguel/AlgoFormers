@@ -32,7 +32,7 @@ public class Controlador {
 	public void entro(Coordenada coordenada) {
 		this.modo.entro(this.juego, coordenada);
 	}
-	
+
 	public void combinarSeleccionado() {
 		this.juego.combinarAlgoFormers();
 		this.modo = new ModoSeleccionar();

@@ -25,6 +25,7 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 		if(event.getCode()== KeyCode.A){
 			controlador.combiarAModoAtaque();
 		}
+
 		//event.consume();
 	}
 		
