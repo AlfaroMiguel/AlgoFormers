@@ -7,6 +7,8 @@ public class BarraAcciones extends HBox {
 	
 	Button botonMover = new Button();
 	Button botonAtacar = new Button();
+	Button botonTransformar = new Button();
+	Button botonCombinar = new Button();
 	
 	public BarraAcciones(){
 		
@@ -16,12 +18,14 @@ public class BarraAcciones extends HBox {
 	}
 	
 	public void agregarNodos(){
-		this.getChildren().addAll(botonMover, botonAtacar);
+		this.getChildren().addAll(botonMover, botonAtacar, botonTransformar, botonCombinar);
 	}
 	
 	public void configurarNodos(){
 		botonMover.setText("mover algoformer seleccionado");
 		botonAtacar.setText("atacar algoformer enemigo");
+		botonTransformar.setText("cambiar modo");
+		botonCombinar.setText("combinar algoformers");
 	}
 	
 	public void ubicarNodos(){

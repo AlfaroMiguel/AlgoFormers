@@ -60,16 +60,14 @@ public class GeneradorDeCaminos {
 		camino.add(actual);
 		//Elimino la posicion de destino ya que no la tomo en cuenta
 		//No elimino la posicion de destino ya que es mejor asi
-		//camino.remove(destino);
+		camino.remove(destino);
 		return camino;
 	}
 	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {
-		//Elimino porque el costo del ultimo movimiento no se toma en cuenta
-		camino.remove(0);
-		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos
+		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos 
 		if( paso>0 && superficies.get(camino.get(camino.size()-1)).calcularMovimiento(accionable) > 100){
 			paso -= 1;
-			camino.remove(camino.size()-1);
+			camino.remove(0);
 		}
 		//Hasta aca
 		for(Coordenada posicion : camino){
