@@ -95,4 +95,14 @@ public class HexGrid {
 			entry.getValue().limpiarSeleccion();
         }
 	}
+
+	public void pintarRangoAtaque(List<Coordenada> coordenadasEnRango) {
+		for(Coordenada coordenada: coordenadasEnRango){
+			try{
+				grid.get(coordenada).pintarRegionAtaque();
+			}
+			catch(Throwable e){//No pinta
+			}
+	 	}
+	}
 }

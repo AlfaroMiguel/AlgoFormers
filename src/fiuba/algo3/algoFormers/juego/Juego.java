@@ -226,5 +226,9 @@ public class Juego implements Observador{
 	public void simularMovimiento(Coordenada coordenada) {
 		this.tablero.simularMovimiento(coordenada,jugadorActual.verAlgoformerActual());
 	}
+
+	public void verRangoAtaque() {
+		this.tablero.verRangoAtaque(jugadorActual.verAlgoformerActual().getCoordenada(),jugadorActual.verAlgoformerActual().verRango());
+	}
 	
 }

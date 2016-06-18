@@ -138,6 +138,9 @@ public abstract class Algoformer implements Accionable{
 	public int verPaso(){
 		return (int)((this.modo.verPaso()*this.agilidad.getAgilidad()));
 	}
+	public int verRango(){
+		return (int)((this.modo.verRangoAtaque()));
+	}
 	
 	public void colocarEscudo() {
 		this.escudo.colocarEscudo();

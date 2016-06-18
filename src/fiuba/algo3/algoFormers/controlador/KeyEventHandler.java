@@ -20,10 +20,10 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 		}
 		if(event.getCode()== KeyCode.M){
 			System.out.println("cambia el modo");
-			controlador.combiarAModoMover();
+			controlador.cambiarAModoMover();
 		}
 		if(event.getCode()== KeyCode.A){
-			controlador.combiarAModoAtaque();
+			controlador.cambiarAModoAtaque();
 		}
 
 		//event.consume();

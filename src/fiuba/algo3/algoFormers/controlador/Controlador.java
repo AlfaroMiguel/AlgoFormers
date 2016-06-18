@@ -16,10 +16,9 @@ public class Controlador {
 	public void fueSeleccionado(Coordenada coordenada){
 		juego.nuevaSeleccion();
 		this.modo.fueSeleccionado(this.juego, coordenada);
-		this.modo = new ModoSeleccionar();
-		
+		this.modo = new ModoSeleccionar();	
 	}
-	public void combiarAModoMover(){
+	public void cambiarAModoMover(){
 		System.out.println("cambio a mover");
 		this.modo = new ModoMover();
 	}
@@ -39,7 +38,7 @@ public class Controlador {
 		
 	}
 
-	public void combiarAModoAtaque() {
-		// TODO Auto-generated method stub
+	public void cambiarAModoAtaque() {
+		this.modo = new ModoAtacar(this.juego);
 	}
 }

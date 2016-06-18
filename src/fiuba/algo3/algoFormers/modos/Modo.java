@@ -23,6 +23,7 @@ public interface Modo{
 	public void serDesafectado(SuperficieTierra superficieTierra, Algoformer algoformer);
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer);
 	public int verAtaque();
+	public int verRangoAtaque();
 	public double verPaso();
 	public void producirEfectoPorMicroMovimiento(SuperficieAire superficie, Algoformer algoformer);
 	public void producirEfectoPorMicroMovimiento(SuperficieTierra superficie, Algoformer algoformer);

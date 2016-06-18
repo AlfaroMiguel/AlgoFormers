@@ -407,5 +407,13 @@ public class Tablero implements Observador{
 			vista.update(this,coordenadaInicial,coordenadaFinal,algoformerActual);
 		}
 	}
+	public void verRangoAtaque(Coordenada coordenada, int rango) {
+		for(Vista vista: vistas){
+			vista.update(this,coordenada,rango);
+		}
+	}
+	public List coordenadasEnRango(int rango,Coordenada coordenada) {
+		return coordenada.neighborsInRange(coordenada, rango);
+	}
 
 }

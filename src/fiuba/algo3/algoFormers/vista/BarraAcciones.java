@@ -25,11 +25,13 @@ public class BarraAcciones extends HBox {
 	
 	public void configurarNodos(){
 		botonMover.setText("mover algoformer seleccionado");
-		botonMover.setOnMouseClicked(e->controlador.combiarAModoMover());
+		botonMover.setOnMouseClicked(e->controlador.cambiarAModoMover());
 		botonAtacar.setText("atacar algoformer enemigo");
-		botonAtacar.setOnMouseClicked(e->controlador.combiarAModoAtaque());
+		botonAtacar.setOnMouseClicked(e->controlador.cambiarAModoAtaque());
 		botonTransformar.setText("cambiar modo");
+		botonTransformar.setOnMouseClicked(e-> controlador.transformarSeleccionado());
 		botonCombinar.setText("combinar algoformers");
+		botonCombinar.setOnMouseClicked(e-> controlador.combinarSeleccionado());
 	}
 	
 	public void ubicarNodos(){

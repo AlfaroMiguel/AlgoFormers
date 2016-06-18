@@ -53,4 +53,9 @@ public class Vista {
 		else this.hexGrid.pintarCaminoIncorrecto(camino);
 	}
 
+	public void update(Tablero tablero, Coordenada coordenada, int rango) {
+		List coordenadasEnRango = tablero.coordenadasEnRango(rango,coordenada);
+		this.hexGrid.pintarRangoAtaque(coordenadasEnRango);
+	}
+
 }
