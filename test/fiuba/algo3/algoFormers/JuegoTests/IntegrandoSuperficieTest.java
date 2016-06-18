@@ -12,7 +12,7 @@ public class IntegrandoSuperficieTest {
 	public void test01CambiarAModoAereoEnUnaSuperficieDeAndromeda(){
 		Tablero tablero = new Tablero(20,20);
 		Equipo equipoAutobots = new EquipoAutobots();
-		Jugador jugador= new Jugador(equipoAutobots, tablero);
+		Jugador jugador= new Jugador(equipoAutobots, tablero,"Nombre");
 		jugador.ubicarPersonajes();
 		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);
@@ -43,7 +43,7 @@ public class IntegrandoSuperficieTest {
 	public void test03CambiarAModoAereoEnUnaSuperficiePsionica(){
 		Tablero tablero = new Tablero(20,20);
 		Equipo equipoAutobots = new EquipoAutobots();
-		Jugador jugador= new Jugador(equipoAutobots, tablero);
+		Jugador jugador= new Jugador(equipoAutobots, tablero,"Nombre");
 		jugador.ubicarPersonajes();
 		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);
@@ -83,7 +83,7 @@ public class IntegrandoSuperficieTest {
 	public void test05EntroEnModoTerrestreAEspinasYCambioAAereoSeRetiraElEfecto(){
 		Tablero tablero = new Tablero(20,20);
 		Equipo equipoAutobots = new EquipoAutobots();
-		Jugador jugador= new Jugador(equipoAutobots, tablero);
+		Jugador jugador= new Jugador(equipoAutobots, tablero,"Nombre");
 		jugador.ubicarPersonajes();
 		Coordenada inicialRatchet = new Coordenada(3,0);
 		jugador.seleccionarAlgoformer(inicialRatchet);

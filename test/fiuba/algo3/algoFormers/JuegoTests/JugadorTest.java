@@ -23,7 +23,7 @@ public class JugadorTest {
 	public void test01SeleccionarAutobotEquipoAutobots(){
 		EquipoAutobots autobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(autobots, tablero);
+		Jugador jugador = new Jugador(autobots, tablero,"Nombre");
 		Optimus optimus = new Optimus();
 		Coordenada coordenada = new Coordenada(2,4);
 		tablero.colocarEnTablero(optimus, coordenada);
@@ -35,7 +35,7 @@ public class JugadorTest {
 	public void test02SeleccionarDecepticonEquipoAutobots(){
 		EquipoAutobots autobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(autobots, tablero);
+		Jugador jugador = new Jugador(autobots, tablero,"Nombre");
 		Megatron megatron = new Megatron();
 		Coordenada coordenada = new Coordenada(2,4);
 		tablero.colocarEnTablero(megatron, coordenada);
@@ -46,7 +46,7 @@ public class JugadorTest {
 	public void test03SeleccionarAutobotEquipoDecepticons(){
 		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(decepticons, tablero);
+		Jugador jugador = new Jugador(decepticons, tablero,"Nombre");
 		Optimus optimus = new Optimus();
 		Coordenada coordenada = new Coordenada(2,4);
 		tablero.colocarEnTablero(optimus, coordenada);
@@ -57,7 +57,7 @@ public class JugadorTest {
 	public void test04SeleccionarDecepticonEquipoDecepticons(){
 		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(decepticons, tablero);
+		Jugador jugador = new Jugador(decepticons, tablero,"Nombre");
 		Megatron megatron = new Megatron();
 		Coordenada coordenada = new Coordenada(2,4);
 		tablero.colocarEnTablero(megatron, coordenada);
@@ -69,7 +69,7 @@ public class JugadorTest {
 	public void test05SeleccionarEspacioVacioEquipoAutobots(){
 		EquipoDecepticons decepticons = new EquipoDecepticons();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(decepticons, tablero);
+		Jugador jugador = new Jugador(decepticons, tablero,"Nombre");
 		Vacio espacioVacio = new Vacio();
 		Coordenada coordenada = new Coordenada(2,4);
 		tablero.colocarEnTablero(espacioVacio, coordenada);
@@ -80,7 +80,7 @@ public class JugadorTest {
 	public void test06UnJugadorAtacaConSuTransformerAOtroDeOtroEquipo(){
 	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
-	Jugador jugador = new Jugador(autobots, tablero);
+	Jugador jugador = new Jugador(autobots, tablero,"Nombre");
 	Optimus optimus = new Optimus();
 	Frenzy frenzy = new Frenzy();
 	Coordenada coordenadaOptimus= new Coordenada(2,3);
@@ -96,7 +96,7 @@ public class JugadorTest {
 	public void test07UnJugadorMueveASuTransformerHumanoide(){
 	EquipoAutobots autobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
-	Jugador jugador = new Jugador(autobots, tablero);
+	Jugador jugador = new Jugador(autobots, tablero,"Nombre");
 	Optimus optimus = new Optimus();
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,1);
@@ -111,7 +111,7 @@ public class JugadorTest {
 	public void test08UnJugadorMueveASuTransformerAlterno(){
 	Equipo equipoAutobots = new EquipoAutobots();
 	Tablero tablero = new Tablero (10,10);
-	Jugador jugador = new Jugador(equipoAutobots, tablero);
+	Jugador jugador = new Jugador(equipoAutobots, tablero,"Nombre");
 	Optimus optimus = new Optimus();
 	Coordenada coordenada = new Coordenada(2,3);
 	Coordenada nuevaCoordenada= new Coordenada(2,8);
@@ -126,7 +126,7 @@ public class JugadorTest {
 	public void test09UnJugadorCombinaASuAlgoformer(){
 		EquipoAutobots equipoAutobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(equipoAutobots, tablero);
+		Jugador jugador = new Jugador(equipoAutobots, tablero,"Nombre");
 		Coordenada coordOptimus = new Coordenada(1,2);
 		tablero.colocarEnTablero(equipoAutobots.optimus, coordOptimus);
 		tablero.colocarEnTablero(equipoAutobots.bumblebee, new Coordenada(1,3));
@@ -138,7 +138,7 @@ public class JugadorTest {
 	public void test10UnJugadorCombinaASuAlgoformerPeroNoLoPuedeMoverNiAtacarPor2Turnos(){
 		EquipoAutobots equipoAutobots = new EquipoAutobots();
 		Tablero tablero = new Tablero(10,10);
-		Jugador jugador = new Jugador(equipoAutobots, tablero);
+		Jugador jugador = new Jugador(equipoAutobots, tablero,"Nombre");
 		Coordenada coordOptimus = new Coordenada(1,2);
 		tablero.colocarEnTablero(equipoAutobots.optimus, coordOptimus);
 		tablero.colocarEnTablero(equipoAutobots.bumblebee, new Coordenada(1,3));
