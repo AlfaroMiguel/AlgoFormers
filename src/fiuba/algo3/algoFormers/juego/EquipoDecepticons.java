@@ -50,6 +50,7 @@ public class EquipoDecepticons extends Equipo {
 		Menasor menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.menasor = menasor;
 		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+		this.algoformerActual = menasor;
 	}
 
 	@Override

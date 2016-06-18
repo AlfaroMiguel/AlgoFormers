@@ -43,6 +43,7 @@ public class EquipoAutobots extends Equipo {
 		Superion superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
 		this.superion = superion;
 		tablero.combinarAlgoformers(superion, this.optimus, this.ratchet, this.bumblebee, this.distanciaMinimaCombinacion);
+		this.algoformerActual = superion;
 	}
 
 	@Override

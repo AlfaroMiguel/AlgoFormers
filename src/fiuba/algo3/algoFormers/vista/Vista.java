@@ -36,6 +36,7 @@ public class Vista {
 	}
 
 	public void update(Algoformer algoformer, Coordenada posicion) {
+		System.out.println("UpdateDesdeVista");
 		this.hexGrid.ponerAccionable(posicion, algoformer);
 		
 	}

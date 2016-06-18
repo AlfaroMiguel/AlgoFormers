@@ -275,6 +275,7 @@ public class Tablero implements Observador{
 			throw new NoCombinableException();
 		}
 		this.eliminarAccionableDeTablero(coordOptimus);
+		System.out.println("Se combinan los algoformers");
 		this.colocarEnTablero(superion, coordOptimus);
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
