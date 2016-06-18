@@ -12,9 +12,10 @@ public class Jugador{
 	protected Tablero tablero;
 	public String nombre;
 	
-	public Jugador(Equipo equipo, Tablero tablero){
+	public Jugador(Equipo equipo, Tablero tablero, String nombre){
 		this.equipo = equipo;
 		this.tablero = tablero;
+		this.nombre = nombre;
 	}
 	
 	public Algoformer verAlgoformerActual(){

@@ -19,6 +19,45 @@ public class CreadorDeMapas {
         tablero.put(new Coordenada(6,7),casillero2);
         
         CreadorDeMapas.colocarMonte(tablero);
+        
+        for (int i = 0; i < 6; i++){
+        	Casillero casillero = new Casillero();
+        	casillero.agregarSuperficie(new SuperficiePantano());
+        	casillero.agregarSuperficie(new SuperficieAndromeda());
+        	tablero.put(new Coordenada(i,14), casillero);
+        }
+        
+        int j = 4;
+        for (int i = 20; i > 13; i--){
+        		Casillero casillero = new Casillero();
+        		casillero.agregarSuperficie(new SuperficiePantano());
+        		casillero.agregarSuperficie(new SuperficieAndromeda());
+        		tablero.put(new Coordenada(i,j), casillero);
+        		j++;
+        }
+        
+        //6,8; 7,7; 8,8; 9,7; 10,8; 11,7; 12,8; 13,7
+        j = 8;
+        for (int i = 6; i < 14; i++){
+        	Casillero casillero = new Casillero();
+    		casillero.agregarSuperficie(new SuperficiePantano());
+    		casillero.agregarSuperficie(new SuperficieAndromeda());
+    		if (i%2 == 0){
+    			tablero.put(new Coordenada(i,j), casillero);
+    			j--;
+    		}
+        }
+        
+        j = 7;
+        for (int i = 6; i < 14; i++){
+        	Casillero casillero = new Casillero();
+    		casillero.agregarSuperficie(new SuperficiePantano());
+    		casillero.agregarSuperficie(new SuperficieAndromeda());
+    		if (i%2 == 1){
+    			tablero.put(new Coordenada(i,j), casillero);
+    			j--;
+    		}
+        }
 	}
 	
 	private static void colocarMonte(HashMap<Coordenada, Casillero> tablero){

@@ -28,6 +28,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
@@ -86,13 +87,14 @@ public class Aplicacion extends Application {
         TextField textoJugador2 = new TextField();
         
         Label errorIngreso = new Label("Debe ingresar un nombre");
+        Label errorNombresIguales = new Label("Debe ingresar nombres distintos");
         
 		botonComenzar.setText("Comenzar");
 		botonEnter1.setText("Ingresar");
 		botonEnter2.setText("Ingresar");
 		
-		textoJugador1.setPromptText("nombre jugador 1");
-		textoJugador2.setPromptText("nombre jugador 2");
+		textoJugador1.setPromptText("nombre jugador autobots");
+		textoJugador2.setPromptText("nombre jugador decepticons");
 
 		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
         ImageView imageView = new ImageView();
@@ -102,19 +104,22 @@ public class Aplicacion extends Application {
         
         errorIngreso.setFont(Font.font("arial",15));
         errorIngreso.setTextFill(Color.CRIMSON);
+        errorNombresIguales.setFont(Font.font("arial",15));
+        errorNombresIguales.setTextFill(Color.CRIMSON);
         
-        textoJugador1.setMaxSize(300, 10);
-        textoJugador2.setMaxSize(300, 10);
+        textoJugador1.setMinSize(210, 10);
+        textoJugador2.setMinSize(210, 10);
        
         imageView.setFitHeight(800);
         imageView.setFitWidth(1400);
         
         this.ubicarNodo(botonComenzar, 600, 350);
-        this.ubicarNodo(botonEnter1, 620, 400);
-        this.ubicarNodo(botonEnter2, 620, 400);
+        this.ubicarNodo(botonEnter1, 640, 400);
+        this.ubicarNodo(botonEnter2, 640, 400);
         this.ubicarNodo(textoJugador1, 570, 350);
         this.ubicarNodo(textoJugador2, 570, 350);
         this.ubicarNodo(errorIngreso, 558, 330);
+        this.ubicarNodo(errorNombresIguales, 550, 330);
         
         root.getChildren().addAll(imageView, botonEnter1, textoJugador1);
         
@@ -150,16 +155,30 @@ public class Aplicacion extends Application {
 		botonEnter2.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
-				if (! textoJugador2.getText().trim().equals("")){
+				if (! textoEstaVacio(textoJugador2) && ! textosSonIguales(textoJugador1, textoJugador2)){
 					if (root.getChildren().contains(errorIngreso)){
 						root.getChildren().remove(errorIngreso);
+					}
+					if (root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().remove(errorNombresIguales);
 					}
 					root.getChildren().remove(textoJugador2);
 					root.getChildren().remove(botonEnter2);
 					root.getChildren().add(botonComenzar);
 					botonComenzar.requestFocus();
 				}
+				else if (textosSonIguales(textoJugador1, textoJugador2)){
+					if (root.getChildren().contains(errorIngreso)){
+						root.getChildren().remove(errorIngreso);
+					}
+					if (! root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().add(errorNombresIguales);
+					}
+				}
 				else{
+					if (root.getChildren().contains(errorNombresIguales)){
+						root.getChildren().remove(errorNombresIguales);
+					}
 					if (! root.getChildren().contains(errorIngreso)){
 						root.getChildren().add(errorIngreso);
 					}
@@ -200,7 +219,14 @@ public class Aplicacion extends Application {
 
 	}
 	
-	public void ubicarNodo(Node nodo, int x, int y){		
+	private static boolean textoEstaVacio(TextField texto){
+		return texto.getText().trim().equals("");
+	}
+	
+	private static boolean textosSonIguales(TextField texto1, TextField texto2){
+		return texto1.getText().equalsIgnoreCase(texto2.getText());
+	}
+	private void ubicarNodo(Node nodo, int x, int y){		
 		nodo.setLayoutX(x);
         nodo.setLayoutY(y);
 	}
