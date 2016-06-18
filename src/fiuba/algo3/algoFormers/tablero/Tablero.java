@@ -130,7 +130,6 @@ public class Tablero implements Observador{
 	 * Lanza: MovimientoInvalidoException si no se puede mover a la posicion.*/
 	public void mover(Accionable accionable, Coordenada coordenadaFinal, int paso) {
 		Coordenada coordInic = accionable.getCoordenada();
-		
 		List<Coordenada> camino = GeneradorDeCaminos.calcularCaminoDeCostoMinimo(this.superficies, this.accionables, accionable, coordInic, coordenadaFinal);
 		if(!GeneradorDeCaminos.puedePagarCamino(camino, superficies, accionable, paso))
 			throw new MovimientoInvalidoException();
@@ -141,8 +140,8 @@ public class Tablero implements Observador{
 		}
 		//PAJA
 		boolean esAlgoformer = true;
-		this.actualizarVistas(coordInic,esAlgoformer);
 		this.colocarEnTablero(accionable,coordenadaFinal);
+		this.actualizarVistas(coordInic,esAlgoformer);
 		this.accionables.put(coordInic,new Vacio());
 	}
 	public void seleccionado(){
