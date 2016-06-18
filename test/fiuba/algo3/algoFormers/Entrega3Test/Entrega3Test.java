@@ -937,8 +937,8 @@ public class Entrega3Test{
 		BurbujaInmaculada burbuja = new BurbujaInmaculada();
 		Megatron megatron = new Megatron();
 		
-		Coordenada coordInicialOptimus = new Coordenada(0,0);
-		Coordenada coordInicialBumblebee = new Coordenada(0,1);
+		Coordenada coordInicialOptimus = new Coordenada(0,1);
+		Coordenada coordInicialBumblebee = new Coordenada(0,0);
 		Coordenada coordInicialRatchet = new Coordenada(1,0);
 		Coordenada coordBurbuja = new Coordenada(0,2);
 		Coordenada coordMegatron = new Coordenada(1,1);

@@ -47,6 +47,7 @@ public class Vista {
 	public void update(Tablero tablero, Coordenada coordenadaInicial, Coordenada coordenadaFinal,Algoformer algoformerActual) {
 		List camino = this.juego.buscarCamino(coordenadaInicial, coordenadaFinal);
 		int paso = (int) Math.ceil(algoformerActual.verModo().verPaso());
+		camino.add(coordenadaFinal);
 		Boolean puedePagar = GeneradorDeCaminos.puedePagarCamino(camino, tablero.superficies, algoformerActual, paso);
 		if (puedePagar) this.hexGrid.pintarCaminoCorrecto(camino);
 		else this.hexGrid.pintarCaminoIncorrecto(camino);
