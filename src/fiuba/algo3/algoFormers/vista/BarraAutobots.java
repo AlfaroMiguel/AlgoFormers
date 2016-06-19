@@ -8,6 +8,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -31,7 +32,6 @@ public class BarraAutobots extends VBox {
 		agregarImagenes();
 		configurarBotones();
 		agregarAlgoformers();
-//		this.setAlignment(Pos.TOP_CENTER);
 		agregarTooltips();
 		configurarBarrasVida();
 		agregarBarrasVida();
@@ -49,7 +49,7 @@ public class BarraAutobots extends VBox {
 	public void agregarImagenes(){
 		agregarImagen("file:img/algoformers/humanoide/optimus.png", botonOptimus);
 		agregarImagen("file:img/algoformers/humanoide/bumblebee.png", botonBumblebee);
-		agregarImagen("file:img/algoformers/humanoide/ratchet.png", botonRatchet);	
+		agregarImagen("file:img/algoformers/humanoide/ratchet.png", botonRatchet);
 	}
 	
 	public void configurarBotones(){
@@ -62,6 +62,7 @@ public class BarraAutobots extends VBox {
 		botonRatchet.setContentDisplay(ContentDisplay.TOP);
 		
 		botonOptimus.setMinWidth(200);
+		botonOptimus.setMaxHeight(10);
 		botonBumblebee.setMinWidth(200);
 		botonRatchet.setMinWidth(200);
 	}
@@ -116,6 +117,28 @@ public class BarraAutobots extends VBox {
 		
 	}
 	
+	private HBox botonesOptimus(){
+		HBox cajaOptimus = new HBox();
+		
+		Button botonOptimusHumanoide = new Button();
+		Button botonOptimusAlterno = new Button();
+		
+		agregarImagen("file:img/algoformers/humanoide/optimus.png", botonOptimusHumanoide);
+		agregarImagen("file:img/algoformers/alterno/optimus.png", botonOptimusAlterno);
+		
+		botonOptimusHumanoide.setText("OPTIMUS");
+		botonOptimusAlterno.setText("OPTIMUS");
+		
+		botonOptimusHumanoide.setContentDisplay(ContentDisplay.TOP);
+		botonOptimusAlterno.setContentDisplay(ContentDisplay.TOP);
+		
+		botonOptimusHumanoide.setTooltip(configurarTooltip(2,3,3));
+		botonOptimusAlterno.setTooltip(configurarTooltip(2,3,3));
+		
+		cajaOptimus.getChildren().addAll(botonOptimusHumanoide,botonOptimusAlterno);
+		
+		return cajaOptimus;
+	}
 	
 	
 }

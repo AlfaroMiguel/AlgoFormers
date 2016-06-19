@@ -17,13 +17,13 @@ public class ContenedorPrincipal extends BorderPane{
 //		sp.setMinViewportWidth(10);
 		this.setCenter(contenedor.getLayout());
 		
-		BarraAcciones barraAcciones = new BarraAcciones(controlador);
-		this.setBottom(barraAcciones);
-		
 		BarraAutobots barraAutobots = new BarraAutobots();
 		this.setLeft(barraAutobots);
 		
 		BarraDecepticons barraDecepticons = new BarraDecepticons();
 		this.setRight(barraDecepticons);
+		
+		BarraAcciones barraAcciones = new BarraAcciones(controlador);
+		this.setBottom(barraAcciones);
 	}
 }

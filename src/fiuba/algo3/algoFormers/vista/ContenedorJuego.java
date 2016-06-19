@@ -66,7 +66,6 @@ public class ContenedorJuego extends HBox{
 //	    scroller.setVbarPolicy(ScrollBarPolicy.NEVER);
 //	    scroller.setHbarPolicy(ScrollBarPolicy.NEVER);
 
-
 	    final Group scrollContent = new Group(zoomPane);
 	    scroller.setContent(scrollContent);
 	    scroller.setFitToHeight(true);
