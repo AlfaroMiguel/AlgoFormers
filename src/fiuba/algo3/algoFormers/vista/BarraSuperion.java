@@ -14,13 +14,17 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+
 public class BarraSuperion extends VBox{
 	
 	Button botonSuperion = new Button();
 	
 	StackPane barraVidaSuperion;
 	
-	public BarraSuperion(){
+	String nombreJugador;
+	
+	public BarraSuperion(String nombreJugador){
+		this.nombreJugador = nombreJugador;
 		agregarImagen("file:img/algoformers/superion.png", botonSuperion);
 		botonSuperion.setText("SUPERION");
 		botonSuperion.setContentDisplay(ContentDisplay.TOP);
@@ -36,7 +40,8 @@ public class BarraSuperion extends VBox{
 		
 		VBox contenedor = new VBox();
 		
-		Label tituloVida = new Label("Vida Equipo");
+		String nombreCapitalizado = Character.toUpperCase(nombreJugador.charAt(0)) + nombreJugador.substring(1);
+		Label tituloVida = new Label("Vida Equipo " + nombreCapitalizado);
 		tituloVida.setFont(Font.font("Georgia", 20));
 		tituloVida.setTextFill(Color.CADETBLUE);
 		

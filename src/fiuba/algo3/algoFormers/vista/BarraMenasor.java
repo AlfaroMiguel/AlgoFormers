@@ -20,7 +20,10 @@ public class BarraMenasor extends VBox{
 	
 	StackPane barraVidaMenasor;
 	
-	public BarraMenasor(){
+	String nombreJugador; 
+	
+	public BarraMenasor(String nombreJugador){
+		this.nombreJugador = nombreJugador;
 		agregarImagen("file:img/algoformers/menasor.png", botonMenasor);
 		botonMenasor.setText("MENASOR");
 		botonMenasor.setContentDisplay(ContentDisplay.TOP);
@@ -36,7 +39,8 @@ public class BarraMenasor extends VBox{
 		
 		VBox contenedor = new VBox();
 		
-		Label tituloVida = new Label("Vida Equipo");
+		String nombreCapitalizado = Character.toUpperCase(nombreJugador.charAt(0)) + nombreJugador.substring(1);
+		Label tituloVida = new Label("Vida Equipo " + nombreCapitalizado);
 		tituloVida.setFont(Font.font("Georgia", 20));
 		tituloVida.setTextFill(Color.CADETBLUE);
 		

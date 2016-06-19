@@ -29,10 +29,12 @@ public class BarraAutobots extends VBox{
 	StackPane barraVidaBumblebee;
 	StackPane barraVidaRatchet;
 	
-	private BarraAutobots(){
+	String nombreJugador;
+	private BarraAutobots(String nombreJugador){
 		
 		this.setFillWidth(true);
 		this.setMinWidth(200);
+		this.nombreJugador = nombreJugador;
 		agregarImagenes();
 		configurarBotones();
 		bloquearBotonCorrespondiente(botonOptimusHumanoide, botonOptimusAlterno);
@@ -45,9 +47,9 @@ public class BarraAutobots extends VBox{
 	}
 	
 
-	public static BarraAutobots getInstance(){
+	public static BarraAutobots getInstance(String nombreJugador){
 		if (instancia == null){
-			instancia = new BarraAutobots();
+			instancia = new BarraAutobots(nombreJugador);
 		}
 		return instancia;
 	}
@@ -140,7 +142,8 @@ public class BarraAutobots extends VBox{
 		
 		VBox contenedor = new VBox();
 		
-		Label tituloVida = new Label("Vida Equipo");
+		String nombreCapitalizado = Character.toUpperCase(nombreJugador.charAt(0)) + nombreJugador.substring(1);
+		Label tituloVida = new Label("Vida Equipo " + nombreCapitalizado);
 		tituloVida.setFont(Font.font("Georgia", 20));
 		tituloVida.setTextFill(Color.CADETBLUE);
 		
@@ -151,7 +154,7 @@ public class BarraAutobots extends VBox{
 		this.getChildren().add(contenedor);
 		
 	}
-
+	
 	
 	public Tooltip configurarTooltip(int vida, int ataque, int velocidad){
 		Tooltip tooltip = new Tooltip();

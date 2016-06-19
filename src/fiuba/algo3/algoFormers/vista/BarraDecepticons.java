@@ -30,8 +30,11 @@ public class BarraDecepticons extends VBox {
 	StackPane barraVidaBonecrusher;
 	StackPane barraVidaFrenzy;
 	
-	private BarraDecepticons(){
+	String nombreJugador;
+	
+	private BarraDecepticons(String nombreJugador){
 		
+		this.nombreJugador = nombreJugador;
 		this.setFillWidth(true);
 		this.setMinWidth(200);
 		agregarImagenes();
@@ -45,9 +48,9 @@ public class BarraDecepticons extends VBox {
 		agregarBarrasVida();
 	}
 	
-	public static BarraDecepticons getInstance(){
+	public static BarraDecepticons getInstance(String nombreJugador){
 		if (instancia == null){
-			instancia = new BarraDecepticons();
+			instancia = new BarraDecepticons(nombreJugador);
 		}
 		return instancia;
 	}
@@ -154,7 +157,8 @@ public class BarraDecepticons extends VBox {
 		
 		VBox contenedor = new VBox();
 		
-		Label tituloVida = new Label("Vida Equipo");
+		String nombreCapitalizado = Character.toUpperCase(nombreJugador.charAt(0)) + nombreJugador.substring(1);
+		Label tituloVida = new Label("Vida Equipo " + nombreCapitalizado);
 		tituloVida.setFont(Font.font("Georgia", 20));
 		tituloVida.setTextFill(Color.CADETBLUE);
 		

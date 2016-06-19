@@ -24,6 +24,8 @@ import javafx.stage.Stage;
 public class Aplicacion extends Application {
 	
 	private Stage stage;
+	String nombreJugadorAutobots;
+	String nombreJugadorDecepticons;
 	
 	public static void main(String[] args) {
 	    Application.launch(args);
@@ -42,14 +44,17 @@ public class Aplicacion extends Application {
 	
 	public Scene pantallaInicio(){
 		Pane root = new Pane();
-        
+       
 		Button botonComenzar = new Button();
         Button botonEnter1 = new Button();
         Button botonEnter2 = new Button();
         
-        TextField textoJugador1 = new TextField();
-        TextField textoJugador2 = new TextField();
+        RestrictiveTextField textoJugadorAutobots = new RestrictiveTextField();
+        RestrictiveTextField textoJugadorDecepticons = new RestrictiveTextField();
         
+        textoJugadorAutobots.setMaxLength(10);
+        textoJugadorDecepticons.setMaxLength(10);
+       
         Label errorIngreso = new Label("Debe ingresar un nombre");
         Label errorNombresIguales = new Label("Debe ingresar nombres distintos");
         
@@ -60,8 +65,8 @@ public class Aplicacion extends Application {
 		botonEnter2.setText("Ingresar Nombre");
 		botonEnter2.setTextFill(Color.WHITE);
 		
-		textoJugador1.setPromptText("nombre jugador autobots");
-		textoJugador2.setPromptText("nombre jugador decepticons");
+		textoJugadorAutobots.setPromptText("nombre jugador autobots");
+		textoJugadorDecepticons.setPromptText("nombre jugador decepticons");
 
 		Image imagenFondo = new Image("file:img/fondo/algoformersFondo.jpg");
         ImageView imageView = new ImageView();
@@ -76,8 +81,8 @@ public class Aplicacion extends Application {
         errorNombresIguales.setFont(Font.font("arial",15));
         errorNombresIguales.setTextFill(Color.CRIMSON);
         
-        textoJugador1.setMinSize(210, 10);
-        textoJugador2.setMinSize(210, 10);
+        textoJugadorAutobots.setMinSize(210, 10);
+        textoJugadorDecepticons.setMinSize(210, 10);
        
         imageView.setFitHeight(800);
         imageView.setFitWidth(1400);
@@ -91,21 +96,20 @@ public class Aplicacion extends Application {
         this.ubicarNodo(botonComenzar, 600, 350);
         this.ubicarNodo(botonEnter1, 640, 200);
         this.ubicarNodo(botonEnter2, 640, 200);
-        this.ubicarNodo(textoJugador1, 670, 150);
-        this.ubicarNodo(textoJugador2, 670, 150);
+        this.ubicarNodo(textoJugadorAutobots, 670, 150);
+        this.ubicarNodo(textoJugadorDecepticons, 670, 150);
         this.ubicarNodo(errorIngreso, 588, 178);
         this.ubicarNodo(errorNombresIguales, 570, 178);
         this.ubicarNodo(autobots, 500, 153);
         this.ubicarNodo(decepticons, 475, 153);
         
         
-        root.getChildren().addAll(imageView, textoJugador1, botonEnter1, autobots);
+        root.getChildren().addAll(imageView, textoJugadorAutobots, botonEnter1, autobots);
         
 		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
-				ContenedorPrincipal contenedor = new ContenedorPrincipal();
-				Juego.setNombresJugadores(textoJugador1.getText(), textoJugador2.getText());
+				ContenedorPrincipal contenedor = new ContenedorPrincipal(nombreJugadorAutobots, nombreJugadorDecepticons);
 				stage.setScene(new Scene(contenedor));
 				stage.setFullScreen(true);
 			} 
@@ -114,14 +118,15 @@ public class Aplicacion extends Application {
 		botonEnter1.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
-				if (! textoJugador1.getText().trim().equals("")){
+				if (! textoJugadorAutobots.getText().trim().equals("")){
 					if (root.getChildren().contains(errorIngreso)){
 						root.getChildren().remove(errorIngreso);
 					}
-					root.getChildren().remove(textoJugador1);
+					nombreJugadorAutobots = textoJugadorAutobots.getText();
+					root.getChildren().remove(textoJugadorAutobots);
 					root.getChildren().remove(botonEnter1);
 					root.getChildren().remove(autobots);
-					root.getChildren().add(textoJugador2);
+					root.getChildren().add(textoJugadorDecepticons);
 					root.getChildren().add(botonEnter2);
 					root.getChildren().add(decepticons);
 				}
@@ -136,20 +141,21 @@ public class Aplicacion extends Application {
 		botonEnter2.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
-				if (! textoEstaVacio(textoJugador2) && ! textosSonIguales(textoJugador1, textoJugador2)){
+				if (! textoEstaVacio(textoJugadorDecepticons) && ! textosSonIguales(textoJugadorAutobots, textoJugadorDecepticons)){
 					if (root.getChildren().contains(errorIngreso)){
 						root.getChildren().remove(errorIngreso);
 					}
 					if (root.getChildren().contains(errorNombresIguales)){
 						root.getChildren().remove(errorNombresIguales);
 					}
-					root.getChildren().remove(textoJugador2);
+					nombreJugadorDecepticons = textoJugadorDecepticons.getText();
+					root.getChildren().remove(textoJugadorDecepticons);
 					root.getChildren().remove(botonEnter2);
 					root.getChildren().remove(decepticons);
 					root.getChildren().add(botonComenzar);
 					botonComenzar.requestFocus();
 				}
-				else if (textosSonIguales(textoJugador1, textoJugador2)){
+				else if (textosSonIguales(textoJugadorAutobots, textoJugadorDecepticons)){
 					if (root.getChildren().contains(errorIngreso)){
 						root.getChildren().remove(errorIngreso);
 					}
@@ -183,10 +189,10 @@ public class Aplicacion extends Application {
 		});
 	    
 		TextoEventHandler texto1EventHandler = new TextoEventHandler(botonEnter1);
-        textoJugador1.setOnKeyPressed(texto1EventHandler);
+        textoJugadorAutobots.setOnKeyPressed(texto1EventHandler);
         
         TextoEventHandler texto2EventHandler = new TextoEventHandler(botonEnter2);
-        textoJugador2.setOnKeyPressed(texto2EventHandler);
+        textoJugadorDecepticons.setOnKeyPressed(texto2EventHandler);
         
         TextoEventHandler botonEnter1EventHandler = new TextoEventHandler(botonEnter1);
         botonEnter1.setOnKeyPressed(botonEnter1EventHandler);
