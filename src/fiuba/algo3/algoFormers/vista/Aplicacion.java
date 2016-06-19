@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 
 import fiuba.algo3.algoFormers.controlador.TextoEventHandler;
+import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,7 +15,6 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 public class Aplicacion extends Application {
 	
 	private Stage stage;
+	
 	public static void main(String[] args) {
 	    Application.launch(args);
 	    }
@@ -89,6 +90,7 @@ public class Aplicacion extends Application {
 			@Override
 			public void handle(ActionEvent evento){
 				ContenedorPrincipal contenedor = new ContenedorPrincipal();
+				Juego.setNombresJugadores(textoJugador1.getText(), textoJugador2.getText());
 				stage.setScene(new Scene(contenedor));
 				stage.setFullScreen(true);
 			} 
