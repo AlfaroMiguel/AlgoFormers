@@ -38,9 +38,5 @@ public class Superion extends Autobot {
 	public Ratchet getRatchet(){
 		return this.ratchet;
 	}
-	@Override
-	public void setCoordenada(Coordenada coordenada){
-		this.posicion = coordenada;
-		this.actualizarVista();
-	}
+	
 }

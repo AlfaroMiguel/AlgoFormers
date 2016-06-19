@@ -8,7 +8,6 @@ public class ModoSeleccionar implements ModoControlador {
 	@Override
 	public void fueSeleccionado(Juego juego, Coordenada coordenada) {
 		Boolean seleccionado = juego.seleccionarCoordenada(coordenada);
-		System.out.println("Seleccionamos");
 	}
 	public void entro(Juego juego, Coordenada coordenada) {
 		//No hace nada

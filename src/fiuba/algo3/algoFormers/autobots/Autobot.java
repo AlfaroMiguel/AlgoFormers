@@ -33,7 +33,6 @@ public class Autobot extends Algoformer{
 
 	@Override
 	public void serSeleccionado(EquipoAutobots equipoAutobot) {
-		System.out.println("Me seleccionaron Autobot");
 		equipoAutobot.setAlgoformerActual(this);
 	}
 

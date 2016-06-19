@@ -1,7 +1,12 @@
 package fiuba.algo3.algoFormers.tablero;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 
+import fiuba.algo3.algoFormers.excepciones.NoColisionableException;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 public class GeneradorDeCaminos {
 	public static void solicitarCamino(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,Accionable> personajes,Accionable personaje,Coordenada origen,Coordenada destino,int paso){
@@ -27,7 +32,7 @@ public class GeneradorDeCaminos {
 	    	for(Coordenada vecino: Coordenada.neighborsInRange(actual,1)){
 	    		try{
 	    			personajes.get(vecino).colisionar();
-	    			int costo = calcularCosto(superficies.get(vecino),personaje);
+	    			int costo = calcularCosto(superficies.get(actual),personaje);
 	    			//Puede ser que en calcularCosto tenga que poner actual
 	    			if(!visto.get(vecino) && (distancia.get(vecino)> distancia.get(actual)+ costo)){
 	    				distancia.put(vecino,distancia.get(actual)+costo);
@@ -38,7 +43,10 @@ public class GeneradorDeCaminos {
 	    				cola.add(new Tupla(vecino,distancia.get(vecino)));
 	    			}
 	    		}
-	    		catch(Throwable g){
+	    		catch(NoColisionableException g){
+	    		}
+	    		catch(NullPointerException g){
+	    			
 	    		}
 	    	}
 	    }
@@ -60,15 +68,15 @@ public class GeneradorDeCaminos {
 		camino.add(actual);
 		//Elimino la posicion de destino ya que no la tomo en cuenta
 		//No elimino la posicion de destino ya que es mejor asi
-		camino.remove(destino);
+		//camino.remove(destino);
 		return camino;
 	}
 	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {
 		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos 
-
+		camino.remove(0);
 		if( paso>0 && superficies.get(camino.get(camino.size()-1)).calcularMovimiento(accionable) > 100){
 			paso -= 1;
-			camino.remove(0);
+			camino.remove(camino.size()-1);
 		}
 		//Hasta aca
 		for(Coordenada posicion : camino){
