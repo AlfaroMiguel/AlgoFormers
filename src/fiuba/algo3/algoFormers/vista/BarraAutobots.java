@@ -35,7 +35,9 @@ public class BarraAutobots extends VBox{
 		this.setMinWidth(200);
 		agregarImagenes();
 		configurarBotones();
-		bloquearAlternos();
+		bloquearBotonCorrespondiente(botonOptimusHumanoide, botonOptimusAlterno);
+		bloquearBotonCorrespondiente(botonBumblebeeHumanoide, botonBumblebeeAlterno);
+		bloquearBotonCorrespondiente(botonRatchetHumanoide, botonRatchetAlterno);
 		agregarAlgoformers();
 		agregarTooltips();
 		configurarBarrasVida();
@@ -101,10 +103,16 @@ public class BarraAutobots extends VBox{
 		botonRatchetAlterno.setMinWidth(100);
 	}
 	
-	public void bloquearAlternos(){
-		botonOptimusAlterno.setDisable(true);
-		botonBumblebeeAlterno.setDisable(true);
-		botonRatchetAlterno.setDisable(true);
+	
+	public void bloquearBotonCorrespondiente(Button humanoide, Button alterno){
+		if (alterno.isDisabled()){
+			humanoide.setDisable(true);
+			alterno.setDisable(false);
+		}
+		else{
+			alterno.setDisable(true);
+			humanoide.setDisable(false);
+		}
 	}
 	
 	public void agregarTooltips(){

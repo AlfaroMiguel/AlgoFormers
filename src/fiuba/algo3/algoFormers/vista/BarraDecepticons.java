@@ -36,7 +36,9 @@ public class BarraDecepticons extends VBox {
 		this.setMinWidth(200);
 		agregarImagenes();
 		configurarBotones();
-		bloquearAlternos();
+		bloquearBotonCorrespondiente(botonMegatronHumanoide, botonMegatronAlterno);
+		bloquearBotonCorrespondiente(botonBonecrusherHumanoide, botonBonecrusherAlterno);
+		bloquearBotonCorrespondiente(botonFrenzyHumanoide, botonFrenzyAlterno);;
 		agregarAlgoformers();
 		agregarTooltips();
 		configurarBarrasVida();
@@ -99,12 +101,17 @@ public class BarraDecepticons extends VBox {
 		botonFrenzyAlterno.setMinWidth(100);
 	}
 	
-	public void bloquearAlternos(){
-		botonMegatronAlterno.setDisable(true);
-		botonBonecrusherAlterno.setDisable(true);
-		botonFrenzyAlterno.setDisable(true);
+	public void bloquearBotonCorrespondiente(Button humanoide, Button alterno){
+		if (alterno.isDisabled()){
+			humanoide.setDisable(true);
+			alterno.setDisable(false);
+		}
+		else{
+			alterno.setDisable(true);
+			humanoide.setDisable(false);
+		}
 	}
-	
+
 	public Tooltip configurarTooltip(int vida, int ataque, int velocidad){
 		Tooltip tooltip = new Tooltip();
 		tooltip.setText("Vida: "+ vida+"\nAtaque: "+ataque+"\nVelocidad: "+velocidad);
