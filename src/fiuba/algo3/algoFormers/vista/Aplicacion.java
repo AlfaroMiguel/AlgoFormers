@@ -18,6 +18,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
@@ -52,9 +53,12 @@ public class Aplicacion extends Application {
         Label errorIngreso = new Label("Debe ingresar un nombre");
         Label errorNombresIguales = new Label("Debe ingresar nombres distintos");
         
-		botonComenzar.setText("Comenzar");
-		botonEnter1.setText("Ingresar");
-		botonEnter2.setText("Ingresar");
+		botonComenzar.setText("Nueva Partida");
+		botonComenzar.setTextFill(Color.WHITE);
+		botonEnter1.setText("Ingresar Nombre");
+		botonEnter1.setTextFill(Color.WHITE);
+		botonEnter2.setText("Ingresar Nombre");
+		botonEnter2.setTextFill(Color.WHITE);
 		
 		textoJugador1.setPromptText("nombre jugador autobots");
 		textoJugador2.setPromptText("nombre jugador decepticons");
@@ -63,7 +67,9 @@ public class Aplicacion extends Application {
         ImageView imageView = new ImageView();
         imageView.setImage(imagenFondo);
         
-        botonComenzar.setStyle("-fx-font: 22 arial; -fx-base: #a8b772;");	
+        botonComenzar.setStyle("-fx-font: 22 arial; -fx-base: #000000;");
+        botonEnter1.setStyle("-fx-base: #000000;");
+        botonEnter2.setStyle("-fx-base: #000000;");
         
         errorIngreso.setFont(Font.font("arial",15));
         errorIngreso.setTextFill(Color.CRIMSON);
@@ -76,15 +82,24 @@ public class Aplicacion extends Application {
         imageView.setFitHeight(800);
         imageView.setFitWidth(1400);
         
+        Label autobots = new Label("Jugador Autobots: ");
+        autobots.setFont(Font.font("Courier New", FontWeight.BOLD, 16));
+        autobots.setTextFill(Color.BLACK);
+        Label decepticons = new Label("Jugador Decepticons: ");
+        decepticons.setFont(Font.font("Courier New", FontWeight.BOLD, 16));
+        decepticons.setTextFill(Color.BLACK);
         this.ubicarNodo(botonComenzar, 600, 350);
         this.ubicarNodo(botonEnter1, 640, 400);
         this.ubicarNodo(botonEnter2, 640, 400);
-        this.ubicarNodo(textoJugador1, 570, 350);
-        this.ubicarNodo(textoJugador2, 570, 350);
+        this.ubicarNodo(textoJugador1, 650, 350);
+        this.ubicarNodo(textoJugador2, 650, 350);
         this.ubicarNodo(errorIngreso, 558, 330);
         this.ubicarNodo(errorNombresIguales, 550, 330);
+        this.ubicarNodo(autobots, 480, 353);
+        this.ubicarNodo(decepticons, 455, 353);
         
-        root.getChildren().addAll(imageView, botonEnter1, textoJugador1);
+        
+        root.getChildren().addAll(imageView, textoJugador1, botonEnter1, autobots);
         
 		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
@@ -105,9 +120,10 @@ public class Aplicacion extends Application {
 					}
 					root.getChildren().remove(textoJugador1);
 					root.getChildren().remove(botonEnter1);
+					root.getChildren().remove(autobots);
 					root.getChildren().add(textoJugador2);
 					root.getChildren().add(botonEnter2);
-					botonEnter2.requestFocus();
+					root.getChildren().add(decepticons);
 				}
 				else{
 					if (! root.getChildren().contains(errorIngreso)){
@@ -129,6 +145,7 @@ public class Aplicacion extends Application {
 					}
 					root.getChildren().remove(textoJugador2);
 					root.getChildren().remove(botonEnter2);
+					root.getChildren().remove(decepticons);
 					root.getChildren().add(botonComenzar);
 					botonComenzar.requestFocus();
 				}
