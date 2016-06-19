@@ -101,14 +101,17 @@ public class Tablero implements Observador{
 			throw new MovimientoInvalidoException();
 		}
 	}
+	
 	private void actualizarVistas(Coordenada coordenada,boolean esAlgoformer){
 		for(Vista vista: vistas)
 			vista.update(this,coordenada,esAlgoformer);
 	}
+	
 	private void actualizarVistas() {
 		for(Vista vista: vistas)
 			vista.update(this);
 	}
+	
 	public void agregarVista(Vista vista){
 		this.vistas.add(vista);
 	}
@@ -139,7 +142,6 @@ public class Tablero implements Observador{
 			//Produce el efecto de las superficies intermedias de paso
 			this.superficies.get(posiciones).producirEfectoPorPaso(accionable);
 		}
-		//PAJA
 		boolean esAlgoformer = true;
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.actualizarVistas(coordInic,esAlgoformer);
@@ -402,23 +404,28 @@ public class Tablero implements Observador{
 		this.observado = observable;
 		observable.agregarObservador(this);
 	}
+	
 	public void nuevaSeleccion() {
 		this.actualizarVistas();
 	}
+	
 	public void simularMovimiento(Coordenada coordenadaFinal, Algoformer algoformerActual) {
 		Coordenada coordenadaInicial = algoformerActual.posicion;
 		for(Vista vista: vistas){
 			vista.update(this,coordenadaInicial,coordenadaFinal,algoformerActual);
 		}
 	}
+	
 	public void verRangoAtaque(Coordenada coordenada, int rango) {
 		for(Vista vista: vistas){
 			vista.update(this,coordenada,rango);
 		}
 	}
+	
 	public List coordenadasEnRango(int rango,Coordenada coordenada) {
 		return coordenada.neighborsInRange(coordenada, rango);
 	}
+	
 	public void moverTablero(Coordenada coordenada) {
 		for(Vista vista: vistas){
 			vista.centrarEnCoordenada(coordenada);

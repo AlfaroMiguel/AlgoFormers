@@ -81,7 +81,7 @@ public class Vista {
 		
 		double y = coordenada.r - coordenada.q;
 		
-		this.grupo.setVvalue(y*this.grupo.getVmax()/this.alto);
+//		this.grupo.setVvalue(y*this.grupo.getVmax()/this.alto);
 		
 		//this.grupo.translateXProperty().set(this.grupo.getBoundsInLocal().getMaxX()*(x/a));
 	}

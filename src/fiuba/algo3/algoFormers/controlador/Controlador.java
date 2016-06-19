@@ -38,6 +38,11 @@ public class Controlador {
 		this.modo = new ModoSeleccionar();
 		
 	}
+	
+	public void descombinarSeleccionado(){
+		this.juego.descombinarAlgoFormers();
+		this.modo = new ModoSeleccionar();
+	}
 
 	public void cambiarAModoAtaque() {
 		this.modo = new ModoAtacar(this.juego);

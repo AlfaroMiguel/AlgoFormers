@@ -26,9 +26,6 @@ public class Juego implements Observador{
 	private UbicadorDeColectables ubicadorDeColectables;
 	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
-	public static String nombreJugador1 = "";
-	public static String nombreJugador2 = "";
-
 	
 	public Juego(int alto, int ancho){
 		//se crea el tablero
@@ -51,11 +48,6 @@ public class Juego implements Observador{
 	 	this(50, 50);
  	}
 	
-	public static void setNombresJugadores(String jugador1, String jugador2){
-		nombreJugador1 = jugador1;
-		nombreJugador2 = jugador2;
-	}
-	
 	public Accionable obtenerAccionable(Coordenada c) {
 		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}
@@ -67,12 +59,12 @@ public class Juego implements Observador{
 		
 		
 		if(Math.random()>0.5) {
-			this.jugadorActual = new Jugador(equipoAutobots, tablero, nombreJugador1);
-			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero, nombreJugador2);
+			this.jugadorActual = new Jugador(equipoAutobots, tablero);
+			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
 		}
 		else {
-			this.jugadorActual = new Jugador(equipoDecepticons, tablero, nombreJugador2);
-			this.jugadorAnterior = new Jugador(equipoAutobots, tablero, nombreJugador1);
+			this.jugadorActual = new Jugador(equipoDecepticons, tablero);
+			this.jugadorAnterior = new Jugador(equipoAutobots, tablero);
 		}
 	}
 

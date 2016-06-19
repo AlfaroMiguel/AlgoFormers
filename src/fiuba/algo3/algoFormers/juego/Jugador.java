@@ -10,12 +10,10 @@ import fiuba.algo3.algoFormers.vista.Vista;
 public class Jugador{
 	protected Equipo equipo;
 	protected Tablero tablero;
-	public String nombre;
 	
-	public Jugador(Equipo equipo, Tablero tablero, String nombre){
+	public Jugador(Equipo equipo, Tablero tablero){
 		this.equipo = equipo;
 		this.tablero = tablero;
-		this.nombre = nombre;
 	}
 	
 	public Algoformer verAlgoformerActual(){
