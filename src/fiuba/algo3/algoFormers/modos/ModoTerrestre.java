@@ -39,7 +39,6 @@ public abstract class ModoTerrestre implements Modo {
 
 	@Override
 	public void moverse(Algoformer algoformer, Coordenada coordenada, Tablero tablero,Agilidad agilidad) {
-		System.out.println("Definitivamente Me Movi");
 		tablero.mover(algoformer, coordenada, (int)(this.velocidad*agilidad.getAgilidad()));
 	}
 
@@ -60,7 +59,7 @@ public abstract class ModoTerrestre implements Modo {
 	public abstract int simularPasoDe(SuperficieTierra superficieTierra);
 	
 	public int simularPasoDe(SuperficieAire superficieAire){
-		return 0;
+		return 1;
 	}
 	
 	public void serDesafectado(SuperficieAire superficieAire, Algoformer algoformer){

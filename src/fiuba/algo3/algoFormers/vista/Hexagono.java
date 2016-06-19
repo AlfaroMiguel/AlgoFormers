@@ -79,16 +79,16 @@ public class Hexagono extends StackPane {
 	}
 
 	public void pintarCaminoCorrecto() {
-		this.hexagon.setStroke(Color.CADETBLUE);
-		this.hexagon.setStrokeWidth(3);
+		this.hexagon.setStroke(Color.FORESTGREEN);
+		this.hexagon.setStrokeWidth(4);
 	}
 	public void pintarCaminoIncorrecto() {
 		this.hexagon.setStroke(Color.GREY);
-		this.hexagon.setStrokeWidth(3);
+		this.hexagon.setStrokeWidth(4);
 	}
 	public void pintarRegionAtaque() {
 		this.hexagon.setStroke(Color.DARKRED);
-		this.hexagon.setStrokeWidth(3);
+		this.hexagon.setStrokeWidth(4);
 	}
 	public void despintar() {
 		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
@@ -131,7 +131,6 @@ public class Hexagono extends StackPane {
 		this.hexagon.setFill(tierra);
 	}
 	public void ponerAccionable(Accionable accionable) {
-		System.out.print("Entra a hexagono");
 		Image imagen = ClaseImagenes.getImage(accionable);
 		this.habitable.setImage(imagen);
 		this.aire.toFront();

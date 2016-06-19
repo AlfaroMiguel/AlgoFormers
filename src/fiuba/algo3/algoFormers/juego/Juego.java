@@ -105,8 +105,6 @@ public class Juego implements Observador{
 	public boolean seleccionarCoordenada(Coordenada coordenada){
 		try	{
 			this.jugadorActual.seleccionarAlgoformer(coordenada);
-			//Esto es nuevo 13/6/2016
-			System.out.println("Selecciona correctamente");
 			return true;
 
 		}
