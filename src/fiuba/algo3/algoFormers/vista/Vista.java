@@ -72,18 +72,13 @@ public class Vista {
 	}
 
 	public void centrarEnCoordenada(Coordenada coordenada){
-		//TODO centrar
-		double a = this.grupo.getHmax();
-		double x = coordenada.q;
-		double v = this.grupo.getLayoutBounds().getWidth();
-		
-		this.grupo.setHvalue(x*this.grupo.getHmax()/this.ancho);
-		
-		double y = coordenada.r - coordenada.q;
-		
-//		this.grupo.setVvalue(y*this.grupo.getVmax()/this.alto);
-		
-		//this.grupo.translateXProperty().set(this.grupo.getBoundsInLocal().getMaxX()*(x/a));
+		double ancho = this.grupo.getHmax();
+		int x = coordenada.q;
+		double alto = this.grupo.getVmax();
+		int y = coordenada.q/2 + coordenada.r;
+				
+		this.grupo.setHvalue(x*ancho/this.ancho);
+		this.grupo.setVvalue((this.alto-y)*alto/this.alto);
 	}
 	public void agregarGrupo(ScrollPane grupo) {
 		this.grupo = grupo;
