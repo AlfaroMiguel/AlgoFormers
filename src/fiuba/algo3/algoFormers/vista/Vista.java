@@ -36,6 +36,7 @@ public class Vista {
 	}
 
 	public void update(Algoformer algoformer, Coordenada posicion) {
+		System.out.println("UpdateDesdeVista");
 		this.hexGrid.ponerAccionable(posicion, algoformer);
 		
 	}
@@ -56,6 +57,10 @@ public class Vista {
 	public void update(Tablero tablero, Coordenada coordenada, int rango) {
 		List coordenadasEnRango = tablero.coordenadasEnRango(rango,coordenada);
 		this.hexGrid.pintarRangoAtaque(coordenadasEnRango);
+	}
+
+	public void update(Algoformer algoformer, Coordenada posicion, int ataque) {
+		this.hexGrid.bajarVida(posicion,ataque);
 	}
 
 }

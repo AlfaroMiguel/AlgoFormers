@@ -41,4 +41,8 @@ public class Controlador {
 	public void cambiarAModoAtaque() {
 		this.modo = new ModoAtacar(this.juego);
 	}
+
+	public void terminarTurno() {
+		this.juego.cambiarTurno();
+	}
 }

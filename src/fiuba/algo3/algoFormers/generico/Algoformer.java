@@ -44,7 +44,7 @@ public abstract class Algoformer implements Accionable{
 	/*
 	VISTAS
 	*/
-	public List<Vista> vistas = new ArrayList<Vista>();
+	public static List<Vista> vistas = new ArrayList<Vista>();
 	/* Metodos de la clase. */
 	/* Convierte su velocidad en 0 para no poder moverse.*/
 	public void inmovilizar(){
@@ -248,7 +248,13 @@ public abstract class Algoformer implements Accionable{
 	}
 	public void actualizarVista(){
 		for(Vista vista: vistas){
+			System.out.println("ActualizoVistas");
 			vista.update(this, this.posicion);
+		}
+	}
+	public void actualizarVista(int ataque){
+		for(Vista vista: vistas){
+			vista.update(this, this.posicion, ataque);
 		}
 	}
 }
