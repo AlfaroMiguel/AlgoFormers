@@ -221,6 +221,6 @@ public class CreadorDeMapas {
 		espinas.add(new Coordenada(15,5));
 		espinas.add(new Coordenada(16,4));
 		espinas.add(new Coordenada(14,6));
-		return montañas;
+		return espinas;
 	}
 }
