@@ -89,14 +89,14 @@ public class Aplicacion extends Application {
         decepticons.setFont(Font.font("Courier New", FontWeight.BOLD, 16));
         decepticons.setTextFill(Color.BLACK);
         this.ubicarNodo(botonComenzar, 600, 350);
-        this.ubicarNodo(botonEnter1, 640, 400);
-        this.ubicarNodo(botonEnter2, 640, 400);
-        this.ubicarNodo(textoJugador1, 650, 350);
-        this.ubicarNodo(textoJugador2, 650, 350);
-        this.ubicarNodo(errorIngreso, 558, 330);
-        this.ubicarNodo(errorNombresIguales, 550, 330);
-        this.ubicarNodo(autobots, 480, 353);
-        this.ubicarNodo(decepticons, 455, 353);
+        this.ubicarNodo(botonEnter1, 640, 200);
+        this.ubicarNodo(botonEnter2, 640, 200);
+        this.ubicarNodo(textoJugador1, 670, 150);
+        this.ubicarNodo(textoJugador2, 670, 150);
+        this.ubicarNodo(errorIngreso, 588, 178);
+        this.ubicarNodo(errorNombresIguales, 570, 178);
+        this.ubicarNodo(autobots, 500, 153);
+        this.ubicarNodo(decepticons, 475, 153);
         
         
         root.getChildren().addAll(imageView, textoJugador1, botonEnter1, autobots);
