@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoColisionableException;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 public class GeneradorDeCaminos {
@@ -29,11 +30,10 @@ public class GeneradorDeCaminos {
 	    while(!cola.isEmpty()){
 	    	Coordenada actual = cola.remove().getCoordenada();
 	    	visto.put(actual,true);
-	    	
+
 	    	for(Coordenada vecino: Coordenada.neighborsInRange(actual,1)){
 	    		try{
 	    			personajes.get(vecino).colisionar();
-	    			
 	    			int costo = calcularCosto(superficies.get(actual),personaje);
 	    			//Puede ser que en calcularCosto tenga que poner actual
 	    			if(!visto.get(vecino) && (distancia.get(vecino)> distancia.get(actual)+ costo)){
@@ -48,11 +48,12 @@ public class GeneradorDeCaminos {
 	    		catch(NoColisionableException g){
 	    		}
 	    		catch(NullPointerException g){
-	    			
+	    		}
+	    		catch(MovimientoInvalidoException g){
 	    		}
 	    	}
 	    }
-	    return new ArrayList<Coordenada>(); 
+	    return new ArrayList<Coordenada>();
 	}
 
 	private static int calcularCosto(Casillero casillero, Accionable personaje) {
@@ -74,7 +75,12 @@ public class GeneradorDeCaminos {
 		return camino;
 	}
 	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {
-		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos 
+		try{
+			superficies.get(camino.get(0)).calcularMovimiento(accionable);
+		}catch(MovimientoInvalidoException g){
+			return false;
+		}
+		//Hardcodeo el caso donde sale de una nebulosa despues de esperar 3 turnos
 		camino.remove(0);
 		if( paso>0 && superficies.get(camino.get(camino.size()-1)).calcularMovimiento(accionable) > 100){
 			paso -= 1;
@@ -87,6 +93,7 @@ public class GeneradorDeCaminos {
 		if(paso>=0)
 			return true;
 		return false;
+
 	}
 
 }

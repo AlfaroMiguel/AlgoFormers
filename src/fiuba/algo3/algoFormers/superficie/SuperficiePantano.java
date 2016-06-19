@@ -60,7 +60,7 @@ public class SuperficiePantano extends SuperficieTierra {
 
 	@Override
 	public int costoPorPaso(ModoHumanoide modoHumanoide) {
-		return 1000;
+		throw new MovimientoInvalidoException();
 	}
 
 	@Override
