@@ -32,12 +32,13 @@ public class ContenedorJuego extends HBox{
 		int alto = 30;
 		int ancho = 20;
 //		Juego juego =juego;
-		Vista vista = new Vista(juego);
+		Vista vista = new Vista(juego);//Tambien poner el zoomPane
 		juego.agregarVista(vista);
 //		Controlador controlador =  new Controlador(juego);
 		this.controlador = controlador;
 		Group grid = crearTablero(alto, ancho, vista, controlador);
 		vista.inicializarTablero(alto,ancho);
+		vista.agregarGrupo(grid);
 		Parent contenedor = crearContenedor(grid);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
@@ -106,6 +107,7 @@ public class ContenedorJuego extends HBox{
 	        grid.setScaleY(escala);
 
 	      }
+	      
 	    });
 	 // Mover el tablero arrastrandolo
 

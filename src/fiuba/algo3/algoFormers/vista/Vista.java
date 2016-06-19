@@ -9,10 +9,12 @@ import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 
 public class Vista {
 	private HexGrid hexGrid;
 	private Juego juego;
+	private Group grupo;
 	public Vista(Juego juego){
 		this.hexGrid = new HexGrid();
 		this.juego = juego;
@@ -61,6 +63,14 @@ public class Vista {
 
 	public void update(Algoformer algoformer, Coordenada posicion, int ataque) {
 		this.hexGrid.bajarVida(posicion,ataque);
+	}
+
+	public void centrarEnCoordenada(Coordenada coordenada){
+		//TODO centrar
+		this.grupo.translateXProperty().set(coordenada.q*50);
+	}
+	public void agregarGrupo(Group grupo) {
+		this.grupo = grupo;
 	}
 
 }

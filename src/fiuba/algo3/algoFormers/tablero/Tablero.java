@@ -430,5 +430,10 @@ public class Tablero implements Observador{
 	public List coordenadasEnRango(int rango,Coordenada coordenada) {
 		return coordenada.neighborsInRange(coordenada, rango);
 	}
+	public void moverTablero(Coordenada coordenada) {
+		for(Vista vista: vistas){
+			vista.centrarEnCoordenada(coordenada);
+		}
+	}
 
 }

@@ -15,6 +15,7 @@ public class Controlador {
 	
 	public void fueSeleccionado(Coordenada coordenada){
 		juego.nuevaSeleccion();
+		juego.moverTablero(coordenada);
 		this.modo.fueSeleccionado(this.juego, coordenada);
 		this.modo = new ModoSeleccionar();	
 	}
