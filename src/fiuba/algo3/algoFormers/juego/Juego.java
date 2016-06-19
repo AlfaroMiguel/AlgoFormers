@@ -233,5 +233,9 @@ public class Juego implements Observador{
 	public void verRangoAtaque() {
 		this.tablero.verRangoAtaque(jugadorActual.verAlgoformerActual().getCoordenada(),jugadorActual.verAlgoformerActual().verRango());
 	}
+
+	public void moverTablero(Coordenada coordenada) {
+		this.tablero.moverTablero(coordenada);
+	}
 	
 }
