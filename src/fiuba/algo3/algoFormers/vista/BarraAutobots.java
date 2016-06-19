@@ -41,6 +41,7 @@ public class BarraAutobots extends VBox{
 		agregarBarrasVida();
 	}
 	
+
 	public static BarraAutobots getInstance(){
 		if (instancia == null){
 			instancia = new BarraAutobots();
@@ -59,7 +60,7 @@ public class BarraAutobots extends VBox{
 		barraTitulo.setAlignment(Pos.CENTER);
 		barraTitulo.getChildren().add(titulo);
 		this.getChildren().addAll(barraTitulo, barraModos(),botonesOptimus, botonesBumblebee, botonesRatchet);
-	}
+
 	
 	public void agregarImagen(String ruta, Button boton){
 		Image imagen = new Image(ruta);

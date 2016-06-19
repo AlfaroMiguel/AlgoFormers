@@ -30,7 +30,9 @@ public class CreadorDeMapas {
 		List<Coordenada> nebulosa= obtenerCoordenadasNebulosa();
 		for(Coordenada coordenadas: nebulosa)
 			tablero.get(coordenadas).agregarSuperficie(new SuperficieAndromeda());
-		
+		List<Coordenada> psionica = obtenerCoordenadasPsionica();
+		for(Coordenada coordenadas: psionica)
+			tablero.get(coordenadas).agregarSuperficie(new SuperficiePsionica());
 //        Casillero casillero2 = new Casillero();
 //    	casillero2.agregarSuperficie(new SuperficiePsionica());
 //    	casillero2.agregarSuperficie(new SuperficieRocosa());
@@ -133,9 +135,37 @@ public class CreadorDeMapas {
 		for(int i =0; i<30;i++){
 			montanias.add(new Coordenada(0,i));
 		}
-		for(int i =-9; i<20;i++){
+		for(int i =-9; i<21;i++){
 			montanias.add(new Coordenada(19,i));
 		}
+		for(int i =2; i<7;i++){
+			montanias.add(new Coordenada(i,16));
+		}
+		for(int i =15; i<18;i++){
+			montanias.add(new Coordenada(i,11));
+		}
+		montanias.add(new Coordenada(2,17));
+		montanias.add(new Coordenada(3,17));
+		
+		montanias.add(new Coordenada(15,10));
+		montanias.add(new Coordenada(16,10));
+		montanias.add(new Coordenada(16,12));
+		montanias.add(new Coordenada(17,12));
+		montanias.add(new Coordenada(16,15));
+		montanias.add(new Coordenada(15,15));
+		montanias.add(new Coordenada(17,14));
+
+		montanias.add(new Coordenada(14,16));
+		montanias.add(new Coordenada(15,16));
+		montanias.add(new Coordenada(14,17));
+		montanias.add(new Coordenada(15,17));
+		
+		montanias.add(new Coordenada(14,18));
+		montanias.add(new Coordenada(15,18));
+		montanias.add(new Coordenada(14,19));
+		montanias.add(new Coordenada(15,19));
+		montanias.add(new Coordenada(14,20));
+		montanias.add(new Coordenada(13,20));
 		montanias.add(new Coordenada(1,0));
 		montanias.add(new Coordenada(2,-1));
 		montanias.add(new Coordenada(3,-1));
@@ -185,7 +215,7 @@ public class CreadorDeMapas {
 		montanias.add(new Coordenada(6,7));
 		montanias.add(new Coordenada(14,5));
 		montanias.add(new Coordenada(15,4));
-		
+		montanias.add(new Coordenada(4,14));
 		montanias.add(new Coordenada(6,6));
 		montanias.add(new Coordenada(3,11));
 		montanias.add(new Coordenada(4,11));
@@ -193,7 +223,18 @@ public class CreadorDeMapas {
 		montanias.add(new Coordenada(5,10));
 		montanias.add(new Coordenada(11,7));
 		montanias.add(new Coordenada(12,7));
-		montanias.add(new Coordenada(13,6));	
+		montanias.add(new Coordenada(13,6));
+		
+		montanias.add(new Coordenada(5,20));
+		montanias.add(new Coordenada(4,20));
+		montanias.add(new Coordenada(4,21));
+		montanias.add(new Coordenada(4,22));
+		montanias.add(new Coordenada(4,23));
+		montanias.add(new Coordenada(5,22));
+		montanias.add(new Coordenada(3,15));
+		montanias.add(new Coordenada(4,15));
+		montanias.add(new Coordenada(15,9));
+		montanias.add(new Coordenada(16,9));
 		return montanias;
 	}
 	public static List<Coordenada> obtenerCordenadasEspinas(){
@@ -226,8 +267,43 @@ public class CreadorDeMapas {
 		for(int i =3; i<6;i++){
 			espinas.add(new Coordenada(5,i));
 		}
+		for(int i =1; i<4;i++){
+			espinas.add(new Coordenada(i,20));
+		}
+		for(int i =2; i<7;i++){
+			espinas.add(new Coordenada(i,19));
+		}
+		for(int i =3; i<9;i++){
+			espinas.add(new Coordenada(i,18));
+		}
+		for(int i =5; i<11;i++){
+			espinas.add(new Coordenada(i,17));
+		}
+		for(int i =7; i<14;i++){
+			espinas.add(new Coordenada(i,16));
+		}
+		for(int i =8; i<15;i++){
+			espinas.add(new Coordenada(i,15));
+		}
+		for(int i =11; i<17;i++){
+			espinas.add(new Coordenada(i,14));
+		}
+		for(int i =14; i<19;i++){
+			espinas.add(new Coordenada(i,13));
+		}
+		for(int i =8; i<14;i++){
+			espinas.add(new Coordenada(i,10));
+		}
+		for(int i =10; i<15;i++){
+			espinas.add(new Coordenada(i,9));
+		}
+		for(int i =12; i<14;i++){
+			espinas.add(new Coordenada(i,8));
+		}
 		espinas.add(new Coordenada(2,10));
 		espinas.add(new Coordenada(2,11));
+		espinas.add(new Coordenada(18,12));
+		espinas.add(new Coordenada(9,11));
 		espinas.add(new Coordenada(2,12));
 		espinas.add(new Coordenada(14,4));
 		espinas.add(new Coordenada(15,3));
@@ -235,6 +311,7 @@ public class CreadorDeMapas {
 		espinas.add(new Coordenada(15,5));
 		espinas.add(new Coordenada(16,4));
 		espinas.add(new Coordenada(14,6));
+		espinas.add(new Coordenada(1,21));
 		return espinas;
 	}
 	private static List<Coordenada> obtenerCoordenadasNebulosa(){
@@ -245,6 +322,22 @@ public class CreadorDeMapas {
 		for(int i =9; i<12;i++){
 			nebulosas.add(new Coordenada(i,4));
 		}
+		for(int i =9; i<14;i++){
+			nebulosas.add(new Coordenada(i,17));
+		}
+		for(int i =7; i<13;i++){
+			nebulosas.add(new Coordenada(i,18));
+		}
+		for(int i =6; i<11;i++){
+			nebulosas.add(new Coordenada(i,19));
+		}
+		for(int i =6; i<9;i++){
+			nebulosas.add(new Coordenada(i,20));
+		}
+		nebulosas.add(new Coordenada(6,21));
+		nebulosas.add(new Coordenada(12,16));
+		nebulosas.add(new Coordenada(13,16));
+		
 		nebulosas.add(new Coordenada(8,6));
 		nebulosas.add(new Coordenada(10,3));
 		nebulosas.add(new Coordenada(11,3));
@@ -283,6 +376,55 @@ public class CreadorDeMapas {
 		for(int i =4; i<8;i++){
 			pantano.add(new Coordenada(i,9));
 		}
+		for(int i =15; i<19;i++){
+			pantano.add(new Coordenada(i,6));
+		}
+		for(int i =14; i<19;i++){
+			pantano.add(new Coordenada(i,7));
+		}
+		for(int i =15; i<19;i++){
+			pantano.add(new Coordenada(i,8));
+		}
+		for(int i =5; i<10;i++){
+			pantano.add(new Coordenada(i,12));
+		}
+		for(int i =4; i<12;i++){
+			pantano.add(new Coordenada(i,13));
+		}
+		for(int i =5; i<11;i++){
+			pantano.add(new Coordenada(i,14));
+		}
+		for(int i =5; i<8;i++){
+			pantano.add(new Coordenada(i,15));
+		}
+		for(int i =4; i<8;i++){
+			pantano.add(new Coordenada(i,24));
+		}
+		for(int i =5; i<10;i++){
+			pantano.add(new Coordenada(i,23));
+		}
+		for(int i =5; i<12;i++){
+			pantano.add(new Coordenada(i,22));
+		}
+		for(int i =5; i<14;i++){
+			pantano.add(new Coordenada(i,21));
+		}
+		for(int i =6; i<13;i++){
+			pantano.add(new Coordenada(i,20));
+		}
+		for(int i =7; i<14;i++){
+			pantano.add(new Coordenada(i,19));
+		}
+		for(int i =9; i<14;i++){
+			pantano.add(new Coordenada(i,18));
+		}
+		for(int i = 11; i<14;i++){
+			pantano.add(new Coordenada(i,17));
+		}
+		
+		
+		
+		
 		pantano.add(new Coordenada(11,-4));
 		pantano.add(new Coordenada(10,-3));
 		pantano.add(new Coordenada(9,-3));
@@ -306,5 +448,45 @@ public class CreadorDeMapas {
 		
 		return pantano;
 		
+	}
+	private static List<Coordenada> obtenerCoordenadasPsionica(){
+		List<Coordenada> psionicas = new ArrayList<Coordenada>();
+		for(int i =5; i<13;i++){
+			psionicas.add(new Coordenada(i,12));
+		}
+		for(int i =4; i<9;i++){
+			psionicas.add(new Coordenada(i,13));
+		}
+		for(int i =5; i<8;i++){
+			psionicas.add(new Coordenada(i,14));
+		}
+		for(int i =6; i<15;i++){
+			psionicas.add(new Coordenada(i,11));
+		}
+		for(int i =10; i<15;i++){
+			psionicas.add(new Coordenada(i,10));
+		}
+		for(int i =14; i<20;i++){
+			psionicas.add(new Coordenada(18,i));
+		}
+		for(int i =15; i<21;i++){
+			psionicas.add(new Coordenada(17,i));
+		}
+		for(int i =16; i<21;i++){
+			psionicas.add(new Coordenada(16,i));
+		}
+		for(int i =22; i<29;i++){
+			psionicas.add(new Coordenada(1,i));
+		}
+		for(int i =21; i<28;i++){
+			psionicas.add(new Coordenada(2,i));
+		}
+		for(int i =21; i<28;i++){
+			psionicas.add(new Coordenada(3,i));
+		}
+		
+		
+		
+		return psionicas;
 	}
 }
