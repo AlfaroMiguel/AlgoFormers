@@ -54,7 +54,7 @@ public class Hexagono extends StackPane {
 		this.getChildren().addAll(hexagon,text,habitable,recolectable,aire);
 
 		text.setFont(Font.font(18));
-		text.setText(String.valueOf(x) +"," + String.valueOf(y));
+//		text.setText(String.valueOf(x) +"," + String.valueOf(y));
 		text.toFront();
 //        this.setOnMouseEntered(e -> open());
 
@@ -133,7 +133,7 @@ public class Hexagono extends StackPane {
 	public void ponerSuperficie(SuperficieAire superficieAire) {
 		Image imagen = ClaseImagenes.getImage(superficieAire);
 		this.aire.setImage(imagen);
-		this.aire.setOpacity(0.4);
+		this.aire.setOpacity(0.6);
 		this.aire.toFront();
 	}
 	
