@@ -59,4 +59,8 @@ public class Vista {
 		this.hexGrid.pintarRangoAtaque(coordenadasEnRango);
 	}
 
+	public void update(Algoformer algoformer, Coordenada posicion, int ataque) {
+		this.hexGrid.bajarVida(posicion,ataque);
+	}
+
 }

@@ -26,8 +26,8 @@ public class Juego implements Observador{
 	private UbicadorDeColectables ubicadorDeColectables;
 	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
-	public String nombreJugador1 = "a";
-	public String nombreJugador2 = "b";
+	public static String nombreJugador1 = "";
+	public static String nombreJugador2 = "";
 
 	
 	public Juego(int alto, int ancho){
@@ -50,7 +50,12 @@ public class Juego implements Observador{
 	public Juego(){
 	 	this(50, 50);
  	}
-
+	
+	public static void setNombresJugadores(String jugador1, String jugador2){
+		nombreJugador1 = jugador1;
+		nombreJugador2 = jugador2;
+	}
+	
 	public Accionable obtenerAccionable(Coordenada c) {
 		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}

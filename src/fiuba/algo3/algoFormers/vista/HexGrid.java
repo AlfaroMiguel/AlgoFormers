@@ -105,4 +105,9 @@ public class HexGrid {
 			}
 	 	}
 	}
+
+
+	public void bajarVida(Coordenada posicion, int ataque) {
+		this.grid.get(posicion).atacado(ataque);	
+	}
 }
