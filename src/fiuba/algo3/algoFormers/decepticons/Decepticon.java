@@ -8,6 +8,7 @@ import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import javafx.scene.media.AudioClip;
 
 /*Clase que representa al tipo de algoformer Decepticon*/
 public class Decepticon extends Algoformer {
@@ -15,6 +16,7 @@ public class Decepticon extends Algoformer {
 	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot autobot, int ataque){
+		this.ataqueEfectuado();
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
 	}
@@ -31,7 +33,7 @@ public class Decepticon extends Algoformer {
 
 	@Override
 	public void serSeleccionado(EquipoAutobots equipoAutobot) {
-		
+
 		throw new EquipoInvalidoException();
 	}
 
