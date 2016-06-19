@@ -37,7 +37,8 @@ public class BarraAutobots extends VBox {
 		agregarBarrasVida();
 	}
 	
-	public void agregarAlgoformers(){
+
+public void agregarAlgoformers(){
 		this.getChildren().addAll(botonOptimus, botonBumblebee, botonRatchet);
 	}
 	
