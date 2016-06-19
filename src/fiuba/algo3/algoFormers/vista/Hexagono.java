@@ -55,8 +55,8 @@ public class Hexagono extends StackPane {
 
 		text.setFont(Font.font(18));
 //		text.setText(String.valueOf(x) +"," + String.valueOf(y));
+		text.setText(String.valueOf(y + x/2));
 		text.toFront();
-//        this.setOnMouseEntered(e -> open());
 
         //this.setOnMouseExited(e-> close());
         this.setOnMouseClicked(e -> seleccionado());
