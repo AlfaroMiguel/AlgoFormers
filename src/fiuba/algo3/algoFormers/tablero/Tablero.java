@@ -142,7 +142,6 @@ public class Tablero implements Observador{
 			//Produce el efecto de las superficies intermedias de paso
 			this.superficies.get(posiciones).producirEfectoPorPaso(accionable);
 		}
-		//PAJA
 		boolean esAlgoformer = true;
 		this.colocarEnTablero(accionable,coordenadaFinal);
 		this.actualizarVistas(coordInic,esAlgoformer);
