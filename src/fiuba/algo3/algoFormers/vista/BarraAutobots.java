@@ -35,6 +35,7 @@ public class BarraAutobots extends VBox{
 		this.setMinWidth(200);
 		agregarImagenes();
 		configurarBotones();
+		bloquearAlternos();
 		agregarAlgoformers();
 		agregarTooltips();
 		configurarBarrasVida();
@@ -60,6 +61,7 @@ public class BarraAutobots extends VBox{
 		barraTitulo.setAlignment(Pos.CENTER);
 		barraTitulo.getChildren().add(titulo);
 		this.getChildren().addAll(barraTitulo, barraModos(),botonesOptimus, botonesBumblebee, botonesRatchet);
+	}
 
 	
 	public void agregarImagen(String ruta, Button boton){
@@ -99,6 +101,11 @@ public class BarraAutobots extends VBox{
 		botonRatchetAlterno.setMinWidth(100);
 	}
 	
+	public void bloquearAlternos(){
+		botonOptimusAlterno.setDisable(true);
+		botonBumblebeeAlterno.setDisable(true);
+		botonRatchetAlterno.setDisable(true);
+	}
 	
 	public void agregarTooltips(){
 		
@@ -111,7 +118,7 @@ public class BarraAutobots extends VBox{
 	}
 
 	public void configurarBarrasVida(){
-		barraVidaOptimus = configurarBarraVida(500, 350, "optimus");
+		barraVidaOptimus = configurarBarraVida(500, 500, "optimus");
 		barraVidaBumblebee = configurarBarraVida(350, 350, "bumblebee");
 		barraVidaRatchet = configurarBarraVida(150, 150, "ratchet");
 		

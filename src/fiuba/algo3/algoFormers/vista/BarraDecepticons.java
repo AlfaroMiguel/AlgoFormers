@@ -1,6 +1,5 @@
 package fiuba.algo3.algoFormers.vista;
 
-import fiuba.algo3.algoFormers.modos.BonecrusherAlterno;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
@@ -37,6 +36,7 @@ public class BarraDecepticons extends VBox {
 		this.setMinWidth(200);
 		agregarImagenes();
 		configurarBotones();
+		bloquearAlternos();
 		agregarAlgoformers();
 		agregarTooltips();
 		configurarBarrasVida();
@@ -99,6 +99,12 @@ public class BarraDecepticons extends VBox {
 		botonFrenzyAlterno.setMinWidth(100);
 	}
 	
+	public void bloquearAlternos(){
+		botonMegatronAlterno.setDisable(true);
+		botonBonecrusherAlterno.setDisable(true);
+		botonFrenzyAlterno.setDisable(true);
+	}
+	
 	public Tooltip configurarTooltip(int vida, int ataque, int velocidad){
 		Tooltip tooltip = new Tooltip();
 		tooltip.setText("Vida: "+ vida+"\nAtaque: "+ataque+"\nVelocidad: "+velocidad);
@@ -126,7 +132,7 @@ public class BarraDecepticons extends VBox {
 	}
 	
 	public void configurarBarrasVida(){
-		barraVidaMegatron = configurarBarraVida(500, 350, "megatron");
+		barraVidaMegatron = configurarBarraVida(500, 500, "megatron");
 		barraVidaBonecrusher = configurarBarraVida(350, 350, "bonecrusher");
 		barraVidaFrenzy = configurarBarraVida(150, 150, "frenzy");
 		

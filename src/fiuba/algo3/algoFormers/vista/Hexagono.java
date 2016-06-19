@@ -62,19 +62,23 @@ public class Hexagono extends StackPane {
         this.setOnMouseClicked(e -> seleccionado());
         this.setOnMouseEntered(e -> entro());
 	}
+	
 	public void setControlador(Controlador controlador){
 		//Esto es nuevo 13/6/2016
 		this.controlador = controlador;
 	}
+	
 	public void seleccionado() {
 		this.controlador.fueSeleccionado(this.coordenada);
 		
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
 	}
+	
 	public void entro(){
 		this.controlador.entro(this.coordenada);
 	}
+	
 	public void limpiarSeleccion() {
 		this.despintar();
 	}
@@ -83,20 +87,24 @@ public class Hexagono extends StackPane {
 		this.hexagon.setStroke(Color.FORESTGREEN);
 		this.hexagon.setStrokeWidth(4);
 	}
+	
 	public void pintarCaminoIncorrecto() {
 		this.hexagon.setStroke(Color.GREY);
 		this.hexagon.setStrokeWidth(4);
 	}
+	
 	public void pintarRegionAtaque() {
 		this.hexagon.setStroke(Color.DARKRED);
 		this.hexagon.setStrokeWidth(4);
 	}
+	
 	public void despintar() {
 		hexagon.strokeTypeProperty().setValue(StrokeType.CENTERED);
 		hexagon.setStroke(Color.IVORY);
 		hexagon.setStrokeWidth(1.3);
 		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
 	}
+	
 	public void atacado(int vida){
 		this.text.setFill(Color.DARKRED);
 		this.text.toFront();
@@ -111,10 +119,12 @@ public class Hexagono extends StackPane {
 		}
 		this.text.setText("");
 	}	
+	
 	public void sacarAlgoFormer(){
 		//Supongo que no es lo mas lindo mañana buscare como se hace bien
 		this.habitable.setImage(null);
 	}
+	
 	public void sacarRecolectable(){
 		//Supongo que no es lo mas lindo mañana buscare como se hace bien
 		this.recolectable.setImage(null);
@@ -126,16 +136,19 @@ public class Hexagono extends StackPane {
 		this.aire.setOpacity(0.4);
 		this.aire.toFront();
 	}
+	
 	public void ponerSuperficie(SuperficieTierra superficieTierra) {
 		Image imagen = ClaseImagenes.getImage(superficieTierra);
 		this.tierra = new ImagePattern(imagen);
 		this.hexagon.setFill(tierra);
 	}
+	
 	public void ponerAccionable(Accionable accionable) {
 		Image imagen = ClaseImagenes.getImage(accionable);
 		this.habitable.setImage(imagen);
 		this.aire.toFront();
 	}
+	
 	public void ponerRecolectable(Recolectable recolectable) {
 		Image imagen = ClaseImagenes.getImage(recolectable);
 		this.recolectable.setImage(imagen);
