@@ -27,7 +27,8 @@ public class Vista {
 		this.ancho = ancho;
 		this.alto = alto;
 		this.hexGrid.inicializarTablero(alto,ancho,juego);
-	}
+		
+		}
 
 	public Group crearTablero(int ancho, int alto, Controlador controlador) {
 		return this.hexGrid.crearTablero(ancho,alto,controlador);
@@ -89,6 +90,11 @@ public class Vista {
 
 	public void update(Algoformer algoformer) {
 		this.centrarEnCoordenada(algoformer.posicion);
+	}
+
+	public void seleccionarPrimerPersonaje() {
+		//Intento de seleccionar al principio
+		this.centrarEnCoordenada(this.juego.obtenerJugadorActual().verAlgoformerActual().posicion);
 	}
 
 }
