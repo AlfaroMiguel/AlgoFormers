@@ -32,13 +32,14 @@ public class ContenedorJuego extends HBox{
 		int alto = 30;
 		int ancho = 20;
 //		Juego juego =juego;
-		Vista vista = new Vista(juego);
+		Vista vista = new Vista(juego);//Tambien poner el zoomPane
 		juego.agregarVista(vista);
 //		Controlador controlador =  new Controlador(juego);
 		this.controlador = controlador;
 		Group grid = crearTablero(alto, ancho, vista, controlador);
 		vista.inicializarTablero(alto,ancho);
-		Parent contenedor = crearContenedor(grid);
+		ScrollPane contenedor = crearContenedor(grid);
+		vista.agregarGrupo(contenedor);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 		this.layout = layout;
@@ -52,7 +53,7 @@ public class ContenedorJuego extends HBox{
 		return vista.crearTablero(ancho, alto,controlador);
 	}
 
-	private Parent crearContenedor(Group grid) {
+	private ScrollPane crearContenedor(Group grid) {
 	    
 		final double SCALE_DELTA = 1.1;
 	    final double SCALE_MAX = 1;
@@ -99,9 +100,17 @@ public class ContenedorJuego extends HBox{
 	        grid.setScaleY(escala);
 
 	      }
+	      
 	    });
 	 // Mover el tablero arrastrandolo
 
+//	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
+//	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
+//	      @Override
+//	      public void handle(MouseEvent event) {
+//	        lastMouseCoordinates.set(new Point2D(event.getX(), event.getY()));
+//	      }
+//	    });
 //	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
 //	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
 //	      @Override

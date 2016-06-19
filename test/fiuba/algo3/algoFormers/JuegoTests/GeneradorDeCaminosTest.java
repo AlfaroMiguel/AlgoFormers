@@ -1,16 +1,14 @@
 package fiuba.algo3.algoFormers.JuegoTests;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import fiuba.algo3.algoFormers.superficie.*;
+import fiuba.algo3.algoFormers.autobots.Optimus;
+import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
-import fiuba.algo3.algoFormers.tablero.GeneradorDeCaminos;
 import fiuba.algo3.algoFormers.tablero.Tablero;
 
 public class GeneradorDeCaminosTest {
@@ -24,7 +22,7 @@ public class GeneradorDeCaminosTest {
 			caminoCorrecto.add(new Coordenada(2,4));
 			caminoCorrecto.add(new Coordenada(1,4));
 		List<Coordenada> caminoEncontrado = new ArrayList<Coordenada>();
-		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
+		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4),new Optimus());
 		Assert.assertEquals(caminoCorrecto,caminoEncontrado);
 	}
 	@Test
@@ -40,7 +38,7 @@ public class GeneradorDeCaminosTest {
 			caminoCorrecto.add(new Coordenada(2,4));
 			caminoCorrecto.add(new Coordenada(1,4));
 		List<Coordenada> caminoEncontrado = new ArrayList<Coordenada>();
-		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4));
+		caminoEncontrado = tablero.buscarCamino(new Coordenada(1,4), new Coordenada(4,4),new Optimus());
 		Assert.assertEquals(caminoCorrecto,caminoEncontrado);
 	}
 
