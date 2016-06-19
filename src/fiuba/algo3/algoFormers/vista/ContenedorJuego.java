@@ -38,8 +38,8 @@ public class ContenedorJuego extends HBox{
 		this.controlador = controlador;
 		Group grid = crearTablero(alto, ancho, vista, controlador);
 		vista.inicializarTablero(alto,ancho);
-		vista.agregarGrupo(grid);
-		Parent contenedor = crearContenedor(grid);
+		ScrollPane contenedor = crearContenedor(grid);
+		vista.agregarGrupo(contenedor);
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 		this.layout = layout;
@@ -61,7 +61,7 @@ public class ContenedorJuego extends HBox{
 	}
 
 
-	private Parent crearContenedor(Group grid) {
+	private ScrollPane crearContenedor(Group grid) {
 	    
 		final double SCALE_DELTA = 1.1;
 	    final double SCALE_MAX = 1.75;
@@ -135,7 +135,6 @@ public class ContenedorJuego extends HBox{
 	        scroller.setVvalue(Math.max(0, Math.min(scroller.getVmax(), desiredV)));
 	      }
 	    });
-
 	    return scroller;
 	}
 
