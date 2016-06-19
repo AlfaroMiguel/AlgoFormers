@@ -28,11 +28,11 @@ public class ClaseImagenes {
 		return ponerAire("file:img/superficies/tormenta.png");
 	}
 	public static Image getImageSuperficie(SuperficieEspinas superficie){
-		return ponerAire("file:img/superficies/espina.png");
+		return ponerAire("file:img/superficies/espinasNuevo.png");
 	}
 	
 	public static Image getImageSuperficie(SuperficieMonte superficieMonte) {
-		return ponerAire("file:img/superficies/monte.png");
+		return ponerAire("file:img/superficies/montania.png");
 	}
 	
 	public static Image getImageSuperficie(SuperficieNubes superficie){

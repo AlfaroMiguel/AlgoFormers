@@ -23,7 +23,7 @@ public class BarraAcciones extends HBox {
 		this.setSpacing(10);
 		configurarNodos();
 		agregarNodos();
-		configurarTamaño();
+		configurarTamanio();
 	}
 	
 	public void agregarNodos(){
@@ -57,7 +57,7 @@ public class BarraAcciones extends HBox {
 		botonTerminarTurno.setTextFill(Color.WHITE);
 	}
 	
-	public void configurarTamaño(){
+	public void configurarTamanio(){
 		this.setPrefHeight(70);
 		this.setFillHeight(true);
 		this.setAlignment(Pos.CENTER);
