@@ -94,6 +94,10 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 		this.notificarObservadores();
 	}
 	public abstract void agregarVista(Vista vista);
+	
+	public void centrarEnAlgoFormerActual() {
+		this.algoformerActual.centrar();
+	}
 
 	
 }

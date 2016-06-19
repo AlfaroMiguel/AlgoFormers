@@ -16,7 +16,7 @@ public class ClaseImagenes {
 	} 
 	
 	public static Image getImageSuperficie(SuperficieAndromeda superficie){
-		return ponerAire("file:img/superficies/nebulosa.png");
+		return ponerAire("file:img/superficies/nebulosaNueva2.png");
 	}
 	public static Image getImageSuperficie(SuperficiePantano superficie){
 		return ponerAire("file:img/superficies/pantano.png");
@@ -25,7 +25,7 @@ public class ClaseImagenes {
 		return ponerAire("file:img/superficies/roca.png");
 	}
 	public static Image getImageSuperficie(SuperficiePsionica superficie){
-		return ponerAire("file:img/superficies/tormenta.png");
+		return ponerAire("file:img/superficies/tormentaNuevo.png");
 	}
 	public static Image getImageSuperficie(SuperficieEspinas superficie){
 		return ponerAire("file:img/superficies/espinasNuevo.png");
@@ -41,7 +41,7 @@ public class ClaseImagenes {
 	}
 	
 	private static Image ponerAire(String path) {
-		return new Image(path,60,60,true,true,false);
+		return new Image(path,70,70,true,true,false);
 	}
 	
 	private static Image ponerTiera(String path) {

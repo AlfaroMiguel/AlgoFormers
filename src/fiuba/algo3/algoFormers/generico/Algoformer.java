@@ -180,6 +180,17 @@ public abstract class Algoformer implements Accionable{
 			vista.update(this, this.posicion, ataque);
 		}
 	}
+
+	public void centrar() {
+		centrarEnVistas();
+	}
+
+	private void centrarEnVistas() {
+		for(Vista vista: vistas){
+			vista.update(this);
+		}
+	}
+
 	/* Metodos abstractos redefinidos. */
 	@Override
 	public void colisionar() {
@@ -256,5 +267,6 @@ public abstract class Algoformer implements Accionable{
 	public Image getImage() {
 		return this.modo.getImage();
 	}
+
 	
 }

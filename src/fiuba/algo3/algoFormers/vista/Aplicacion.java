@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 
 import fiuba.algo3.algoFormers.controlador.TextoEventHandler;
+import javafx.scene.media.*;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,7 +29,7 @@ public class Aplicacion extends Application {
 	String nombreJugadorDecepticons;
 	
 	public static void main(String[] args) {
-	    Application.launch(args);
+		Application.launch(args);
 	}
 	
 	@Override
@@ -40,7 +41,13 @@ public class Aplicacion extends Application {
 		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
-	
+//	public void reproducirMuscia(){
+//		media = new Media("file:snd/");
+//		mediaPlayer = new MediaPlayer(media);
+//		mediaPlayer.setAutoPlay(true);
+//		mediaView = new MediaView(mediaPlayer);
+//	    
+//	}
 	
 	public Scene pantallaInicio(){
 		Pane root = new Pane();

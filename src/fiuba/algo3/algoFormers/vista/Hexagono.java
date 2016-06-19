@@ -54,12 +54,12 @@ public class Hexagono extends StackPane {
 		this.getChildren().addAll(hexagon,text,habitable,recolectable,aire);
 
 		text.setFont(Font.font(18));
-		text.setText(String.valueOf(x) +"," + String.valueOf(y));
+//		text.setText(String.valueOf(x) +"," + String.valueOf(y));
+		text.setText(String.valueOf(y + x/2));
 		text.toFront();
-//        this.setOnMouseEntered(e -> open());
 
         //this.setOnMouseExited(e-> close());
-        this.setOnMouseClicked(e -> seleccionado());
+        this.setOnMouseClicked(e -> fueSeleccionado());
         this.setOnMouseEntered(e -> entro());
 	}
 	
@@ -68,13 +68,18 @@ public class Hexagono extends StackPane {
 		this.controlador = controlador;
 	}
 	
-	public void seleccionado() {
+	public void fueSeleccionado() {
 		this.controlador.fueSeleccionado(this.coordenada);
 		
+		this.seleccionar();
+		
+	}
+	
+	public void seleccionar() {
 		this.hexagon.setStroke(Color.YELLOW);
 		this.hexagon.setStrokeWidth(2);
 	}
-	
+
 	public void entro(){
 		this.controlador.entro(this.coordenada);
 	}
@@ -133,7 +138,7 @@ public class Hexagono extends StackPane {
 	public void ponerSuperficie(SuperficieAire superficieAire) {
 		Image imagen = ClaseImagenes.getImage(superficieAire);
 		this.aire.setImage(imagen);
-		this.aire.setOpacity(0.4);
+		this.aire.setOpacity(0.6);
 		this.aire.toFront();
 	}
 	

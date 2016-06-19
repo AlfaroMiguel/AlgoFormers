@@ -73,6 +73,10 @@ public class Jugador{
 		this.equipo.agregarVista(vista);
 		
 	}
+	
+	public void centrarEnAlgoFormerActual() {
+		this.equipo.centrarEnAlgoFormerActual();
+	}
 
 	
 }
