@@ -78,6 +78,7 @@ public class Juego implements Observador{
 	public void cambiarTurno(){
 		this.jugadorActual.terminarTurno();
 		this.cambiarJugador();
+		this.jugadorActual.centrarEnAlgoFormerActual();
 	}
 
 	private void cambiarJugador(){

@@ -110,4 +110,8 @@ public class HexGrid {
 	public void bajarVida(Coordenada posicion, int ataque) {
 		this.grid.get(posicion).atacado(ataque);	
 	}
+
+	public void seleccionarCoordenada(Coordenada coordenada) {
+		this.grid.get(coordenada).seleccionar();
+	}
 }

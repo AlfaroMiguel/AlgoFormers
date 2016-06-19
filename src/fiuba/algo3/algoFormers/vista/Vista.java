@@ -28,7 +28,6 @@ public class Vista {
 		this.alto = alto;
 		this.hexGrid.inicializarTablero(alto,ancho,juego);
 
-
 	}
 
 	public Group crearTablero(int ancho, int alto, Controlador controlador) {
@@ -52,8 +51,9 @@ public class Vista {
 		this.hexGrid.limpiarSeleccion();
 	}
 
+	//Muestro el camino que se quiere hacer
 	public void update(Tablero tablero, Coordenada coordenadaInicial, Coordenada coordenadaFinal,Algoformer algoformerActual) {
-		List camino = this.juego.buscarCamino(coordenadaInicial, coordenadaFinal);
+		List<Coordenada> camino = this.juego.buscarCamino(coordenadaInicial, coordenadaFinal);
 		int paso = (int) Math.ceil(algoformerActual.verPaso());
 
 		Boolean puedePagar = GeneradorDeCaminos.puedePagarCamino(camino, tablero.superficies, algoformerActual, paso);
@@ -62,11 +62,13 @@ public class Vista {
 		else this.hexGrid.pintarCaminoIncorrecto(camino);
 	}
 
+	//Muestro a donde se puede atacar
 	public void update(Tablero tablero, Coordenada coordenada, int rango) {
-		List coordenadasEnRango = tablero.coordenadasEnRango(rango,coordenada);
+		List<Coordenada> coordenadasEnRango = tablero.coordenadasEnRango(rango,coordenada);
 		this.hexGrid.pintarRangoAtaque(coordenadasEnRango);
 	}
 
+	//Le bajo la vida al personaje
 	public void update(Algoformer algoformer, Coordenada posicion, int ataque) {
 		this.hexGrid.bajarVida(posicion,ataque);
 	}
@@ -79,14 +81,22 @@ public class Vista {
 
 		this.grupo.setHvalue(x*ancho/this.ancho);
 		this.grupo.setVvalue((this.alto-y)*alto/this.alto);
+
+		this.hexGrid.seleccionarCoordenada(coordenada);
 	}
+
 	public void agregarGrupo(ScrollPane grupo) {
 		this.grupo = grupo;
 	}
 
+
 	public void reproducirAtaque() {
 		AudioClip disparo = new AudioClip("file:snd/disparo.mp3");
 		disparo.play();
+	}
+
+	public void update(Algoformer algoformer) {
+		this.centrarEnCoordenada(algoformer.posicion);
 
 	}
 

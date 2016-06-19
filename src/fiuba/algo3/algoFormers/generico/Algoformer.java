@@ -33,10 +33,16 @@ public abstract class Algoformer implements Accionable{
 	/* Representa el actudo presente en el algoformer. */
 	protected Escudo escudo = new Escudo();
 	/* Lista de observadores para el patron observer */
+
 	private List<Observador> observadores = new ArrayList<Observador>();
+	/* Representa el estado del algoformer. True si esta muerto, false si esta vivo */
 	private boolean estaMuerto = false;
+
+	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */
 	public Coordenada posicion;
+
 	/* Metodos abstractos */
+
 	/* Ataca a otro accionable.
 	 * Parametros: atacado: accionable a atacar.*/
 	public abstract void atacar(Tablero tablero, Accionable atacado);
@@ -59,6 +65,15 @@ public abstract class Algoformer implements Accionable{
 	public Coordenada getCoordenada(){
 		return this.posicion;
 	}
+
+	/* Ataca a otro accionable.
+	 * Parametros: atacado: accionable a atacar.
+	 * 			   tablero: tablero del juego. */
+
+
+	/* Metodos de la clase. */
+	/* Convierte su velocidad en 0 para no poder moverse.*/
+
 	/* Se mueve a una determinada coordenada.
 	 * Parametros: coordenada: coordenada a la que se quiere mover.
 	 * 			   tablero: tablero del juego.
@@ -68,7 +83,7 @@ public abstract class Algoformer implements Accionable{
 
 	}
 	/* Cambia de modo humanoide a alterno o alterno a humanoide segun corresponda
-	 * por el modo actual. */
+	 * dependiendo del modo actual. */
 	public void cambiarModo(){
 		this.modo.cambiar(this);
 	}
@@ -84,6 +99,7 @@ public abstract class Algoformer implements Accionable{
 	/* Devuelve la vida actual del algoformer.*/
 	public int verVida(){
 		return this.vida.verVida();
+
 	}
 
 	/* Termina el turno. Es afectado por los efectos que junto durante el turno.*/
@@ -97,16 +113,13 @@ public abstract class Algoformer implements Accionable{
 	/* Multiplica la velocidad por un factor dado.
 	 * Parametros: factor: factor por el que se quiere multiplicar.*/
 	public void multiplicarVelocidad(double factor) {
+
 		this.agilidad.multiplicarVelocidad(factor);
 
 	}
 	public int simularPasoPor(SuperficieTierra superficieTierra){
 		return this.modo.simularPasoDe(superficieTierra);
 	}
-	public int simularPasoPor(SuperficieAire superficieAire){
-		return this.modo.simularPasoDe(superficieAire);
-	}
-
 	/* Multiplica la vida por un factor dado.
 	 * Parametros: factor: factor por el que se quiere multiplicar.*/
 	public void multiplicarVida(double factor) {
@@ -115,6 +128,7 @@ public abstract class Algoformer implements Accionable{
 	/* Acumula un efecto.
 	 * Parametros: afectador: afectador que tiene el efecto a acumular. */
 	public void agregarEfecto(Afectador afectador) {
+
 		this.afectadores.agregarAfectador(afectador);
 
 	}
@@ -124,25 +138,28 @@ public abstract class Algoformer implements Accionable{
 
 	}
 
+	/* Se coloca en otra posicion dentro del tablero.
+	 * Parametros: tablero: tablero del juego. */
 	public void reposicionarse(Tablero tablero) {
 		this.modo.reposicionarse(tablero,this);
 	}
-
-
+	/* Devuelve la lista de afectadores activos en el algoformer. */
 	public ListaDeAfectadores obtenerAfectadoresEnAtacable() {
 		return this.afectadores;
 	}
+	/* Devuelve un numero entero que representa la fuerza de ataque actual del algoformer */
 
 	public int verAtaque(){
 		return (int)((this.modo.verAtaque()*this.potencia.getPotencia()));
 	}
+	/* Devuelve un numero entero que representa la distancia maxima a la que se puede mover el algoformer */
 	public int verPaso(){
 		return (int)((this.modo.verPaso()*this.agilidad.getAgilidad()));
 	}
+	/* Devuelve un numero entero que representa el rango en que el algoformer puede atacar */
 	public int verRango(){
 		return (int)((this.modo.verRangoAtaque()));
 	}
-
 	public void colocarEscudo() {
 		this.escudo.colocarEscudo();
 	}
@@ -152,14 +169,62 @@ public abstract class Algoformer implements Accionable{
 	}
 
 
+
+
+	/* Devuelve el peso de salir de una determinada superficie.
+	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
+	public int simularPasoDe(SuperficieAire superficie) {
+		return this.modo.simularPasoDe(superficie);
+	}
+	/* Devuelve el peso de salir de una determinada superficie.
+	 * Parametros: superficie: superficie de tierra de la que se quiere ver el peso de salir. */
+	public int simularPasoDe(SuperficieTierra superficie) {
+		return this.modo.simularPasoDe(superficie);
+	}
+	/* Devuelve true si el algoformer no tiene vida y false si esta vivo */
 	public boolean estaMuerto(){
 		return estaMuerto;
 	}
+	/* Marca al algoformer como muerto si es necesario y notifica del cambio a los observadores */
 
 	public void actualizarEstadoDeVida(){
 		if (this.vida.seTermino()){
 			estaMuerto = true;
 			this.notificarObservadores();
+		}
+	}
+	/* Captura la chipa suprema. Este acto lleva como consecuencia el fin del juego y triunfo del equipo
+	 * que realiza la captura.
+	 * Parametros: chispaSuprema: instancia de la chispa que se esta capturando. */
+	public void capturarChispa(ChispaSuprema chispaSuprema) {
+		chispaSuprema.serCapturada();
+	}
+	/* Permite a una vista observar al algoformer.
+	 * Parametros: vista: vista que va a observar al algoformer. */
+	public void agregarVista(Vista vista){
+		this.vistas.add(vista);
+	}
+	/* Actualiza a las vistas que observan al algoformer por su posicion */
+	public void actualizarVista(){
+		for(Vista vista: vistas){
+			vista.update(this, this.posicion);
+		}
+	}
+	/* Actualiza a las vistas que observan al algoformer por su posicion y ataque.
+	 * Parametros: ataque: ataque del algoformer. */
+	public void actualizarVista(int ataque){
+		for(Vista vista: vistas){
+			vista.update(this, this.posicion, ataque);
+		}
+	}
+
+	public void centrar(){
+		centrarEnVistas();
+	}
+
+	private void centrarEnVistas() {
+		for(Vista vista: vistas){
+			vista.update(this);
 		}
 	}
 
@@ -173,32 +238,26 @@ public abstract class Algoformer implements Accionable{
 	public boolean ocupaLugar() {
 		return true;
 	}
-
 	@Override
-	public void recolectar(Recolectable colectable){
-		colectable.producirEfecto(this);
+	public void recolectar(Recolectable recolectable){
+		recolectable.producirEfecto(this);
 	}
-
 	@Override
 	public void reaccionarASuperficie(SuperficieAire superficie){
 		this.modo.reaccionarASuperficie(superficie, this);
 	}
-
 	@Override
 	public void reaccionarASuperficie(SuperficieTierra superficie){
 		this.modo.reaccionarASuperficie(superficie, this);
 	}
-
 	@Override
 	public void serDesafectado(SuperficieTierra superficie){
 		this.modo.serDesafectado(superficie,this);
 	}
-
 	@Override
 	public void serDesafectado(SuperficieAire superficie){
 		this.modo.serDesafectado(superficie,this);
 	}
-
 
 	@Override
 	public void agregarObservador(Observador observador) {
@@ -206,59 +265,38 @@ public abstract class Algoformer implements Accionable{
 			this.observadores.add(observador);
 		}
 	}
-
 	@Override
 	public void eliminarObservador(Observador observador) {
 		this.observadores.remove(observador);
 	}
-
 	@Override
 	public void notificarObservadores() {
 		for (Observador observador: observadores){
 			observador.actualizar();
 		}
 	}
-
-	public void capturarChispa(ChispaSuprema chispaSuprema) {
-		chispaSuprema.serCapturada();
-	}
-
-	public int simularPasoDe(SuperficieAire superficieAire) {
-		return this.modo.simularPasoDe(superficieAire);
-	}
-	public int simularPasoDe(SuperficieTierra superficieTierra) {
-		return this.modo.simularPasoDe(superficieTierra);
+	@Override
+	public int simularPasoPor(SuperficieAire superficie){
+		return this.modo.simularPasoDe(superficie);
 	}
 	@Override
 	public void efectoPorMicroMovimiento(SuperficieAire superficie) {
 		this.modo.producirEfectoPorMicroMovimiento(superficie,this);
 
 	}
-
 	@Override
 	public void efectoPorMicroMovimiento(SuperficieTierra superficie) {
 		this.modo.producirEfectoPorMicroMovimiento(superficie,this);
 
 	}
-
+	@Override
 	public Image getImage() {
 		return this.modo.getImage();
 	}
-	public void agregarVista(Vista vista){
-		this.vistas.add(vista);
-	}
-	public void actualizarVista(){
-		for(Vista vista: vistas){
-			vista.update(this, this.posicion);
-		}
-	}
-	public void actualizarVista(int ataque){
-		for(Vista vista: vistas){
-			vista.update(this, this.posicion, ataque);
-		}
-	}
+
 	protected void ataqueEfectuado(){
 		for(Vista vistas: this.vistas)
 				vistas.reproducirAtaque();
 	}
+
 }

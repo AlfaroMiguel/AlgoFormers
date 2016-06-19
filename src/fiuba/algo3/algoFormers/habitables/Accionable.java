@@ -57,14 +57,30 @@ public interface Accionable extends ObservableTerminoJuego{
 	 * Parametros: superficie: superficie que posee el efecto.*/
 	public void serDesafectado(SuperficieTierra superficie);
 	
-	
-
-	public void recolectar(Recolectable colectable);
-	public int simularPasoPor(SuperficieTierra superficieTierra);
-	public int simularPasoPor(SuperficieAire superficieAire);
-	public void efectoPorMicroMovimiento(SuperficieAire superficieAire);
-	public void efectoPorMicroMovimiento(SuperficieTierra superficieTierra);
+	/* Devuelve la coordenada actual del accionable */
 	public Coordenada getCoordenada();
+	/* Actualiza la coordenada actual del accionable e informa a las vistas.
+	 * Parametros: posicion: coordenada actual del accionable. */
 	public void setCoordenada(Coordenada coordenada);
+	
+	/* Devuelve el peso de salir de una determinada superficie.
+	 * Parametros: superficie: superficie de tierra de la que se quiere ver el peso de salir. */
+	public int simularPasoPor(SuperficieTierra superficie);
+	/* Devuelve el peso de salir de una determinada superficie.
+	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
+	public int simularPasoPor(SuperficieAire superficie);
+	/* Levanta un recolectable del mapa (si no tiene uno del mismo tipo activo)
+	 * y es afectado por el mismo.
+	 * Parametros: recolectable: recolectable a levantar.*/
+	public void recolectar(Recolectable recolectable);
+	
+	/* Afecta al algoformer al pasar por una superficie que produce algun efecto.
+	 * Parametros: superficie: superficie de aire atravesada.*/
+	public void efectoPorMicroMovimiento(SuperficieAire superficie);
+	/* Afecta al algoformer al pasar por una superficie que produce algun efecto.
+	 * Parametros: superficie: superficie de tierra atravesada.*/
+	public void efectoPorMicroMovimiento(SuperficieTierra superficie);
+	
+	/* Devuelve la imagen que representa al accionable*/
 	public Image getImage();
 }
