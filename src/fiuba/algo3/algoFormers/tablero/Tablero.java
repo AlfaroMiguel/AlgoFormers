@@ -357,8 +357,8 @@ public class Tablero implements Observador{
 	/* Genera el camino de costo minimo para ir de una coordenada a otra.
 	 * Parametros: -coordenadaInicial: coordenada desde donde se inicia el camino.
 	 * 			   -coordenadaFinal: coordenada hasta la que llega el camino.*/
-	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
-		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, new Optimus(), coordenadaInicial, coordenadaFinal);
+	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal,Accionable algoformer) {
+		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, algoformer, coordenadaInicial, coordenadaFinal);
 	}
 	
 	public void reposicionar(Algoformer algoformer) {

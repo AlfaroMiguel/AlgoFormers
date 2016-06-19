@@ -1,8 +1,15 @@
 package fiuba.algo3.algoFormers.tablero;
 
-import java.util.HashMap;
+import java.util.*;
 
-import fiuba.algo3.algoFormers.superficie.*;
+
+import fiuba.algo3.algoFormers.superficie.SuperficieAndromeda;
+import fiuba.algo3.algoFormers.superficie.SuperficieEspinas;
+import fiuba.algo3.algoFormers.superficie.SuperficieMonte;
+import fiuba.algo3.algoFormers.superficie.SuperficieNubes;
+import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
+import fiuba.algo3.algoFormers.superficie.SuperficiePsionica;
+import fiuba.algo3.algoFormers.superficie.SuperficieRocosa;
 
 public class CreadorDeMapas {
 
@@ -111,5 +118,109 @@ public class CreadorDeMapas {
         	tablero.put(new Coordenada(i,0), casillero);
         }
 	}
-
+	private List<Coordenada> obtenerCoordenadasMontañas(){
+		List<Coordenada> montañas = new ArrayList<Coordenada>();
+		for(int i =0; i<16;i++){
+			montañas.add(new Coordenada(0,i));
+		}
+		for(int i =-9; i<2;i++){
+			montañas.add(new Coordenada(19,i));
+		}
+		montañas.add(new Coordenada(1,0));
+		montañas.add(new Coordenada(2,-1));
+		montañas.add(new Coordenada(3,-1));
+		montañas.add(new Coordenada(4,-2));
+		montañas.add(new Coordenada(5,-2));
+		montañas.add(new Coordenada(6,-3));
+		montañas.add(new Coordenada(7,-3));
+		montañas.add(new Coordenada(8,-4));
+		montañas.add(new Coordenada(9,-4));
+		montañas.add(new Coordenada(10,-5));
+		montañas.add(new Coordenada(11,-5));
+		montañas.add(new Coordenada(12,-6));
+		montañas.add(new Coordenada(13,-6));
+		montañas.add(new Coordenada(14,-7));
+		montañas.add(new Coordenada(15,-7));
+		montañas.add(new Coordenada(16,-8));
+		montañas.add(new Coordenada(17,-8));
+		montañas.add(new Coordenada(18,-9));
+		montañas.add(new Coordenada(6,-2));
+		montañas.add(new Coordenada(6,-1));
+		montañas.add(new Coordenada(6,0));
+		montañas.add(new Coordenada(6,1));
+		montañas.add(new Coordenada(7,1));
+		montañas.add(new Coordenada(8,1));
+		montañas.add(new Coordenada(9,1));
+		montañas.add(new Coordenada(7,-1));
+		montañas.add(new Coordenada(7,-2));
+		montañas.add(new Coordenada(8,-3));
+		montañas.add(new Coordenada(9,-4));
+		montañas.add(new Coordenada(12,-5));
+		montañas.add(new Coordenada(12,-4));
+		montañas.add(new Coordenada(13,-5));
+		montañas.add(new Coordenada(13,-4));
+		montañas.add(new Coordenada(13,-3));
+		montañas.add(new Coordenada(13,-2));
+		montañas.add(new Coordenada(12,-1));
+		montañas.add(new Coordenada(11,-0));
+		montañas.add(new Coordenada(14,1));
+		montañas.add(new Coordenada(14,2));
+		montañas.add(new Coordenada(14,3));
+		montañas.add(new Coordenada(15,2));
+		montañas.add(new Coordenada(15,1));
+		montañas.add(new Coordenada(3,7));
+		montañas.add(new Coordenada(4,7));
+		montañas.add(new Coordenada(5,7));
+		montañas.add(new Coordenada(5,6));
+		montañas.add(new Coordenada(6,6));
+		montañas.add(new Coordenada(3,11));
+		montañas.add(new Coordenada(4,11));
+		montañas.add(new Coordenada(4,10));
+		montañas.add(new Coordenada(5,10));
+		montañas.add(new Coordenada(11,7));
+		montañas.add(new Coordenada(12,7));
+		montañas.add(new Coordenada(13,6));	
+		return montañas;
+	}
+	public List<Coordenada> obtenerCordenadasEspinas(){
+		List<Coordenada> espinas = new ArrayList<Coordenada>();
+		for(int i =15; i<19;i++){
+			espinas.add(new Coordenada(i,-2));
+		}
+		for(int i =15; i<19;i++){
+			espinas.add(new Coordenada(i,-1));
+		}
+		for(int i =16; i<19;i++){
+			espinas.add(new Coordenada(i,0));
+		}
+		for(int i =7; i<10;i++){
+			espinas.add(new Coordenada(1,i));
+		}
+		for(int i =6; i<9;i++){
+			espinas.add(new Coordenada(2,i));
+		}
+		espinas.add(new Coordenada(3,5));
+		espinas.add(new Coordenada(3,6));
+		espinas.add(new Coordenada(6,3));
+		espinas.add(new Coordenada(6,4));
+		for(int i =15; i<19;i++){
+			espinas.add(new Coordenada(i,-2));
+		}
+		for(int i =4; i<7;i++){
+			espinas.add(new Coordenada(4,i));
+		}
+		for(int i =3; i<6;i++){
+			espinas.add(new Coordenada(5,i));
+		}
+		espinas.add(new Coordenada(2,10));
+		espinas.add(new Coordenada(2,11));
+		espinas.add(new Coordenada(2,12));
+		espinas.add(new Coordenada(14,4));
+		espinas.add(new Coordenada(15,3));
+		espinas.add(new Coordenada(16,3));
+		espinas.add(new Coordenada(15,5));
+		espinas.add(new Coordenada(16,4));
+		espinas.add(new Coordenada(14,6));
+		return montañas;
+	}
 }
