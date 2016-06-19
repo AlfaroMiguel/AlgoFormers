@@ -29,9 +29,11 @@ public class GeneradorDeCaminos {
 	    while(!cola.isEmpty()){
 	    	Coordenada actual = cola.remove().getCoordenada();
 	    	visto.put(actual,true);
+	    	
 	    	for(Coordenada vecino: Coordenada.neighborsInRange(actual,1)){
 	    		try{
 	    			personajes.get(vecino).colisionar();
+	    			
 	    			int costo = calcularCosto(superficies.get(actual),personaje);
 	    			//Puede ser que en calcularCosto tenga que poner actual
 	    			if(!visto.get(vecino) && (distancia.get(vecino)> distancia.get(actual)+ costo)){

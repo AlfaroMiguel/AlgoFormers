@@ -1,21 +1,21 @@
 package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
-import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
 import fiuba.algo3.algoFormers.juego.Juego;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ScrollPane.ScrollBarPolicy;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
@@ -46,25 +46,17 @@ public class ContenedorJuego extends HBox{
 	}
 	
 	public VBox getLayout(){
-
-//		Scene scene = new Scene(layout);
-//		
-//		KeyEventHandler handler = new KeyEventHandler(controlador);
-//		scene.setOnKeyPressed(handler);
-//		
-//		return scene;
 		return layout;
-
 	}
+	
 	public static Group crearTablero(int alto, int ancho,Vista vista, Controlador controlador) {
 		return vista.crearTablero(ancho, alto,controlador);
 	}
 
-
 	private ScrollPane crearContenedor(Group grid) {
 	    
 		final double SCALE_DELTA = 1.1;
-	    final double SCALE_MAX = 1.75;
+	    final double SCALE_MAX = 1;
 	    final double SCALE_MIN = 0.5;
 	    final StackPane zoomPane = new StackPane();
 	    zoomPane.setStyle("-fx-background-color: #000000;");
@@ -72,13 +64,15 @@ public class ContenedorJuego extends HBox{
 	    zoomPane.getChildren().add(grid);
 
 	    final ScrollPane scroller = new ScrollPane();
-	    scroller.setVbarPolicy(ScrollBarPolicy.NEVER);
-	    scroller.setHbarPolicy(ScrollBarPolicy.NEVER);
+//	    scroller.setVbarPolicy(ScrollBarPolicy.NEVER);
+//	    scroller.setHbarPolicy(ScrollBarPolicy.NEVER);
+
 
 	    final Group scrollContent = new Group(zoomPane);
 	    scroller.setContent(scrollContent);
-
-
+	    scroller.setFitToHeight(true);
+	    scroller.setFitToWidth(true);
+	    
 	    scroller.viewportBoundsProperty().addListener(new ChangeListener<Bounds>() {
 	      @Override
 	      public void changed(ObservableValue<? extends Bounds> observable,
@@ -111,30 +105,38 @@ public class ContenedorJuego extends HBox{
 	    });
 	 // Mover el tablero arrastrandolo
 
-	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
-	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
-	      @Override
-	      public void handle(MouseEvent event) {
-	        lastMouseCoordinates.set(new Point2D(event.getX(), event.getY()));
-	      }
-	    });
+//	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
+//	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
+//	      @Override
+//	      public void handle(MouseEvent event) {
+//	        lastMouseCoordinates.set(new Point2D(event.getX(), event.getY()));
+//	      }
+//	    });
+//	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
+//	    scrollContent.setOnMousePressed(new EventHandler<MouseEvent>() {
+//	      @Override
+//	      public void handle(MouseEvent event) {
+//	        lastMouseCoordinates.set(new Point2D(event.getX(), event.getY()));
+//	      }
+//	    });
+//
+//	    scrollContent.setOnMouseDragged(new EventHandler<MouseEvent>() {
+//	      @Override
+//	      public void handle(MouseEvent event) {
+//	        double deltaX = event.getX() - lastMouseCoordinates.get().getX();
+//	        double extraWidth = scrollContent.getLayoutBounds().getWidth() - scroller.getViewportBounds().getWidth();
+//	        double deltaH = deltaX * (scroller.getHmax() - scroller.getHmin()) / extraWidth;
+//	        double desiredH = scroller.getHvalue() - deltaH;
+//	        scroller.setHvalue(Math.max(0, Math.min(scroller.getHmax(), desiredH)));
+//
+//	        double deltaY = event.getY() - lastMouseCoordinates.get().getY();
+//	        double extraHeight = scrollContent.getLayoutBounds().getHeight() - scroller.getViewportBounds().getHeight();
+//	        double deltaV = deltaY * (scroller.getHmax() - scroller.getHmin()) / extraHeight;
+//	        double desiredV = scroller.getVvalue() - deltaV;
+//	        scroller.setVvalue(Math.max(0, Math.min(scroller.getVmax(), desiredV)));
+//	      }
+//	    });
 
-	    scrollContent.setOnMouseDragged(new EventHandler<MouseEvent>() {
-	      @Override
-	      public void handle(MouseEvent event) {
-	        double deltaX = event.getX() - lastMouseCoordinates.get().getX();
-	        double extraWidth = scrollContent.getLayoutBounds().getWidth() - scroller.getViewportBounds().getWidth();
-	        double deltaH = deltaX * (scroller.getHmax() - scroller.getHmin()) / extraWidth;
-	        double desiredH = scroller.getHvalue() - deltaH;
-	        scroller.setHvalue(Math.max(0, Math.min(scroller.getHmax(), desiredH)));
-
-	        double deltaY = event.getY() - lastMouseCoordinates.get().getY();
-	        double extraHeight = scrollContent.getLayoutBounds().getHeight() - scroller.getViewportBounds().getHeight();
-	        double deltaV = deltaY * (scroller.getHmax() - scroller.getHmin()) / extraHeight;
-	        double desiredV = scroller.getVvalue() - deltaV;
-	        scroller.setVvalue(Math.max(0, Math.min(scroller.getVmax(), desiredV)));
-	      }
-	    });
 	    return scroller;
 	}
 

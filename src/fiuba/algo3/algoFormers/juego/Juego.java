@@ -99,7 +99,7 @@ public class Juego implements Observador{
 	}
 
 	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal) {
-		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal);
+		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal,this.jugadorActual.verAlgoformerActual());
 	}
 
 	public boolean seleccionarCoordenada(Coordenada coordenada){
