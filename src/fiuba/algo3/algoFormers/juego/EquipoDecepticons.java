@@ -57,6 +57,15 @@ public class EquipoDecepticons extends Equipo {
 	@Override
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(menasor);
+		this.algoformerActual = this.obtenerAlgoformerConVida();
+	}
+
+		private Algoformer obtenerAlgoformerConVida() {
+		if (megatron.verVida()>0)
+			return megatron;
+		if (bonecrusher.verVida()>0)
+			return bonecrusher;
+		return frenzy;
 	}
 
 	@Override

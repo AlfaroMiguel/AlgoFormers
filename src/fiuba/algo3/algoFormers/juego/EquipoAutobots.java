@@ -50,6 +50,15 @@ public class EquipoAutobots extends Equipo {
 	@Override
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(this.superion);
+		this.algoformerActual = this.obtenerAlgoformerConVida();
+	}
+
+	private Algoformer obtenerAlgoformerConVida() {
+		if (optimus.verVida()>0)
+			return optimus;
+		if (bumblebee.verVida()>0)
+			return bumblebee;
+		return ratchet;
 	}
 
 	@Override
