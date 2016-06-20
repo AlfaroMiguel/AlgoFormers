@@ -16,6 +16,7 @@ import fiuba.algo3.algoFormers.decepticons.Frenzy;
 import fiuba.algo3.algoFormers.decepticons.Megatron;
 import fiuba.algo3.algoFormers.decepticons.Menasor;
 import fiuba.algo3.algoFormers.excepciones.*;
+import fiuba.algo3.algoFormers.habitables.BurbujaInmaculada;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.modos.BumblebeeHumanoide;
@@ -708,6 +709,46 @@ public class algoformersTest {
 		}
 		
 		assertTrue(menasor.estaMuerto());
+	}
+	//
+	@Test 
+	public void test21CuandoSeCombinanNoSePasanLosBonusAlAlgoformerCombinado(){
+		Tablero tablero = new Tablero(10,10);
+		
+		Optimus optimus = new Optimus();
+		Bumblebee bumblebee = new Bumblebee();
+		Ratchet ratchet = new Ratchet();
+		BurbujaInmaculada burbuja = new BurbujaInmaculada();
+		Megatron megatron = new Megatron();
+		
+		Coordenada coordInicialOptimus = new Coordenada(0,1);
+		Coordenada coordInicialBumblebee = new Coordenada(0,0);
+		Coordenada coordInicialRatchet = new Coordenada(1,0);
+		Coordenada coordBurbuja = new Coordenada(0,2);
+		Coordenada coordMegatron = new Coordenada(1,1);
+		
+		tablero.colocarEnTablero(ratchet, coordInicialRatchet);
+		tablero.colocarEnTablero(bumblebee, coordInicialBumblebee);
+		tablero.colocarEnTablero(optimus, coordInicialOptimus);
+		tablero.colocarEnTablero(burbuja, coordBurbuja);
+		tablero.colocarEnTablero(megatron, coordMegatron);
+		
+		optimus.moverse(coordBurbuja, tablero);
+		optimus.terminaTurno();
+		
+		//optimus tiene activado el bonus
+		megatron.atacar(tablero, optimus);
+		
+		assertEquals(optimus.verVida(), 500);
+		
+		Superion superion = new Superion(optimus, ratchet, bumblebee);
+		
+		tablero.combinarAlgoformers(superion, optimus, ratchet, bumblebee, 1);
+		superion.terminaTurno();
+		
+		//superion no tiene el bonus
+		megatron.atacar(tablero, superion);
+		assertEquals(superion.verVida(), 990);
 	}
 	
 }
