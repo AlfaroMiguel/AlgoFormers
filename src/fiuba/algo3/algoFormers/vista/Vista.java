@@ -19,9 +19,14 @@ public class Vista {
 	private ScrollPane grupo;
 	private int alto;
 	private int ancho;
-	public Vista(Juego juego){
+	private String nombreJugadorAutobots;
+	private String nombreJugadorDecepticons;
+	
+	public Vista(Juego juego, String jugadorAutobots, String jugadorDecepticons){
 		this.hexGrid = new HexGrid();
 		this.juego = juego;
+		this.nombreJugadorAutobots = jugadorAutobots;
+		this.nombreJugadorDecepticons = jugadorDecepticons;
 	}
 
 	public void inicializarTablero(int alto, int ancho) {
@@ -106,7 +111,8 @@ public class Vista {
 	}
 
 	public void ganoPartida() {
-		Aplicacion.ganoAlguien();
+		String ganador = juego.obtenerJugadorActual().equipo.obtenerNombre(this.nombreJugadorAutobots,this.nombreJugadorDecepticons);
+		Aplicacion.ganoAlguien(ganador);
 	}
 
 }

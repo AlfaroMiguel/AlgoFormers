@@ -251,12 +251,12 @@ public class Aplicacion extends Application {
         nodo.setLayoutY(y);
 	}
 	
-	public static void ganoAlguien(){
+	public static void ganoAlguien(String ganador){
         Stage popUp = new Stage();
         popUp.initModality(Modality.WINDOW_MODAL);
         //Botones y texto
         Label label = new Label();
-        label.setText("GANASTE!");
+        label.setText(ganador + "GANASTE!");
         Button botonCerrar = new Button();
         botonCerrar.setText("Cerrar");
         botonCerrar.setOnAction(e -> cerrarPrograma());

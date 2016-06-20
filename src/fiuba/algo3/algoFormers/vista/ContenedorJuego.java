@@ -26,13 +26,13 @@ public class ContenedorJuego extends HBox{
 	VBox layout;
 	Controlador controlador;
 	
-	public ContenedorJuego(Juego juego, Controlador controlador){
+	public ContenedorJuego(Juego juego, Controlador controlador, String jugadorAutobots, String jugadorDecepticons){
 		
 		super();
 		int alto = 30;
 		int ancho = 20;
 //		Juego juego =juego;
-		Vista vista = new Vista(juego);//Tambien poner el zoomPane
+		Vista vista = new Vista(juego,jugadorAutobots,jugadorDecepticons);//Tambien poner el zoomPane
 		juego.agregarVista(vista);
 //		Controlador controlador =  new Controlador(juego);
 		this.controlador = controlador;

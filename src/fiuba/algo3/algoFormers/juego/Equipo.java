@@ -25,6 +25,9 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	public abstract void ubicarPersonajes(Tablero tablero);
 	public abstract void seleccionarAlgoformer(Accionable seleccionado);
 	public abstract void terminarTurno();
+	public abstract String obtenerNombre(String nombreJugadorAutobots, String nombreJugadorDecepticons);
+	
+
 
 	public Equipo(){
 		this.distanciaMinimaCombinacion = 1;

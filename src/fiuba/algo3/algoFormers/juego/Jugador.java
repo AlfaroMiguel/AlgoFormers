@@ -10,7 +10,7 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.vista.Vista;
 
 public class Jugador{
-	protected Equipo equipo;
+	public Equipo equipo;
 	protected Tablero tablero;
 
 	public Jugador(Equipo equipo, Tablero tablero){

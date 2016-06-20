@@ -103,4 +103,9 @@ public class EquipoDecepticons extends Equipo {
 		decepticons.add(this.bonecrusher);
 		return decepticons;
 	}
+
+	@Override
+	public String obtenerNombre(String nombreJugadorAutobots, String nombreJugadorDecepticons) {
+		return nombreJugadorDecepticons;
+	}
 }
