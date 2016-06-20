@@ -2,9 +2,7 @@ package fiuba.algo3.algoFormers.habitables;
 
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
-import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
-import fiuba.algo3.algoFormers.excepciones.NoSePuedeMoverException;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
@@ -30,12 +28,10 @@ public class Vacio implements Accionable{
 
 	@Override
 	public void serAtacado(Autobot atacante, int ataque) {
-		throw new NoAtacableException();
 	}
 	
 	@Override
 	public void serAtacado(Decepticon atacante, int ataque) {
-		throw new NoAtacableException();
 	}
 	
 	@Override
@@ -101,7 +97,7 @@ public class Vacio implements Accionable{
 
 	@Override
 	public Coordenada getCoordenada() {
-		throw new NoSePuedeMoverException();
+		return null;
 	}
 
 	@Override
