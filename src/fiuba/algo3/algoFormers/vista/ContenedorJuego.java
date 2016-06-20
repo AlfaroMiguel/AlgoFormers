@@ -1,6 +1,7 @@
 package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -31,10 +32,8 @@ public class ContenedorJuego extends HBox{
 		super();
 		int alto = 30;
 		int ancho = 20;
-//		Juego juego =juego;
 		Vista vista = new Vista(juego,jugadorAutobots,jugadorDecepticons);//Tambien poner el zoomPane
 		juego.agregarVista(vista);
-//		Controlador controlador =  new Controlador(juego);
 		this.controlador = controlador;
 		Group grid = crearTablero(alto, ancho, vista, controlador);
 		vista.inicializarTablero(alto,ancho);
@@ -45,6 +44,8 @@ public class ContenedorJuego extends HBox{
 		this.layout = layout;
 		this.setFocusTraversable(true);
 		vista.seleccionarPrimerPersonaje();
+		KeyEventHandler keyHandler = new KeyEventHandler(controlador);
+		layout.setOnKeyPressed(keyHandler);
 	}
 	
 	public VBox getLayout(){

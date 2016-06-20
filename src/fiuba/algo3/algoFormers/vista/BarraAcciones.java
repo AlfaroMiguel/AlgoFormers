@@ -19,7 +19,7 @@ public class BarraAcciones extends HBox {
 	Button botonTerminarTurno = new Button();
 	Button botonDescombinar = new Button();
 	Button silenciarMusica = new Button();
-	Label texto = new Label("Elija una opcion: ");
+	//Label texto = new Label("Elija una opcion: ");
 	private Controlador controlador;
 	
 	public BarraAcciones(Controlador controlador){
@@ -31,7 +31,7 @@ public class BarraAcciones extends HBox {
 	}
 	
 	public void agregarNodos(){
-		this.getChildren().addAll(texto, botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
+		this.getChildren().addAll(/*texto,*/ botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
 	}
 	
 	public void configurarNodos(){
@@ -39,11 +39,11 @@ public class BarraAcciones extends HBox {
 		botonMover.setOnMouseClicked(e->controlador.cambiarAModoMover());
 		botonMover.setStyle("-fx-base: #000000;");
 		botonMover.setTextFill(Color.WHITE);
-		botonAtacar.setText("Atacar Enemigo");
+		botonAtacar.setText("Atacar");
 		botonAtacar.setOnMouseClicked(e->controlador.cambiarAModoAtaque());
 		botonAtacar.setStyle("-fx-base: #000000;");
 		botonAtacar.setTextFill(Color.WHITE);
-		botonTransformar.setText("Cambiar Modo");
+		botonTransformar.setText("Transformarse");
 		botonTransformar.setOnMouseClicked(e-> controlador.transformarSeleccionado());
 		botonTransformar.setStyle("-fx-base: #000000;");
 		botonTransformar.setTextFill(Color.WHITE);
