@@ -100,7 +100,7 @@ public class Vista {
 		disparo.play();
 	}
 
-	public void update(Algoformer algoformer) {
+	public void actualizar(Algoformer algoformer) {
 		this.centrarEnCoordenada(algoformer.posicion);
 
 	}

@@ -5,7 +5,7 @@ import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.NoAtacableException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
 import fiuba.algo3.algoFormers.excepciones.NoSePuedeMoverException;
-import fiuba.algo3.algoFormers.generico.Observador;
+import fiuba.algo3.algoFormers.generico.ObservadorTerminoJuego;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.superficie.SuperficieAire;
@@ -76,11 +76,11 @@ public class Vacio implements Accionable{
 	}
 
 	@Override
-	public void agregarObservador(Observador observador) {
+	public void agregarObservador(ObservadorTerminoJuego observador) {
 	}
 
 	@Override
-	public void eliminarObservador(Observador observador) {
+	public void eliminarObservador(ObservadorTerminoJuego observador) {
 	}
 
 	@Override

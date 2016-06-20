@@ -1,7 +1,6 @@
 package fiuba.algo3.algoFormers.autobots;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -11,13 +10,9 @@ import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
-import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
-import javafx.scene.media.AudioClip;
 
 /*Clase que representa al tipo de algoformer Autobot*/
 public class Autobot extends Algoformer{
-	
-	public static List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
 	
 	/*Metodos abstractos redefinidos*/
 	@Override
@@ -26,14 +21,12 @@ public class Autobot extends Algoformer{
 	}
 
 	@Override
-	public void serAtacado(Decepticon atacante, int ataque){
-		//this.ataqueEfectuado();	
+	public void serAtacado(Decepticon atacante, int ataque){	
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
-		if (this.vida.seTermino()){
+		//para que no se pueda seleccionar en el tablero
+		if (this.vida.seTermino())
 			this.posicion = null;
-		}
-		//Notifica A La Barra De Vida
 		this.notificarRepresentaciones();
 		this.actualizarVista(ataque*this.escudo.getEscudo());
 	}

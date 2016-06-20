@@ -3,7 +3,6 @@ package fiuba.algo3.algoFormers.decepticons;
 import java.util.ArrayList;
 import java.util.List;
 
-import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.MenasorTerrestre;
 import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
@@ -11,14 +10,13 @@ import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 /*Clase que representa al algoformer decepticon combinado Megatron*/
 public class Menasor extends Decepticon {
 	
-	public static List<RepresentacionDeAlgoformer> representadoresCombinado = new ArrayList<RepresentacionDeAlgoformer>();
-	
-	
 	/*Atributos*/
 	/*Cada uno de los decepticons individuales que contiene*/
 	private Megatron megatron;
 	private Bonecrusher bonecrusher;
 	private Frenzy frenzy;
+	/* Lista de elementos de la vista que cambian segun cambia el combinado  */
+	public static List<RepresentacionDeAlgoformer> representadoresCombinado = new ArrayList<RepresentacionDeAlgoformer>();
 	
 	/*Constructor*/
 	/* Parametros: los decepticons con los que se va a componer.
@@ -49,6 +47,7 @@ public class Menasor extends Decepticon {
 		return this.frenzy;
 	}
 	
+	/* Metodos abstractos redefinidos*/
 	@Override
 	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
 		representadoresCombinado.add(representador);

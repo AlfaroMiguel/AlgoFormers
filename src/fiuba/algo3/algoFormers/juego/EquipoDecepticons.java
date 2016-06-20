@@ -12,15 +12,24 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.vista.BarraAlgoformers;
 import fiuba.algo3.algoFormers.vista.Vista;
 
-
+/* Clase que representa un equipo formado por algoformers del tipo decepticon. */
 public class EquipoDecepticons extends Equipo {
-
+	
+	/* Constantes */
+	/* Cantidad de miembros del equipo enemigo */
 	private static final int CANT_MIEMBROS_CONTRARIOS = 3;
+	
+	/* Atributos */
+	/* Decepticons individuales que componen el equipo */
 	protected Megatron megatron;
 	protected Frenzy frenzy;
 	protected Bonecrusher bonecrusher;
+	/* Decepticon resultado de la composicion de los miembros individuales */
 	public Menasor menasor;
-
+	
+	/* Constructor */
+	/* Crea un equipo formado por 3 decepticons individuales y un decepticon compuesto. Por defecto
+	 * el algoformer seleccionado es megatron. */
 	public EquipoDecepticons(){
 		this.megatron = new Megatron();
 		this.frenzy = new Frenzy();
@@ -28,31 +37,28 @@ public class EquipoDecepticons extends Equipo {
 		this.menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.algoformerActual = megatron;
 	}
-
-	public Megatron getMegatron(){
-		return this.megatron;
-	}
-
+	
+	/* Metodos abstractos redefinidos */
+	@Override
 	public void seleccionarAlgoformer(Accionable seleccionado){
 		seleccionado.serSeleccionado(this);
 	}
 
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
-		//Documentacion
 		List<Decepticon> integrantes = new ArrayList<Decepticon>();
 		integrantes.add(this.megatron);
 		integrantes.add(this.bonecrusher);
 		integrantes.add(this.frenzy);
 		UbicadorDePersonajes.posicionarEquipoDecepticon(integrantes,tablero);
-		}
+	}
 
 	@Override
 	public void combinarAlgoformers(Tablero tablero) {
 		Menasor menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.menasor = menasor;
 		this.menasor.puestoEnMapa();
-		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMaximaCombinacion);
 		this.megatron.sacadoDelMapa();
 		this.bonecrusher.sacadoDelMapa();
 		this.frenzy.sacadoDelMapa();
@@ -69,8 +75,9 @@ public class EquipoDecepticons extends Equipo {
 		this.frenzy.puestoEnMapa();
 		
 	}
-
-		private Algoformer obtenerAlgoformerConVida() {
+	
+	@Override
+	protected Algoformer obtenerAlgoformerConVida() {
 		if (megatron.verVida()>0)
 			return megatron;
 		if (bonecrusher.verVida()>0)
@@ -94,7 +101,8 @@ public class EquipoDecepticons extends Equipo {
 			this.notificarObservadores();
 		}
 	}
-
+	
+	@Override
 	public boolean vencioEquipoContrario() {
 		return this.oponentesVencidos == EquipoDecepticons.CANT_MIEMBROS_CONTRARIOS;
 	}
@@ -110,6 +118,7 @@ public class EquipoDecepticons extends Equipo {
 
 	@Override
 	public List<Algoformer> obtenerAutobots() {
+		//devuelve lista vacia porque no contiene autobots
 		List<Algoformer> autobots = new ArrayList<Algoformer>();
 		return autobots;
 	}
@@ -127,5 +136,11 @@ public class EquipoDecepticons extends Equipo {
 	@Override
 	public String obtenerNombre(String nombreJugadorAutobots, String nombreJugadorDecepticons) {
 		return nombreJugadorDecepticons;
+	}
+	
+	
+	/* Metodos de prueba */
+	public Megatron getMegatron(){
+		return this.megatron;
 	}
 }
