@@ -1,11 +1,11 @@
 package fiuba.algo3.algoFormers.controlador;
 
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 
 public class Controlador {
 	public Juego juego;
-	//public boolean seleccionado;
 	public ModoControlador modo;
 	
 	public Controlador(Juego juego){
@@ -16,7 +16,10 @@ public class Controlador {
 	public void fueSeleccionado(Coordenada coordenada){
 		juego.nuevaSeleccion();
 		juego.moverTablero(coordenada);
-		this.modo.fueSeleccionado(this.juego, coordenada);
+		try{
+			this.modo.fueSeleccionado(this.juego, coordenada);
+		}
+		catch(MovimientoInvalidoException e){/*Va a modo seleccionar*/}
 		this.modo = new ModoSeleccionar();	
 	}
 	public void cambiarAModoMover(){

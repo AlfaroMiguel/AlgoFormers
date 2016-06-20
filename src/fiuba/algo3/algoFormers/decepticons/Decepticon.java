@@ -22,6 +22,7 @@ public class Decepticon extends Algoformer {
 		this.actualizarEstadoDeVida();
 		//Notifica a la barra de vida
 		this.notificarRepresentaciones();
+		this.actualizarVista(ataque*this.escudo.getEscudo());
 	}
 
 	@Override

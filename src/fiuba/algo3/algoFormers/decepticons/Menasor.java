@@ -1,11 +1,18 @@
 package fiuba.algo3.algoFormers.decepticons;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.MenasorTerrestre;
+import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 
 /*Clase que representa al algoformer decepticon combinado Megatron*/
 public class Menasor extends Decepticon {
+	
+	public static List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
+	
 	
 	/*Atributos*/
 	/*Cada uno de los decepticons individuales que contiene*/

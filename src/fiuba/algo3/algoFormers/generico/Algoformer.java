@@ -41,7 +41,7 @@ public abstract class Algoformer implements Accionable{
 	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */
 	public Coordenada posicion;
 	
-	public static List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
+	public List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
 	/* Metodos abstractos */
 
 	/* Ataca a otro accionable.
@@ -233,7 +233,7 @@ public abstract class Algoformer implements Accionable{
 		}
 	}
 	/* Actualiza a las vistas que observan al algoformer por su posicion y ataque.
-	 * Parametros: ataque: ataque del algoformer. */
+	 * Parametros: ataque: cuanto lo atacaron al algoformer. */
 	public void actualizarVista(int ataque){
 		for(Vista vista: vistas){
 			vista.update(this, this.posicion, ataque);
