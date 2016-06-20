@@ -15,10 +15,12 @@ public class ContenedorPrincipal extends BorderPane{
 
 		ContenedorJuego contenedor = new ContenedorJuego(juego, controlador);
 		this.setCenter(contenedor.getLayout());
+		
 		contenedor.setFocusTraversable(true);
 
 		List<Algoformer> autobots = juego.obtenerAutobots();
 		BarraAutobots barraAutobots = BarraAutobots.getInstance(jugadorAutobots,autobots);
+
 		BarraSuperion barraSuperion = new BarraSuperion(jugadorAutobots);
 		this.setLeft(barraAutobots);
 

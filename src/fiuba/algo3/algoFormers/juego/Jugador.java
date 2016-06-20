@@ -84,5 +84,4 @@ public class Jugador{
 		return this.equipo.obtenerAutobots();
 	}
 
-
 }

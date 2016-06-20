@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.juego;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -28,8 +29,10 @@ public class Juego implements Observador{
 	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
 
+	private List<Vista> vistas = new ArrayList<Vista>();
 	public Juego(int alto, int ancho){
 		//se crea el tablero
+		
 
 		this.tablero = new Tablero(alto, ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
@@ -174,6 +177,9 @@ public class Juego implements Observador{
 
 	private void terminarJuego(){
 		this.terminado = true;
+		for(Vista vista: vistas){
+			vista.ganoPartida();
+		}
 	}
 
 	public boolean estaTerminado(){
@@ -213,7 +219,8 @@ public class Juego implements Observador{
 		this.jugadorActual.agregarVista(vista);
 		this.jugadorAnterior.agregarVista(vista);
 		this.tablero.agregarVista(vista);
-
+		this.vistas.add(vista);
+		
 	}
 
 	public void nuevaSeleccion() {

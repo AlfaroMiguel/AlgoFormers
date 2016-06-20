@@ -43,6 +43,8 @@ public class ContenedorJuego extends HBox{
 		VBox layout = new VBox(contenedor);
 		VBox.setVgrow(layout, Priority.ALWAYS);
 		this.layout = layout;
+		this.setFocusTraversable(true);
+		vista.seleccionarPrimerPersonaje();
 	}
 	
 	public VBox getLayout(){
