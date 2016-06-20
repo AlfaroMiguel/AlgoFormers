@@ -20,13 +20,13 @@ public class ContenedorPrincipal extends BorderPane{
 		contenedor.requestFocus();
 
 		List<Algoformer> autobots = juego.obtenerAutobots();
-		BarraAlgoformers barraAutobots = new BarraAlgoformers(jugadorAutobots,autobots);
+		BarraAlgoformers barraAutobots = new BarraAlgoformers(jugadorAutobots,autobots,controlador);
 
 		BarraSuperion barraSuperion = new BarraSuperion(jugadorAutobots);
 		this.setLeft(barraAutobots);
 
 		List<Algoformer> decepticons = juego.obtenerDecepticons();
-		BarraAlgoformers barraDecepticons = new BarraAlgoformers(jugadorDecepticons,decepticons);
+		BarraAlgoformers barraDecepticons = new BarraAlgoformers(jugadorDecepticons,decepticons,controlador);
 		BarraMenasor barraMenasor = new BarraMenasor(jugadorDecepticons);
 		this.setRight(barraDecepticons);
 

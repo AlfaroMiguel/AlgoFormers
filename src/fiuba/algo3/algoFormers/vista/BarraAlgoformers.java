@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.vista;
 
 import java.util.List;
 
+import fiuba.algo3.algoFormers.controlador.Controlador;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -34,8 +35,11 @@ public class BarraAlgoformers extends VBox{
 	
 
 	String nombreJugador;
-	public BarraAlgoformers(String nombreJugador, List<Algoformer> algoformers){
+	private Controlador controlador;
+	
+	public BarraAlgoformers(String nombreJugador, List<Algoformer> algoformers, Controlador controlador){
 
+		this.controlador = controlador;
 		this.setFillWidth(true);
 		this.setMinWidth(200);
 		this.nombreJugador = nombreJugador;
@@ -47,9 +51,9 @@ public class BarraAlgoformers extends VBox{
 	}
 
 
-	public static BarraAlgoformers getInstance(String nombreJugador, List<Algoformer> algoformers){
+	public static BarraAlgoformers getInstance(String nombreJugador, List<Algoformer> algoformers,Controlador controlador){
 		if (instancia == null){
-			instancia = new BarraAlgoformers(nombreJugador,algoformers);
+			instancia = new BarraAlgoformers(nombreJugador,algoformers,controlador);
 		}
 		return instancia;
 	}
@@ -75,12 +79,19 @@ public class BarraAlgoformers extends VBox{
 		
 		algoformer1.setAlgoformer(algoformers.get(0));
 		algoformer1.setImagenDeAlgoformer();
+		algoformer1.setOnMouseClicked(e -> this.controlador.fueSeleccionado(algoformers.get(0).posicion));
+		
 		algoformer2.setAlgoformer(algoformers.get(1));
 		algoformer2.setImagenDeAlgoformer();
+		algoformer2.setOnMouseClicked(e -> this.controlador.fueSeleccionado(algoformers.get(1).posicion));
+		
 		algoformer3.setAlgoformer(algoformers.get(2));
 		algoformer3.setImagenDeAlgoformer();
+		algoformer3.setOnMouseClicked(e -> this.controlador.fueSeleccionado(algoformers.get(2).posicion));
+		
 		algoformerCombinado.setAlgoformer(algoformers.get(3));
 		algoformerCombinado.setImagenDeAlgoformer();
+		algoformerCombinado.setOnMouseClicked(e -> this.controlador.fueSeleccionado(algoformers.get(3).posicion));
 		algoformerCombinado.llevadoASegundoPlano();
 		
 		
