@@ -77,11 +77,11 @@ public abstract class Algoformer implements Accionable{
 	}
 	public void sacadoDelMapa(){
 		for(RepresentacionDeAlgoformer representadoress: this.representadores)
-			representadoress.llevadoASegundoPlano();
+			representadoress.deshabilitar();
 	}
 	public void puestoEnMapa(){
 		for(RepresentacionDeAlgoformer representadoress: this.representadores)
-			representadoress.traidoAPrimerPlano();
+			representadoress.habilitar();
 	}
 
 	/* Ataca a otro accionable.

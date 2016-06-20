@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.BarraAlgoformers;
 import fiuba.algo3.algoFormers.vista.Vista;
 
 

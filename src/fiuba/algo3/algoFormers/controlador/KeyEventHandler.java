@@ -23,8 +23,10 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 		if(event.getCode()== KeyCode.A){
 			controlador.cambiarAModoAtaque();
 		}
-
-		//event.consume();
+		if(event.getCode()== KeyCode.ENTER){
+			controlador.terminarTurno();
+		}
+		event.consume();
 	}
 		
 }

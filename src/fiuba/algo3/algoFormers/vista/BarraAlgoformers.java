@@ -92,7 +92,7 @@ public class BarraAlgoformers extends VBox{
 		algoformerCombinado.setAlgoformer(algoformers.get(3));
 		algoformerCombinado.setImagenDeAlgoformer();
 		algoformerCombinado.setOnMouseClicked(e -> this.controlador.fueSeleccionado(algoformers.get(3).posicion));
-		algoformerCombinado.llevadoASegundoPlano();
+		algoformerCombinado.deshabilitar();
 		
 		
 		
@@ -171,6 +171,5 @@ public class BarraAlgoformers extends VBox{
 		barraModos.getChildren().addAll(humanoide, alterno);
 		return barraModos;
 	}
-
 
 }

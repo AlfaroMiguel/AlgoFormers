@@ -17,6 +17,7 @@ import fiuba.algo3.algoFormers.superficie.SuperficiePantano;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.BarraAlgoformers;
 import fiuba.algo3.algoFormers.vista.Vista;
 
 
@@ -250,5 +251,4 @@ public class Juego implements Observador{
 		 decepticons.addAll(this.jugadorAnterior.obtenerDecepticons());
 		 return decepticons;
 	}
-
 }

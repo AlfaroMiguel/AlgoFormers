@@ -17,16 +17,16 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 	}
 
 	@Override
-	public void llevadoASegundoPlano() {
+	public void deshabilitar() {
 		this.setDisable(true);
 		
 	}
 
 	@Override
-	public void traidoAPrimerPlano() {
+	public void habilitar() {
 		this.setDisable(false);
-		
 	}
+	
 	public void setImagenDeAlgoformer(){
 		Image imagen = ClaseImagenes.getImage(this.algoformer);
 		this.setGraphic(new ImageView(imagen));
@@ -42,5 +42,4 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 		this.setText(this.algoformer.getNombre());
 		
 	}
-	
 }

@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.controlador.KeyEventHandler;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.scene.layout.BorderPane;
@@ -29,6 +30,9 @@ public class ContenedorPrincipal extends BorderPane{
 		BarraAlgoformers barraDecepticons = new BarraAlgoformers(jugadorDecepticons,decepticons,controlador);
 		BarraMenasor barraMenasor = new BarraMenasor(jugadorDecepticons);
 		this.setRight(barraDecepticons);
+		
+		KeyEventHandler keyHandler = new KeyEventHandler(controlador);
+		this.setOnKeyPressed(keyHandler);
 
 		BarraAcciones barraAcciones = new BarraAcciones(controlador);
 		this.setBottom(barraAcciones);

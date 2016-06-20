@@ -23,13 +23,13 @@ public class BarraDeVidaDeAlgoformer extends StackPane implements Representacion
 	}
 
 	@Override
-	public void llevadoASegundoPlano() {
+	public void deshabilitar() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void traidoAPrimerPlano() {
+	public void habilitar() {
 		// TODO Auto-generated method stub
 		
 	}

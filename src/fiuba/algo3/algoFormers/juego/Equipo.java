@@ -9,6 +9,7 @@ import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.BarraAlgoformers;
 import fiuba.algo3.algoFormers.vista.Vista;
 
 public abstract class Equipo implements Observador, ObservableTerminoJuego{
@@ -18,6 +19,7 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	private ObservableTerminoJuego observado;
 	public int oponentesVencidos;
 	private List<Observador> observadores = new ArrayList<Observador>();
+	protected BarraAlgoformers vista;
 
 
 	public abstract void combinarAlgoformers(Tablero tablero);
@@ -101,8 +103,8 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 	public void centrarEnAlgoFormerActual() {
 		this.algoformerActual.centrar();
 	}
+	
 	public abstract List<Algoformer> obtenerAutobots();
 	public abstract List<Algoformer> obtenerDecepticons();
-
 
 }
