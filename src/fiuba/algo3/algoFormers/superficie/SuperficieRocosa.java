@@ -72,4 +72,9 @@ public class SuperficieRocosa extends SuperficieTierra {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public boolean esMonte() {
+		return false;
+	}
 }

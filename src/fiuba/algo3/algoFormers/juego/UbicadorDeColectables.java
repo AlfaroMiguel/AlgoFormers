@@ -58,17 +58,46 @@ public class UbicadorDeColectables {
 
 	private void ubicarChispa(int alto,int ancho, Tablero tablero) {
 		ChispaSuprema chispaSuprema = ChispaSuprema.getInstance();
-//		boolean pudoColocar = false;
-//		while (! pudoColocar){
-//			try{
-//				tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
-//				pudoColocar = true;
-//			}
-//			catch(Throwable g){
-//				continue;
-//			}
-//		}
-		tablero.colocarEnTablero(chispaSuprema, coordenadaChispa(alto,ancho));
+		Coordenada coordenadaDeChispa = obtenerCoordenadaDeChispa();
+		tablero.colocarEnTablero(chispaSuprema, coordenadaDeChispa);
+	}
+
+	private Coordenada obtenerCoordenadaDeChispa() {
+		double y =  Math.random();
+		double x = Math.random();
+		if(x<0.1){
+		for(int i =4; i<8;i++){
+			return new Coordenada(4+(int)(y*3),24);
+		}
+		}else if(x<0.2){
+		for(int i =5; i<10;i++){
+			return new Coordenada(5+(int)(y*4),23);
+		}
+		}else if(x<0.4){
+		for(int i =5; i<12;i++){
+			return new Coordenada(5+(int)(y*6),22);
+		}
+		}else if(x<0.6){
+		for(int i =5; i<14;i++){
+			return new Coordenada(5+(int)(y*8),21);
+		}
+		}else if(x<0.7){
+		for(int i =6; i<13;i++){
+			return new Coordenada(6+(int)(y*6),20);
+		}
+		}else if(x<0.8){
+		for(int i =7; i<14;i++){
+			return new Coordenada(7+(int)(y*6),19);
+		}
+		}else if(x<0.9){
+		for(int i =9; i<14;i++){
+			return new Coordenada(9+(int)(y*4),18);
+		}
+		}
+		for(int i = 11; i<14;i++){
+			return new Coordenada(11+(int)(y*2),17);
+		}
+		return null;
 	}
 
 	private void ubicarBurbujaInmaculada(Tablero tablero) {

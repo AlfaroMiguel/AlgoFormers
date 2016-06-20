@@ -63,4 +63,9 @@ public class SuperficieMonte extends SuperficieTierra {
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
 	}
 
+	@Override
+	public boolean esMonte() {
+		return true;
+	}
+
 }

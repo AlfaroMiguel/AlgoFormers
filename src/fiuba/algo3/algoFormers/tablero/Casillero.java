@@ -38,5 +38,9 @@ public class Casillero {
 		this.tierra.producirEfectoPorPaso(accionable);
 		
 	}
+
+	public boolean esUnMonte() {
+		return this.tierra.esMonte();
+	}
 	
 }

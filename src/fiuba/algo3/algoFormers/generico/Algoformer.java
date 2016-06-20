@@ -41,7 +41,7 @@ public abstract class Algoformer implements Accionable{
 	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */
 	public Coordenada posicion;
 	
-	public List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
+	public static List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
 	/* Metodos abstractos */
 
 	/* Ataca a otro accionable.

@@ -70,4 +70,9 @@ public class SuperficieEspinas extends SuperficieTierra {
 		this.afectador.producirEfecto(algoformer);
 		
 	}
+
+	@Override
+	public boolean esMonte() {
+		return false;
+	}
 }

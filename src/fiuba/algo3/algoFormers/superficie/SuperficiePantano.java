@@ -67,4 +67,9 @@ public class SuperficiePantano extends SuperficieTierra {
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
 	}
 
+	@Override
+	public boolean esMonte() {
+		return false;
+	}
+
 }

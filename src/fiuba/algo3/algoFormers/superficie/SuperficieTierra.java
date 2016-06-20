@@ -59,4 +59,6 @@ public abstract class SuperficieTierra {
 	public int costoPorPaso(ModoAereo modoAereo) {
 		return 1;
 	}
+
+	public abstract boolean esMonte();
 }

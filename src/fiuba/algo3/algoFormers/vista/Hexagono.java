@@ -54,7 +54,7 @@ public class Hexagono extends StackPane {
 		this.getChildren().addAll(hexagon,text,habitable,recolectable,aire);
 
 		text.setFont(Font.font(18));
-//		text.setText(String.valueOf(x) +"," + String.valueOf(y));
+		text.setText(String.valueOf(x) +"," + String.valueOf(y));
 //		text.setText(String.valueOf(y + x/2));
 		text.toFront();
 

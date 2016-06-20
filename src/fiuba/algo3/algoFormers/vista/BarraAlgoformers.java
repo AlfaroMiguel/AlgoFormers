@@ -30,6 +30,7 @@ public class BarraAlgoformers extends VBox{
 	BarraDeVidaDeAlgoformer vidaAlgoformer1  = new BarraDeVidaDeAlgoformer();
 	BarraDeVidaDeAlgoformer vidaAlgoformer2  = new BarraDeVidaDeAlgoformer();
 	BarraDeVidaDeAlgoformer vidaAlgoformer3  = new BarraDeVidaDeAlgoformer();
+	BarraDeVidaDeAlgoformer vidaAlgoformerCombinado = new BarraDeVidaDeAlgoformer();
 	
 
 	String nombreJugador;
@@ -64,7 +65,7 @@ public class BarraAlgoformers extends VBox{
 //		titulo.setTextFill(Color.CADETBLUE);
 //		barraTitulo.setAlignment(Pos.CENTER);
 //		barraTitulo.getChildren().add(titulo);
-		this.getChildren().addAll(botonesOptimus, botonesBumblebee, botonesRatchet);
+		this.getChildren().addAll(botonesOptimus, botonesBumblebee, botonesRatchet,botonAlgoformerCombinado);
 	}
 
 
@@ -79,17 +80,19 @@ public class BarraAlgoformers extends VBox{
 		algoformer3.setAlgoformer(algoformers.get(2));
 		algoformer3.setImagenDeAlgoformer();
 		algoformerCombinado.setAlgoformer(algoformers.get(3));
-		algoformer3.setImagenDeAlgoformer();
+		algoformerCombinado.setImagenDeAlgoformer();
+		algoformerCombinado.llevadoASegundoPlano();
 		
 		
 		
 		algoformer1.setContentDisplay(ContentDisplay.TOP);
 		algoformer2.setContentDisplay(ContentDisplay.TOP);
 		algoformer3.setContentDisplay(ContentDisplay.TOP);
-
+		algoformerCombinado.setContentDisplay(ContentDisplay.TOP);
 		algoformer1.setMinWidth(100);
 		algoformer2.setMinWidth(100);
 		algoformer3.setMinWidth(100);
+		algoformerCombinado.setMinWidth(150);
 	}
 
 
@@ -106,6 +109,7 @@ public class BarraAlgoformers extends VBox{
 		vidaAlgoformer1.setAlgoformer(algoformers.get(0));
 		vidaAlgoformer2.setAlgoformer(algoformers.get(1));
 		vidaAlgoformer3.setAlgoformer(algoformers.get(2));
+		vidaAlgoformerCombinado.setAlgoformer(algoformers.get(3));
 
 	}
 
@@ -115,12 +119,12 @@ public class BarraAlgoformers extends VBox{
 		VBox contenedor = new VBox();
 
 		String nombreCapitalizado = Character.toUpperCase(nombreJugador.charAt(0)) + nombreJugador.substring(1);
-		Label tituloVida = new Label("Vida Equipo " + nombreCapitalizado);
+		Label tituloVida = new Label("Equipo " + nombreCapitalizado);
 		tituloVida.setFont(Font.font("Georgia", 20));
 		tituloVida.setTextFill(Color.CADETBLUE);
 		
 		contenedor.setSpacing(10);
-		contenedor.getChildren().addAll(tituloVida, vidaAlgoformer1, vidaAlgoformer2, vidaAlgoformer3);
+		contenedor.getChildren().addAll(tituloVida, vidaAlgoformer1, vidaAlgoformer2, vidaAlgoformer3,vidaAlgoformerCombinado);
 
 		contenedor.setAlignment(Pos.CENTER);
 		this.getChildren().add(contenedor);

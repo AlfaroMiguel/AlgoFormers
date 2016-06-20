@@ -120,7 +120,9 @@ public class Tablero implements Observador{
 	 * 			   recolectable: coordenada donde se quiere colocar el recolectable.
 	 * Lanza: MovimientoInvalidoException si no se puede colocar.*/
 	public void colocarEnTablero(Recolectable recolectable, Coordenada coordenada){
-		if(!this.recolectables.get(coordenada).ocupaLugar())
+		if(this.superficies.get(coordenada).esUnMonte())
+				throw new MovimientoInvalidoException();
+		else if(!this.recolectables.get(coordenada).ocupaLugar())
 			this.recolectables.put(coordenada, recolectable);
 		else
 			throw new MovimientoInvalidoException();

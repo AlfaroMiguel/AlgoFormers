@@ -18,13 +18,13 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 
 	@Override
 	public void llevadoASegundoPlano() {
-		// TODO Auto-generated method stub
+		this.setDisable(true);
 		
 	}
 
 	@Override
 	public void traidoAPrimerPlano() {
-		// TODO Auto-generated method stub
+		this.setDisable(false);
 		
 	}
 	public void setImagenDeAlgoformer(){
