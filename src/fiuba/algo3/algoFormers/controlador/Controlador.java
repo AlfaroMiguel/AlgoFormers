@@ -1,5 +1,6 @@
 package fiuba.algo3.algoFormers.controlador;
 
+import fiuba.algo3.algoFormers.excepciones.ElementoNoExisteException;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
@@ -20,7 +21,8 @@ public class Controlador {
 			this.modo.fueSeleccionado(this.juego, coordenada);
 		}
 		catch(MovimientoInvalidoException exception){/*Va a modo seleccionar*/}
-		catch(NullPointerException exception){}//para ver que onda
+		catch(ElementoNoExisteException exception){}
+		catch(NullPointerException exception){}
 		this.modo = new ModoSeleccionar();	
 	}
 	public void cambiarAModoMover(){
