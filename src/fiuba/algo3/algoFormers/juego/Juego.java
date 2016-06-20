@@ -100,7 +100,7 @@ public class Juego implements Observador{
 		return this.tablero.buscarCamino(coordenadaInicial,coordenadaFinal,this.jugadorActual.verAlgoformerActual());
 	}
 
-	public boolean seleccionarCoordenada(Coordenada coordenada){
+	public boolean puedoSeleccionarCoordenada(Coordenada coordenada){
 		try	{
 			this.jugadorActual.seleccionarAlgoformer(coordenada);
 			return true;
