@@ -9,6 +9,7 @@ public class Megatron extends Decepticon {
 	/*Constructor*/
 	/*Crea un megatron en modo humanoide con 550 puntos de vida*/
 	public Megatron(){
+		this.nombre = "Megatron";
 		this.modo = MegatronHumanoide.getInstance();
 		this.vida = new Vida(550);
 	}

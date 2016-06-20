@@ -16,7 +16,9 @@ public class Decepticon extends Algoformer {
 	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot autobot, int ataque){
-		this.ataqueEfectuado();
+		//this.ataqueEfectuado();
+		//Notifica a la barra de vida
+		this.notificarRepresentaciones();
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
 	}

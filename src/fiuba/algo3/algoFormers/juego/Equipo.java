@@ -99,6 +99,7 @@ public abstract class Equipo implements Observador, ObservableTerminoJuego{
 		this.algoformerActual.centrar();
 	}
 	public abstract List<Algoformer> obtenerAutobots();
+	public abstract List<Algoformer> obtenerDecepticons();
 
 
 }

@@ -13,6 +13,7 @@ import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 import fiuba.algo3.algoFormers.vista.Vista;
 import javafx.scene.image.Image;
 
@@ -33,14 +34,14 @@ public abstract class Algoformer implements Accionable{
 	/* Representa el actudo presente en el algoformer. */
 	protected Escudo escudo = new Escudo();
 	/* Lista de observadores para el patron observer */
-
 	private List<Observador> observadores = new ArrayList<Observador>();
 	/* Representa el estado del algoformer. True si esta muerto, false si esta vivo */
 	private boolean estaMuerto = false;
 
 	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */
 	public Coordenada posicion;
-
+	
+	public List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
 	/* Metodos abstractos */
 
 	/* Ataca a otro accionable.
@@ -52,6 +53,8 @@ public abstract class Algoformer implements Accionable{
 	*/
 
 	public static List<Vista> vistas = new ArrayList<Vista>();
+	
+	public String nombre;
 	/* Metodos de la clase. */
 	/* Convierte su velocidad en 0 para no poder moverse.*/
 	public void inmovilizar(){
@@ -64,6 +67,21 @@ public abstract class Algoformer implements Accionable{
 	}
 	public Coordenada getCoordenada(){
 		return this.posicion;
+	}
+	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
+		this.representadores.add(representador);
+	}
+	public void notificarRepresentaciones(){
+		for(RepresentacionDeAlgoformer representadoress: this.representadores)
+			representadoress.update();
+	}
+	public void sacadoDelMapa(){
+		for(RepresentacionDeAlgoformer representadoress: this.representadores)
+			representadoress.llevadoASegundoPlano();
+	}
+	public void puestoEnMapa(){
+		for(RepresentacionDeAlgoformer representadoress: this.representadores)
+			representadoress.traidoAPrimerPlano();
 	}
 
 	/* Ataca a otro accionable.
@@ -86,6 +104,7 @@ public abstract class Algoformer implements Accionable{
 	 * dependiendo del modo actual. */
 	public void cambiarModo(){
 		this.modo.cambiar(this);
+		this.notificarRepresentaciones();
 	}
 	/* Cambia el modo del algoformer.
 	 * Parametros: modoNuevo: modo al que se quiere cambiar. */
@@ -296,6 +315,10 @@ public abstract class Algoformer implements Accionable{
 	protected void ataqueEfectuado(){
 		for(Vista vistas: this.vistas)
 				vistas.reproducirAtaque();
+	}
+
+	public String getNombre() {
+		return this.nombre;
 	}
 
 }

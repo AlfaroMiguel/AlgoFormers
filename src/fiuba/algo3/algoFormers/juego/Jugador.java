@@ -84,4 +84,8 @@ public class Jugador{
 		return this.equipo.obtenerAutobots();
 	}
 
+	public List<Algoformer> obtenerDecepticons() {
+		return this.equipo.obtenerDecepticons();
+	}
+
 }

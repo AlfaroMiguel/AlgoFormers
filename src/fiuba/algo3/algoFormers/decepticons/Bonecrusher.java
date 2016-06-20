@@ -9,6 +9,7 @@ public class Bonecrusher extends Decepticon {
 	/*Constructor*/
 	/*Crea un bonecrusher en modo humanoide con 200 puntos de vida*/
 	public Bonecrusher(){
+		this.nombre = "Bonecrusher";
 		this.modo = BonecrusherHumanoide.getInstance();
 		this.vida = new Vida(200);
 	}

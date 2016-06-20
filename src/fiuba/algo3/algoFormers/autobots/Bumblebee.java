@@ -9,6 +9,7 @@ public class Bumblebee extends Autobot {
 	/*Constructor*/
 	/*Crea un bumblebee en modo humanoide con 350 puntos de vida*/
 	public Bumblebee(){
+		this.nombre = "Bumblebee";
 		this.modo = BumblebeeHumanoide.getInstance();
 		this.vida = new Vida(350);
 	}

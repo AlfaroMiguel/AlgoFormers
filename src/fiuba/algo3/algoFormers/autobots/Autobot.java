@@ -21,7 +21,9 @@ public class Autobot extends Algoformer{
 
 	@Override
 	public void serAtacado(Decepticon atacante, int ataque){
-		this.ataqueEfectuado();
+		//this.ataqueEfectuado();
+		//Notifica A La Barra De Vida
+		this.notificarRepresentaciones();
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
 		this.actualizarVista(ataque*this.escudo.getEscudo());

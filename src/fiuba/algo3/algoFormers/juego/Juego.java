@@ -245,4 +245,10 @@ public class Juego implements Observador{
 		 return autobots;
 	}
 
+	public List<Algoformer> obtenerDecepticons() {
+		List<Algoformer> decepticons = this.jugadorActual.obtenerDecepticons();
+		 decepticons.addAll(this.jugadorAnterior.obtenerDecepticons());
+		 return decepticons;
+	}
+
 }

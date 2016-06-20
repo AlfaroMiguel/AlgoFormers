@@ -94,4 +94,13 @@ public class EquipoDecepticons extends Equipo {
 		List<Algoformer> autobots = new ArrayList<Algoformer>();
 		return autobots;
 	}
+
+	@Override
+	public List<Algoformer> obtenerDecepticons() {
+		List<Algoformer> decepticons= new ArrayList<Algoformer>();
+		decepticons.add(this.megatron);
+		decepticons.add(this.frenzy);
+		decepticons.add(this.bonecrusher);
+		return decepticons;
+	}
 }

@@ -18,6 +18,7 @@ public class Menasor extends Decepticon {
 	 * Crea un superion en modo unico con la suma de las vidas de los algoformers
 	 * que lo componen en el momento de la composicion*/
 	public Menasor(Megatron megatron, Bonecrusher bonecrusher, Frenzy frenzy){
+		this.nombre = "Menasor";
 		this.megatron = megatron;
 		this.bonecrusher = bonecrusher;
 		this.frenzy = frenzy;

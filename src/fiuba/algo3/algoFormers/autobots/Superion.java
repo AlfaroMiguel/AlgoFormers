@@ -18,6 +18,7 @@ public class Superion extends Autobot {
 	 * Crea un superion en modo unico con la suma de las vidas de los algoformers
 	 * que lo componen en el momento de la composicion*/
 	public Superion(Optimus optimus, Ratchet ratchet, Bumblebee bumblebee){
+		this.nombre = "Superion";
 		this.optimus = optimus;
 		this.ratchet = ratchet;
 		this.bumblebee = bumblebee;

@@ -95,4 +95,10 @@ public class EquipoAutobots extends Equipo {
 		return autobots;
 	}
 
+	@Override
+	public List<Algoformer> obtenerDecepticons() {
+		List<Algoformer> decepticons= new ArrayList<Algoformer>();
+		return decepticons;
+	}
+
 }

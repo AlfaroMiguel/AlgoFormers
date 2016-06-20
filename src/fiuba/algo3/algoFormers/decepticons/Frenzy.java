@@ -9,6 +9,7 @@ public class Frenzy extends Decepticon {
 	/*Constructor*/
 	/*Crea un frenzy en modo humanoide con 400 puntos de vida*/
 	public Frenzy(){
+		this.nombre = "Frenzy";
 		this.modo = FrenzyHumanoide.getInstance();
 		this.vida = new Vida(400);
 	}
