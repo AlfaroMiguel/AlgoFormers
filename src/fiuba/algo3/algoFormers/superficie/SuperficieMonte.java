@@ -30,7 +30,7 @@ public class SuperficieMonte extends SuperficieTierra {
 	public void afectar(Algoformer afectado, ModoHumanoide modo) {
 		throw new MovimientoInvalidoException();
 	}
-	
+
 	@Override
 	public void afectar(Algoformer afectado, ModoAereo modo){
 		throw new MovimientoInvalidoException();
@@ -46,19 +46,19 @@ public class SuperficieMonte extends SuperficieTierra {
 
 	@Override
 	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
-		return 10000000;
+		throw new MovimientoInvalidoException();
 	}
 
 	@Override
 	public int costoPorPaso(ModoHumanoide modoHumanoide) {
-		return 10000000;
+		throw new MovimientoInvalidoException();
 	}
-	
+
 	@Override
 	public int costoPorPaso(ModoAereo modoAereo) {
-		return 10000000;
+		throw new MovimientoInvalidoException();
 	}
-	
+
 	@Override
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
 	}

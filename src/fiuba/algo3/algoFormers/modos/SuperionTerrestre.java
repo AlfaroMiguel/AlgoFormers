@@ -9,29 +9,29 @@ import fiuba.algo3.algoFormers.vista.HexGrid;
 import javafx.scene.image.Image;
 
 public class SuperionTerrestre extends ModoHumanoide {
-		
+
 	private static SuperionTerrestre instancia;
-	
+
 	private SuperionTerrestre(){
 		this.ataque = 100;
 		this.distAtaque = 2;
-		this.velocidad = 100;
+		this.velocidad = 3;
 	}
-		
+
 	public static SuperionTerrestre getInstance(){
 		if (instancia == null){
 			instancia = new SuperionTerrestre();
 		}
 		return instancia;
 	}
-		
+
 	@Override
 	public void cambiar(Algoformer algoformer) {
 		throw new ModoUnicoException();
 	}
-	
-	
-	
+
+
+
 	public Image getImage() {
 		System.out.println("Me pidieron la imagen");
 		return ClaseImagenes.getImageModo(this);
