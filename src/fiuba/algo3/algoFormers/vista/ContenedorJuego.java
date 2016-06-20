@@ -82,28 +82,34 @@ public class ContenedorJuego extends HBox{
 	      }
 	    });
 	    //Todo esto agarra y hace zoom cuando se scrolea con la escala dada
-	    zoomPane.setOnScroll(new EventHandler<ScrollEvent>() {
-	      @Override
-	      public void handle(ScrollEvent event) {
-	        event.consume();
-
-	        if (event.getDeltaY() == 0) {
-	          return;
-	        }
-
-	        double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA
-	            : 1 / SCALE_DELTA;
-	        double escala = grid.getScaleX()* scaleFactor;
-
-	        if(escala < SCALE_MIN) escala = SCALE_MIN;
-	        else if (escala > SCALE_MAX) escala = SCALE_MAX;
-
-	        grid.setScaleX(escala);
-	        grid.setScaleY(escala);
-
-	      }
-	      
-	    });
+	    
+//	    zoomPane.setOnScroll(new EventHandler<ScrollEvent>() {
+//	      @Override
+//	      public void handle(ScrollEvent event) {
+//	        event.consume();
+//
+//	        if (event.getDeltaY() == 0) {
+//	          return;
+//	        }
+//
+//	        double scaleFactor = (event.getDeltaY() > 0) ? SCALE_DELTA
+//	            : 1 / SCALE_DELTA;
+//	        double escala = grid.getScaleX()* scaleFactor;
+//
+//	        if(escala < SCALE_MIN) escala = SCALE_MIN;
+//	        else if (escala > SCALE_MAX) escala = SCALE_MAX;
+//
+//	        grid.setScaleX(escala);
+//	        grid.setScaleY(escala);
+//
+//	      }
+//	      
+//	    });
+	    
+	   //Escala fija 
+//        grid.setScaleX(escala);
+//        grid.setScaleY(escala);
+	    
 	 // Mover el tablero arrastrandolo
 
 //	    final ObjectProperty<Point2D> lastMouseCoordinates = new SimpleObjectProperty<Point2D>();
