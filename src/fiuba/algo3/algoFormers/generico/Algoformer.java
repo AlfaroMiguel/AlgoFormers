@@ -65,22 +65,27 @@ public abstract class Algoformer implements Accionable{
 		this.posicion = posicion;
 		this.actualizarVista();
 	}
+	
 	public Coordenada getCoordenada(){
 		return this.posicion;
 	}
+	
 	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
 		representadores.add(representador);
 	}
+	
 	public void notificarRepresentaciones(){
 		for(RepresentacionDeAlgoformer representador: representadores)
 			representador.actualizar();
 	}
+	
 	public void sacadoDelMapa(){
 		for(RepresentacionDeAlgoformer representador: representadores){
 			if (representador.estaHabilitado())
 				representador.deshabilitar();
 		}
 	}
+	
 	public void puestoEnMapa(){
 		for(RepresentacionDeAlgoformer representador: representadores){
 			if (!representador.estaHabilitado())

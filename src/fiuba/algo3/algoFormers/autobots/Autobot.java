@@ -24,6 +24,9 @@ public class Autobot extends Algoformer{
 		//this.ataqueEfectuado();	
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
+		if (this.vida.seTermino()){
+			this.posicion = null;
+		}
 		//this.actualizarVista(ataque*this.escudo.getEscudo());
 		//Notifica A La Barra De Vida
 		this.notificarRepresentaciones();
