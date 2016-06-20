@@ -19,6 +19,9 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 	public void actualizar() {
 		this.setImagenDeAlgoformer();
 		this.actualizarTooltip();
+		if (this.algoformer.verVida()  == 0){
+			deshabilitar();
+		}
 	}
 
 	@Override
@@ -28,7 +31,7 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 	}
 
 	@Override
-	public void habilitar() {
+	public void habilitar(){
 		this.setDisable(false);
 		habilitado = true;
 	}

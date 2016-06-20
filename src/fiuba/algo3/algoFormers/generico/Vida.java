@@ -13,7 +13,11 @@ public class Vida {
 	}
 	
 	public void sacarVida(int danio){
-		this.cantVida = this.cantVida-danio;
+		int vidaNueva = cantVida - danio;
+		if (vidaNueva <= 0) 
+			cantVida = 0;
+		else 
+			cantVida = vidaNueva;
 	}
 
 	public void multiplicarVida(double factor) {
@@ -21,6 +25,6 @@ public class Vida {
 	}
 
 	public boolean seTermino() {
-		return this.cantVida <= 0;
+		return this.cantVida == 0;
 	}
 }

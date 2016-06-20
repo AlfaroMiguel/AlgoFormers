@@ -15,7 +15,10 @@ public class BarraDeVidaDeAlgoformer extends StackPane implements Representacion
 	public void actualizar(){	
 		int vidaActual = this.algoformer.verVida();
 		float porcentaje = (float)vidaActual/vidaDeAlgoformerInicial;
-		System.out.println(porcentaje);
+		if (porcentaje <= 0){
+			this.barraDeVida.setProgress(1.0);
+			this.setStyle("-fx-accent: black;");
+		}
 		this.barraDeVida.setProgress(porcentaje);	
 	}
 
