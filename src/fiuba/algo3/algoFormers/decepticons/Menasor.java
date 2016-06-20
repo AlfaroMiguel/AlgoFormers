@@ -11,7 +11,7 @@ import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 /*Clase que representa al algoformer decepticon combinado Megatron*/
 public class Menasor extends Decepticon {
 	
-	public static List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
+	public static List<RepresentacionDeAlgoformer> representadoresCombinado = new ArrayList<RepresentacionDeAlgoformer>();
 	
 	
 	/*Atributos*/
@@ -49,6 +49,29 @@ public class Menasor extends Decepticon {
 		return this.frenzy;
 	}
 	
+	@Override
+	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
+		representadoresCombinado.add(representador);
+	}
+	@Override
+	public void notificarRepresentaciones(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado)
+			representador.actualizar();
+	}
+	@Override
+	public void sacadoDelMapa(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado){
+			if (representador.estaHabilitado())
+				representador.deshabilitar();
+		}
+	}
+	@Override
+	public void puestoEnMapa(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado){
+			if (!representador.estaHabilitado())
+				representador.habilitar();
+		}
+	}
 	
 }	
 	

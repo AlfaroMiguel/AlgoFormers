@@ -44,8 +44,9 @@ public class EquipoAutobots extends Equipo {
 	public void combinarAlgoformers(Tablero tablero) {
 		Superion superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
 		this.superion = superion;
-		this.superion.puestoEnMapa();
+		
 		tablero.combinarAlgoformers(superion, this.optimus, this.ratchet, this.bumblebee, this.distanciaMinimaCombinacion);
+		this.superion.puestoEnMapa();
 		this.optimus.sacadoDelMapa();
 		this.ratchet.sacadoDelMapa();
 		this.bumblebee.sacadoDelMapa();
@@ -55,7 +56,11 @@ public class EquipoAutobots extends Equipo {
 	@Override
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(this.superion);
+		this.superion.sacadoDelMapa();
 		this.algoformerActual = this.obtenerAlgoformerConVida();
+		this.optimus.puestoEnMapa();
+		this.bumblebee.puestoEnMapa();
+		this.ratchet.puestoEnMapa();
 	}
 
 	private Algoformer obtenerAlgoformerConVida() {
