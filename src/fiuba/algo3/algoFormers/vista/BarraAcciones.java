@@ -1,9 +1,12 @@
 package fiuba.algo3.algoFormers.vista;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.controlador.SilenciadorEventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
@@ -11,12 +14,13 @@ public class BarraAcciones extends HBox {
 	
 	Button botonMover = new Button();
 	Button botonAtacar = new Button();
-	private Controlador controlador;
 	Button botonTransformar = new Button();
 	Button botonCombinar = new Button();
 	Button botonTerminarTurno = new Button();
 	Button botonDescombinar = new Button();
+	Button silenciarMusica = new Button();
 	Label texto = new Label("Elija una opcion: ");
+	private Controlador controlador;
 	
 	public BarraAcciones(Controlador controlador){
 		this.controlador = controlador;
@@ -27,7 +31,7 @@ public class BarraAcciones extends HBox {
 	}
 	
 	public void agregarNodos(){
-		this.getChildren().addAll(texto, botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno);
+		this.getChildren().addAll(texto, botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
 	}
 	
 	public void configurarNodos(){
@@ -55,6 +59,9 @@ public class BarraAcciones extends HBox {
 		botonTerminarTurno.setOnMouseClicked(e-> controlador.terminarTurno());
 		botonTerminarTurno.setStyle("-fx-base: #000000;");
 		botonTerminarTurno.setTextFill(Color.WHITE);
+		Image mute = new Image("file:img/mute.png", 30,30,true,true);
+		silenciarMusica.setGraphic(new ImageView(mute));
+		silenciarMusica.setOnMouseClicked(new SilenciadorEventHandler());
 	}
 	
 	public void configurarTamanio(){
@@ -70,7 +77,4 @@ public class BarraAcciones extends HBox {
 		botonTerminarTurno.setPrefHeight(40);
 	}
 	
-	public void ubicarNodos(){
-		botonMover.setLayoutX(10);
-	}
 }

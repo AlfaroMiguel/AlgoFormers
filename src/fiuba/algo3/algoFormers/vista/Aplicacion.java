@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.vista;
 
 import java.io.File;
 
+import fiuba.algo3.algoFormers.controlador.SilenciadorEventHandler;
 import fiuba.algo3.algoFormers.controlador.TextoEventHandler;
 import javafx.scene.media.*;
 import fiuba.algo3.algoFormers.juego.Juego;
@@ -26,10 +27,12 @@ import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
 	static MediaPlayer mediaPlayer;
+	static boolean musicaPausada = false;
 	private Stage stage;
 	String nombreJugadorAutobots;
 	String nombreJugadorDecepticons;
-
+	
+	
 	public static void main(String[] args) {
 		Application.launch(args);
 	}
@@ -44,8 +47,9 @@ public class Aplicacion extends Application {
 		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
+	
 	public static void reproducirMusica(){
-		String path = new File("snd/autobots.mp3").getAbsolutePath();
+		String path = new File("snd/transformers.mp3").getAbsolutePath();
 		Media musicFile = new Media(new File(path).toURI().toString());
 		mediaPlayer = new MediaPlayer(musicFile);
 		mediaPlayer.setAutoPlay(true);
@@ -57,7 +61,8 @@ public class Aplicacion extends Application {
 		Button botonComenzar = new Button();
         Button botonEnter1 = new Button();
         Button botonEnter2 = new Button();
-
+        Button silenciarMusica = new Button();
+        
         RestrictiveTextField textoJugadorAutobots = new RestrictiveTextField();
         RestrictiveTextField textoJugadorDecepticons = new RestrictiveTextField();
 
@@ -73,7 +78,10 @@ public class Aplicacion extends Application {
 		botonEnter1.setTextFill(Color.WHITE);
 		botonEnter2.setText("Ingresar Nombre");
 		botonEnter2.setTextFill(Color.WHITE);
-
+		
+		Image mute = new Image("file:img/mute.png", 30,30,true,true);
+		silenciarMusica.setGraphic(new ImageView(mute));
+		
 		textoJugadorAutobots.setPromptText("nombre jugador autobots");
 		textoJugadorDecepticons.setPromptText("nombre jugador decepticons");
 
@@ -111,10 +119,14 @@ public class Aplicacion extends Application {
         this.ubicarNodo(errorNombresIguales, 570, 178);
         this.ubicarNodo(autobots, 500, 153);
         this.ubicarNodo(decepticons, 475, 153);
+//        this.ubicarNodo(silenciarMusica, 900, 600);
+        
 
 
-        root.getChildren().addAll(imageView, textoJugadorAutobots, botonEnter1, autobots);
-
+        root.getChildren().addAll(imageView, textoJugadorAutobots, botonEnter1, autobots, silenciarMusica);
+        
+        silenciarMusica.setOnMouseClicked(new SilenciadorEventHandler());
+        
 		botonComenzar.setOnAction(new EventHandler<ActionEvent>(){
 			@Override
 			public void handle(ActionEvent evento){
@@ -223,9 +235,21 @@ public class Aplicacion extends Application {
 	private static boolean textosSonIguales(TextField texto1, TextField texto2){
 		return texto1.getText().equalsIgnoreCase(texto2.getText());
 	}
+	
 	private void ubicarNodo(Node nodo, int x, int y){
 		nodo.setLayoutX(x);
         nodo.setLayoutY(y);
+	}
+	
+	public static void silenciarMusica(){
+		if (musicaPausada){
+			mediaPlayer.play();
+			musicaPausada = false;
+		}
+		else{
+			mediaPlayer.pause();
+			musicaPausada = true;
+		}
 	}
 
 }
