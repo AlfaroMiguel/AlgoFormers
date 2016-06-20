@@ -11,6 +11,7 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 import javafx.scene.Group;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.media.AudioClip;
+import javafx.scene.text.Text;
 
 public class Vista {
 	private HexGrid hexGrid;
