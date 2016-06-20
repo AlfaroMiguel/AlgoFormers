@@ -53,7 +53,7 @@ public class Hexagono extends StackPane {
 		
 		this.getChildren().addAll(hexagon,text,habitable,recolectable,aire);
 
-		text.setFont(Font.font(18));
+		text.setFont(Font.font(20));
 //		text.setText(String.valueOf(x) +"," + String.valueOf(y));
 //		text.setText(String.valueOf(y + x/2));
 		text.toFront();
@@ -108,24 +108,25 @@ public class Hexagono extends StackPane {
 		hexagon.setStroke(Color.IVORY);
 		hexagon.setStrokeWidth(1.3);
 		hexagon.strokeTypeProperty().setValue(StrokeType.INSIDE);
+		text.setText("");
 	}
 	
 	public void atacado(int vida){
-//		this.text.setFill(Color.DARKRED);
-//		this.text.toFront();
+		this.text.setFill(Color.RED);
+		this.text.toFront();
 //		this.text.setStrokeWidth(4);
-//		this.text.setStroke(Color.IVORY);
-//		this.text.setText("-"+ String.valueOf(vida));
+		this.text.setStroke(Color.IVORY);
+		this.text.setText("-"+ String.valueOf(vida));
 		
-		System.out.println("lo atacaron en la interfaz");
-		this.hexagon.setFill(Color.DARKRED);
-		try {
-		    Thread.sleep(6000);   //6s.
-		} catch(InterruptedException ex) {
-		    Thread.currentThread().interrupt();
-		}
-		this.hexagon.setFill(Color.ANTIQUEWHITE);
-		this.text.setText("");
+//		System.out.println("lo atacaron en la interfaz");
+//		this.hexagon.setFill(Color.DARKRED);
+//		try {
+//		    Thread.sleep(6000);   //6s.
+//		} catch(InterruptedException ex) {
+//		    Thread.currentThread().interrupt();
+//		}
+//		this.hexagon.setFill(Color.ANTIQUEWHITE);
+//		this.text.setText("");
 	}	
 	
 	public void sacarAlgoFormer(){
