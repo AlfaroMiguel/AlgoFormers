@@ -39,11 +39,11 @@ public class BarraAcciones extends HBox {
 		botonMover.setOnMouseClicked(e->controlador.cambiarAModoMover());
 		botonMover.setStyle("-fx-base: #000000;");
 		botonMover.setTextFill(Color.WHITE);
-		botonAtacar.setText("Atacar Enemigo");
+		botonAtacar.setText("Atacar");
 		botonAtacar.setOnMouseClicked(e->controlador.cambiarAModoAtaque());
 		botonAtacar.setStyle("-fx-base: #000000;");
 		botonAtacar.setTextFill(Color.WHITE);
-		botonTransformar.setText("Cambiar Modo");
+		botonTransformar.setText("Transformarse");
 		botonTransformar.setOnMouseClicked(e-> controlador.transformarSeleccionado());
 		botonTransformar.setStyle("-fx-base: #000000;");
 		botonTransformar.setTextFill(Color.WHITE);

@@ -1,4 +1,4 @@
-package fiuba.algo3.algoFormers.controlador;
+	package fiuba.algo3.algoFormers.controlador;
 
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
@@ -15,11 +15,9 @@ public class KeyEventHandler implements EventHandler<KeyEvent>{
 			controlador.transformarSeleccionado();
 		}
 		if(event.getCode()== KeyCode.C){
-			System.out.println("Entra");
 			controlador.combinarSeleccionado();
 		}
 		if(event.getCode()== KeyCode.M){
-			System.out.println("cambia el modo");
 			controlador.cambiarAModoMover();
 		}
 		if(event.getCode()== KeyCode.A){
