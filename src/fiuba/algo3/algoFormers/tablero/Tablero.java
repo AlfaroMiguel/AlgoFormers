@@ -349,9 +349,13 @@ public class Tablero implements Observador{
 			Coordenada coordVecino = coordenadasVecinos.get(i);
 			if(this.accionables.containsKey(coordVecino)){
 				if(this.estaVacio(coordVecino)){
+					try{
 					this.colocarEnTablero(accionable, coordVecino);
 					sePudoUbicar = true;
 					break;
+					}catch(MovimientoInvalidoException g){
+						
+					}
 					}
 				}
 			}

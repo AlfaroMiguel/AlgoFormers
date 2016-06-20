@@ -50,14 +50,23 @@ public class EquipoDecepticons extends Equipo {
 	public void combinarAlgoformers(Tablero tablero) {
 		Menasor menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
 		this.menasor = menasor;
+		this.menasor.puestoEnMapa();
 		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMinimaCombinacion);
+		this.megatron.sacadoDelMapa();
+		this.bonecrusher.sacadoDelMapa();
+		this.frenzy.sacadoDelMapa();
 		this.algoformerActual = menasor;
 	}
 
 	@Override
 	public void descombinarAlgoformers(Tablero tablero) {
 		tablero.descombinarAlgoformers(menasor);
+		this.menasor.sacadoDelMapa();
 		this.algoformerActual = this.obtenerAlgoformerConVida();
+		this.megatron.puestoEnMapa();
+		this.bonecrusher.puestoEnMapa();
+		this.frenzy.puestoEnMapa();
+		
 	}
 
 		private Algoformer obtenerAlgoformerConVida() {
