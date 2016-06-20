@@ -26,7 +26,6 @@ public class Controlador {
 		this.modo = new ModoSeleccionar();	
 	}
 	public void cambiarAModoMover(){
-		System.out.println("cambio a mover");
 		this.modo = new ModoMover();
 	}
 	

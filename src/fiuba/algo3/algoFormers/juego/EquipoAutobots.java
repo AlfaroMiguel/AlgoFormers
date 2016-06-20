@@ -56,7 +56,6 @@ public class EquipoAutobots extends Equipo {
 	public void combinarAlgoformers(Tablero tablero) {
 		Superion superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
 		this.superion = superion;
-		
 		tablero.combinarAlgoformers(superion, this.optimus, this.ratchet, this.bumblebee, this.distanciaMaximaCombinacion);
 		this.superion.puestoEnMapa();
 		this.optimus.sacadoDelMapa();
