@@ -19,7 +19,8 @@ public class Controlador {
 		try{
 			this.modo.fueSeleccionado(this.juego, coordenada);
 		}
-		catch(MovimientoInvalidoException e){/*Va a modo seleccionar*/}
+		catch(MovimientoInvalidoException exception){/*Va a modo seleccionar*/}
+		catch(NullPointerException exception){}//para ver que onda
 		this.modo = new ModoSeleccionar();	
 	}
 	public void cambiarAModoMover(){
