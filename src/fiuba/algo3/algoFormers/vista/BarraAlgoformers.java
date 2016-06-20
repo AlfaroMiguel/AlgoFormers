@@ -87,9 +87,9 @@ public class BarraAlgoformers extends VBox{
 		algoformer2.setContentDisplay(ContentDisplay.TOP);
 		algoformer3.setContentDisplay(ContentDisplay.TOP);
 
-		algoformer1.setMinWidth(100);
-		algoformer2.setMinWidth(100);
-		algoformer3.setMinWidth(100);
+		algoformer1.setMinWidth(200);
+		algoformer2.setMinWidth(200);
+		algoformer3.setMinWidth(200);
 	}
 
 
