@@ -147,17 +147,7 @@ public class Juego implements Observador{
 	}
 
  	public boolean seUbicoALosBonus(){
- 		//por este return pasa siempre las pruebas pero habria q hacer que se fije porque
- 		//si le paso una instancia nueva nunca va a dar true
-// 		try{
-// 			tablero.obtenerCoordenadaDeElemento(new DobleCanion());
-// 			tablero.obtenerCoordenadaDeElemento(new BurbujaInmaculada());
-// 			tablero.obtenerCoordenadaDeElemento(new Flash());
-// 		}
-// 		catch(Throwable e){
-// 			return false;
-// 		}
- 		return true;
+ 		return this.tablero.fijarseSiEstanLosBonus();
  	}
 
 	public SuperficieTierra obtenerSuperficieTierra(Coordenada c) {
