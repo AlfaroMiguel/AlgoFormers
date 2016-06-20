@@ -112,11 +112,11 @@ public class Hexagono extends StackPane {
 	}
 	
 	public void atacado(int vida){
-//		this.text.setFill(Color.RED);
-//		this.text.toFront();
-////		this.text.setStrokeWidth(4);
-////		this.text.setStroke(Color.IVORY);
-//		this.text.setText("-"+ String.valueOf(vida));
+		this.text.setFill(Color.RED);
+		this.text.toFront();
+//		this.text.setStrokeWidth(4);
+//		this.text.setStroke(Color.IVORY);
+		this.text.setText("-"+ String.valueOf(vida));
 		
 //		System.out.println("lo atacaron en la interfaz");
 //		this.hexagon.setFill(Color.DARKRED);
