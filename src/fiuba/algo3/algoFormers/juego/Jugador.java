@@ -77,6 +77,4 @@ public class Jugador{
 	public void centrarEnAlgoFormerActual() {
 		this.equipo.centrarEnAlgoFormerActual();
 	}
-
-	
 }

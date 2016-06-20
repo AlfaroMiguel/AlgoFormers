@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.superficie;
 import fiuba.algo3.algoFormers.afectadores.Afectador;
 import fiuba.algo3.algoFormers.afectadores.AfectadorPorTurnos;
 import fiuba.algo3.algoFormers.efectos.EfectoAndromeda;
+import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.modos.ModoAereo;
@@ -48,12 +49,12 @@ public class SuperficieAndromeda extends SuperficieAire {
 
 	@Override
 	public int costoPorPaso(ModoAereo modoAereo) {
-		return 1000000;
+		return 1000;
 	}
 
 	@Override
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
 		//Nunca Va a pasar por ensima de una superficie de andromeda sin quedarse parado
-		
+
 	}
 }

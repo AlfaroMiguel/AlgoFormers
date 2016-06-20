@@ -12,7 +12,6 @@ public class ContenedorPrincipal extends BorderPane{
 		
 		ContenedorJuego contenedor = new ContenedorJuego(juego, controlador);
 		this.setCenter(contenedor.getLayout());
-		contenedor.setFocusTraversable(true);
 		
 		BarraAutobots barraAutobots = BarraAutobots.getInstance(jugadorAutobots);
 		BarraSuperion barraSuperion = new BarraSuperion(jugadorAutobots);

@@ -4,11 +4,11 @@ import fiuba.algo3.algoFormers.decepticons.Decepticon;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import javafx.scene.media.AudioClip;
 
 /*Clase que representa al tipo de algoformer Autobot*/
 public class Autobot extends Algoformer{
@@ -21,6 +21,7 @@ public class Autobot extends Algoformer{
 
 	@Override
 	public void serAtacado(Decepticon atacante, int ataque){
+		this.ataqueEfectuado();
 		this.vida.sacarVida(ataque*this.escudo.getEscudo());
 		this.actualizarEstadoDeVida();
 		this.actualizarVista(ataque*this.escudo.getEscudo());
