@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
 	static MediaPlayer mediaPlayer;
+	static boolean musicaPausada = false;
 	private Stage stage;
 	String nombreJugadorAutobots;
 	String nombreJugadorDecepticons;
@@ -44,8 +45,9 @@ public class Aplicacion extends Application {
 		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
+	
 	public static void reproducirMusica(){
-		String path = new File("snd/autobots.mp3").getAbsolutePath();
+		String path = new File("snd/transformers.mp3").getAbsolutePath();
 		Media musicFile = new Media(new File(path).toURI().toString());
 		mediaPlayer = new MediaPlayer(musicFile);
 		mediaPlayer.setAutoPlay(true);
@@ -223,9 +225,21 @@ public class Aplicacion extends Application {
 	private static boolean textosSonIguales(TextField texto1, TextField texto2){
 		return texto1.getText().equalsIgnoreCase(texto2.getText());
 	}
+	
 	private void ubicarNodo(Node nodo, int x, int y){
 		nodo.setLayoutX(x);
         nodo.setLayoutY(y);
+	}
+	
+	public static void silenciarMusica(){
+		if (musicaPausada){
+			mediaPlayer.play();
+			musicaPausada = false;
+		}
+		else{
+			mediaPlayer.pause();
+			musicaPausada = true;
+		}
 	}
 
 }

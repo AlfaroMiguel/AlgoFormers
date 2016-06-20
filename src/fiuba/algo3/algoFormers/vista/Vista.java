@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
-import fiuba.algo3.algoFormers.dialogos.DialogFX;
-import fiuba.algo3.algoFormers.dialogos.DialogFX.Type;
+//import fiuba.algo3.algoFormers.dialogos.DialogFX;
+//import fiuba.algo3.algoFormers.dialogos.DialogFX.Type;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;

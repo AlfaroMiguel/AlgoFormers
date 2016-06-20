@@ -24,7 +24,7 @@ public class ListaDeAfectadores {
 			afectadores.add(afectador);
 		}	
 	}
-	/* Agrega un nuevo afectador a la lista si este no se encuentra en ella.
+	/* Agrega un nuevo afectador por turnos a la lista si este no se encuentra en ella.
 	 * Parametros: afectador: afectador por turnos que se quiere agregar.*/
 	public void agregarAfectador(AfectadorPorTurnos afectador){
 		boolean tieneAfectador = false;
