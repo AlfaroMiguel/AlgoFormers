@@ -113,7 +113,6 @@ public abstract class Algoformer implements Accionable{
 	/* Multiplica la velocidad por un factor dado.
 	 * Parametros: factor: factor por el que se quiere multiplicar.*/
 	public void multiplicarVelocidad(double factor) {
-
 		this.agilidad.multiplicarVelocidad(factor);
 
 	}

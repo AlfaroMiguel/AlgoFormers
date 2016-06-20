@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.autobots.*;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.habitables.Accionable;
@@ -10,13 +11,13 @@ import fiuba.algo3.algoFormers.tablero.Tablero;
 import fiuba.algo3.algoFormers.vista.Vista;
 
 public class EquipoAutobots extends Equipo {
-	
+
 	private static final int CANT_MIEMBROS_CONTRARIOS = 3;
 	public Optimus optimus;
 	public Bumblebee bumblebee;
 	public Ratchet ratchet;
 	public Superion superion;
-	
+
 	public EquipoAutobots(){
 		this.optimus = new Optimus();
 		this.bumblebee = new Bumblebee();
@@ -24,11 +25,11 @@ public class EquipoAutobots extends Equipo {
 		this.superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
 		this.algoformerActual = optimus;
 	}
-	
+
 	public void seleccionarAlgoformer(Accionable seleccionado){
 		seleccionado.serSeleccionado(this);
 	}
-	
+
 	@Override
 	public void ubicarPersonajes(Tablero tablero) {
 		List<Autobot> integrantes = new ArrayList<Autobot>();
@@ -67,7 +68,7 @@ public class EquipoAutobots extends Equipo {
 			this.notificarObservadores();
 		}
 	}
-	
+
 	public Optimus getOptimus(){
 		return this.optimus;
 	}
@@ -82,7 +83,16 @@ public class EquipoAutobots extends Equipo {
 		this.bumblebee.agregarVista(vista);
 		this.ratchet.agregarVista(vista);
 		this.superion.agregarVista(vista);
-		
+
 	}
-	
+
+	@Override
+	public List<Algoformer> obtenerAutobots() {
+		List<Algoformer> autobots = new ArrayList<Algoformer>();
+		autobots.add(this.optimus);
+		autobots.add(this.bumblebee);
+		autobots.add(this.ratchet);
+		return autobots;
+	}
+
 }

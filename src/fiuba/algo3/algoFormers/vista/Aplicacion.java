@@ -98,10 +98,10 @@ public class Aplicacion extends Application {
 
         Label autobots = new Label("Jugador Autobots: ");
         autobots.setFont(Font.font("Courier New", FontWeight.BOLD, 16));
-        autobots.setTextFill(Color.BLACK);
+        autobots.setTextFill(Color.WHITE);
         Label decepticons = new Label("Jugador Decepticons: ");
         decepticons.setFont(Font.font("Courier New", FontWeight.BOLD, 16));
-        decepticons.setTextFill(Color.BLACK);
+        decepticons.setTextFill(Color.WHITE);
         this.ubicarNodo(botonComenzar, 600, 350);
         this.ubicarNodo(botonEnter1, 640, 200);
         this.ubicarNodo(botonEnter2, 640, 200);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoSeleccionableException;
+import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Observador;
 import fiuba.algo3.algoFormers.habitables.Accionable;
@@ -19,22 +20,22 @@ import fiuba.algo3.algoFormers.vista.Vista;
 
 
 public class Juego implements Observador{
-	
+
 	protected Jugador jugadorActual;
 	protected Jugador jugadorAnterior;
 	protected Tablero tablero;
 	private UbicadorDeColectables ubicadorDeColectables;
 	private ObservableTerminoJuego observado;
 	private boolean terminado = false;
-	
+
 	public Juego(int alto, int ancho){
 		//se crea el tablero
 
 		this.tablero = new Tablero(alto, ancho);
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 
-		
-		
+
+
 		//se definen los jugadores
 		this.elegirPrimerJugador();
 		this.tablero.generarMapa();
@@ -43,11 +44,11 @@ public class Juego implements Observador{
 		this.ubicarPersonajes();
 		this.ubicadorDeColectables.ubicarColectables(this.tablero);
 	}
-	
+
 	public Juego(){
 	 	this(50, 50);
  	}
-	
+
 	public Accionable obtenerAccionable(Coordenada c) {
 		return this.tablero.obtenerAccionableEnCoordenada(c);
 	}
@@ -56,8 +57,8 @@ public class Juego implements Observador{
 
 		Equipo equipoAutobots = new EquipoAutobots();
 		Equipo equipoDecepticons = new EquipoDecepticons();
-		
-		
+
+
 		if(Math.random()>0.5) {
 			this.jugadorActual = new Jugador(equipoAutobots, tablero);
 			this.jugadorAnterior = new Jugador(equipoDecepticons, tablero);
@@ -174,7 +175,7 @@ public class Juego implements Observador{
 	private void terminarJuego(){
 		this.terminado = true;
 	}
-	
+
 	public boolean estaTerminado(){
 		return terminado;
 	}
@@ -184,22 +185,22 @@ public class Juego implements Observador{
 		this.observado = observable;
 		observado.agregarObservador(this);
 	}
- 	
+
 	//metodos de prueba
 	public void capturarChispa(){
 		this.observarA(ChispaSuprema.getInstance());
 		ChispaSuprema.getInstance().producirEfecto(this.jugadorActual.verAlgoformerActual());
 	}
-	
+
 	public void hacerGanarEquipo(){
 		this.observarA(this.jugadorActual.equipo);
 		this.jugadorActual.equipo.hacerGanar();
 	}
-	
+
 	public boolean seUbicoALosPersonajes() {
  		return jugadorActual.ubicoSusPersonajes();
   	}
- 	
+
  	public boolean estaLaChispa(){
  			try {
  				tablero.obtenerCoordenadaDeElemento(ChispaSuprema.getInstance());
@@ -212,7 +213,7 @@ public class Juego implements Observador{
 		this.jugadorActual.agregarVista(vista);
 		this.jugadorAnterior.agregarVista(vista);
 		this.tablero.agregarVista(vista);
-		
+
 	}
 
 	public void nuevaSeleccion() {
@@ -230,5 +231,11 @@ public class Juego implements Observador{
 	public void moverTablero(Coordenada coordenada) {
 		this.tablero.moverTablero(coordenada);
 	}
-	
+
+	public List<Algoformer> obtenerAutobots() {
+		 List<Algoformer> autobots = this.jugadorActual.obtenerAutobots();
+		 autobots.addAll(this.jugadorAnterior.obtenerAutobots());
+		 return autobots;
+	}
+
 }
