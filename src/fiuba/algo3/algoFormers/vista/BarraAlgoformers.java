@@ -24,6 +24,7 @@ public class BarraAlgoformers extends VBox{
 	BotonDeAlgoformer algoformer1 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer2 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer3 = new BotonDeAlgoformer();
+	//BotonDeAlgoformer algoformerCombinado = new BotonDeAlgoformer();
 	
 
 	BarraDeVidaDeAlgoformer vidaAlgoformer1  = new BarraDeVidaDeAlgoformer();
@@ -38,9 +39,6 @@ public class BarraAlgoformers extends VBox{
 		this.setMinWidth(200);
 		this.nombreJugador = nombreJugador;
 		configurarBotones(algoformers);
-//		bloquearBotonCorrespondiente(botonOptimusHumanoide, botonOptimusAlterno);
-//		bloquearBotonCorrespondiente(botonBumblebeeHumanoide, botonBumblebeeAlterno);
-//		bloquearBotonCorrespondiente(botonRatchetHumanoide, botonRatchetAlterno);
 		agregarAlgoformers();
 		agregarTooltips();
 		configurarBarrasVida(algoformers);
@@ -59,13 +57,14 @@ public class BarraAlgoformers extends VBox{
 		HBox botonesOptimus = cajaModos(algoformer1);
 		HBox botonesBumblebee = cajaModos(algoformer2);
 		HBox botonesRatchet = cajaModos(algoformer3);
-		HBox barraTitulo = new HBox();
-		Label titulo = new Label("MODO");
-		titulo.setFont(Font.font("Georgia", 20));
-		titulo.setTextFill(Color.CADETBLUE);
-		barraTitulo.setAlignment(Pos.CENTER);
-		barraTitulo.getChildren().add(titulo);
-		this.getChildren().addAll(barraTitulo, barraModos(),botonesOptimus, botonesBumblebee, botonesRatchet);
+		//HBox botonAlgoformerCombinado = cajaModos(algoformerCombinado);
+//		HBox barraTitulo = new HBox();
+//		Label titulo = new Label("MODO");
+//		titulo.setFont(Font.font("Georgia", 20));
+//		titulo.setTextFill(Color.CADETBLUE);
+//		barraTitulo.setAlignment(Pos.CENTER);
+//		barraTitulo.getChildren().add(titulo);
+		this.getChildren().addAll(botonesOptimus, botonesBumblebee, botonesRatchet);
 	}
 
 
@@ -79,6 +78,7 @@ public class BarraAlgoformers extends VBox{
 		algoformer2.setImagenDeAlgoformer();
 		algoformer3.setAlgoformer(algoformers.get(2));
 		algoformer3.setImagenDeAlgoformer();
+		//algoformerCombinado.setAlgoformer(algoformers.get(3));
 		
 		
 		
