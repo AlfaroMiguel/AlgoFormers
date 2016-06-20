@@ -101,4 +101,9 @@ public class EquipoAutobots extends Equipo {
 		return decepticons;
 	}
 
+	@Override
+	public String obtenerNombre(String nombreJugadorAutobots, String nombreJugadorDecepticons) {
+		return nombreJugadorAutobots;
+	}
+
 }
