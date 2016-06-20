@@ -55,7 +55,7 @@ public class Hexagono extends StackPane {
 
 		text.setFont(Font.font(18));
 //		text.setText(String.valueOf(x) +"," + String.valueOf(y));
-		text.setText(String.valueOf(y + x/2));
+//		text.setText(String.valueOf(y + x/2));
 		text.toFront();
 
         //this.setOnMouseExited(e-> close());
@@ -114,6 +114,7 @@ public class Hexagono extends StackPane {
 		this.text.setFill(Color.DARKRED);
 		this.text.toFront();
 		this.text.setStrokeWidth(4);
+		this.text.setStroke(Color.IVORY);
 		this.text.setText("-"+ String.valueOf(vida));
 		
 		System.out.println("lo atacaron en la interfaz");
