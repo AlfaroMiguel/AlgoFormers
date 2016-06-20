@@ -9,24 +9,32 @@ import fiuba.algo3.algoFormers.juego.Juego;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.VBoxBuilder;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
 	static MediaPlayer mediaPlayer;
-	private Stage stage;
+	private static Stage stage;
 	String nombreJugadorAutobots;
 	String nombreJugadorDecepticons;
 
@@ -42,6 +50,7 @@ public class Aplicacion extends Application {
 		primaryStage.setTitle("Algoformers");
 		primaryStage.setScene(scene);
 		primaryStage.setFullScreen(true);
+		primaryStage.setFullScreenExitHint("");
 		primaryStage.show();
 	}
 	public static void reproducirMusica(){
@@ -121,6 +130,7 @@ public class Aplicacion extends Application {
 				ContenedorPrincipal contenedor = new ContenedorPrincipal(nombreJugadorAutobots, nombreJugadorDecepticons);
 				stage.setScene(new Scene(contenedor));
 				stage.setFullScreen(true);
+				stage.setFullScreenExitHint("");
 			}
 		});
 
@@ -226,6 +236,35 @@ public class Aplicacion extends Application {
 	private void ubicarNodo(Node nodo, int x, int y){
 		nodo.setLayoutX(x);
         nodo.setLayoutY(y);
+	}
+	public static void ganoAlguien(){
+        Stage popUp = new Stage();
+        popUp.initModality(Modality.WINDOW_MODAL);
+        //Botones y texto
+        Label label = new Label();
+        label.setText("GANASTE!");
+        Button botonCerrar = new Button();
+        botonCerrar.setText("Cerrar");
+        botonCerrar.setOnAction(e -> cerrarPrograma());
+        Button botonSeguir = new Button();
+        botonSeguir.setText("Seguir jugando");
+        botonSeguir.setOnAction(e -> popUp.close());
+        //Contenedor
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(label,botonCerrar,botonSeguir);
+        layout.setAlignment(Pos.TOP_CENTER);
+        layout.setSpacing(5);
+        popUp.setFullScreen(false);
+        popUp.initOwner(stage);
+        HBox cont = new HBox(layout);
+        cont.setSpacing(5);
+         
+        Scene scene = new Scene(cont);
+        popUp.setScene(scene);
+        popUp.showAndWait();
+	}
+	private static void cerrarPrograma(){
+		stage.close();
 	}
 
 }
