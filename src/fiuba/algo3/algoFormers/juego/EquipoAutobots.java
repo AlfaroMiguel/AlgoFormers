@@ -92,6 +92,7 @@ public class EquipoAutobots extends Equipo {
 		autobots.add(this.optimus);
 		autobots.add(this.bumblebee);
 		autobots.add(this.ratchet);
+		autobots.add(this.superion);
 		return autobots;
 	}
 

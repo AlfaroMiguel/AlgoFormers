@@ -101,6 +101,7 @@ public class EquipoDecepticons extends Equipo {
 		decepticons.add(this.megatron);
 		decepticons.add(this.frenzy);
 		decepticons.add(this.bonecrusher);
+		decepticons.add(this.menasor);
 		return decepticons;
 	}
 

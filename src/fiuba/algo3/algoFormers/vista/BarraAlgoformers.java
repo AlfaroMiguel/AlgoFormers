@@ -24,7 +24,7 @@ public class BarraAlgoformers extends VBox{
 	BotonDeAlgoformer algoformer1 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer2 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer3 = new BotonDeAlgoformer();
-	//BotonDeAlgoformer algoformerCombinado = new BotonDeAlgoformer();
+	BotonDeAlgoformer algoformerCombinado = new BotonDeAlgoformer();
 	
 
 	BarraDeVidaDeAlgoformer vidaAlgoformer1  = new BarraDeVidaDeAlgoformer();
@@ -57,7 +57,7 @@ public class BarraAlgoformers extends VBox{
 		HBox botonesOptimus = cajaModos(algoformer1);
 		HBox botonesBumblebee = cajaModos(algoformer2);
 		HBox botonesRatchet = cajaModos(algoformer3);
-		//HBox botonAlgoformerCombinado = cajaModos(algoformerCombinado);
+		HBox botonAlgoformerCombinado = cajaModos(algoformerCombinado);
 //		HBox barraTitulo = new HBox();
 //		Label titulo = new Label("MODO");
 //		titulo.setFont(Font.font("Georgia", 20));
@@ -78,8 +78,8 @@ public class BarraAlgoformers extends VBox{
 		algoformer2.setImagenDeAlgoformer();
 		algoformer3.setAlgoformer(algoformers.get(2));
 		algoformer3.setImagenDeAlgoformer();
-		//algoformerCombinado.setAlgoformer(algoformers.get(3));
-		
+		algoformerCombinado.setAlgoformer(algoformers.get(3));
+		algoformer3.setImagenDeAlgoformer();
 		
 		
 		

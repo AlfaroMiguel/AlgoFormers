@@ -31,7 +31,7 @@ public class BotonDeAlgoformer extends Button implements RepresentacionDeAlgofor
 		Image imagen = ClaseImagenes.getImage(this.algoformer);
 		this.setGraphic(new ImageView(imagen));
 	}
-	public Tooltip configurarTooltip(int vida, int ataque, int velocidad){
+	public Tooltip configurarTooltip(){
 		Tooltip tooltip = new Tooltip();
 		tooltip.setText("Vida: " + this.algoformer.verVida()+ "\nAtaque: "+this.algoformer.verAtaque()+"\nVelocidad: "+this.algoformer.verPaso());
 		return tooltip;
