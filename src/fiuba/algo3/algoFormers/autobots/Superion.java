@@ -1,8 +1,12 @@
 package fiuba.algo3.algoFormers.autobots;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.SuperionTerrestre;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
+import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 
 /*Clase que representa al algoformer autobot combinado Superion*/
 public class Superion extends Autobot {
@@ -13,6 +17,7 @@ public class Superion extends Autobot {
 	private Ratchet ratchet;
 	private Bumblebee bumblebee;
 	
+	public static List<RepresentacionDeAlgoformer> representadoresCombinado = new ArrayList<RepresentacionDeAlgoformer>();
 	/*Constructor*/
 	/* Parametros: los autobots con los que se va a componer.
 	 * Crea un superion en modo unico con la suma de las vidas de los algoformers
@@ -40,4 +45,27 @@ public class Superion extends Autobot {
 		return this.ratchet;
 	}
 	
+	@Override
+	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
+		representadoresCombinado.add(representador);
+	}
+	@Override
+	public void notificarRepresentaciones(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado)
+			representador.actualizar();
+	}
+	@Override
+	public void sacadoDelMapa(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado){
+			if (representador.estaHabilitado())
+				representador.deshabilitar();
+		}
+	}
+	@Override
+	public void puestoEnMapa(){
+		for(RepresentacionDeAlgoformer representador: representadoresCombinado){
+			if (!representador.estaHabilitado())
+				representador.habilitar();
+		}
+	}
 }

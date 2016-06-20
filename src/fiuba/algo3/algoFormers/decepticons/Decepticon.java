@@ -1,5 +1,8 @@
 package fiuba.algo3.algoFormers.decepticons;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.MismoEquipoException;
@@ -8,11 +11,15 @@ import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
+import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 import javafx.scene.media.AudioClip;
 
 /*Clase que representa al tipo de algoformer Decepticon*/
 public class Decepticon extends Algoformer {
 
+	
+
+	
 	/*Metodos abstractos redefinidos*/
 	@Override
 	public void serAtacado(Autobot autobot, int ataque){
@@ -43,7 +50,6 @@ public class Decepticon extends Algoformer {
 
 	@Override
 	public void serSeleccionado(EquipoDecepticons equipoDecepticon) {
-		System.out.println("Me seleccionaron Decepticon");
 		equipoDecepticon.setAlgoformerActual(this);
 	}
 
