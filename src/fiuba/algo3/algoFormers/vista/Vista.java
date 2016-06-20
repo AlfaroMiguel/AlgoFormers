@@ -1,8 +1,11 @@
 package fiuba.algo3.algoFormers.vista;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.controlador.Controlador;
+import fiuba.algo3.algoFormers.dialogos.DialogFX;
+import fiuba.algo3.algoFormers.dialogos.DialogFX.Type;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.juego.Juego;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
@@ -102,6 +105,20 @@ public class Vista {
 	public void seleccionarPrimerPersonaje() {
 		//Intento de seleccionar al principio
 		this.centrarEnCoordenada(this.juego.obtenerJugadorActual().verAlgoformerActual().posicion);
+	}
+
+	public void ganoPartida() {
+		//TODO Muestro un cartel
+		
+//		List<String> buttonLabels = new ArrayList<>(2);
+//        buttonLabels.add("Affirmative");
+//        buttonLabels.add("Negative");
+//
+//        DialogFX dialog = new DialogFX(Type.QUESTION);
+//        dialog.setTitleText("Question Dialog Box Example");
+//        dialog.setMessage("This is an example of an QUESTION dialog box, created using DialogFX. This also demonstrates the automatic wrapping of text in DialogFX. Would you like to continue?");
+//        dialog.addButtons(buttonLabels, 0, 1);
+//        dialog.showDialog();
 	}
 
 }
