@@ -39,7 +39,7 @@ public class Tablero implements Observador{
 	/* Representacion del tablero que contiene a los accionables */
 	HashMap<Coordenada,Accionable> accionables = new HashMap<Coordenada,Accionable>();
 	/* Representacion del tablero que contiene a los recolectables */
-	HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
+	public HashMap<Coordenada,Recolectable> recolectables = new HashMap<Coordenada, Recolectable>();
 	private ObservableTerminoJuego observado;
 	private int alto;
 	private int ancho;
@@ -437,6 +437,16 @@ public class Tablero implements Observador{
 		for(Vista vista: vistas){
 			vista.centrarEnCoordenada(coordenada);
 		}
+	}
+	public boolean fijarseSiEstanLosBonus() {
+		
+		for(Map.Entry<Coordenada, Recolectable> entry : this.recolectables.entrySet()) {
+            BonusVacio bonusVacio = new BonusVacio();
+			if(!bonusVacio.equals(entry.getValue())) {
+                return true;
+            }
+        }
+		return false;
 	}
 
 }
