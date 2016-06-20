@@ -59,17 +59,7 @@ public class BarraAlgoformers extends VBox{
 	}
 
 	public void agregarAlgoformers(){
-		HBox botonesOptimus = cajaModos(algoformer1);
-		HBox botonesBumblebee = cajaModos(algoformer2);
-		HBox botonesRatchet = cajaModos(algoformer3);
-		HBox botonAlgoformerCombinado = cajaModos(algoformerCombinado);
-//		HBox barraTitulo = new HBox();
-//		Label titulo = new Label("MODO");
-//		titulo.setFont(Font.font("Georgia", 20));
-//		titulo.setTextFill(Color.CADETBLUE);
-//		barraTitulo.setAlignment(Pos.CENTER);
-//		barraTitulo.getChildren().add(titulo);
-		this.getChildren().addAll(botonesOptimus, botonesBumblebee, botonesRatchet,botonAlgoformerCombinado);
+		this.getChildren().addAll(algoformer1, algoformer2, algoformer3, algoformerCombinado);
 	}
 
 
@@ -110,11 +100,10 @@ public class BarraAlgoformers extends VBox{
 
 
 	public void agregarTooltips(){
-
-		algoformer1.setTooltip(configurarTooltip(2,3,3));
-		algoformer2.setTooltip(configurarTooltip(2,3,3));
-		algoformer3.setTooltip(configurarTooltip(2,3,3));
-		
+		algoformer1.actualizarTooltip();
+		algoformer2.actualizarTooltip();
+		algoformer3.actualizarTooltip();
+		algoformerCombinado.actualizarTooltip();
 	}
 
 	public void configurarBarrasVida(List<Algoformer> algoformers){
@@ -141,35 +130,6 @@ public class BarraAlgoformers extends VBox{
 		contenedor.setAlignment(Pos.CENTER);
 		this.getChildren().add(contenedor);
 
-	}
-
-
-	public Tooltip configurarTooltip(int vida, int ataque, int velocidad){
-		Tooltip tooltip = new Tooltip();
-		tooltip.setText("Vida: " + vida+ "\nAtaque: "+ataque+"\nVelocidad: "+velocidad);
-		return tooltip;
-	}
-
-
-
-	public HBox cajaModos(Button boton){
-		HBox cajaModos = new HBox();
-
-		cajaModos.getChildren().addAll(boton);
-
-		return cajaModos;
-	}
-
-	public HBox barraModos(){
-		HBox barraModos = new HBox(20);
-		Label humanoide = new Label("Humanoide");
-		humanoide.setFont(Font.font("Georgia", 20));
-		humanoide.setTextFill(Color.CADETBLUE);
-		Label alterno = new Label("Alterno");
-		alterno.setFont(Font.font("Georgia", 20));
-		alterno.setTextFill(Color.CADETBLUE);
-		barraModos.getChildren().addAll(humanoide, alterno);
-		return barraModos;
 	}
 
 }

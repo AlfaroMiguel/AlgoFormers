@@ -12,26 +12,19 @@ public class BarraDeVidaDeAlgoformer extends StackPane implements Representacion
 	private ProgressBar barraDeVida;
 
 	@Override
-	public void update() {
-		
+	public void actualizar(){	
 		int vidaActual = this.algoformer.verVida();
 		float porcentaje = (float)vidaActual/vidaDeAlgoformerInicial;
 		System.out.println(porcentaje);
-		this.barraDeVida.setProgress(porcentaje);
-		
-		
+		this.barraDeVida.setProgress(porcentaje);	
 	}
 
 	@Override
 	public void deshabilitar() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void habilitar() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void setAlgoformer(Algoformer algoformer) {
@@ -44,6 +37,11 @@ public class BarraDeVidaDeAlgoformer extends StackPane implements Representacion
 		this.getChildren().addAll(barraVida, textoBarra);
 		this.barraDeVida = barraVida;
 		this.setStyle("-fx-accent: red;");
+	}
+
+	@Override
+	public boolean estaHabilitado() {
+		return false;
 	}
 
 }

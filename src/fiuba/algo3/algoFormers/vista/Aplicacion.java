@@ -156,6 +156,7 @@ public class Aplicacion extends Application {
 					root.getChildren().add(textoJugadorDecepticons);
 					root.getChildren().add(botonEnter2);
 					root.getChildren().add(decepticons);
+					textoJugadorDecepticons.requestFocus();
 				}
 				else{
 					if (! root.getChildren().contains(errorIngreso)){

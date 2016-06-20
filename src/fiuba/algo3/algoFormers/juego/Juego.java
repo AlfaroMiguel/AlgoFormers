@@ -126,7 +126,7 @@ public class Juego implements Observador{
 
 	public void atacarConSeleccionadoACoordenada(Coordenada coordenada){
 		this.observarA(this.jugadorActual.verEquipo());
-		this.jugadorActual.verEquipo().agregarObservador(this);
+//		this.jugadorActual.verEquipo().agregarObservador(this);
 		this.jugadorActual.atacar(coordenada);
 		this.cambiarTurno();
 	}

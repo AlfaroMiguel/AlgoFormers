@@ -2,6 +2,7 @@ package fiuba.algo3.algoFormers.autobots;
 
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.OptimusHumanoide;
+import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 
 /*Clase que representa al algoformer autobot Optimus*/
 public class Optimus extends Autobot {
@@ -13,4 +14,5 @@ public class Optimus extends Autobot {
 		this.modo = OptimusHumanoide.getInstance();
 		this.vida = new Vida(500);
 	}
+	
 }

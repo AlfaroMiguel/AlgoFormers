@@ -69,19 +69,23 @@ public abstract class Algoformer implements Accionable{
 		return this.posicion;
 	}
 	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
-		this.representadores.add(representador);
+		representadores.add(representador);
 	}
 	public void notificarRepresentaciones(){
-		for(RepresentacionDeAlgoformer representadoress: this.representadores)
-			representadoress.update();
+		for(RepresentacionDeAlgoformer representador: representadores)
+			representador.actualizar();
 	}
 	public void sacadoDelMapa(){
-		for(RepresentacionDeAlgoformer representadoress: this.representadores)
-			representadoress.deshabilitar();
+		for(RepresentacionDeAlgoformer representador: representadores){
+			if (representador.estaHabilitado())
+				representador.deshabilitar();
+		}
 	}
 	public void puestoEnMapa(){
-		for(RepresentacionDeAlgoformer representadoress: this.representadores)
-			representadoress.habilitar();
+		for(RepresentacionDeAlgoformer representador: representadores){
+			if (!representador.estaHabilitado())
+				representador.habilitar();
+		}
 	}
 
 	/* Ataca a otro accionable.
@@ -127,6 +131,7 @@ public abstract class Algoformer implements Accionable{
 		this.potencia= new Potencia();
 		this.escudo = new Escudo();
 		this.afectadores.afectarAlgoformer(this);
+		this.notificarRepresentaciones();
 		afectadores.pasarTurno();
 	}
 	/* Multiplica la velocidad por un factor dado.
@@ -146,14 +151,11 @@ public abstract class Algoformer implements Accionable{
 	/* Acumula un efecto.
 	 * Parametros: afectador: afectador que tiene el efecto a acumular. */
 	public void agregarEfecto(Afectador afectador) {
-
 		this.afectadores.agregarAfectador(afectador);
-
 	}
 
 	public void multiplicarAtaque(double factor) {
 		this.potencia.multiplicarAtaque(factor);
-
 	}
 
 	/* Se coloca en otra posicion dentro del tablero.
@@ -185,9 +187,6 @@ public abstract class Algoformer implements Accionable{
 	public void sacarEscudo() {
 		this.escudo.sacarEscudo();
 	}
-
-
-
 
 	/* Devuelve el peso de salir de una determinada superficie.
 	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
