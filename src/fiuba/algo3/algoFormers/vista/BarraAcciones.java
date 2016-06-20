@@ -19,7 +19,7 @@ public class BarraAcciones extends HBox {
 	Button botonTerminarTurno = new Button();
 	Button botonDescombinar = new Button();
 	Button silenciarMusica = new Button();
-	Label texto = new Label("Elija una opcion: ");
+	//Label texto = new Label("Elija una opcion: ");
 	private Controlador controlador;
 	
 	public BarraAcciones(Controlador controlador){
@@ -31,7 +31,7 @@ public class BarraAcciones extends HBox {
 	}
 	
 	public void agregarNodos(){
-		this.getChildren().addAll(texto, botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
+		this.getChildren().addAll(/*texto,*/ botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
 	}
 	
 	public void configurarNodos(){
