@@ -269,9 +269,9 @@ public class Tablero implements Observador{
 			throw new NoCombinableException();
 		}
 		this.eliminarAccionableDeTablero(coordOptimus);
-		this.colocarEnTablero(superion, coordOptimus);
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
+		this.colocarEnTablero(superion, coordOptimus);
 	}
 	/* Coloca en el tablero un Menasor a partir de los decepticons si se encuentran a la distancia correcta para 
 	 * realizar esta accion. Elimina del tablero a los algoformers individuales.
@@ -332,6 +332,7 @@ public class Tablero implements Observador{
 
 		Coordenada coordMenasor = this.obtenerCoordenadaDeElemento(menasor);
 
+		this.eliminarAccionableDeTablero(coordMenasor);
 		this.colocarEnTablero(megatron, coordMenasor);
 		this.colocarAccionableEnPosicionValidaDesde(bonecrusher, coordMenasor);
 		this.colocarAccionableEnPosicionValidaDesde(frenzy, coordMenasor);
