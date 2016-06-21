@@ -2,7 +2,9 @@ package fiuba.algo3.algoFormers.tablero;
 
 import fiuba.algo3.algoFormers.tablero.*;
 
-
+/*	Clase para el funcionamiento interno de GeneradorDeCaminos 
+ *  guarda una coordenada y su distancia a otra
+ *  */
 public class Tupla implements Comparable<Tupla>{
 	private Coordenada coord;
 	private int dist;
