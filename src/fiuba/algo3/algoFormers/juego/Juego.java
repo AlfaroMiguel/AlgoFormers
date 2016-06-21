@@ -39,7 +39,6 @@ public class Juego implements Observador{
 		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
 
 
-
 		//se definen los jugadores
 		this.elegirPrimerJugador();
 		this.tablero.generarMapa();
