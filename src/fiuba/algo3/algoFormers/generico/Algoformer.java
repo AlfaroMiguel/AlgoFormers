@@ -183,16 +183,7 @@ public abstract class Algoformer implements Accionable{
 	public void sacarEscudo() {
 		this.escudo.sacarEscudo();
 	}
-	/* Devuelve el peso de salir de una determinada superficie de aire.
-	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
-	public int simularPasoDe(SuperficieAire superficie) {
-		return this.modo.simularPasoDe(superficie);
-	}
-	/* Devuelve el peso de salir de una determinada superficie de tierra.
-	 * Parametros: superficie: superficie de tierra de la que se quiere ver el peso de salir. */
-	public int simularPasoDe(SuperficieTierra superficie) {
-		return this.modo.simularPasoDe(superficie);
-	}
+
 	/* Devuelve true si el algoformer no tiene vida y false si esta vivo */
 	public boolean estaMuerto(){
 		return estaMuerto;
@@ -295,6 +286,8 @@ public abstract class Algoformer implements Accionable{
 			observador.actualizar();
 		}
 	}
+	/* Devuelve el peso de salir de una determinada superficie de aire.
+	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
 	@Override
 	public int simularPasoPor(SuperficieAire superficie){
 		return this.modo.simularPasoDe(superficie);

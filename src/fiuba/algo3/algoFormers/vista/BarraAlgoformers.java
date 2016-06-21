@@ -20,17 +20,20 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class BarraAlgoformers extends VBox{
-
+	//Barra de botones de los costados que contienen a los algoformers y las vidas
 	private static BarraAlgoformers instancia;
+	//Botones de algoformers
 	BotonDeAlgoformer algoformer1 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer2 = new BotonDeAlgoformer();
 	BotonDeAlgoformer algoformer3 = new BotonDeAlgoformer();
+	//Boton de algoformer combinado
 	BotonDeAlgoformer algoformerCombinado = new BotonDeAlgoformer();
 	
-
+	//Barra de vida de algoformers
 	BarraDeVidaDeAlgoformer vidaAlgoformer1  = new BarraDeVidaDeAlgoformer();
 	BarraDeVidaDeAlgoformer vidaAlgoformer2  = new BarraDeVidaDeAlgoformer();
 	BarraDeVidaDeAlgoformer vidaAlgoformer3  = new BarraDeVidaDeAlgoformer();
+	//Barra de vida de algoformer combinado
 	BarraDeVidaDeAlgoformer vidaAlgoformerCombinado = new BarraDeVidaDeAlgoformer();
 	
 
@@ -38,7 +41,7 @@ public class BarraAlgoformers extends VBox{
 	private Controlador controlador;
 	
 	public BarraAlgoformers(String nombreJugador, List<Algoformer> algoformers, Controlador controlador){
-
+		//Recibe una lista de los algoformers que va a utilizar (En orden)
 		this.controlador = controlador;
 		this.setFillWidth(true);
 		this.setMinWidth(200);
@@ -51,20 +54,16 @@ public class BarraAlgoformers extends VBox{
 	}
 
 
-	public static BarraAlgoformers getInstance(String nombreJugador, List<Algoformer> algoformers,Controlador controlador){
-		if (instancia == null){
-			instancia = new BarraAlgoformers(nombreJugador,algoformers,controlador);
-		}
-		return instancia;
-	}
-
+	
+	//Se agregan los botones de los algoformers
 	public void agregarAlgoformers(){
 		this.getChildren().addAll(algoformer1, algoformer2, algoformer3, algoformerCombinado);
 	}
 
 
 
-
+	/*Configuracion de los botones
+	 * Nombres, imagenes, acciones del boton*/
 	public void configurarBotones(List<Algoformer> algoformers){
 		
 		algoformer1.setAlgoformer(algoformers.get(0));
@@ -105,7 +104,9 @@ public class BarraAlgoformers extends VBox{
 		algoformer3.actualizarTooltip();
 		algoformerCombinado.actualizarTooltip();
 	}
-
+	
+	
+	//Se configuran las barras de vida de los algoformers
 	public void configurarBarrasVida(List<Algoformer> algoformers){
 		vidaAlgoformer1.setAlgoformer(algoformers.get(0));
 		vidaAlgoformer2.setAlgoformer(algoformers.get(1));
@@ -114,7 +115,7 @@ public class BarraAlgoformers extends VBox{
 
 	}
 
-
+	/*Se agregan las barras de vida debajo*/
 	public void agregarBarrasVida(){
 
 		VBox contenedor = new VBox();

@@ -6,11 +6,13 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
 public class BarraDeVidaDeAlgoformer extends StackPane implements RepresentacionDeAlgoformer {
-
+	
+	//Barras de vida de los algoformers 
 	private Algoformer algoformer;
 	private int vidaDeAlgoformerInicial;
 	private ProgressBar barraDeVida;
 
+	//Actualiza la vida de su algoformer
 	@Override
 	public void actualizar(){	
 		int vidaActual = this.algoformer.verVida();
@@ -30,6 +32,7 @@ public class BarraDeVidaDeAlgoformer extends StackPane implements Representacion
 	public void habilitar() {
 	}
 
+	//Setea un algoformer a una barrita de vida
 	public void setAlgoformer(Algoformer algoformer) {
 		this.algoformer = algoformer;
 		algoformer.agregarRepresentacionDeAlgoformer(this);

@@ -13,9 +13,6 @@ public class SuperficiePsionica extends SuperficieAire {
 		this.afectador = new AfectadorPermanente(new EfectoPsionico());
 	}
 
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	public Image ponerSuperficieAire() {
 		return ClaseImagenes.getImageSuperficie(this);
@@ -36,7 +33,6 @@ public class SuperficiePsionica extends SuperficieAire {
 
 	@Override
 	public int costoPorPaso(ModoAereo modoAereo) {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 

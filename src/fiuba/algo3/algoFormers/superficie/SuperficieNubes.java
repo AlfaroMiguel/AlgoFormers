@@ -13,9 +13,6 @@ public class SuperficieNubes extends SuperficieAire {
 		this.afectador = new AfectadorPorPosicion(new EfectoNubes());
 	}
 
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	public Image ponerSuperficieAire() {
 		return ClaseImagenes.getImageSuperficie(this);
@@ -38,7 +35,7 @@ public class SuperficieNubes extends SuperficieAire {
 
 	@Override
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoAereo modoAereo) {
-		// TODO Auto-generated method stub
+		//No se produce ningun efecto al pasar por una nube
 		
 	}
 }

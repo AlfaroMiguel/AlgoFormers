@@ -13,7 +13,12 @@ import fiuba.algo3.algoFormers.superficie.SuperficieRocosa;
 
 public class CreadorDeMapas {
 
+	/* 	Llena al mapa de superficies ya prefijadas */
 	public static void generarMapa(HashMap<Coordenada, Casillero> tablero, int height, int width) {
+		/*
+		 *	Estos metodos obtienen las coordenadas en donde 
+		 *  se deberia agregar a la superficie dada
+		 */
 		
 		List<Coordenada> montanias = obtenerCoordenadasMontanias();
 		for(Coordenada coordenadas: montanias)
@@ -78,7 +83,7 @@ public class CreadorDeMapas {
 //    		}
 //        }
 	}
-	
+	/*	Se agregan mas montes para estilizar al mapa	*/
 	private static void colocarMonte(HashMap<Coordenada, Casillero> tablero){
 		
 		for (int i = 6; i < 14; i++){
@@ -130,6 +135,10 @@ public class CreadorDeMapas {
         	tablero.put(new Coordenada(i,0), casillero);
         }
 	}
+	/*
+	 * Todos los metodos que siguen son para obtener la lista
+	 * de los casilleros que corresponden a la superfice determinada
+	 */
 	private static List<Coordenada> obtenerCoordenadasMontanias(){
 		List<Coordenada> montanias = new ArrayList<Coordenada>();
 		for(int i =0; i<30;i++){

@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 
 public class ClaseImagenes {
 	
+	//Conoce y devuelve todas las imagenes del juego
 	public static Image getImage(SuperficieAire superficieAire){
 		return superficieAire.ponerSuperficieAire();
 	}
