@@ -11,7 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 
 public class BarraAcciones extends HBox {
-	
+	//Barra de acciones del juego
 	Button botonMover = new Button();
 	Button botonAtacar = new Button();
 	Button botonTransformar = new Button();
@@ -33,6 +33,7 @@ public class BarraAcciones extends HBox {
 		this.getChildren().addAll(botonMover, botonAtacar, botonTransformar, botonCombinar, botonDescombinar, botonTerminarTurno, silenciarMusica);
 	}
 	
+	//Se configuran los botones de la barra de acciones
 	public void configurarNodos(){
 		botonMover.setText("Mover");
 		botonMover.setOnMouseClicked(e->controlador.cambiarAModoMover());

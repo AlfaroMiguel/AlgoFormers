@@ -5,7 +5,6 @@ import java.util.List;
 
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.SuperionTerrestre;
-import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
 
 /*Clase que representa al algoformer autobot combinado Superion*/
@@ -16,8 +15,9 @@ public class Superion extends Autobot {
 	private Optimus optimus;
 	private Ratchet ratchet;
 	private Bumblebee bumblebee;
-	
+	/* Lista de elementos de la vista que cambian segun cambia el combinado  */
 	public static List<RepresentacionDeAlgoformer> representadoresCombinado = new ArrayList<RepresentacionDeAlgoformer>();
+	
 	/*Constructor*/
 	/* Parametros: los autobots con los que se va a componer.
 	 * Crea un superion en modo unico con la suma de las vidas de los algoformers
@@ -45,6 +45,7 @@ public class Superion extends Autobot {
 		return this.ratchet;
 	}
 	
+	/* Metodos abstractos redefinidos*/
 	@Override
 	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
 		representadoresCombinado.add(representador);

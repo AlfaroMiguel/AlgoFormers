@@ -13,13 +13,11 @@ import javafx.scene.image.Image;
 
 public class SuperficieRocosa extends SuperficieTierra {
 
+
 	public SuperficieRocosa() {
 		this.afectador = new AfectadorPorPosicion(new EfectoRocas());
 	}
 
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	@Override
 	public Image ponerSuperficieTierra() {
@@ -57,19 +55,17 @@ public class SuperficieRocosa extends SuperficieTierra {
 
 	@Override
 	public int costoPorPaso(ModoTerrestreAlterno modoTerrestreAlterno) {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
 	@Override
 	public int costoPorPaso(ModoHumanoide modoHumanoide) {
-		// TODO Auto-generated method stub
 		return 1;
 	}
 
 	@Override
 	public void producirEfectoPorPaso(Algoformer algoformer, ModoTerrestre modoTerrestre) {
-		// TODO Auto-generated method stub
+		//No se produce ningun efecto por pasar ensima de una superficie rocosa
 		
 	}
 

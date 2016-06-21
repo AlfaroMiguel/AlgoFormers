@@ -9,14 +9,17 @@ import java.util.PriorityQueue;
 import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoColisionableException;
 import fiuba.algo3.algoFormers.habitables.Accionable;
+
+/*	Clase estatica para calular el camino de costo
+ *  minimo entre una coordenada y otra
+ */
 public class GeneradorDeCaminos {
-	public static void solicitarCamino(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,Accionable> personajes,Accionable personaje,Coordenada origen,Coordenada destino,int paso){
-		List<Coordenada> camino =  calcularCaminoDeCostoMinimo(superficies,personajes, personaje, origen, destino);
-		//simularCamino(camino,personaje);
-		//Display del camino en rojo o amarillo
-	}
+	
+	/*	Devuelve una lista con las coordenadas del camino de menor
+	 *  costo entre la coordenada origen y la destino
+	 *  para el accionable que se pase como parametro	*/
 	public static List<Coordenada> calcularCaminoDeCostoMinimo(HashMap<Coordenada,Casillero> superficies,HashMap<Coordenada,Accionable> personajes,Accionable personaje,Coordenada origen,Coordenada destino){
-		//Dijkstra
+		//Se utiliza el algoritmo de Dijkstra
 		PriorityQueue<Tupla> cola = new PriorityQueue<Tupla>();
 		HashMap<Coordenada,Integer> distancia = new HashMap<Coordenada,Integer>();
 		HashMap<Coordenada,Coordenada> padre = new HashMap<Coordenada,Coordenada>();
@@ -31,7 +34,7 @@ public class GeneradorDeCaminos {
 	    	Coordenada actual = cola.remove().getCoordenada();
 	    	visto.put(actual,true);
 
-	    	for(Coordenada vecino: Coordenada.neighborsInRange(actual,1)){
+	    	for(Coordenada vecino: Coordenada.vecinosEnRango(actual,1)){
 	    		try{
 	    			personajes.get(vecino).colisionar();
 	    			int costo = calcularCosto(superficies.get(actual),personaje);
@@ -56,10 +59,12 @@ public class GeneradorDeCaminos {
 	    return new ArrayList<Coordenada>();
 	}
 
+	/*	Metodo interno para calcular el costo de salir del casillero para el personaje	*/
 	private static int calcularCosto(Casillero casillero, Accionable personaje) {
 		return casillero.calcularMovimiento(personaje);
 	}
 
+	/*	Metodo interno para pasar el camino de la cola a una lista	*/
 	private static List<Coordenada> pasarCaminoAList(HashMap<Coordenada, Coordenada> padre, Coordenada origen,
 			Coordenada destino) {
 		Coordenada actual = destino;
@@ -69,11 +74,11 @@ public class GeneradorDeCaminos {
 			actual = padre.get(actual);
 		}
 		camino.add(actual);
-		//Elimino la posicion de destino ya que no la tomo en cuenta
-		//No elimino la posicion de destino ya que es mejor asi
-		//camino.remove(destino);
 		return camino;
 	}
+	/*	Devuleve true si el accionable puede pagar el costa del
+	 *  camino con su paso actual
+	 */
 	public static boolean puedePagarCamino(List<Coordenada> camino, HashMap<Coordenada, Casillero> superficies, Accionable accionable,int paso) {
 		try{
 			superficies.get(camino.get(0)).calcularMovimiento(accionable);

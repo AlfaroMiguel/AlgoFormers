@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 
 public class ClaseImagenes {
 	
+	//Conoce y devuelve todas las imagenes del juego
 	public static Image getImage(SuperficieAire superficieAire){
 		return superficieAire.ponerSuperficieAire();
 	}
@@ -55,7 +56,7 @@ public class ClaseImagenes {
 //	
 	
 	public static Image getImage(Accionable accionable){
-		return accionable.getImage();
+		return accionable.verImagen();
 	}
 	public static Image getImageModo(FrenzyHumanoide frenzyHumanoide) {
 		return ponerAlgoFormer("file:img/algoformers/humanoide/frenzy.png");

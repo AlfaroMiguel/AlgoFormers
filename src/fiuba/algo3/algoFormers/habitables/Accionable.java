@@ -43,18 +43,18 @@ public interface Accionable extends ObservableTerminoJuego{
 	 * 		  NoSeleccionableException si no puede ser seleccionado. */
 	public void serSeleccionado(EquipoDecepticons equipo);
 	
-	/* Reacciona a una superficie.
-	 * Parametros: superficie: superficie a la que debe reaccionar.*/
+	/* Reacciona a una superficie de aire.
+	 * Parametros: superficie: superficie de aire a la que debe reaccionar.*/
 	public void reaccionarASuperficie(SuperficieAire superficie);
-	/* Reacciona a una superficie.
-	 * Parametros: superficie: superficie a la que debe reaccionar.*/
+	/* Reacciona a una superficie de tierra.
+	 * Parametros: superficie: superficie de tierra a la que debe reaccionar.*/
 	public void reaccionarASuperficie(SuperficieTierra superficie);
 	
-	/* Deja de afectarlo el efecto de la superficie.
-	 * Parametros: superficie: superficie que posee el efecto.*/
+	/* Deja de afectarlo el efecto de la superficie de aire.
+	 * Parametros: superficie: superficie de aire que posee el efecto.*/
 	public void serDesafectado(SuperficieAire superficie);
-	/* Deja de afectarlo el efecto de la superficie.
-	 * Parametros: superficie: superficie que posee el efecto.*/
+	/* Deja de afectarlo el efecto de la superficie de tierra.
+	 * Parametros: superficie: superficie de tierra que posee el efecto.*/
 	public void serDesafectado(SuperficieTierra superficie);
 	
 	/* Devuelve la coordenada actual del accionable */
@@ -81,6 +81,6 @@ public interface Accionable extends ObservableTerminoJuego{
 	 * Parametros: superficie: superficie de tierra atravesada.*/
 	public void efectoPorMicroMovimiento(SuperficieTierra superficie);
 	
-	/* Devuelve la imagen que representa al accionable*/
-	public Image getImage();
+	/* Devuelve la imagen que representa al accionable. */
+	public Image verImagen();
 }

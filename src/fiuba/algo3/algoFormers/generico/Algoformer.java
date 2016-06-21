@@ -21,6 +21,8 @@ import javafx.scene.image.Image;
 public abstract class Algoformer implements Accionable{
 
 	/* Atributos */
+	/* Representa el nombre del algoformer. */
+	public String nombre;
 	/* Indica el modo actual del algoformer. */
 	protected Modo modo;
 	/* Indica la vida actual del algoformer. */
@@ -34,73 +36,62 @@ public abstract class Algoformer implements Accionable{
 	/* Representa el actudo presente en el algoformer. */
 	protected Escudo escudo = new Escudo();
 	/* Lista de observadores para el patron observer */
-	private List<Observador> observadores = new ArrayList<Observador>();
+	private List<ObservadorTerminoJuego> observadores = new ArrayList<ObservadorTerminoJuego>();
 	/* Representa el estado del algoformer. True si esta muerto, false si esta vivo */
 	private boolean estaMuerto = false;
-
 	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */
 	public Coordenada posicion;
-	
+	/* Lista de elementos de la vista que cambian segun cambia el algoformer. */
 	public List<RepresentacionDeAlgoformer> representadores = new ArrayList<RepresentacionDeAlgoformer>();
+	/* Lista de vistas que cambian segun cambia el algoformer. */
+	public static List<Vista> vistas = new ArrayList<Vista>();
+	
 	/* Metodos abstractos */
-
 	/* Ataca a otro accionable.
 	 * Parametros: atacado: accionable a atacar.*/
 	public abstract void atacar(Tablero tablero, Accionable atacado);
-
-	/*
-	VISTAS
-	*/
-
-	public static List<Vista> vistas = new ArrayList<Vista>();
 	
-	public String nombre;
 	/* Metodos de la clase. */
 	/* Convierte su velocidad en 0 para no poder moverse.*/
 	public void inmovilizar(){
 		this.agilidad.multiplicarVelocidad(0);
 	}
-
+	/* Actualiza la coordenada en la que se encuentra el algoformer.
+	 * Parametros: posicion: coordenada a la que se quiere actualizar. */
 	public void setCoordenada(Coordenada posicion){
 		this.posicion = posicion;
 		this.actualizarVista();
 	}
-	
+	/* Devuelve la coordenada actual en la que se encuentra el algoformer. */
 	public Coordenada getCoordenada(){
 		return this.posicion;
 	}
-	
+	/* Agrega un observador del tipo RepresentacionDeAlgoformer. 
+	 * Parametros: representador: instancia del tipo RepresentacionDeAlgoformer que va a observar al algoformer. */
 	public void agregarRepresentacionDeAlgoformer(RepresentacionDeAlgoformer representador){
 		representadores.add(representador);
 	}
-	
+	/* Notifica de los cambios a todos los observadores del tipo RepresentacionDeAlgoformer. */
 	public void notificarRepresentaciones(){
 		for(RepresentacionDeAlgoformer representador: representadores)
 			representador.actualizar();
 	}
-	
+	/* Deshabilita el boton que representa al algoformer en la vista porque el algoformer ya no aparece
+	 * en el mapa. */
 	public void sacadoDelMapa(){
 		for(RepresentacionDeAlgoformer representador: representadores){
 			if (representador.estaHabilitado())
 				representador.deshabilitar();
 		}
 	}
-	
+	/* Habilita el boton que representa al algoformer en la vista porque el algoformer aparece
+	 * en el mapa. */
 	public void puestoEnMapa(){
 		for(RepresentacionDeAlgoformer representador: representadores){
 			if (!representador.estaHabilitado())
 				representador.habilitar();
 		}
 	}
-
-	/* Ataca a otro accionable.
-	 * Parametros: atacado: accionable a atacar.
-	 * 			   tablero: tablero del juego. */
-
-
-	/* Metodos de la clase. */
-	/* Convierte su velocidad en 0 para no poder moverse.*/
-
 	/* Se mueve a una determinada coordenada.
 	 * Parametros: coordenada: coordenada a la que se quiere mover.
 	 * 			   tablero: tablero del juego.
@@ -127,9 +118,7 @@ public abstract class Algoformer implements Accionable{
 	/* Devuelve la vida actual del algoformer.*/
 	public int verVida(){
 		return this.vida.verVida();
-
 	}
-
 	/* Termina el turno. Es afectado por los efectos que junto durante el turno.*/
 	public void terminaTurno(){
 		this.agilidad = new Agilidad();
@@ -145,6 +134,8 @@ public abstract class Algoformer implements Accionable{
 		this.agilidad.multiplicarVelocidad(factor);
 
 	}
+	/* Devuelve el peso de salir de una determinada superficie de tierra.
+	 * Parametros: superficie: superficie de tierra de la que se quiere ver el peso de salir. */
 	public int simularPasoPor(SuperficieTierra superficieTierra){
 		return this.modo.simularPasoDe(superficieTierra);
 	}
@@ -158,11 +149,11 @@ public abstract class Algoformer implements Accionable{
 	public void agregarEfecto(Afectador afectador) {
 		this.afectadores.agregarAfectador(afectador);
 	}
-
+	/* Multiplica el ataque por un factor determinado.
+	 * Parametros: factor: factor por el que se quiere multiplicar el ataque.*/
 	public void multiplicarAtaque(double factor) {
 		this.potencia.multiplicarAtaque(factor);
 	}
-
 	/* Se coloca en otra posicion dentro del tablero.
 	 * Parametros: tablero: tablero del juego. */
 	public void reposicionarse(Tablero tablero) {
@@ -173,7 +164,6 @@ public abstract class Algoformer implements Accionable{
 		return this.afectadores;
 	}
 	/* Devuelve un numero entero que representa la fuerza de ataque actual del algoformer */
-
 	public int verAtaque(){
 		return (int)((this.modo.verAtaque()*this.potencia.getPotencia()));
 	}
@@ -185,30 +175,20 @@ public abstract class Algoformer implements Accionable{
 	public int verRango(){
 		return (int)((this.modo.verRangoAtaque()));
 	}
+	/* Activa el escudo que protege al algoformer contra ataques. */
 	public void colocarEscudo() {
 		this.escudo.colocarEscudo();
 	}
-
+	/* Desactiva el escudo que protege al algoformer contra ataques. */
 	public void sacarEscudo() {
 		this.escudo.sacarEscudo();
 	}
 
-	/* Devuelve el peso de salir de una determinada superficie.
-	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
-	public int simularPasoDe(SuperficieAire superficie) {
-		return this.modo.simularPasoDe(superficie);
-	}
-	/* Devuelve el peso de salir de una determinada superficie.
-	 * Parametros: superficie: superficie de tierra de la que se quiere ver el peso de salir. */
-	public int simularPasoDe(SuperficieTierra superficie) {
-		return this.modo.simularPasoDe(superficie);
-	}
 	/* Devuelve true si el algoformer no tiene vida y false si esta vivo */
 	public boolean estaMuerto(){
 		return estaMuerto;
 	}
 	/* Marca al algoformer como muerto si es necesario y notifica del cambio a los observadores */
-
 	public void actualizarEstadoDeVida(){
 		if (this.vida.seTermino()){
 			estaMuerto = true;
@@ -224,7 +204,7 @@ public abstract class Algoformer implements Accionable{
 	/* Permite a una vista observar al algoformer.
 	 * Parametros: vista: vista que va a observar al algoformer. */
 	public void agregarVista(Vista vista){
-		this.vistas.add(vista);
+		vistas.add(vista);
 	}
 	/* Actualiza a las vistas que observan al algoformer por su posicion */
 	public void actualizarVista(){
@@ -239,17 +219,26 @@ public abstract class Algoformer implements Accionable{
 			vista.update(this, this.posicion, ataque);
 		}
 	}
-
+	/* Centra la pantalla en la posicion del algoformer*/
 	public void centrar(){
 		centrarEnVistas();
 	}
-
+	/* Actualiza a las vistas para que queden centradas en la posicion del algoformer.*/
 	private void centrarEnVistas() {
 		for(Vista vista: vistas){
-			vista.update(this);
+			vista.actualizar(this);
 		}
 	}
-
+	/* Informa a las vistas que se ataco al algoformer. */
+	protected void ataqueEfectuado(){
+		for(Vista vista: vistas)
+			vista.reproducirAtaque();
+	}
+	/* Devuelve el nombre */
+	public String getNombre() {
+		return this.nombre;
+	}
+	
 	/* Metodos abstractos redefinidos. */
 	@Override
 	public void colisionar() {
@@ -282,21 +271,23 @@ public abstract class Algoformer implements Accionable{
 	}
 
 	@Override
-	public void agregarObservador(Observador observador) {
+	public void agregarObservador(ObservadorTerminoJuego observador) {
 		if (!this.observadores.contains(observador)){
 			this.observadores.add(observador);
 		}
 	}
 	@Override
-	public void eliminarObservador(Observador observador) {
+	public void eliminarObservador(ObservadorTerminoJuego observador) {
 		this.observadores.remove(observador);
 	}
 	@Override
 	public void notificarObservadores() {
-		for (Observador observador: observadores){
+		for (ObservadorTerminoJuego observador: observadores){
 			observador.actualizar();
 		}
 	}
+	/* Devuelve el peso de salir de una determinada superficie de aire.
+	 * Parametros: superficie: superficie de aire de la que se quiere ver el peso de salir. */
 	@Override
 	public int simularPasoPor(SuperficieAire superficie){
 		return this.modo.simularPasoDe(superficie);
@@ -312,17 +303,8 @@ public abstract class Algoformer implements Accionable{
 
 	}
 	@Override
-	public Image getImage() {
-		return this.modo.getImage();
-	}
-
-	protected void ataqueEfectuado(){
-		for(Vista vistas: this.vistas)
-				vistas.reproducirAtaque();
-	}
-
-	public String getNombre() {
-		return this.nombre;
+	public Image verImagen() {
+		return this.modo.verImagen();
 	}
 
 }

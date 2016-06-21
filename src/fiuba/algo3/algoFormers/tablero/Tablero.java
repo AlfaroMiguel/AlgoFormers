@@ -22,7 +22,7 @@ import fiuba.algo3.algoFormers.excepciones.MovimientoInvalidoException;
 import fiuba.algo3.algoFormers.excepciones.NoCombinableException;
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
-import fiuba.algo3.algoFormers.generico.Observador;
+import fiuba.algo3.algoFormers.generico.ObservadorTerminoJuego;
 import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.habitables.BonusVacio;
 import fiuba.algo3.algoFormers.habitables.Recolectable;
@@ -31,7 +31,7 @@ import fiuba.algo3.algoFormers.superficie.SuperficieAire;
 import fiuba.algo3.algoFormers.superficie.SuperficieTierra;
 import fiuba.algo3.algoFormers.vista.Vista;
 
-public class Tablero implements Observador{
+public class Tablero implements ObservadorTerminoJuego{
 	
 	/* Atributos */
 	/* Representacion del tablero que contiene a las superficies */
@@ -179,13 +179,13 @@ public class Tablero implements Observador{
 
 	}
 	
-	/* Coordina el ataque entre dos algoformers, verificando la distancia entre ellos y si
+	/* Coordina el ataque entre dos autobots, verificando la distancia entre ellos y si
 	 * alguno de los dos muere.
 	 * Parametros: -atacante: autobot que ataca.
 	 * 			   -atacado: accionable a atacar.
-	 * 			   -rangoDeAtaque: distancia minima a la que deben estar los algoformers para atacarse.
+	 * 			   -rangoDeAtaque: distancia minima a la que deben estar los autobots para atacarse.
 	 * 			   -ataque: capacidad de ataque del atacante.
-	 * Lanza: FueraDeRangoException si los algoformers se encuentran a una distancia mayor al rango.
+	 * Lanza: FueraDeRangoException si los autobots se encuentran a una distancia mayor al rango.
 	 * 		  SinVidaException si alguno de los algoformers muere durante el ataque. En caso de que esto
 	 * 		                   suceda tambien elimina al algoformer muerto del tablero. */
 	public void coordinarAtaque(Autobot atacante, Accionable atacado, int rangoDeAtaque, int ataque) {
@@ -235,8 +235,8 @@ public class Tablero implements Observador{
 	 * 			   distMinima: distancia a la que tienen que estar los algoformers.
 	 * Lanza: DistanciaInvalidaException si no se cumple que esten a la distancia dada para cualquiera de los 
 	 * 									 elementos.*/
-	private void validarDistancias(Coordenada coordUno, Coordenada coordDos, Coordenada coordTres, int distMinima){
-		if(coordUno.distancia(coordDos)>distMinima*2 || coordUno.distancia(coordTres)>distMinima*2 || coordDos.distancia(coordTres)>distMinima*2){
+	private void validarDistancias(Coordenada coordUno, Coordenada coordDos, Coordenada coordTres, int distMaxima){
+		if(coordUno.distancia(coordDos)>distMaxima*2 || coordUno.distancia(coordTres)>distMaxima*2 || coordDos.distancia(coordTres)>distMaxima*2){
 			throw new DistanciaInvalidaException();
 		}
 	}
@@ -345,7 +345,7 @@ public class Tablero implements Observador{
 		int radioDeVecindad = 1;
 		while(!sePudoUbicar){
 		@SuppressWarnings("static-access")
-		ArrayList<Coordenada> coordenadasVecinos = coordReferencia.neighborsInRange(coordReferencia, radioDeVecindad);
+		ArrayList<Coordenada> coordenadasVecinos = coordReferencia.vecinosEnRango(coordReferencia, radioDeVecindad);
 		for(int i = 0; i < coordenadasVecinos.size(); i++){
 			Coordenada coordVecino = coordenadasVecinos.get(i);
 			if(this.accionables.containsKey(coordVecino)){
@@ -363,11 +363,13 @@ public class Tablero implements Observador{
 			radioDeVecindad++;
 		}
 	}
-	/* Genera el camino de costo minimo para ir de una coordenada a otra.
-	 * Parametros: -coordenadaInicial: coordenada desde donde se inicia el camino.
-	 * 			   -coordenadaFinal: coordenada hasta la que llega el camino.*/
-	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal,Accionable algoformer) {
-		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, algoformer, coordenadaInicial, coordenadaFinal);
+	/* Devuelve una lista con las coordenadas que pertenecen al camino que puede realizar un accionable 
+	 * para moverse de una coordenada a otra.
+	 * Parametros: coordenadaInicial: coordenada de donde sale el accionable.
+	 * 			   coordenadaFinal: coordenada de destino.
+	 * 			   accionable: accionable que se quiere desplazar*/
+	public List<Coordenada> buscarCamino(Coordenada coordenadaInicial, Coordenada coordenadaFinal,Accionable accionable) {
+		return GeneradorDeCaminos.calcularCaminoDeCostoMinimo(superficies, accionables, accionable, coordenadaInicial, coordenadaFinal);
 	}
 	
 	public void reposicionar(Algoformer algoformer) {
@@ -415,14 +417,19 @@ public class Tablero implements Observador{
 	public void nuevaSeleccion() {
 		this.actualizarVistas();
 	}
-	
-	public void simularMovimiento(Coordenada coordenadaFinal, Algoformer algoformerActual) {
-		Coordenada coordenadaInicial = algoformerActual.posicion;
+	/* Simula el movimiento de un algoformer hacia una coordenada
+	 * para poder mostrar al usuario el camino que puede seguir para llegar a la coordenada.
+	 * Parametros: coordenada: coordenada a la que se quiere llegar. 
+	 * 			   algoformer: algoformer que se quiere mover.*/
+	public void simularMovimiento(Coordenada coordenadaFinal, Algoformer algoformer) {
+		Coordenada coordenadaInicial = algoformer.getCoordenada();
 		for(Vista vista: vistas){
-			vista.update(this,coordenadaInicial,coordenadaFinal,algoformerActual);
+			vista.update(this,coordenadaInicial,coordenadaFinal,algoformer);
 		}
 	}
-	
+	/* Muestra al usuario los casilleros a los que puede atacar un algoformer.
+	 * Parametros: coordenada: coordenada del algoformer que ataca.
+	 * 			   rango: rango de ataque del algoformer que ataca */
 	public void verRangoAtaque(Coordenada coordenada, int rango) {
 		for(Vista vista: vistas){
 			vista.update(this,coordenada,rango);
@@ -430,7 +437,7 @@ public class Tablero implements Observador{
 	}
 	
 	public List coordenadasEnRango(int rango,Coordenada coordenada) {
-		return coordenada.neighborsInRange(coordenada, rango);
+		return coordenada.vecinosEnRango(coordenada, rango);
 	}
 	
 	public void moverTablero(Coordenada coordenada) {
@@ -438,6 +445,8 @@ public class Tablero implements Observador{
 			vista.centrarEnCoordenada(coordenada);
 		}
 	}
+	
+	/* Metodos de prueba */
 	public boolean fijarseSiEstanLosBonus() {
 		
 		for(Map.Entry<Coordenada, Recolectable> entry : this.recolectables.entrySet()) {

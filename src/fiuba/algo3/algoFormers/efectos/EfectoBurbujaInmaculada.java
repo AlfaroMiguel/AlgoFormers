@@ -17,7 +17,6 @@ public class EfectoBurbujaInmaculada implements Efecto{
 		algoformer.sacarEscudo();
 	}
 	
-	
 	@Override
 	public boolean equals(Object obj) {
 		//dos efectos son iguales si son de la misma clase

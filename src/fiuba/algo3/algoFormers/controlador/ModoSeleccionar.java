@@ -7,10 +7,11 @@ public class ModoSeleccionar implements ModoControlador {
 
 	@Override
 	public void fueSeleccionado(Juego juego, Coordenada coordenada) {
-		Boolean seleccionado = juego.puedoSeleccionarCoordenada(coordenada);
+		juego.seleccionarCoordenada(coordenada);
 	}
+
+	@Override
 	public void entro(Juego juego, Coordenada coordenada) {
-		//No hace nada
 	}
 
 }

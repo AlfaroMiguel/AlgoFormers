@@ -14,6 +14,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 
 public class Vista {
+	//Sirve como intermediador entre el model y la interfaz grafica
 	private HexGrid hexGrid;
 	private Juego juego;
 	private ScrollPane grupo;
@@ -100,7 +101,7 @@ public class Vista {
 		disparo.play();
 	}
 
-	public void update(Algoformer algoformer) {
+	public void actualizar(Algoformer algoformer) {
 		this.centrarEnCoordenada(algoformer.posicion);
 
 	}

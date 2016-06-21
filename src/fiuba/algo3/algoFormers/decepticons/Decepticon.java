@@ -1,7 +1,5 @@
 package fiuba.algo3.algoFormers.decepticons;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import fiuba.algo3.algoFormers.autobots.Autobot;
 import fiuba.algo3.algoFormers.excepciones.EquipoInvalidoException;
@@ -11,30 +9,25 @@ import fiuba.algo3.algoFormers.habitables.Accionable;
 import fiuba.algo3.algoFormers.juego.EquipoAutobots;
 import fiuba.algo3.algoFormers.juego.EquipoDecepticons;
 import fiuba.algo3.algoFormers.tablero.Tablero;
-import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
-import javafx.scene.media.AudioClip;
 
 /*Clase que representa al tipo de algoformer Decepticon*/
 public class Decepticon extends Algoformer {
 
-	
-
-	
 	/*Metodos abstractos redefinidos*/
-	@Override
-	public void serAtacado(Autobot autobot, int ataque){
-		//this.ataqueEfectuado();
-
-		this.vida.sacarVida(ataque*this.escudo.getEscudo());
-		this.actualizarEstadoDeVida();
-		//Notifica a la barra de vida
-		this.notificarRepresentaciones();
-		this.actualizarVista(ataque*this.escudo.getEscudo());
-	}
-
 	@Override
 	public void serAtacado(Decepticon decepticon, int ataque){
 		throw new MismoEquipoException();
+	}
+	
+	@Override
+	public void serAtacado(Autobot autobot, int ataque){
+		this.vida.sacarVida(ataque*this.escudo.getEscudo());
+		this.actualizarEstadoDeVida();
+		//para que no se pueda seleccionar en el tablero
+		if (this.vida.seTermino())
+			this.posicion = null;
+		this.notificarRepresentaciones();
+		this.actualizarVista(ataque*this.escudo.getEscudo());
 	}
 
 	@Override
@@ -44,7 +37,6 @@ public class Decepticon extends Algoformer {
 
 	@Override
 	public void serSeleccionado(EquipoAutobots equipoAutobot) {
-
 		throw new EquipoInvalidoException();
 	}
 

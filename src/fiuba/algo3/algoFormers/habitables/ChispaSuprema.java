@@ -4,43 +4,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fiuba.algo3.algoFormers.generico.Algoformer;
-import fiuba.algo3.algoFormers.generico.Observador;
+import fiuba.algo3.algoFormers.generico.ObservadorTerminoJuego;
+import fiuba.algo3.algoFormers.modos.BonecrusherAlterno;
 import fiuba.algo3.algoFormers.tablero.Coordenada;
 import fiuba.algo3.algoFormers.vista.ClaseImagenes;
 import fiuba.algo3.algoFormers.vista.HexGrid;
 import javafx.scene.image.Image;
 
+/* Clase que representa un bonus que cuando se recolecta, el equipo que lo recolecta
+ * gana el juego. Es una clase del tipo Singleton. */
 public class ChispaSuprema implements Recolectable{
 
-	private static final ChispaSuprema INSTANCE = new ChispaSuprema();
-	private List<Observador> observadores = new ArrayList<Observador>();
+	/* Atributos */
+	/* Representa la unica instancia existente de la clase. */
+	private static ChispaSuprema instancia;
+	/* Lista de observadores para el patron observer */
+	private List<ObservadorTerminoJuego> observadores = new ArrayList<ObservadorTerminoJuego>();
+	/* Representa la coordenada en la que se encuentra la chispa en un momento dado. */
 	public Coordenada posicion;
-//	public Vista vista;
-	private ChispaSuprema(){}
-
+	
+	/* Metodos de la clase */
+	/* Devuelve la unica instancia de la clase. */
 	public static ChispaSuprema getInstance(){
-		return INSTANCE;
+		if (instancia == null){
+			instancia = new ChispaSuprema();
+		}
+		return instancia;
 	}
 	
-	public boolean ocupaLugar(){
-		return true;
-	}
+	/* Metodos de la clase */
+	/* Actualiza la coordenada en la que se encuentra la chispa.
+	 * Parametros: posicion: coordenada a la que se quiere actualizar. */
 	public void setCoordenada(Coordenada posicion){
 		this.posicion = posicion;
 		//this.vista.update(this,posicion);
 	}
-//	public void setVista(Vista vista){
-//		this.vista = vista;
-//	}
+	/* Devuelve la coordenada actual en la que se encuentra el bonus. */
 	public Coordenada getCoordenada(){
 		return this.posicion;
 	}
+	/* Indica que fue recolectada por algun accionable */
+	public void serCapturada() {
+		this.notificarObservadores();
+	}
+	
+	/* Metodos abstractos redefinidos */
+	@Override
 	public void colisionar(){	
+	}
+
+	@Override
+	public boolean ocupaLugar(){
+		return true;
 	}
 	
 	@Override
 	public void producirEfecto(Algoformer algoformer){
-		//algoformer.obtenerColectablesEnAtacable().agregarColectable(this); si cambiamos el final
 		algoformer.capturarChispa(this);
 	}
 
@@ -65,26 +84,22 @@ public class ChispaSuprema implements Recolectable{
 
 
 	@Override
-	public void agregarObservador(Observador observador) {
+	public void agregarObservador(ObservadorTerminoJuego observador) {
 		if (!this.observadores.contains(observador)){
 			this.observadores.add(observador);
 		}
 	}
 
 	@Override
-	public void eliminarObservador(Observador observador) {
+	public void eliminarObservador(ObservadorTerminoJuego observador) {
 		this.observadores.remove(observador);
 	}
 
 	@Override
 	public void notificarObservadores() {
-		for (Observador observador: observadores){
+		for (ObservadorTerminoJuego observador: observadores){
 			observador.actualizar();
 		}
-	}
-
-	public void serCapturada() {
-		this.notificarObservadores();
 	}
 
 }

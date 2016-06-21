@@ -29,9 +29,6 @@ public class SuperficieAndromeda extends SuperficieAire {
 	public void afectar(Algoformer algoformer, ModoHumanoide modo) {
 	}
 
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	@Override
 	public Image ponerSuperficieAire() {
