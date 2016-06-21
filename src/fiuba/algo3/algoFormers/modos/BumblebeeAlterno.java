@@ -30,7 +30,7 @@ public class BumblebeeAlterno extends ModoTerrestreAlterno{
 	}
 	
 	
-	public Image getImage() {
+	public Image verImagen() {
 		return ClaseImagenes.getImageModo(this);
 	}
 	

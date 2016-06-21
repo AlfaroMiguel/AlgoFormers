@@ -56,7 +56,7 @@ public class ClaseImagenes {
 //	
 	
 	public static Image getImage(Accionable accionable){
-		return accionable.getImage();
+		return accionable.verImagen();
 	}
 	public static Image getImageModo(FrenzyHumanoide frenzyHumanoide) {
 		return ponerAlgoFormer("file:img/algoformers/humanoide/frenzy.png");

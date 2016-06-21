@@ -9,8 +9,13 @@ import java.util.HashMap;
 
 import fiuba.algo3.algoFormers.superficie.*;
 
+/*	Clase estatica para generar los casilleros,
+ *  bonus y coordenadas del tablero
+ */
 public class GeneradorDeCoordenadas {
 
+	/*	Llena todos los casilleros del tablero recien inicializado
+	 *  con la superficie por defecto */
 	public static void generarCasillerosDelTablero(HashMap<Coordenada,Casillero> tablero,int height, int width){
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2); // or q>>1
@@ -22,6 +27,8 @@ public class GeneradorDeCoordenadas {
 		    }
 		}
 	}
+	/*	Llena todos los lugares de accionables del tablero
+	 *  con un vacio */
 	public static void generarCoordenadasDelTablero(HashMap<Coordenada,Accionable> tablero,int height, int width){
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2); // or q>>1
@@ -30,7 +37,8 @@ public class GeneradorDeCoordenadas {
 		    }
 		}
 	}
-
+	/*	Llena todos los lugares de recolectables del tablero
+	 *  con un bonus vacio */
 	public static void generarBonusDelTablero(HashMap<Coordenada,Recolectable> tablero,int height, int width){
 		for (int q = 0; q < width; q++) {
 		    int q_offset = (int)Math.floor(q/2); // or q>>1
