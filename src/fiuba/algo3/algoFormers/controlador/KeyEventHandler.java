@@ -4,13 +4,6 @@ import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-
-//	KeyEventHanlder
-// 	Se encarga de interpretar la entrada
-//  por teclado del usuario y
-//	pasarsela al controlador
-//
-
 public class KeyEventHandler implements EventHandler<KeyEvent>{
 	private Controlador controlador;
 	

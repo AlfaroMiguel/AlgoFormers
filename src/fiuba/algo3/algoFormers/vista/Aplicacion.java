@@ -30,6 +30,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application {
+
 	static MediaPlayer mediaPlayer;
 	private static Stage stage;
 	static boolean musicaPausada = false;

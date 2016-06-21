@@ -345,7 +345,7 @@ public class Tablero implements ObservadorTerminoJuego{
 		int radioDeVecindad = 1;
 		while(!sePudoUbicar){
 		@SuppressWarnings("static-access")
-		ArrayList<Coordenada> coordenadasVecinos = coordReferencia.neighborsInRange(coordReferencia, radioDeVecindad);
+		ArrayList<Coordenada> coordenadasVecinos = coordReferencia.vecinosEnRango(coordReferencia, radioDeVecindad);
 		for(int i = 0; i < coordenadasVecinos.size(); i++){
 			Coordenada coordVecino = coordenadasVecinos.get(i);
 			if(this.accionables.containsKey(coordVecino)){
@@ -437,7 +437,7 @@ public class Tablero implements ObservadorTerminoJuego{
 	}
 	
 	public List coordenadasEnRango(int rango,Coordenada coordenada) {
-		return coordenada.neighborsInRange(coordenada, rango);
+		return coordenada.vecinosEnRango(coordenada, rango);
 	}
 	
 	public void moverTablero(Coordenada coordenada) {
