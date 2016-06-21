@@ -8,6 +8,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class TextoEventHandler implements EventHandler<KeyEvent>{
+	// Esta clase se encarga de hacer que
+	// apretar enter sea equivalente a clickear
+	// el boton de entrada
 	
 	private Button botonEnter;
 	
