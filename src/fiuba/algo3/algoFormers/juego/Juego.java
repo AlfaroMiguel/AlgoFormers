@@ -47,13 +47,7 @@ public class Juego implements ObservadorTerminoJuego{
 	public Juego(int alto, int ancho){
 		//se crea el tablero
 		this.tablero = new Tablero(alto, ancho);
-<<<<<<< HEAD
-		this.ubicadorDeColectables = new UbicadorDeColectables(alto,ancho);
-
-
-=======
 		this.ubicadorDeRecolectables = new UbicadorDeRecolectables(alto,ancho);
->>>>>>> 6e777a4dc9a91adeb21d5baa9f5be59d49ede29f
 		//se definen los jugadores
 		this.elegirPrimerJugador();
 		this.tablero.generarMapa();
