@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.autobots;
 import java.util.ArrayList;
 import java.util.List;
 
+import fiuba.algo3.algoFormers.generico.ObservadorTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.SuperionTerrestre;
 import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
@@ -67,6 +68,12 @@ public class Superion extends Autobot {
 		for(RepresentacionDeAlgoformer representador: representadoresCombinado){
 			if (!representador.estaHabilitado())
 				representador.habilitar();
+		}
+	}
+	@Override
+	public void notificarObservadores() {
+		for (ObservadorTerminoJuego observador: observadores){
+			observador.actualizarCombinado();
 		}
 	}
 }

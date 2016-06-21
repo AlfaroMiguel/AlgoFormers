@@ -7,6 +7,8 @@ public interface ObservadorTerminoJuego {
 	/* Metodos abstractos */
 	/* Aplica los cambios */
 	public void actualizar();
+	/* Notifica cuando se muere el combinado para terminar el juego*/
+	public void actualizarCombinado();
 	/* Agrega un observable para poder actualizarse con los cambios de este.
 	 * Parametros: observable: observable que se quiere agregar. */
 	public void observarA(ObservableTerminoJuego observable);

@@ -57,8 +57,8 @@ public class EquipoDecepticons extends Equipo {
 	public void combinarAlgoformers(Tablero tablero) {
 		if(this.algoformerActual == this.menasor)
 			return;
-		Menasor menasor = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.megatron, this.frenzy, this.bonecrusher);
-		this.menasor = menasor;
+		CreadorDeAlgoformersCombinados.prepararCombinadoParaPosicionar(this.menasor);
+		this.menasor.notificarRepresentaciones();
 		this.menasor.puestoEnMapa();
 		tablero.combinarAlgoformers(menasor, this.megatron, this.bonecrusher, this.frenzy, this.distanciaMaximaCombinacion);
 		this.megatron.sacadoDelMapa();
@@ -98,7 +98,12 @@ public class EquipoDecepticons extends Equipo {
 	@Override
 	public void atacar(Tablero tablero, Accionable atacado) {
 		this.observarA(atacado);
+		try{
 		this.algoformerActual.atacar(tablero, atacado);
+		}
+		catch(NullPointerException e){
+			//Resumo la ejecucion del metodo luego de atacar
+		}
 		if (this.vencioEquipoContrario()){
 			this.notificarObservadores();
 		}
@@ -144,5 +149,11 @@ public class EquipoDecepticons extends Equipo {
 	/* Metodos de prueba */
 	public Megatron getMegatron(){
 		return this.megatron;
+	}
+
+	@Override
+	public void empiezaTurno() {
+		if(this.algoformerActual.verVida() == 0)
+			this.algoformerActual = this.obtenerAlgoformerConVida();
 	}
 }

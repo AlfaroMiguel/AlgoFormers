@@ -113,6 +113,11 @@ public abstract class Equipo implements ObservadorTerminoJuego, ObservableTermin
 		this.oponentesVencidos++;
 	}
 	@Override
+	public void actualizarCombinado() {
+		this.oponentesVencidos = 3;
+	}
+	
+	@Override
 	public void observarA(ObservableTerminoJuego observable) {
 		this.observado = observable;
 		this.observado.agregarObservador(this); 
@@ -138,4 +143,5 @@ public abstract class Equipo implements ObservadorTerminoJuego, ObservableTermin
 	public void hacerGanar(){
 		this.notificarObservadores();
 	}
+	public abstract void empiezaTurno();
 }

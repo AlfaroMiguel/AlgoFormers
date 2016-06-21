@@ -57,8 +57,8 @@ public class EquipoAutobots extends Equipo {
 	public void combinarAlgoformers(Tablero tablero) {
 		if(this.algoformerActual == this.superion)
 			return;
-		Superion superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
-		this.superion = superion;
+		CreadorDeAlgoformersCombinados.prepararCombinadoParaPosicionar(this.superion);
+		this.superion.notificarRepresentaciones();
 		tablero.combinarAlgoformers(superion, this.optimus, this.ratchet, this.bumblebee, this.distanciaMaximaCombinacion);
 		this.superion.puestoEnMapa();
 		this.optimus.sacadoDelMapa();
@@ -88,7 +88,12 @@ public class EquipoAutobots extends Equipo {
 	@Override
 	public void atacar(Tablero tablero, Accionable atacado) {
 		this.observarA(atacado);
-		this.algoformerActual.atacar(tablero, atacado);
+		try{
+			this.algoformerActual.atacar(tablero, atacado);
+		}
+		catch(NullPointerException e){
+				//Resumo la ejecucion del metodo luego de atacar
+		}
 		if (this.vencioEquipoContrario()){
 			this.notificarObservadores();
 		}
@@ -141,5 +146,10 @@ public class EquipoAutobots extends Equipo {
 	public Optimus getOptimus(){
 		return this.optimus;
 	}
-
+	
+	@Override
+	public void empiezaTurno() {
+		if(this.algoformerActual.verVida() == 0)
+			this.algoformerActual = this.obtenerAlgoformerConVida();
+	}
 }

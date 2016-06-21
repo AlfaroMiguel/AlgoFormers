@@ -92,6 +92,7 @@ public class Juego implements ObservadorTerminoJuego{
 		Jugador jugadorAux = this.jugadorActual;
 		this.jugadorActual = this.jugadorAnterior;
 		this.jugadorAnterior = jugadorAux;
+		this.jugadorActual.empiezaTurno();
 	}
 	/* Devuelve el jugador actual */
 	public Jugador obtenerJugadorActual(){
@@ -221,6 +222,10 @@ public class Juego implements ObservadorTerminoJuego{
 	@Override
 	public void actualizar(){
 		this.terminarJuego();
+	}
+	@Override
+	public void actualizarCombinado(){
+		this.actualizar();
 	}
 	@Override
 	public void observarA(ObservableTerminoJuego observable) {

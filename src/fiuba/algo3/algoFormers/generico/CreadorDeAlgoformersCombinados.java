@@ -17,8 +17,6 @@ public class CreadorDeAlgoformersCombinados {
 	 * 			   ratchet: instancia de ratchet que compone al combinado.*/
 	public static Superion crearAlgoformerCombinado(Optimus optimus,Bumblebee bumblebee,Ratchet ratchet){
 		Superion superion = new Superion(optimus,ratchet,bumblebee);
-		Afectador inutilizador = new AfectadorPorTurnos(1, new VolverInutil());
-		inutilizador.afectarAlgoformer(superion);
 		return superion;
 	}
 	/* Devuelve un algoformer combinado de tipo decpticon.
@@ -27,8 +25,11 @@ public class CreadorDeAlgoformersCombinados {
 	 * 			   frenzy: instancia de frenzy que compone al combinado.*/
 	public static Menasor crearAlgoformerCombinado(Megatron megatron,Frenzy frenzy,Bonecrusher bonecrusher){
 		Menasor menasor= new Menasor(megatron,bonecrusher,frenzy);
-		Afectador inutilizador = new AfectadorPorTurnos(1, new VolverInutil());
-		inutilizador.afectarAlgoformer(menasor);
 		return menasor;
+	}
+	public static void prepararCombinadoParaPosicionar(Algoformer algoformer) {
+		Afectador inutilizador = new AfectadorPorTurnos(1, new VolverInutil());
+		inutilizador.afectarAlgoformer(algoformer);
+		
 	}
 }

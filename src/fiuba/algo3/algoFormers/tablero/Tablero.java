@@ -268,6 +268,9 @@ public class Tablero implements ObservadorTerminoJuego{
 		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
+		this.superficies.get(coordOptimus).revertirEfecto(optimus);
+		this.superficies.get(coordRatchet).revertirEfecto(ratchet);
+		this.superficies.get(coordBumblebee).revertirEfecto(bumblebee);
 		this.eliminarAccionableDeTablero(coordOptimus);
 		this.eliminarAccionableDeTablero(coordRatchet);
 		this.eliminarAccionableDeTablero(coordBumblebee);
@@ -301,6 +304,9 @@ public class Tablero implements ObservadorTerminoJuego{
 		catch (DistanciaInvalidaException exception){
 			throw new NoCombinableException();
 		}
+		this.superficies.get(coordMegatron).revertirEfecto(megatron);
+		this.superficies.get(coordBonecrusher).revertirEfecto(bonecrusher);
+		this.superficies.get(coordFrenzy).revertirEfecto(frenzy);
 		this.eliminarAccionableDeTablero(coordMegatron);
 		this.eliminarAccionableDeTablero(coordBonecrusher);
 		this.eliminarAccionableDeTablero(coordFrenzy);
@@ -317,6 +323,7 @@ public class Tablero implements ObservadorTerminoJuego{
 
 		Coordenada coordSuperion = this.obtenerCoordenadaDeElemento(superion);
 		
+		this.superficies.get(coordSuperion).revertirEfecto(superion);
 		this.eliminarAccionableDeTablero(coordSuperion);
 		this.colocarEnTablero(optimus, coordSuperion);
 		this.colocarAccionableEnPosicionValidaDesde(ratchet,coordSuperion);
@@ -332,6 +339,7 @@ public class Tablero implements ObservadorTerminoJuego{
 
 		Coordenada coordMenasor = this.obtenerCoordenadaDeElemento(menasor);
 
+		this.superficies.get(coordMenasor).revertirEfecto(menasor);
 		this.eliminarAccionableDeTablero(coordMenasor);
 		this.colocarEnTablero(megatron, coordMenasor);
 		this.colocarAccionableEnPosicionValidaDesde(bonecrusher, coordMenasor);
@@ -405,7 +413,10 @@ public class Tablero implements ObservadorTerminoJuego{
 	@Override
 	public void actualizar() {
 		this.eliminarAccionableDeTablero(this.obtenerCoordenadaDeElemento(this.observado));
-		
+	}
+	@Override
+	public void actualizarCombinado() {
+		this.actualizar();
 	}
 
 	@Override

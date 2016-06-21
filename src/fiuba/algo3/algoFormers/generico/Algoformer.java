@@ -36,7 +36,7 @@ public abstract class Algoformer implements Accionable{
 	/* Representa el actudo presente en el algoformer. */
 	protected Escudo escudo = new Escudo();
 	/* Lista de observadores para el patron observer */
-	private List<ObservadorTerminoJuego> observadores = new ArrayList<ObservadorTerminoJuego>();
+	public List<ObservadorTerminoJuego> observadores = new ArrayList<ObservadorTerminoJuego>();
 	/* Representa el estado del algoformer. True si esta muerto, false si esta vivo */
 	private boolean estaMuerto = false;
 	/* Representa la coordenada en la que se encuentra el algoformer en un momento dado */

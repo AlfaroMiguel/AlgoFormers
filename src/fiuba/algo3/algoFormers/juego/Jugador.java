@@ -104,4 +104,9 @@ public class Jugador{
 		 return !(this.tablero.obtenerCoordenadaDeElemento(this.verAlgoformerActual()) == null);
 	 }
 
+	public void empiezaTurno() {
+		this.equipo.empiezaTurno();
+		
+	}
+
 }

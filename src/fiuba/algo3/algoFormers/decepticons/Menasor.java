@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.decepticons;
 import java.util.ArrayList;
 import java.util.List;
 
+import fiuba.algo3.algoFormers.generico.ObservadorTerminoJuego;
 import fiuba.algo3.algoFormers.generico.Vida;
 import fiuba.algo3.algoFormers.modos.MenasorTerrestre;
 import fiuba.algo3.algoFormers.vista.RepresentacionDeAlgoformer;
@@ -71,6 +72,11 @@ public class Menasor extends Decepticon {
 				representador.habilitar();
 		}
 	}
-	
+	@Override
+	public void notificarObservadores() {
+		for (ObservadorTerminoJuego observador: observadores){
+			observador.actualizarCombinado();
+		}
+	}
 }	
 	
