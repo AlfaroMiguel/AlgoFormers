@@ -16,10 +16,6 @@ public class SuperficieEspinas extends SuperficieTierra {
 		this.afectador = new AfectadorPorPosicion(new EfectoEspinas());
 	}
 
-	@Override
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	@Override
 	public Image ponerSuperficieTierra() {

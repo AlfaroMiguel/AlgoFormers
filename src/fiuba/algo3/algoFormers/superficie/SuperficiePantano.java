@@ -17,9 +17,6 @@ public class SuperficiePantano extends SuperficieTierra {
 		this.afectador = new AfectadorPorPosicion(new EfectoPantano());
 	}
 
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
 
 	@Override
 	public Image ponerSuperficieTierra() {
@@ -28,7 +25,8 @@ public class SuperficiePantano extends SuperficieTierra {
 	}
 
 	public void afectar(Algoformer algoformer, ModoTerrestreAlterno modo) {
-		//afectador.afectarAlgoformer(algoformer);
+		//No es necesario pasar el efecto de realentizacion ya que se verifica que el paso por un
+		//pantano cueste el doble por otra funcion
 	}
 
 	public void afectar(Algoformer algoformer, ModoHumanoide modo) {

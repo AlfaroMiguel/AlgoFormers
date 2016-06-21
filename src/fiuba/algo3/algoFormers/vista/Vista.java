@@ -14,6 +14,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.text.Text;
 
 public class Vista {
+	//Sirve como intermediador entre el model y la interfaz grafica
 	private HexGrid hexGrid;
 	private Juego juego;
 	private ScrollPane grupo;

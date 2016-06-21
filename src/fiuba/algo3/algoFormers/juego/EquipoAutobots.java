@@ -3,6 +3,7 @@ package fiuba.algo3.algoFormers.juego;
 import java.util.*;
 
 import fiuba.algo3.algoFormers.autobots.*;
+
 import fiuba.algo3.algoFormers.generico.Algoformer;
 import fiuba.algo3.algoFormers.generico.CreadorDeAlgoformersCombinados;
 import fiuba.algo3.algoFormers.generico.ObservableTerminoJuego;
@@ -54,6 +55,8 @@ public class EquipoAutobots extends Equipo {
 
 	@Override
 	public void combinarAlgoformers(Tablero tablero) {
+		if(this.algoformerActual == this.superion)
+			return;
 		Superion superion = CreadorDeAlgoformersCombinados.crearAlgoformerCombinado(this.optimus,this.bumblebee,this.ratchet);
 		this.superion = superion;
 		tablero.combinarAlgoformers(superion, this.optimus, this.ratchet, this.bumblebee, this.distanciaMaximaCombinacion);

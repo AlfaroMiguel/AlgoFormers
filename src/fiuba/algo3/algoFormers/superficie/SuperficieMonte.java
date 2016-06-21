@@ -11,11 +11,8 @@ import javafx.scene.image.Image;
 
 public class SuperficieMonte extends SuperficieTierra {
 
-	@Override
-	public int simularPasoDe(Algoformer algoformer) {
-		return algoformer.simularPasoDe(this);
-	}
-
+	/*Es una superficie a la que nadie puede acceder
+	 * lanza errores en la mayoria de sus metodos debido a esto*/
 	@Override
 	public Image ponerSuperficieTierra() {
 		return ClaseImagenes.getImageSuperficie(this);
