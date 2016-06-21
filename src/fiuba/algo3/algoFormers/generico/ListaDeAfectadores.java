@@ -37,25 +37,28 @@ public class ListaDeAfectadores {
 			afectador.activar();
 		}	
 	}
-	
+	/* Actualiza el turno de los efectos que duran por turno. */
 	public void pasarTurno(){
 		for(Afectador afectador: afectadores){
 			afectador.pasarTurno();
 		}
 	}
-	
+	/* Cada afectador de la lista produce efecto sobre un algoformer.
+	 * Parametros: algoformer: algoformer sobre el que se producen los efectos.*/
 	public void afectarAlgoformer(Algoformer algoformer){
 		for(Afectador afectador: afectadores){
 			afectador.producirEfecto(algoformer);
 		}
 	}
-	
+	/* Cada afectador de la lista revierte el efecto sobre lo algoformers que lo contienen.
+	 * Parametros: algoformer: algoformer sobre el que se revierten los efectos. */
 	public void desafectarAlgoformer(Algoformer algoformer){
 		for(Afectador afectador: afectadores){
 			afectador.desafectarAlgoformer(algoformer);
 		}
 	}
-	
+	/* Se elimina un afectador por posicion de la lista.
+	 * Parametros: afectador: afectador por posicion que se quiere eliminar. */
 	public void sacarAfectador(AfectadorPorPosicion afectador) {
 		this.afectadores.remove(afectador);
 	}

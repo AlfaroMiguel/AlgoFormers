@@ -81,6 +81,6 @@ public interface Accionable extends ObservableTerminoJuego{
 	 * Parametros: superficie: superficie de tierra atravesada.*/
 	public void efectoPorMicroMovimiento(SuperficieTierra superficie);
 	
-	/* Devuelve la imagen que representa al accionable*/
+	/* Devuelve la imagen que representa al accionable. */
 	public Image getImage();
 }

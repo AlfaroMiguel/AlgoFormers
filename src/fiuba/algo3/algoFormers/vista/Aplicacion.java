@@ -253,7 +253,7 @@ public class Aplicacion extends Application {
         popUp.initModality(Modality.WINDOW_MODAL);
         //Botones y texto
         Label label = new Label();
-        label.setText(ganador + " GANASTE!");
+        label.setText("El ganador es " + ganador);
         Button botonCerrar = new Button();
         botonCerrar.setText("Cerrar");
         botonCerrar.setOnAction(e -> cerrarPrograma());

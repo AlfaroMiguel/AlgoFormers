@@ -3,31 +3,32 @@ package fiuba.algo3.algoFormers.afectadores;
 import fiuba.algo3.algoFormers.efectos.Efecto;
 import fiuba.algo3.algoFormers.generico.*;
 
-/*Clase que se encarga de manejar los efectos que estan activos en los algoformer
- * durante el tiempo que corresponda*/
+/* Clase que se encarga de manejar los efectos que estan activos en los algoformer
+ * durante el tiempo que corresponda */
 public abstract class Afectador{
 	
-	/*Atributos*/
-	/*Efecto que el afectador va a producir en el algoformer*/
+	/* Atributos */
+	/* Efecto que el afectador va a producir en el algoformer */
 	protected Efecto efecto;
 	
-	/*Metodos abstractos*/
-	/*Agrega el efecto en el algoformer*/
+	/* Metodos abstractos */
+	/* Agrega el efecto en el algoformer */
 	public abstract void afectarAlgoformer(Algoformer algoformer);
-	/*Revierte el efecto en el algoformer*/
+	/* Revierte el efecto en el algoformer */
 	public abstract void desafectarAlgoformer(Algoformer algoformer);
-	/*Reduce el turno en uno para los efectos que duran por turnos*/
+	/* Reduce el turno en uno para los efectos que duran por turnos */
 	public abstract void pasarTurno();
-	/*Afecta solo cuando pasa por un casillero*/
+	/* Afecta solo cuando pasa por un casillero */
 	public abstract void afectarPorPaso(Algoformer algoformer);
 	
-	/*Metodos de la clase*/
-	/*Activa el efecto en el algoformer*/
+	/* Metodos de la clase */
+	/* Activa el efecto del afectador sobre un algoformer.
+	 * Parametros: algoformer: algoformer sobre el que se quiere producir el efecto. */
 	public void producirEfecto(Algoformer algoformer){
 		this.efecto.afectarAlgoformer(algoformer);
 	}
 	
-	/*Metodos abstractos redefinidos*/
+	/* Metodos abstractos redefinidos */
 	@Override
 	public int hashCode(){
 		final int prime = 31;

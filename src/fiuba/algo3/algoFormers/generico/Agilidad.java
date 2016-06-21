@@ -13,8 +13,9 @@ public class Agilidad {
 	public void inmovilizar(){
 		this.agilidad = 0;
 	}
-	/* Multiplica la agilidad por el factor recibido para multiplicar 
-	 * la velocidad por el mismo. */
+	/* Multiplica la agilidad por un factor para multiplicar 
+	 * la velocidad por el mismo. 
+	 * Parametros: factor: factor por el que se quiere multiplicar. */
 	public void multiplicarVelocidad(double factor){
 		this.agilidad *= factor; 
 	}
