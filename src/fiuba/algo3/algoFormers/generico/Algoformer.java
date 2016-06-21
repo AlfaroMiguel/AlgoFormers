@@ -213,7 +213,7 @@ public abstract class Algoformer implements Accionable{
 	/* Permite a una vista observar al algoformer.
 	 * Parametros: vista: vista que va a observar al algoformer. */
 	public void agregarVista(Vista vista){
-		this.vistas.add(vista);
+		vistas.add(vista);
 	}
 	/* Actualiza a las vistas que observan al algoformer por su posicion */
 	public void actualizarVista(){
@@ -240,8 +240,8 @@ public abstract class Algoformer implements Accionable{
 	}
 	/* Informa a las vistas que se ataco al algoformer. */
 	protected void ataqueEfectuado(){
-		for(Vista vistas: this.vistas)
-			vistas.reproducirAtaque();
+		for(Vista vista: vistas)
+			vista.reproducirAtaque();
 	}
 	/* Devuelve el nombre */
 	public String getNombre() {
@@ -310,8 +310,8 @@ public abstract class Algoformer implements Accionable{
 
 	}
 	@Override
-	public Image getImage() {
-		return this.modo.getImage();
+	public Image verImagen() {
+		return this.modo.verImagen();
 	}
 
 }

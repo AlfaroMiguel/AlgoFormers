@@ -30,7 +30,7 @@ public class BonecrusherHumanoide extends ModoHumanoide {
 	}
 	
 	
-	public Image getImage() {
+	public Image verImagen() {
 		return ClaseImagenes.getImageModo(this);
 	}
 }
